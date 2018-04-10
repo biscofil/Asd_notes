@@ -1,0 +1,10 @@
+Dijkstra(G,w,s)
+	InitSingleSource(G,s)
+	Q <- V[G]
+	S <- []
+	while Q != [] do
+		u <- extractMin(Q)
+		S <- S U {u}
+		foreach v in Adj[u] do
+			relax(u,v,w)
+	return d,$\pi$

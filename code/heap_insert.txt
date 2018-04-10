@@ -1,0 +1,4 @@
+Heap_Insert(Heap A, Element K)
+	A.heapSize += 1
+	A[A.heapSize] = -inf
+	Heap_increase_key( A, A.heapSize, K)

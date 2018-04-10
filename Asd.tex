@@ -1,8 +1,59 @@
 \documentclass{article}
+
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+
+% Abs
+\usepackage{mathtools,etoolbox}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{\ifblank{#1}{{}\cdot{}}{#1}}
+
+% Trees
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzset{
+  treenode/.style = {align=center, inner sep=0pt, text centered,font=\sffamily},
+  arn_n/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
+    fill=black, text width=1.5em},% arbre rouge noir, noeud noir
+  arn_r/.style = {treenode, circle, red, draw=red, 
+    text width=1.5em, very thick},% arbre rouge noir, noeud rouge
+  arn_x/.style = {treenode, rectangle, draw=black,
+    minimum width=0.5em, minimum height=0.5em}% arbre rouge noir, nil
+}
+
+%
+\usepackage{amssymb}
+
+% Code blocks
+\usepackage{listings}
+\usepackage{color} 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{pseudocode}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    mathescape=true
+}
+\lstset{style=pseudocode}
+
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -65,289 +116,209 @@
 \makeatother
 
 
-\date{}
+\title{Appunti di Algoritmi e strutture dati}
+\author{Filippo Bisconcin}
+\date{2018}
 
 \begin{document}
 
-{}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
 
-{Algoritmi e strutture dati}
+{\protect\hyperlink{h.h3wcjgbw0vzs}{Corso}}{\protect\hyperlink{h.h3wcjgbw0vzs}{4}}
 
-{\protect\hyperlink{h.h3wcjgbw0vzs}{Corso}}{~~~~~~~~}{\protect\hyperlink{h.h3wcjgbw0vzs}{4}}
+{\protect\hyperlink{h.h56evxq8lcvu}{Libri:}}{\protect\hyperlink{h.h56evxq8lcvu}{4}}
 
-{\protect\hyperlink{h.h56evxq8lcvu}{Libri:}}{~~~~~~~~}{\protect\hyperlink{h.h56evxq8lcvu}{4}}
+{\protect\hyperlink{h.56skrlxpqr7c}{Lezioni:}}{\protect\hyperlink{h.56skrlxpqr7c}{4}}
 
-{\protect\hyperlink{h.56skrlxpqr7c}{Lezioni:}}{~~~~~~~~}{\protect\hyperlink{h.56skrlxpqr7c}{4}}
+{\protect\hyperlink{h.erye91slvrba}{Algoritmi e loro complessità: i numeri di Fibonacci}}{\protect\hyperlink{h.erye91slvrba}{7}}
 
-{\protect\hyperlink{h.erye91slvrba}{Algoritmi e loro complessità: i
-numeri di Fibonacci}}{~~~~~~~~}{\protect\hyperlink{h.erye91slvrba}{7}}
+{\protect\hyperlink{h.uo8t8gg7vdaw}{Formula di Binet}}{\protect\hyperlink{h.uo8t8gg7vdaw}{7}}
 
-{\protect\hyperlink{h.uo8t8gg7vdaw}{Formula di
-Binet}}{~~~~~~~~}{\protect\hyperlink{h.uo8t8gg7vdaw}{7}}
+{\protect\hyperlink{h.x4ciu865ga1f}{Strumento \#1 - albero di ricorsione}}{\protect\hyperlink{h.x4ciu865ga1f}{9}}
 
-{\protect\hyperlink{h.x4ciu865ga1f}{Strumento \#1 - albero di
-ricorsione}}{~~~~~~~~}{\protect\hyperlink{h.x4ciu865ga1f}{9}}
+{\protect\hyperlink{h.jkxlloc1lefg}{Notazione asintotica: le classi O, Omega, Theta}}{\protect\hyperlink{h.jkxlloc1lefg}{12}}
 
-{\protect\hyperlink{h.jkxlloc1lefg}{Notazione asintotica: le classi O,
-Omega, Theta}}{~~~~~~~~}{\protect\hyperlink{h.jkxlloc1lefg}{12}}
+{\protect\hyperlink{h.tn5j57miv2l8}{Esercizi sulla notazione asintotica. Le classi o, omega}}{\protect\hyperlink{h.tn5j57miv2l8}{12}}
 
-{\protect\hyperlink{h.tn5j57miv2l8}{Esercizi sulla notazione asintotica.
-Le classi o, omega}}{~~~~~~~~}{\protect\hyperlink{h.tn5j57miv2l8}{12}}
+{\protect\hyperlink{h.qp9ilz1tito1}{Divide et impera. Il teorema fondamentale delle ricorrenze (o ``Teorema master''). Esercizi.}}{\protect\hyperlink{h.qp9ilz1tito1}{12}}
 
-{\protect\hyperlink{h.qp9ilz1tito1}{Divide et impera. Il teorema
-fondamentale delle ricorrenze (o ``Teorema master'').
-Esercizi.}}{~~~~~~~~}{\protect\hyperlink{h.qp9ilz1tito1}{12}}
+{\protect\hyperlink{h.a5tr7osf4zwh}{Rappresentazione di una lista attraverso un vettore (matrice)}}{\protect\hyperlink{h.a5tr7osf4zwh}{12}}
 
-{\protect\hyperlink{h.a5tr7osf4zwh}{Rappresentazione di una lista
-attraverso un vettore
-(matrice)}}{~~~~~~~~}{\protect\hyperlink{h.a5tr7osf4zwh}{12}}
+{\protect\hyperlink{h.rgokfftftjlb}{Alberi}}{\protect\hyperlink{h.rgokfftftjlb}{14}}
 
-{\protect\hyperlink{h.rgokfftftjlb}{Alberi}}{~~~~~~~~}{\protect\hyperlink{h.rgokfftftjlb}{14}}
+{\protect\hyperlink{h.rmzlh8kpnju}{Alberi binari (Albero k-ario con K = 2)}}{\protect\hyperlink{h.rmzlh8kpnju}{15}}
 
-{\protect\hyperlink{h.rmzlh8kpnju}{Alberi binari (Albero k-ario con K =
-2)}}{~~~~~~~~}{\protect\hyperlink{h.rmzlh8kpnju}{15}}
+{\protect\hyperlink{h.chua2o837in5}{Albero k-ario}}{\protect\hyperlink{h.chua2o837in5}{15}}
 
-{\protect\hyperlink{h.chua2o837in5}{Albero
-k-ario}}{~~~~~~~~}{\protect\hyperlink{h.chua2o837in5}{15}}
+{\protect\hyperlink{h.8kg49eb4dpz1}{Tipo di dato ALBERO}}{\protect\hyperlink{h.8kg49eb4dpz1}{16}}
 
-{\protect\hyperlink{h.8kg49eb4dpz1}{Tipo di dato
-ALBERO}}{~~~~~~~~}{\protect\hyperlink{h.8kg49eb4dpz1}{16}}
+{\protect\hyperlink{h.ueuovjwdu9zj}{Rappresentazione di alberi tramite array}}{\protect\hyperlink{h.ueuovjwdu9zj}{16}}
 
-{\protect\hyperlink{h.ueuovjwdu9zj}{Rappresentazione di alberi tramite
-array}}{~~~~~~~~}{\protect\hyperlink{h.ueuovjwdu9zj}{16}}
+{\protect\hyperlink{h.nrzs3ooed9o}{Utilizzo del vettore padri}}{\protect\hyperlink{h.nrzs3ooed9o}{16}}
 
-{\protect\hyperlink{h.nrzs3ooed9o}{Utilizzo del vettore
-padri}}{~~~~~~~~}{\protect\hyperlink{h.nrzs3ooed9o}{16}}
+{\protect\hyperlink{h.ncrwkhkrovb2}{Implementazioni:}}{\protect\hyperlink{h.ncrwkhkrovb2}{17}}
 
-{\protect\hyperlink{h.ncrwkhkrovb2}{Implementazioni:}}{~~~~~~~~}{\protect\hyperlink{h.ncrwkhkrovb2}{17}}
+{\protect\hyperlink{h.5u7fhayyby4r}{2) Utilizzo del vettore posizionale}}{\protect\hyperlink{h.5u7fhayyby4r}{17}}
 
-{\protect\hyperlink{h.5u7fhayyby4r}{2) Utilizzo del vettore
-posizionale}}{~~~~~~~~}{\protect\hyperlink{h.5u7fhayyby4r}{17}}
+{\protect\hyperlink{h.6c4aui6rl05k}{Implementazioni:}}{\protect\hyperlink{h.6c4aui6rl05k}{17}}
 
-{\protect\hyperlink{h.6c4aui6rl05k}{Implementazioni:}}{~~~~~~~~}{\protect\hyperlink{h.6c4aui6rl05k}{17}}
+{\protect\hyperlink{h.bhzctdrna7ur}{3) Utilizzo di strutture collegate}}{\protect\hyperlink{h.bhzctdrna7ur}{18}}
 
-{\protect\hyperlink{h.bhzctdrna7ur}{3) Utilizzo di strutture
-collegate}}{~~~~~~~~}{\protect\hyperlink{h.bhzctdrna7ur}{18}}
+{\protect\hyperlink{h.qoohix7mgjib}{3.a) Parent + Childs}}{\protect\hyperlink{h.qoohix7mgjib}{18}}
 
-{\protect\hyperlink{h.qoohix7mgjib}{3.a) Parent +
-Childs}}{~~~~~~~~}{\protect\hyperlink{h.qoohix7mgjib}{18}}
+{\protect\hyperlink{h.7iunf1nu58vy}{Implementazioni:}}{\protect\hyperlink{h.7iunf1nu58vy}{18}}
 
-{\protect\hyperlink{h.7iunf1nu58vy}{Implementazioni:}}{~~~~~~~~}{\protect\hyperlink{h.7iunf1nu58vy}{18}}
+{\protect\hyperlink{h.jlqu76iomg9e}{3.b) Parent + Left child + Right sibling}}{\protect\hyperlink{h.jlqu76iomg9e}{19}}
 
-{\protect\hyperlink{h.jlqu76iomg9e}{3.b) Parent + Left child + Right
-sibling}}{~~~~~~~~}{\protect\hyperlink{h.jlqu76iomg9e}{19}}
+{\protect\hyperlink{h.ekfyi4oujqjt}{Implementazioni:}}{\protect\hyperlink{h.ekfyi4oujqjt}{19}}
 
-{\protect\hyperlink{h.ekfyi4oujqjt}{Implementazioni:}}{~~~~~~~~}{\protect\hyperlink{h.ekfyi4oujqjt}{19}}
+{\protect\hyperlink{h.ike679k4smgg}{Algoritmi Di Visita Degli Alberi}}{\protect\hyperlink{h.ike679k4smgg}{20}}
 
-{\protect\hyperlink{h.ike679k4smgg}{Algoritmi Di Visita Degli
-Alberi}}{~~~~~~~~}{\protect\hyperlink{h.ike679k4smgg}{20}}
+{\protect\hyperlink{h.dvc71mavuqx7}{Visita generica}}{\protect\hyperlink{h.dvc71mavuqx7}{20}}
 
-{\protect\hyperlink{h.dvc71mavuqx7}{Visita
-generica}}{~~~~~~~~}{\protect\hyperlink{h.dvc71mavuqx7}{20}}
+{\protect\hyperlink{h.6xasx7f8zgn1}{Teorema}}{\protect\hyperlink{h.6xasx7f8zgn1}{20}}
 
-{\protect\hyperlink{h.6xasx7f8zgn1}{Teorema}}{~~~~~~~~}{\protect\hyperlink{h.6xasx7f8zgn1}{20}}
+{\protect\hyperlink{h.zdc8liauzt1c}{Dimostrazione}}{\protect\hyperlink{h.zdc8liauzt1c}{20}}
 
-{\protect\hyperlink{h.zdc8liauzt1c}{Dimostrazione}}{~~~~~~~~}{\protect\hyperlink{h.zdc8liauzt1c}{20}}
+{\protect\hyperlink{h.5u7m241wpdag}{Visita DFS - Depth first search - Ricerca in profondità}}{\protect\hyperlink{h.5u7m241wpdag}{20}}
 
-{\protect\hyperlink{h.5u7m241wpdag}{Visita DFS - Depth first search -
-Ricerca in
-profondità}}{~~~~~~~~}{\protect\hyperlink{h.5u7m241wpdag}{20}}
+{\protect\hyperlink{h.j29c1mxwyzyn}{Visita BFS - Breadth first search - Ricerca in ampiezza}}{\protect\hyperlink{h.j29c1mxwyzyn}{21}}
 
-{\protect\hyperlink{h.j29c1mxwyzyn}{Visita BFS - Breadth first search -
-Ricerca in ampiezza}}{~~~~~~~~}{\protect\hyperlink{h.j29c1mxwyzyn}{21}}
+{\protect\hyperlink{h.8cvon0yw5yug}{Heap}}{\protect\hyperlink{h.8cvon0yw5yug}{22}}
 
-{\protect\hyperlink{h.8cvon0yw5yug}{Heap}}{~~~~~~~~}{\protect\hyperlink{h.8cvon0yw5yug}{22}}
+{\protect\hyperlink{h.twk46x6owxrr}{Lemma 2:}}{\protect\hyperlink{h.twk46x6owxrr}{22}}
 
-{\protect\hyperlink{h.twk46x6owxrr}{Lemma
-2:}}{~~~~~~~~}{\protect\hyperlink{h.twk46x6owxrr}{22}}
+{\protect\hyperlink{h.wlc8yrs7inpk}{Lemma 3:}}{\protect\hyperlink{h.wlc8yrs7inpk}{22}}
 
-{\protect\hyperlink{h.wlc8yrs7inpk}{Lemma
-3:}}{~~~~~~~~}{\protect\hyperlink{h.wlc8yrs7inpk}{22}}
+{\protect\hyperlink{h.t1rcecigqmbx}{Max\_heapify}}{\protect\hyperlink{h.t1rcecigqmbx}{22}}
 
-{\protect\hyperlink{h.t1rcecigqmbx}{Max\_heapify}}{~~~~~~~~}{\protect\hyperlink{h.t1rcecigqmbx}{22}}
+{\protect\hyperlink{h.symae1e4ut5b}{Dato un vettore disordinato, costruire un heap}}{\protect\hyperlink{h.symae1e4ut5b}{23}}
 
-{\protect\hyperlink{h.symae1e4ut5b}{Dato un vettore disordinato,
-costruire un heap}}{~~~~~~~~}{\protect\hyperlink{h.symae1e4ut5b}{23}}
+{\protect\hyperlink{h.vi4eu8p6i55e}{Heapsort}}{\protect\hyperlink{h.vi4eu8p6i55e}{23}}
 
-{\protect\hyperlink{h.vi4eu8p6i55e}{Heapsort}}{~~~~~~~~}{\protect\hyperlink{h.vi4eu8p6i55e}{23}}
+{\protect\hyperlink{h.rdu8s741ww8w}{Teorema}}{\protect\hyperlink{h.rdu8s741ww8w}{24}}
 
-{\protect\hyperlink{h.rdu8s741ww8w}{Teorema}}{~~~~~~~~}{\protect\hyperlink{h.rdu8s741ww8w}{24}}
+{\protect\hyperlink{h.jih9riph7gns}{Code di priorità}}{\protect\hyperlink{h.jih9riph7gns}{24}}
 
-{\protect\hyperlink{h.jih9riph7gns}{Code di
-priorità}}{~~~~~~~~}{\protect\hyperlink{h.jih9riph7gns}{24}}
+{\protect\hyperlink{h.aocay3iqens1}{Implementazione di code di massima priorità con le strutture Heap}}{\protect\hyperlink{h.aocay3iqens1}{25}}
 
-{\protect\hyperlink{h.aocay3iqens1}{Implementazione di code di massima
-priorità con le strutture
-Heap}}{~~~~~~~~}{\protect\hyperlink{h.aocay3iqens1}{25}}
+{\protect\hyperlink{h.r8bopy9q4g8f}{Esercizi}}{\protect\hyperlink{h.r8bopy9q4g8f}{26}}
 
-{\protect\hyperlink{h.r8bopy9q4g8f}{Esercizi}}{~~~~~~~~}{\protect\hyperlink{h.r8bopy9q4g8f}{26}}
+{\protect\hyperlink{h.7gslm72cwwxs}{Limite inferiore per l'ordinamento per confronti}}{\protect\hyperlink{h.7gslm72cwwxs}{28}}
 
-{\protect\hyperlink{h.7gslm72cwwxs}{Limite inferiore per l'ordinamento
-per confronti}}{~~~~~~~~}{\protect\hyperlink{h.7gslm72cwwxs}{28}}
+{\protect\hyperlink{h.oynrnvh2y1cp}{Esempio: Ordina 3 elementi}}{\protect\hyperlink{h.oynrnvh2y1cp}{28}}
 
-{\protect\hyperlink{h.oynrnvh2y1cp}{Esempio: Ordina 3
-elementi}}{~~~~~~~~}{\protect\hyperlink{h.oynrnvh2y1cp}{28}}
+{\protect\hyperlink{h.prflgx3s7s1g}{Quanto è grande un albero di decisione?}}{\protect\hyperlink{h.prflgx3s7s1g}{29}}
 
-{\protect\hyperlink{h.prflgx3s7s1g}{Quanto è grande un albero di
-decisione?}}{~~~~~~~~}{\protect\hyperlink{h.prflgx3s7s1g}{29}}
+{\protect\hyperlink{h.cphw2k3mqktf}{Quante foglie contiene?}}{\protect\hyperlink{h.cphw2k3mqktf}{29}}
 
-{\protect\hyperlink{h.cphw2k3mqktf}{Quante foglie
-contiene?}}{~~~~~~~~}{\protect\hyperlink{h.cphw2k3mqktf}{29}}
+{\protect\hyperlink{h.yiy1tipj4aof}{Lemma 2:}}{\protect\hyperlink{h.yiy1tipj4aof}{29}}
 
-{\protect\hyperlink{h.yiy1tipj4aof}{Lemma
-2:}}{~~~~~~~~}{\protect\hyperlink{h.yiy1tipj4aof}{29}}
+{\protect\hyperlink{h.hr66c3ikhdcj}{Teorema:}}{\protect\hyperlink{h.hr66c3ikhdcj}{30}}
 
-{\protect\hyperlink{h.hr66c3ikhdcj}{Teorema:}}{~~~~~~~~}{\protect\hyperlink{h.hr66c3ikhdcj}{30}}
+{\protect\hyperlink{h.emyylm3q4aq8}{Corollario:}}{\protect\hyperlink{h.emyylm3q4aq8}{30}}
 
-{\protect\hyperlink{h.emyylm3q4aq8}{Corollario:}}{~~~~~~~~}{\protect\hyperlink{h.emyylm3q4aq8}{30}}
+{\protect\hyperlink{h.p17586cst16}{Algoritmi di ordinamento privi di confronti}}{\protect\hyperlink{h.p17586cst16}{31}}
 
-{\protect\hyperlink{h.p17586cst16}{Algoritmi di ordinamento privi di
-confronti}}{~~~~~~~~}{\protect\hyperlink{h.p17586cst16}{31}}
+{\protect\hyperlink{h.bfk18jaq5ar4}{CountingSort}}{\protect\hyperlink{h.bfk18jaq5ar4}{31}}
 
-{\protect\hyperlink{h.bfk18jaq5ar4}{CountingSort}}{~~~~~~~~}{\protect\hyperlink{h.bfk18jaq5ar4}{31}}
+{\protect\hyperlink{h.ixohzh3ypk6v}{RadixSort}}{\protect\hyperlink{h.ixohzh3ypk6v}{32}}
 
-{\protect\hyperlink{h.ixohzh3ypk6v}{RadixSort}}{~~~~~~~~}{\protect\hyperlink{h.ixohzh3ypk6v}{32}}
+{\protect\hyperlink{h.u6e4yemegdiq}{Come ripartire le chiavi in cifre?}}{\protect\hyperlink{h.u6e4yemegdiq}{33}}
 
-{\protect\hyperlink{h.u6e4yemegdiq}{Come ripartire le chiavi in
-cifre?}}{~~~~~~~~}{\protect\hyperlink{h.u6e4yemegdiq}{33}}
+{\protect\hyperlink{h.1gvh3qlqsocy}{Tabelle hash}}{\protect\hyperlink{h.1gvh3qlqsocy}{34}}
 
-{\protect\hyperlink{h.1gvh3qlqsocy}{Tabelle
-hash}}{~~~~~~~~}{\protect\hyperlink{h.1gvh3qlqsocy}{34}}
+{\protect\hyperlink{h.ocrobrrshwsz}{Risoluzione delle collisioni tramite metodo di concatenamento}}{\protect\hyperlink{h.ocrobrrshwsz}{35}}
 
-{\protect\hyperlink{h.ocrobrrshwsz}{Risoluzione delle collisioni tramite
-metodo di
-concatenamento}}{~~~~~~~~}{\protect\hyperlink{h.ocrobrrshwsz}{35}}
+{\protect\hyperlink{h.lhp1y3nzdu6x}{Implementazioni}}{\protect\hyperlink{h.lhp1y3nzdu6x}{36}}
 
-{\protect\hyperlink{h.lhp1y3nzdu6x}{Implementazioni}}{~~~~~~~~}{\protect\hyperlink{h.lhp1y3nzdu6x}{36}}
+{\protect\hyperlink{h.coagge9vpuqt}{Teorema 1}}{\protect\hyperlink{h.coagge9vpuqt}{36}}
 
-{\protect\hyperlink{h.coagge9vpuqt}{Teorema
-1}}{~~~~~~~~}{\protect\hyperlink{h.coagge9vpuqt}{36}}
+{\protect\hyperlink{h.u0cyuvvucft2}{Teorema 2}}{\protect\hyperlink{h.u0cyuvvucft2}{37}}
 
-{\protect\hyperlink{h.u0cyuvvucft2}{Teorema
-2}}{~~~~~~~~}{\protect\hyperlink{h.u0cyuvvucft2}{37}}
+{\protect\hyperlink{h.9kljpwmnt7yd}{Come si costruiscono le funzioni hash?}}{\protect\hyperlink{h.9kljpwmnt7yd}{37}}
 
-{\protect\hyperlink{h.9kljpwmnt7yd}{Come si costruiscono le funzioni
-hash?}}{~~~~~~~~}{\protect\hyperlink{h.9kljpwmnt7yd}{37}}
+{\protect\hyperlink{h.3fhh68cy94hw}{Risoluzione delle collisioni tramite indirizzamento aperto}}{\protect\hyperlink{h.3fhh68cy94hw}{38}}
 
-{\protect\hyperlink{h.3fhh68cy94hw}{Risoluzione delle collisioni tramite
-indirizzamento
-aperto}}{~~~~~~~~}{\protect\hyperlink{h.3fhh68cy94hw}{38}}
+{\protect\hyperlink{h.i6sv1bn6gjla}{1. Ispezione (o ``scansione'') lineare}}{\protect\hyperlink{h.i6sv1bn6gjla}{40}}
 
-{\protect\hyperlink{h.i6sv1bn6gjla}{1. Ispezione (o ``scansione'')
-lineare}}{~~~~~~~~}{\protect\hyperlink{h.i6sv1bn6gjla}{40}}
+{\protect\hyperlink{h.83xwipol2nwy}{2. Ispezione (o ``scansione'') quadratica}}{\protect\hyperlink{h.83xwipol2nwy}{41}}
 
-{\protect\hyperlink{h.83xwipol2nwy}{2. Ispezione (o ``scansione'')
-quadratica}}{~~~~~~~~}{\protect\hyperlink{h.83xwipol2nwy}{41}}
+{\protect\hyperlink{h.8kg9yyirra9i}{3. Hashing doppio}}{\protect\hyperlink{h.8kg9yyirra9i}{41}}
 
-{\protect\hyperlink{h.8kg9yyirra9i}{3. Hashing
-doppio}}{~~~~~~~~}{\protect\hyperlink{h.8kg9yyirra9i}{41}}
+{\protect\hyperlink{h.wkyvylqq2lrt}{Analisi dell'hashing a indirizzamento aperto}}{\protect\hyperlink{h.wkyvylqq2lrt}{42}}
 
-{\protect\hyperlink{h.wkyvylqq2lrt}{Analisi dell'hashing a
-indirizzamento
-aperto}}{~~~~~~~~}{\protect\hyperlink{h.wkyvylqq2lrt}{42}}
+{\protect\hyperlink{h.sg1b57l388xe}{Confrontro tra metodi di risoluzione delle collisioni}}{\protect\hyperlink{h.sg1b57l388xe}{43}}
 
-{\protect\hyperlink{h.sg1b57l388xe}{Confrontro tra metodi di risoluzione
-delle collisioni}}{~~~~~~~~}{\protect\hyperlink{h.sg1b57l388xe}{43}}
+{\protect\hyperlink{h.fi9e3nt34nfb}{Mod 2 - Grafi}}{\protect\hyperlink{h.fi9e3nt34nfb}{43}}
 
-{\protect\hyperlink{h.fi9e3nt34nfb}{Mod 2 -
-Grafi}}{~~~~~~~~}{\protect\hyperlink{h.fi9e3nt34nfb}{43}}
+{\protect\hyperlink{h.5gj1hs8i1ooy}{Sottografi}}{\protect\hyperlink{h.5gj1hs8i1ooy}{44}}
 
-{\protect\hyperlink{h.5gj1hs8i1ooy}{Sottografi}}{~~~~~~~~}{\protect\hyperlink{h.5gj1hs8i1ooy}{44}}
+{\protect\hyperlink{h.lxvflhr4q9d8}{Cammini}}{\protect\hyperlink{h.lxvflhr4q9d8}{44}}
 
-{\protect\hyperlink{h.lxvflhr4q9d8}{Cammini}}{~~~~~~~~}{\protect\hyperlink{h.lxvflhr4q9d8}{44}}
+{\protect\hyperlink{h.sjz08mn040is}{Cammini semplici e cammini non semplici}}{\protect\hyperlink{h.sjz08mn040is}{44}}
 
-{\protect\hyperlink{h.sjz08mn040is}{Cammini semplici e cammini non
-semplici}}{~~~~~~~~}{\protect\hyperlink{h.sjz08mn040is}{44}}
+{\protect\hyperlink{h.e18ltelmo48z}{Lunghezza di un cammino}}{\protect\hyperlink{h.e18ltelmo48z}{44}}
 
-{\protect\hyperlink{h.e18ltelmo48z}{Lunghezza di un
-cammino}}{~~~~~~~~}{\protect\hyperlink{h.e18ltelmo48z}{44}}
+{\protect\hyperlink{h.4bm9pdnjdb2q}{Raggiungibilità dei vertici}}{\protect\hyperlink{h.4bm9pdnjdb2q}{44}}
 
-{\protect\hyperlink{h.4bm9pdnjdb2q}{Raggiungibilità dei
-vertici}}{~~~~~~~~}{\protect\hyperlink{h.4bm9pdnjdb2q}{44}}
+{\protect\hyperlink{h.4fm287mz4am5}{Ciclo}}{\protect\hyperlink{h.4fm287mz4am5}{44}}
 
-{\protect\hyperlink{h.4fm287mz4am5}{Ciclo}}{~~~~~~~~}{\protect\hyperlink{h.4fm287mz4am5}{44}}
+{\protect\hyperlink{h.rpdf8j1vq7g0}{{[}NO{]} Grafo connesso}}{\protect\hyperlink{h.rpdf8j1vq7g0}{44}}
 
-{\protect\hyperlink{h.rpdf8j1vq7g0}{{[}NO{]} Grafo
-connesso}}{~~~~~~~~}{\protect\hyperlink{h.rpdf8j1vq7g0}{44}}
+{\protect\hyperlink{h.iejp6ankfctp}{{[}NO{]} Componente connessa}}{\protect\hyperlink{h.iejp6ankfctp}{45}}
 
-{\protect\hyperlink{h.iejp6ankfctp}{{[}NO{]} Componente
-connessa}}{~~~~~~~~}{\protect\hyperlink{h.iejp6ankfctp}{45}}
+{\protect\hyperlink{h.5nknzat57p06}{{[}NO{]} Vertici adiacenti}}{\protect\hyperlink{h.5nknzat57p06}{45}}
 
-{\protect\hyperlink{h.5nknzat57p06}{{[}NO{]} Vertici
-adiacenti}}{~~~~~~~~}{\protect\hyperlink{h.5nknzat57p06}{45}}
+{\protect\hyperlink{h.52hqmabofvh0}{Arco incidente}}{\protect\hyperlink{h.52hqmabofvh0}{45}}
 
-{\protect\hyperlink{h.52hqmabofvh0}{Arco
-incidente}}{~~~~~~~~}{\protect\hyperlink{h.52hqmabofvh0}{45}}
+{\protect\hyperlink{h.vm6z084zc6rf}{Vertici isolati e terminali}}{\protect\hyperlink{h.vm6z084zc6rf}{45}}
 
-{\protect\hyperlink{h.vm6z084zc6rf}{Vertici isolati e
-terminali}}{~~~~~~~~}{\protect\hyperlink{h.vm6z084zc6rf}{45}}
+{\protect\hyperlink{h.d1yeo9bkhutt}{Teorema della stretta di mano (HandShaking Lemma)}}{\protect\hyperlink{h.d1yeo9bkhutt}{45}}
 
-{\protect\hyperlink{h.d1yeo9bkhutt}{Teorema della stretta di mano
-(HandShaking Lemma)}}{~~~~~~~~}{\protect\hyperlink{h.d1yeo9bkhutt}{45}}
+{\protect\hyperlink{h.viqjw1dxzez8}{Matrice di adiacenza}}{\protect\hyperlink{h.viqjw1dxzez8}{46}}
 
-{\protect\hyperlink{h.viqjw1dxzez8}{Matrice di
-adiacenza}}{~~~~~~~~}{\protect\hyperlink{h.viqjw1dxzez8}{46}}
+{\protect\hyperlink{h.30h8k4akc7l}{Matrice di adiacenza per grafi orientati}}{\protect\hyperlink{h.30h8k4akc7l}{46}}
 
-{\protect\hyperlink{h.30h8k4akc7l}{Matrice di adiacenza per grafi
-orientati}}{~~~~~~~~}{\protect\hyperlink{h.30h8k4akc7l}{46}}
+{\protect\hyperlink{h.iuwxcos21awu}{Matrice di adiacenza per grafi non orientati}}{\protect\hyperlink{h.iuwxcos21awu}{47}}
 
-{\protect\hyperlink{h.iuwxcos21awu}{Matrice di adiacenza per grafi non
-orientati}}{~~~~~~~~}{\protect\hyperlink{h.iuwxcos21awu}{47}}
+{\protect\hyperlink{h.qwq1tiruc9xg}{Liste concatenate}}{\protect\hyperlink{h.qwq1tiruc9xg}{48}}
 
-{\protect\hyperlink{h.qwq1tiruc9xg}{Liste
-concatenate}}{~~~~~~~~}{\protect\hyperlink{h.qwq1tiruc9xg}{48}}
+{\protect\hyperlink{h.tsrwv4qy0dku}{Grafo autocomplementare}}{\protect\hyperlink{h.tsrwv4qy0dku}{48}}
 
-{\protect\hyperlink{h.tsrwv4qy0dku}{Grafo
-autocomplementare}}{~~~~~~~~}{\protect\hyperlink{h.tsrwv4qy0dku}{48}}
+{\protect\hyperlink{h.akx1r9fzvwzo}{Prodotto tra matrici di adiacenza}}{\protect\hyperlink{h.akx1r9fzvwzo}{49}}
 
-{\protect\hyperlink{h.akx1r9fzvwzo}{Prodotto tra matrici di
-adiacenza}}{~~~~~~~~}{\protect\hyperlink{h.akx1r9fzvwzo}{49}}
+{\protect\hyperlink{h.c39ti8il3qtf}{Prodotto di matrici}}{\protect\hyperlink{h.c39ti8il3qtf}{49}}
 
-{\protect\hyperlink{h.c39ti8il3qtf}{Prodotto di
-matrici}}{~~~~~~~~}{\protect\hyperlink{h.c39ti8il3qtf}{49}}
+{\protect\hyperlink{h.md5vuljp7xm}{Matrice al quadrato}}{\protect\hyperlink{h.md5vuljp7xm}{49}}
 
-{\protect\hyperlink{h.md5vuljp7xm}{Matrice al
-quadrato}}{~~~~~~~~}{\protect\hyperlink{h.md5vuljp7xm}{49}}
+{\protect\hyperlink{h.yvqsj238z2mk}{Matrice con esponente maggiore di 2}}{\protect\hyperlink{h.yvqsj238z2mk}{50}}
 
-{\protect\hyperlink{h.yvqsj238z2mk}{Matrice con esponente maggiore di
-2}}{~~~~~~~~}{\protect\hyperlink{h.yvqsj238z2mk}{50}}
+{\protect\hyperlink{h.m8b6lpkoqj6x}{{[}NO{]} Grafi regolari}}{\protect\hyperlink{h.m8b6lpkoqj6x}{50}}
 
-{\protect\hyperlink{h.m8b6lpkoqj6x}{{[}NO{]} Grafi
-regolari}}{~~~~~~~~}{\protect\hyperlink{h.m8b6lpkoqj6x}{50}}
+{\protect\hyperlink{h.d5v408sc7po0}{Isomorfismi di grafi}}{\protect\hyperlink{h.d5v408sc7po0}{51}}
 
-{\protect\hyperlink{h.d5v408sc7po0}{Isomorfismi di
-grafi}}{~~~~~~~~}{\protect\hyperlink{h.d5v408sc7po0}{51}}
+{\protect\hyperlink{h.umjijdswjd6a}{Determinare se due grafi sono isomorfi}}{\protect\hyperlink{h.umjijdswjd6a}{51}}
 
-{\protect\hyperlink{h.umjijdswjd6a}{Determinare se due grafi sono
-isomorfi}}{~~~~~~~~}{\protect\hyperlink{h.umjijdswjd6a}{51}}
+{\protect\hyperlink{h.jnoiha3cadu8}{Alberi}}{\protect\hyperlink{h.jnoiha3cadu8}{52}}
 
-{\protect\hyperlink{h.jnoiha3cadu8}{Alberi}}{~~~~~~~~}{\protect\hyperlink{h.jnoiha3cadu8}{52}}
+{\protect\hyperlink{h.9btor4ygb1hb}{Alberi di copertura}}{\protect\hyperlink{h.9btor4ygb1hb}{52}}
 
-{\protect\hyperlink{h.9btor4ygb1hb}{Alberi di
-copertura}}{~~~~~~~~}{\protect\hyperlink{h.9btor4ygb1hb}{52}}
+{\protect\hyperlink{h.rdrr6bsx8ypo}{Taglio di un albero}}{\protect\hyperlink{h.rdrr6bsx8ypo}{52}}
 
-{\protect\hyperlink{h.rdrr6bsx8ypo}{Taglio di un
-albero}}{~~~~~~~~}{\protect\hyperlink{h.rdrr6bsx8ypo}{52}}
+{\protect\hyperlink{h.gfycwx7ubmbv}{Arco leggero}}{\protect\hyperlink{h.gfycwx7ubmbv}{53}}
 
-{\protect\hyperlink{h.gfycwx7ubmbv}{Arco
-leggero}}{~~~~~~~~}{\protect\hyperlink{h.gfycwx7ubmbv}{53}}
+{\protect\hyperlink{h.1evqcdl7exzv}{Albero di copertura minimo (MST)}}{\protect\hyperlink{h.1evqcdl7exzv}{53}}
 
-{\protect\hyperlink{h.1evqcdl7exzv}{Albero di copertura minimo
-(MST)}}{~~~~~~~~}{\protect\hyperlink{h.1evqcdl7exzv}{53}}
+{\protect\hyperlink{h.42rszsg7qe80}{Generazione degli alberi di copertura minima}}{\protect\hyperlink{h.42rszsg7qe80}{55}}
 
-{\protect\hyperlink{h.42rszsg7qe80}{Generazione degli alberi di
-copertura minima}}{~~~~~~~~}{\protect\hyperlink{h.42rszsg7qe80}{55}}
+{\protect\hyperlink{h.tpoo55sx1m98}{Generazione di MST : Kruskal}}{\protect\hyperlink{h.tpoo55sx1m98}{56}}
 
-{\protect\hyperlink{h.tpoo55sx1m98}{Generazione di MST :
-Kruskal}}{~~~~~~~~}{\protect\hyperlink{h.tpoo55sx1m98}{56}}
+{\protect\hyperlink{h.4n5zx1ni4b2b}{Simulazione di esecuzione}}{\protect\hyperlink{h.4n5zx1ni4b2b}{56}}
 
-{\protect\hyperlink{h.4n5zx1ni4b2b}{Simulazione di
-esecuzione}}{~~~~~~~~}{\protect\hyperlink{h.4n5zx1ni4b2b}{56}}
-
-{\protect\hyperlink{h.l5wypo8krmqc}{Generazione di MST :
-Prim}}{~~~~~~~~}{\protect\hyperlink{h.l5wypo8krmqc}{57}}
-
-{}
+{\protect\hyperlink{h.l5wypo8krmqc}{Generazione di MST : Prim}}{\protect\hyperlink{h.l5wypo8krmqc}{57}}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -368,8 +339,6 @@ Prim}}{~~~~~~~~}{\protect\hyperlink{h.l5wypo8krmqc}{57}}
 \end{itemize}
 
 \hypertarget{h.56skrlxpqr7c}{\subsection{\texorpdfstring{{Lezioni:}}{Lezioni:}}\label{h.56skrlxpqr7c}}
-
-{}
 
 \begin{enumerate}
 \tightlist
@@ -583,10 +552,6 @@ Prim}}{~~~~~~~~}{\protect\hyperlink{h.l5wypo8krmqc}{57}}
 \item
   {Le invarianti di ciclo e la correttezza ({[}CLRS{]} p. 16)}
 \end{itemize}
-
-{}
-
-{}
 
 \begin{enumerate}
 \setcounter{enumi}{15}
@@ -822,7 +787,7 @@ Prim}}{~~~~~~~~}{\protect\hyperlink{h.l5wypo8krmqc}{57}}
   {Radix sort ({[}CLRS{]} pp. 162-164)}
 \item
   {Le tabelle ad indirizzamento diretto. ({[}CLRS{]} pp.
-  209-211)}{~~~~~~~~}
+  209-211)}
 \end{itemize}
 
 \begin{enumerate}
@@ -887,10 +852,6 @@ Prim}}{~~~~~~~~}{\protect\hyperlink{h.l5wypo8krmqc}{57}}
   {Tabelle Hash con indirizzamento aperto. ({[}CLRS{]} pp. 223-225)}
 \end{itemize}
 
-{}
-
-{}
-
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \section{\texorpdfstring{{}}{}}\label{h.yttge93miuso}
@@ -900,9 +861,6 @@ complessità: i numeri di Fibonacci
 }}{Algoritmi e loro complessità: i numeri di Fibonacci }}\label{h.erye91slvrba}}
 
 {~{[}DFI{]} cap. 1}
-
-{}
-
 
 \begin{equation}
 f(n) = 
@@ -930,27 +888,23 @@ Dove con $\Phi$ si indica la sezione aurea $\frac{1+\sqrt{5}}{2} \simeq -0,618$ 
 
 {Base \#1}
 
-{n = 1}
+{$n = 1$}
 
-\includegraphics{images/image9.png}
-
-{}
-
-{}
+$\frac{1}{\sqrt{5}}(\Phi^1-\overline{\Phi}^1)$
 
 {sostistuisco con le definizioni di $\Phi$ e semplifico}
 
-{= 1 = }\includegraphics{images/image10.png}
+{= 1 = $F_1$}
 
 {Base \#2}
 
-{n = 2}
+{$n = 2$}
 
-\includegraphics{images/image11.png}
+$\frac{1}{\sqrt{5}}(\Phi^2-\overline{\Phi}^2)$
 
 {sostistuisco con le definizioni di $\Phi$ e semplifico}
 
-{= 1 = }\includegraphics{images/image12.png}
+{= 1 = $F_2$}
 
 {Passo induttivo}
 
@@ -960,10 +914,6 @@ Dove con $\Phi$ si indica la sezione aurea $\frac{1+\sqrt{5}}{2} \simeq -0,618$ 
 
 \includegraphics{images/image15.png}\includegraphics{images/image16.png}{~e
 }\includegraphics{images/image17.png}\includegraphics{images/image18.png}
-
-{~}
-
-{}
 
 {assomiglia alla forma }\includegraphics{images/image1.png}{~=
 }\includegraphics{images/image4.png}{~}
@@ -975,29 +925,17 @@ Dove con $\Phi$ si indica la sezione aurea $\frac{1+\sqrt{5}}{2} \simeq -0,618$ 
 }\includegraphics{images/image21.png}{~e
 }\includegraphics{images/image22.png}
 
-{}
-
 {Definizione \#1}
-
-{}
 
 {Utilizzeremo la notazione }\includegraphics{images/image23.png}{~per
 indicare la velocità/complessità di una particolare funzione (numero di
 righe di codice eseguite) }
-
-{}
 
 {Fib1 (int n) → int}
 
 {~~~~~~~~return }\includegraphics{images/image4.png}
 
 \includegraphics{images/image24.png}{~}\includegraphics{images/image25.png}
-
-{}
-
-{}
-
-{}
 
 {Problema: con l'aumentare di n, la funzione Fib1(n) diventa sempre più
 imprecisa}
@@ -1007,8 +945,6 @@ imprecisa}
 \includegraphics{images/image27.png}
 
 \includegraphics{images/image28.png}
-
-{}
 
 {Definizione \#2}
 
@@ -1028,7 +964,7 @@ imprecisa}
 
 \includegraphics{images/image29.png}
 
-{~~~~~~~~~~~~~~~~}\includegraphics{images/image30.png}\includegraphics{images/image31.png}
+\includegraphics{images/image30.png}\includegraphics{images/image31.png}
 
 {}
 
@@ -1044,7 +980,7 @@ ricorsiva}{~}{o}{~}{ricorrenza}
 \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
 {n}\strut
 \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-\includegraphics{images/image23.png}{~}\strut
+$T_n$\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
 {1}\strut
@@ -1145,7 +1081,7 @@ successione di Fibonacci)}
 
 {\includegraphics{images/image528.png}}
 
-{~~~~~~~~}
+
 
 {}
 
@@ -1155,16 +1091,16 @@ successione di Fibonacci)}
 
 {}
 
-{Sia}\includegraphics{images/image37.png}{un albero binario in cui ogni
+{Sia}$T${un albero binario in cui ogni
 nodo interno ha esattamente 2 figli}
 
 {Allora }\includegraphics{images/image38.png}
 
 {dove ~~~~~~~~con }\includegraphics{images/image39.png}{indichiamo il
-numero di nodi interni dell'albero }\includegraphics{images/image37.png}
+numero di nodi interni dell'albero }$T$
 
 {e con }\includegraphics{images/image40.png}{indichiamo il numero di
-foglie dell'albero }\includegraphics{images/image37.png}
+foglie dell'albero }$T$
 
 {}
 
@@ -1172,23 +1108,23 @@ foglie dell'albero }\includegraphics{images/image37.png}
 
 {Dimostrazione per induzione}
 
-{dimostrazione su }\includegraphics{images/image41.png}{, dove
-}\includegraphics{images/image41.png}{~è il numero di nodi di
-}\includegraphics{images/image37.png}
+{dimostrazione su }$n${, dove
+}$n${~è il numero di nodi di
+}$T$
 
 {}
 
 {Base:}
 
-\includegraphics{images/image42.png}{~→ OVVIO}
+$n=1${~→ OVVIO}
 
 {}
 
 {Passo induttivo:}
 
-{~~~~~~~~~~~~~~~~}\includegraphics{images/image43.png}
+\includegraphics{images/image43.png}
 
-{~~~~~~~~}{\includegraphics{images/image525.png}}
+{\includegraphics{images/image525.png}}
 
 {\includegraphics{images/image536.png}}
 
@@ -1246,7 +1182,7 @@ del metodo dell'albero di ricorsione}
 
 {Base:}
 
-{~~~~~~~~}\includegraphics{images/image58.png}
+\includegraphics{images/image58.png}
 
 \includegraphics{images/image59.png}
 
@@ -1254,7 +1190,7 @@ del metodo dell'albero di ricorsione}
 
 {Passo induttivo:}
 
-{~~~~~~~~}\includegraphics{images/image61.png}
+\includegraphics{images/image61.png}
 
 {}
 
@@ -1382,7 +1318,7 @@ allocati.}
 {Allocate\_Object()~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}{Complessità
 }\includegraphics{images/image69.png}
 
-{~~~~~~~~}
+
 
 \protect\hypertarget{t.6867fb3c644d0c0b07e14f5253c873dd313c05de}{}{}\protect\hypertarget{t.3}{}{}
 
@@ -1402,7 +1338,7 @@ nexy{[}}{free}{{]}\\
 \bottomrule
 \end{longtable}
 
-{~~~~~~~~~~~~~~~~}
+
 
 {}
 
@@ -1411,7 +1347,7 @@ nexy{[}}{free}{{]}\\
 {Free\_Object(x)}{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Complessità
 }\includegraphics{images/image69.png}
 
-{~~~~~~~~}
+
 
 \protect\hypertarget{t.ca6d9bfbccaf8ba905655d1fba7938b11c658c64}{}{}\protect\hypertarget{t.4}{}{}
 
@@ -1452,7 +1388,7 @@ orientato.}
 cui si distingue un nodo }\includegraphics{images/image72.png}{~detto
 `Radice'.}
 
-\includegraphics{images/image73.png}{~è un sottoinsieme del prodotto
+$A${~è un sottoinsieme del prodotto
 cartesiano }\includegraphics{images/image74.png}{,è un insieme di coppie
 di nodi che chiamiamo }{archi}{.}
 
@@ -1483,41 +1419,41 @@ genitore che viene chiamato padre u, tale che
 
 {}
 
-{Il cammino da}{~}\includegraphics{images/image76.png}{~ad
+{Il cammino da}{~}$v${~ad
 }\includegraphics{images/image77.png}{nell'albero
-}\includegraphics{images/image37.png}{~è una sequenza di nodi
+}$T${~è una sequenza di nodi
 }\includegraphics{images/image78.png}{tale che soddisfa queste
 condizioni:}
 
-{~~~~~~~~}\includegraphics{images/image79.png}
+\includegraphics{images/image79.png}
 
-{~~~~~~~~}\includegraphics{images/image80.png}
+\includegraphics{images/image80.png}
 
-{~~~~~~~~}\includegraphics{images/image81.png}
+\includegraphics{images/image81.png}
 
-{~~~~~~~~}
+
 
 {La lunghezza di un cammino è il numero di archi nel cammino oppure il
 numero di nodi - 1.}
 
 {}
 
-{Sia }\includegraphics{images/image82.png}{~un nodo dell'albero radicato
-}\includegraphics{images/image37.png}{con radice
+{Sia }$x${~un nodo dell'albero radicato
+}$T${con radice
 }\includegraphics{images/image83.png}{.}
 
-{Qualsiasi nodo }\includegraphics{images/image84.png}{~in un cammino che
+{Qualsiasi nodo }$y${~in un cammino che
 parte dalla radice }\includegraphics{images/image83.png}{~ed arriva ad
-}\includegraphics{images/image82.png}{è detto ANTENATO di
-}\includegraphics{images/image82.png}{~(}\includegraphics{images/image82.png}{~compreso,
+}$x${è detto ANTENATO di
+}$x${~(}$x${~compreso,
 è antenato di se stesso).}
 
 {}
 
-{Se }\includegraphics{images/image84.png}{~è un antenato di
-}\includegraphics{images/image82.png}{, allora
-}\includegraphics{images/image82.png}{~è DISCENDENTE di
-}\includegraphics{images/image84.png}
+{Se }$y${~è un antenato di
+}$x${, allora
+}$x${~è DISCENDENTE di
+}$y$
 
 {}
 
@@ -1525,29 +1461,29 @@ parte dalla radice }\includegraphics{images/image83.png}{~ed arriva ad
 
 {}
 
-{Se }\includegraphics{images/image84.png}{~è un antenato di
-}\includegraphics{images/image82.png}{~ed
-}\includegraphics{images/image82.png}{~è diverso da
-}\includegraphics{images/image84.png}{, allora
-}\includegraphics{images/image84.png}{~è un ANTENATO PROPRIO di
-}\includegraphics{images/image82.png}{~ed
-}\includegraphics{images/image82.png}{~è DISCENDENTE PROPRIO di
-}\includegraphics{images/image84.png}{.}
+{Se }$y${~è un antenato di
+}$x${~ed
+}$x${~è diverso da
+}$y${, allora
+}$y${~è un ANTENATO PROPRIO di
+}$x${~ed
+}$x${~è DISCENDENTE PROPRIO di
+}$y${.}
 
-{Il sottoalbero con radice in }\includegraphics{images/image82.png}{~è
+{Il sottoalbero con radice in }$x${~è
 l'albero indotto dai discendenti di
-}\includegraphics{images/image82.png}
+}$x$
 
-{La profondità}{~di un nodo }\includegraphics{images/image82.png}{~è la
+{La profondità}{~di un nodo }$x${~è la
 lunghezza del cammino dalla radice ad
-}\includegraphics{images/image82.png}{.}
+}$x${.}
 
 {Un livello di un albero è costituito da tutti i nodi che stanno alla
 stessa profondità. }
 
-{L'altezza}{~di un nodo }\includegraphics{images/image82.png}{~è la
+{L'altezza}{~di un nodo }$x${~è la
 lunghezza del più lungo cammino che scende da
-}\includegraphics{images/image82.png}{~alle foglie (qualsiasi foglia) di
+}$x${~alle foglie (qualsiasi foglia) di
 profondità massima.}
 
 {L'altezza di un albero è l'altezza del nodo radice.}
@@ -1587,14 +1523,14 @@ k-ario}}{Albero k-ario}}\label{h.chua2o837in5}}
 
 {E' un albero in cui i figli si un nodo sono etichettati con interi
 positivi distinti e le etichette maggiori di
-}\includegraphics{images/image85.png}{~sono assenti = ogni nodo può
-avere al più }\includegraphics{images/image85.png}{~figli.}
+}$K${~sono assenti = ogni nodo può
+avere al più }$K${~figli.}
 
 {}
 
 {Un albero K-ario completo è tale quando tutte le foglie hanno la stessa
 profondità e tutti i nodi interni hanno grado
-}\includegraphics{images/image85.png}{~}
+}$K${~}
 
 {}
 
@@ -1644,7 +1580,7 @@ semplifica in }\includegraphics{images/image94.png}{, quindi
 {}
 
 {Altezza di un albero k-ario completo con
-}\includegraphics{images/image41.png}{~nodi:}
+}$n${~nodi:}
 
 \includegraphics{images/image96.png}{~→
 }\includegraphics{images/image97.png}{~→
@@ -1657,7 +1593,7 @@ semplifica in }\includegraphics{images/image94.png}{, quindi
 {Proprietà}
 
 {Dimostrare per induzione che in un albero BINARIO completo non nullo
-avente }\includegraphics{images/image41.png}{nodi, il numero di foglie è
+avente }$n${nodi, il numero di foglie è
 }\includegraphics{images/image99.png}
 
 {}
@@ -1729,9 +1665,9 @@ array}}{Rappresentazione di alberi tramite array}}\label{h.ueuovjwdu9zj}}
 {sia }\includegraphics{images/image100.png}
 
 {Costruisco un vettore di dimensione
-}\includegraphics{images/image41.png}{, le cui celle contengono copie di
+}$n${, le cui celle contengono copie di
 }\includegraphics{images/image101.png}{. Con
-}\includegraphics{images/image102.png}{~indichiamo l'informazione del
+}$i${~indichiamo l'informazione del
 nodo e con }\includegraphics{images/image103.png}{~indichiamo il nodo
 padre (indice).}
 
@@ -1743,7 +1679,7 @@ padre (indice).}
 
 {p{[}v{]} → padre = indice del padre,
 }\includegraphics{images/image105.png}{, se
-}\includegraphics{images/image76.png}{~è radice il padre è NULL/-1/0}
+}$v${~è radice il padre è NULL/-1/0}
 
 {}
 
@@ -1867,7 +1803,7 @@ n == }{0}{~)\\
 
 {Figli - }{Complessità}\includegraphics{images/image117.png}{, ~con
 }\includegraphics{images/image118.png}{~= grado di
-}\includegraphics{images/image76.png}{~}
+}$v${~}
 
 \protect\hypertarget{t.cd7a9ec4a28abd0a2505b50e0d559923d8963c8d}{}{}\protect\hypertarget{t.8}{}{}
 
@@ -1904,7 +1840,7 @@ Childs}}{3.a) Parent + Childs}}\label{h.qoohix7mgjib}}
 
 {~~~~~~~~p : puntatore al padre}
 
-{~~~~~~~~}
+
 
 {~~~~~~~~Se il numero di figli è noto}
 
@@ -1956,7 +1892,7 @@ possibile mantenere in ogni nodo un puntatore a ciascuno dei possibili
 
 {Figli - }{Complessità}\includegraphics{images/image122.png}{, con
 }\includegraphics{images/image118.png}{~= grado di
-}\includegraphics{images/image76.png}{~ }
+}$v${~ }
 
 {Con k non noto si utilizza un ciclo che scorre c{[}{]}}
 
@@ -2030,7 +1966,7 @@ sibling}}{3.b) Parent + Left child + Right sibling}}\label{h.jlqu76iomg9e}}
 
 {Figli - }{Complessità}\includegraphics{images/image117.png}{~con
 }\includegraphics{images/image118.png}{~= grado di
-}\includegraphics{images/image76.png}{~ }
+}$v${~ }
 
 {}
 
@@ -2554,7 +2490,7 @@ A , }{1}\textsuperscript{\protect\hyperlink{cmnt7}{{[}g{]}}}{~)\\
 \bottomrule
 \end{longtable}
 
-{Complessità di Heap Extract Max :}\includegraphics{images/image144.png}
+{Complessità di Heap Extract Max :}$O(log(n))$
 
 {}
 
@@ -2587,7 +2523,7 @@ A{[}}{parent}{(i){]} )\\
 \end{longtable}
 
 {Complessità di Heap Increase Key :
-}\includegraphics{images/image144.png}
+}$O(log(n))$
 
 {}
 
@@ -2599,10 +2535,13 @@ grande di A{[}parent(i){]}}
 {}
 
 {Con un Heap di n elementi, la complessità è
-}\includegraphics{images/image144.png}{~in quanto il cammino dal nodo
-fino alla radice ha lunghezza }\includegraphics{images/image144.png}
+}$O(log(n))${~in quanto il cammino dal nodo
+fino alla radice ha lunghezza }$O(log(n))$
 
 {}
+
+\lstinputlisting[language=Python]{code/heap_insert.txt}
+
 
 \protect\hypertarget{t.7958f2ce179c49f87f7516fa41b6af3c180a9c3d}{}{}\protect\hypertarget{t.22}{}{}
 
@@ -2621,12 +2560,12 @@ A, A.heapSize, K)}\strut
 \bottomrule
 \end{longtable}
 
-{Complessità di Heap\_Insert : }\includegraphics{images/image144.png}
+{Complessità di Heap\_Insert : }$O(log(n))$
 
 {}
 
 {La ricerca su una cosa di priorità, nel caso peggiore, ha costo
-}\includegraphics{images/image146.png}
+}$O(n)$
 
 {}
 
@@ -2666,7 +2605,7 @@ parent(}{i}{)}\strut
 \bottomrule
 \end{longtable}
 
-{Complessità di Heap Delete : }\includegraphics{images/image144.png}
+{Complessità di Heap Delete : }$O(log(n))$
 
 {}
 
@@ -2743,7 +2682,7 @@ completo}{\\
 \end{longtable}
 
 {Complessità di is\_quasi\_completo :
-}\includegraphics{images/image146.png}{~}
+}$O(n)${~}
 
 \includegraphics{images/image148.png}
 
@@ -2770,7 +2709,7 @@ con altezza h+1 e dimensione n.}
   in spazio aggiuntivo }\includegraphics{images/image149.png}
 \item
   {Soluzione (più elegante) di costo e tempo
-  }\includegraphics{images/image144.png}{~e spazio aggiuntivo costante}
+  }$O(log(n))${~e spazio aggiuntivo costante}
 \end{enumerate}
 
 {}
@@ -2804,7 +2743,7 @@ v.}\includegraphics{images/image149.png}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  {Soluzione di costo e tempo }\includegraphics{images/image144.png}{~e
+  {Soluzione di costo e tempo }$O(log(n))${~e
   spazio aggiuntivo costante}
 \end{enumerate}
 
@@ -2900,6 +2839,34 @@ Ordina 3 elementi}}{Esempio: Ordina 3 elementi}}\label{h.oynrnvh2y1cp}}
 
 {\includegraphics{images/image531.png}}
 
+Esempio: $<6,8,3>$
+
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm}] 
+\node [arn_n] {1:2}
+    child{ node [arn_r] {2:3} 
+            child{ node [arn_n] {10} 
+            	child{ node [arn_r] {5} edge from parent node[above left]
+                         {$x$}} %for a named pointer
+							child{ node [arn_x] {}}
+            }
+            child{ node [arn_n] {1:3}
+							child{ node [arn_r] {18}}
+							child{ node [arn_x] {}}
+            }                            
+    }
+    child{ node [arn_r] {1:3}
+            child{ node [arn_n] {38} 
+							child{ node [arn_r] {36}}
+							child{ node [arn_r] {39}}
+            }
+            child{ node [arn_n] {2:3}
+							child{ node [arn_r] {49}}
+							child{ node [arn_x] {}}
+            }
+		}
+; 
+\end{tikzpicture}
+
 {Questa struttura assomiglia
 all'InsertionSort}\textsuperscript{\protect\hyperlink{cmnt15}{{[}o{]}}}
 
@@ -2923,17 +2890,11 @@ i e j sono indici dell'insieme da ordinare.}
   {il sottoalbero destro dà i successivi confronti se
   }\includegraphics{images/image159.png}{~}
 \item
-  {ogni foglia fornisce una permutazione dell'input tale che se io vado
-  a prendere gli elementi dell'input, ordinati a seconda della
-  permutazione, ottengo l'insieme ordinato in ordine crescente}
+  {ogni foglia fornisce una permutazione dell'input tale che se io vado a prendere gli elementi dell'input, ordinati a seconda della permutazione, ottengo l'insieme ordinato in ordine crescente}
 \end{itemize}
-
-{}
 
 {Dato un qualsiasi algoritmo di ordinamento basato sul confronto, è
 possibile costruirmi gli alberi di decisione.}
-
-{}
 
 \begin{itemize}
 \tightlist
@@ -2949,29 +2910,20 @@ possibile costruirmi gli alberi di decisione.}
   dell'albero, }{ovvero l'altezza dell'albero.}
 \end{itemize}
 
-{}
-
 {Mi basta quindi trovare la dimensione dell'albero di decisione per
 determinare il tempo di esecuzione.}
 
-\hypertarget{h.prflgx3s7s1g}{\subsection{\texorpdfstring{{Quanto è
-grande un albero di
-decisione?}}{Quanto è grande un albero di decisione?}}\label{h.prflgx3s7s1g}}
+\hypertarget{h.prflgx3s7s1g}{\subsection{\texorpdfstring{{Quanto è grande un albero di decisione?}}{Quanto è grande un albero di decisione?}}\label{h.prflgx3s7s1g}}
 
-\hypertarget{h.cphw2k3mqktf}{\subsubsection{\texorpdfstring{{Quante
-foglie contiene?}}{Quante foglie contiene?}}\label{h.cphw2k3mqktf}}
+\hypertarget{h.cphw2k3mqktf}{\subsubsection{\texorpdfstring{{Quante foglie contiene?}}{Quante foglie contiene?}}\label{h.cphw2k3mqktf}}
 
-{L'albero ha come minimo
-}\includegraphics{images/image160.png}{~foglie}{~poichè, per essere
+{L'albero ha come minimo }\includegraphics{images/image160.png}{~foglie}{~poichè, per essere
 corretto, ogni permutazione deve comparire almeno una volta.}
 
 \hypertarget{h.yiy1tipj4aof}{\paragraph{\texorpdfstring{{Lemma
 2:}}{Lemma 2:}}\label{h.yiy1tipj4aof}}
 
-{Un albero binario di altezza h ha al più
-}\includegraphics{images/image161.png}{foglie.}
-
-{}
+{Un albero binario di altezza h ha al più}\includegraphics{images/image161.png}{foglie.}
 
 {Dimostrazione per induzione:}
 
@@ -3005,9 +2957,9 @@ corretto, ogni permutazione deve comparire almeno una volta.}
   dei due figli. Entrambe sono minori di h.}
 \end{itemize}
 
-{~~~~~~~~}\includegraphics{images/image169.png}
+\includegraphics{images/image169.png}
 
-{~~~~~~~~}\includegraphics{images/image170.png}{ma
+\includegraphics{images/image170.png}{ma
 }\includegraphics{images/image171.png}{, quindi
 }\includegraphics{images/image172.png}
 
@@ -3015,27 +2967,18 @@ corretto, ogni permutazione deve comparire almeno una volta.}
 }\includegraphics{images/image160.png}{~e
 }\includegraphics{images/image161.png}{.}
 
-{}
 
-{}
-
-{~~~~~~~~}
 
 \hypertarget{h.hr66c3ikhdcj}{\paragraph{\texorpdfstring{{Teorema:}}{Teorema:}}\label{h.hr66c3ikhdcj}}
 
 {Qualsiasi algoritmo di ordinamento per confronti richiede almeno
 }\includegraphics{images/image153.png}{confronti nel caso peggiore.}
 
-{}
-
 {Dimostrazione:}
 
-{Bisogna determinare l'altezza di un albero di decisione, dove ogni
-permutazione appare come foglia.Si consideri un albero di decisione di
-altezza h con l foglie che corrisponde ad un ordinamento per confronti
-di n ele}{menti. }
+{Bisogna determinare l'altezza di un albero di decisione, dove ogni permutazione appare come foglia. Si consideri un albero di decisione di altezza $h$ con $l$ foglie che corrisponde ad un ordinamento per confronti di $n$ elementi. }
 
-{Allora }\includegraphics{images/image173.png}{~(per Lemma 2)}
+{Allora $n! \leq l \leq 2^h$ (per Lemma 2)}
 
 {Passando al logaritmo, }\includegraphics{images/image174.png}
 
@@ -3056,23 +2999,17 @@ approssimare }\includegraphics{images/image160.png}{~:
 
 \includegraphics{images/image179.png}
 
-{Non ci può essere quindi un algoritmo basato sui confronti minore di
-}\includegraphics{images/image180.png}
+{Non ci può essere quindi un algoritmo basato sui confronti minore di }\includegraphics{images/image180.png}
 
 \hypertarget{h.emyylm3q4aq8}{\paragraph{\texorpdfstring{{Corollario:}}{Corollario:}}\label{h.emyylm3q4aq8}}
 
-{Gli algoritmi HeapSort e MergeSort sono algoritmi di ordinamento per
-confronti asintoticamente ottimali.}
+{Gli algoritmi HeapSort e MergeSort sono algoritmi di ordinamento per confronti asintoticamente ottimali.}
 
 {Dimostrazione:}
 
-{I limiti superiori dei sue algoritmi sono
-}\includegraphics{images/image181.png}{nei tempi di esecuzione
-corrispondono al limite inferiore
-}\includegraphics{images/image153.png}{~nel caso peggiore dato dal
+{I limiti superiori dei sue algoritmi sono }\includegraphics{images/image181.png}{nei tempi di esecuzione
+corrispondono al limite inferiore }\includegraphics{images/image153.png}{~nel caso peggiore dato dal
 teorema.}
-
-{}
 
 {Se elimino il modello basato sui confronti, posso battere il limite
 inferiore di }\includegraphics{images/image153.png}{? SI.}
@@ -3089,8 +3026,6 @@ confronti}}{Algoritmi di ordinamento privi di confronti}}\label{h.p17586cst16}}
 
 {{[}CLRS{]} pp. 159-161}
 
-{}
-
 {Assunzione:}
 
 {~~~~~~~~I numeri da ordinare sono interi in un intervallo che va da 0 a
@@ -3098,12 +3033,12 @@ k, per qualche k prefissato}
 
 {Input:}
 
-{~~~~~~~~}\includegraphics{images/image182.png}{~dove
+\includegraphics{images/image182.png}{~dove
 }\includegraphics{images/image183.png}{~, n e k sono parametri}
 
 {Output:}
 
-{~~~~~~~~}\includegraphics{images/image184.png}{~}{ordinato}{,
+\includegraphics{images/image184.png}{~}{ordinato}{,
 permutazione di A}
 
 {Utilizzo una memoria ausiliaria C , costituita da
@@ -3112,9 +3047,7 @@ permutazione di A}
 
 {Codice:}
 
-{}
 
-{~~~~~~~~}
 
 \protect\hypertarget{t.838fe42014bbeb1605fc7de3c1957472acce8e3d}{}{}\protect\hypertarget{t.27}{}{}
 
@@ -3137,7 +3070,7 @@ k}{~}\includegraphics{images/image149.png}{\\
 \hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}C{[}i{]}
 = C{[}i{]} + C{[}i}{-1}{{]} }
 
-{\\
+{
 \hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~j
 = n downto }{1 }{//ciclo di
 distribuzione}\includegraphics{images/image149.png}{\\
@@ -3150,7 +3083,6 @@ distribuzione}\includegraphics{images/image149.png}{\\
 
 {Complessità di CountingSort : }\includegraphics{images/image188.png}
 
-{}
 
 {Di solito il CountingSort quando k è limitato superiormente da n,
 }\includegraphics{images/image189.png}{. Allora il tempo di esecuzione
@@ -3158,16 +3090,12 @@ risulta }\includegraphics{images/image190.png}{. }{Il tempo di
 esecuzione di questo algoritmo è dato da
 }\includegraphics{images/image188.png}{. Di solito è utilizzato (Il
 CountingSort). Quando }\includegraphics{images/image118.png}{~è limitato
-superiormente da }\includegraphics{images/image41.png}{~in
+superiormente da }$n${~in
 }\includegraphics{images/image191.png}{. Allora, il tempo di esecuzione
-risulta essere }\includegraphics{images/image146.png}{.}
-
-{}
+risulta essere }$O(n)${.}
 
 {Il CountingSort è un algoritmo stabile, caratteristica molto
 importante.}
-
-{}
 
 {Analisi:}
 
@@ -3177,7 +3105,7 @@ ciclo:}\includegraphics{images/image192.png}
 {~~~~~~~~All'uscita dal terzo giro:
 }\includegraphics{images/image193.png}
 
-{~~~~~~~~}
+
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -3187,14 +3115,10 @@ ciclo:}\includegraphics{images/image192.png}
 
 {{[}CLRS{]} pp. 162-164}
 
-{}
-
 {\includegraphics{images/image540.png}}
 
 {L'algoritmo di ordinamento scelto deve essere stabili e rispettare
 l'ordine.}
-
-{}
 
 \protect\hypertarget{t.9351034389c7df45f2289244d1a6b5684029a393}{}{}\protect\hypertarget{t.28}{}{}
 
@@ -3212,12 +3136,8 @@ i-esima}\strut
 \bottomrule
 \end{longtable}
 
-{}
-
 {Dimostriamo}{~la correttezza dell'algoritmo tramite induzione sulla
 colonna da ordinare:}
-
-{}
 
 {Caso base (i=1)}
 
@@ -3226,19 +3146,14 @@ colonna da ordinare:}
 {Assumo}
 
 {che le cifre delle colonne che vanno da
-}\includegraphics{images/image194.png}{~a
+}$1${~a
 }\includegraphics{images/image195.png}{siano ordinate}
 
 {Dimostro }
 
-{che un algoritmo stabile sulla colonna
-}\includegraphics{images/image102.png}{, lascia le colonne da
-}\includegraphics{images/image194.png}{~a
-}\includegraphics{images/image102.png}{~ordinate:}
+{che un algoritmo stabile sulla colonna $i$, lascia le colonne da $1$ a $i$ ordinate:}
 
-{}
-
-{Se due cifre in posizione }\includegraphics{images/image102.png}{~}
+{Se due cifre in posizione $i$}
 
 \begin{itemize}
 \tightlist
@@ -3246,8 +3161,7 @@ colonna da ordinare:}
   {sono }{uguali}{: }
 \end{itemize}
 
-{per stabilità, rimangono nello stesso ordine e, per ipotesi induttiva,
-sono ordinate.}
+{per stabilità, rimangono nello stesso ordine e, per ipotesi induttiva, sono ordinate.}
 
 \begin{itemize}
 \tightlist
@@ -3255,19 +3169,13 @@ sono ordinate.}
   {sono }{diverse}{:}
 \end{itemize}
 
-{l'algoritmo di ordinamento sulle colonna
-}\includegraphics{images/image102.png}{le ordina e le mette in posizione
-corretta.}
-
-{}
+{l'algoritmo di ordinamento sulle colonna $i$ le ordina e le mette in posizione corretta.}
 
 {Complessità: }\includegraphics{images/image196.png}
 
-{}
+{Teorema: }
 
-{Teorema}{: }
-
-{Dati }\includegraphics{images/image41.png}{~numeri di
+{Dati }$n${~numeri di
 }\includegraphics{images/image197.png}{~cifre, }{dove ogni cifra può
 avere fino a }\includegraphics{images/image118.png}{valori
 possibili}\textsuperscript{\protect\hyperlink{cmnt16}{{[}p{]}}}{, la
@@ -3276,24 +3184,19 @@ procedura ordina correttamente i numeri nel tempo di
 utilizzato dalla procedura impiega un tempo
 }\includegraphics{images/image198.png}
 
-{}
-
 {Dimostrazione:}
 
-{Per ogni iterazione, il costo risulta essere
-}\includegraphics{images/image198.png}
+{Per ogni iterazione, il costo risulta essere}\includegraphics{images/image198.png}
 
 {Le iterazioni sono d, per un totale di
 }\includegraphics{images/image196.png}
-
-{}
 
 {Osservazioni}{:}
 
 {~~~~~~~~Se }\includegraphics{images/image189.png}{~il tempo di
 esecuzione è }\includegraphics{images/image199.png}
 
-{~~~~~~~~}{Inoltre, se }\includegraphics{images/image197.png}{~è
+{Inoltre, se }\includegraphics{images/image197.png}{~è
 costante, la complessità è }\includegraphics{images/image149.png}
 
 \hypertarget{h.u6e4yemegdiq}{\paragraph{\texorpdfstring{{Come ripartire
@@ -3306,7 +3209,7 @@ cifre?}}{Come ripartire le chiavi in cifre?}}\label{h.u6e4yemegdiq}}
   {Usiamo il CountingSort su ciascuna cifra
   }\includegraphics{images/image198.png}
 \item
-  {Siano }\includegraphics{images/image41.png}{~interi, ognuno
+  {Siano }$n${~interi, ognuno
   costituito da }\includegraphics{images/image200.png}{~bits}
 \item
   {Divido ogni intero in
@@ -3315,8 +3218,6 @@ cifre?}}{Come ripartire le chiavi in cifre?}}\label{h.u6e4yemegdiq}}
   }\includegraphics{images/image202.png}{,
   }\includegraphics{images/image203.png}
 \end{itemize}
-
-{}
 
 {Esempio: Parola di 32 bits}
 
@@ -3334,10 +3235,10 @@ cifre?}}{Come ripartire le chiavi in cifre?}}\label{h.u6e4yemegdiq}}
 }\includegraphics{images/image208.png}{è cresciuto esponenzialmente.
 Scelgo }\includegraphics{images/image83.png}{~piccolo, altrimenti
 }\includegraphics{images/image209.png}{domina su
-}\includegraphics{images/image41.png}{.}
+}$n${.}
 
 {Scegliamo }\includegraphics{images/image83.png}{~essere il massimo
-valore tale che }\includegraphics{images/image41.png}{~risulti essere
+valore tale che }$n${~risulti essere
 }\includegraphics{images/image210.png}{, ~quindi
 }\includegraphics{images/image211.png}{.}
 
@@ -3385,7 +3286,7 @@ elemento è associato ad una chiave.}
 \tightlist
 \item
   {Con le liste:
-  ~~~~~~~~~~~~~~~~~~~~~~~~}\includegraphics{images/image146.png}
+  ~~~~~~~~~~~~~~~~~~~~~~~~}$O(n)$
 \item
   {Con gli alberi binari di ricerca}
 \end{itemize}
@@ -3393,7 +3294,7 @@ elemento è associato ad una chiave.}
 \begin{itemize}
 \tightlist
 \item
-  {non bilanciati ~~~~~~~~~~~~~~~~}\includegraphics{images/image146.png}
+  {non bilanciati ~~~~~~~~~~~~~~~~}$O(n)$
 \item
   {bilanciati ~~~~~~~~~~~~~~~~}\includegraphics{images/image220.png}
 \end{itemize}
@@ -3420,7 +3321,7 @@ elemento è associato ad una chiave.}
 (insert/delete/search). Ogni elemento ha una chiave estratta da un
 universo }\includegraphics{images/image222.png}{~con
 }\includegraphics{images/image223.png}{, dove
-}\includegraphics{images/image224.png}{~non è troppo grande. Nessun
+}$w${~non è troppo grande. Nessun
 elemento ha la stessa chiave (elementi distinti). }
 
 {}
@@ -3438,10 +3339,10 @@ array }\includegraphics{images/image225.png}{~dove}
   {ogni posizione (o cella) corrisponde ad una chiave di
   }\includegraphics{images/image222.png}
 \item
-  {Se c'è un elemento }\includegraphics{images/image82.png}{~con chiave
+  {Se c'è un elemento }$x${~con chiave
   }\includegraphics{images/image118.png}{, allora nella posizione
   }\includegraphics{images/image226.png}{~è contenuto un puntatore a
-  }\includegraphics{images/image82.png}
+  }$x$
 \item
   {Altrimenti, se l'insieme non contiene l'elemento,
   }\includegraphics{images/image227.png}
@@ -3516,8 +3417,8 @@ array }\includegraphics{images/image225.png}{~dove}
 {Difetti:}
 
 {Lo spazio utilizzato è proporzionale a
-}\includegraphics{images/image224.png}{~e non al numero
-}\includegraphics{images/image41.png}{~di elementi. Di conseguenza si
+}$w${~e non al numero
+}$n${~di elementi. Di conseguenza si
 può avere un importante spreco di memoria.}
 
 {}
@@ -3537,7 +3438,7 @@ tabelle hash.}
   effettivamente utilizzate}
 \item
   {Le operazioni siano con costo medio
-  }\includegraphics{images/image69.png}{, ma non nel caso pessimo}
+  }$\Theta(1)${, ma non nel caso pessimo}
 \end{enumerate}
 
 {}
@@ -3631,9 +3532,9 @@ x in testa alla lista T{[}h(x.key){]}}\strut
 \bottomrule
 \end{longtable}
 
-{Tempo di esecuzione: }\includegraphics{images/image69.png}{~se
+{Tempo di esecuzione: }$\Theta(1)${~se
 }\includegraphics{images/image89.png}{~impiega tempo costante
-}\includegraphics{images/image69.png}{~e l'elemento non è presente nella
+}$\Theta(1)${~e l'elemento non è presente nella
 lista}
 
 {}
@@ -3655,7 +3556,7 @@ un elemento con chiave k nella lista T{[}h(k){]}}\strut
 {~~~~~~~~Caso peggiore:}
 
 {~~~~~~~~~~~~~~~~Proporzionale alla lunghezza della lista nella cella
-}\includegraphics{images/image241.png}{~~~~~~~~~~~~~~~~}
+}\includegraphics{images/image241.png}
 
 {}
 
@@ -3675,7 +3576,7 @@ x dalla lista T{[}h(k){]}}\strut
 
 {Caso peggiore:}
 
-\includegraphics{images/image69.png}{~se la lista doppiamente
+$\Theta(1)${~se la lista doppiamente
 concatenata (ci serve un puntatore al predecessore)}
 
 {Senza una lista doppiamente concatenata servirebbe ricercare la chiave
@@ -3690,7 +3591,7 @@ elementi. }
 {Caso peggiore:}
 
 {Tutti gli elementi sono mappati nella stessa cella. Abbiamo quindi
-un'unica lista di lunghezza }\includegraphics{images/image41.png}{.}
+un'unica lista di lunghezza }$n${.}
 
 {Tempo di esecuzione della ricerca:
 }\includegraphics{images/image120.png}
@@ -3722,7 +3623,7 @@ con }\includegraphics{images/image243.png}{~la lunghezza della lista
 
 {Fattore di carico: }
 
-{In una tabella hash con }\includegraphics{images/image41.png}{~chiavi
+{In una tabella hash con }$n${~chiavi
 ed }\includegraphics{images/image235.png}{~celle, il fattore di carico è
 }\includegraphics{images/image246.png}{. Esso è il numero medio di
 elementi memorizzati in ogni lista.}
@@ -3745,10 +3646,10 @@ Hashing Uniforme Semplice.}
 \tightlist
 \item
   {Calcolo }\includegraphics{images/image248.png}{~:
-  }\includegraphics{images/image69.png}
+  }$\Theta(1)$
 \item
   {Accedo a }\includegraphics{images/image244.png}{~:
-  }\includegraphics{images/image69.png}
+  }$\Theta(1)$
 \item
   {Scorro la lista }\includegraphics{images/image244.png}{~(fino alla
   fine) : }\includegraphics{images/image249.png}{in media}
@@ -3771,8 +3672,7 @@ numero di elementi da memorizzare, cioè abbiamo
 }\includegraphics{images/image251.png}{, di conseguenza
 }\includegraphics{images/image252.png}{. (Se alpha è costante) }
 
-{Tutte le operazioni quindi, mediamente, sono svolte in tempo
-}\includegraphics{images/image69.png}{.}
+Tutte le operazioni quindi, mediamente, sono svolte in tempo $\Theta(1)$.
 
 {}
 
@@ -3824,11 +3724,11 @@ possiamo moltiplicarle per il valore di quest'ultimo.
 
 {}
 
-{~~~~~~~~}\includegraphics{images/image255.png}
+\includegraphics{images/image255.png}
 
 {~~~~~~~~Esempio: }
 
-{~~~~~~~~~~~~~~~~}\includegraphics{images/image256.png}
+\includegraphics{images/image256.png}
 
 {}
 
@@ -3869,7 +3769,7 @@ esatta di 2 o 10.}
 {~~~~~~~~Se }\includegraphics{images/image258.png}{uniformemente
 distribuiti}
 
-{~~~~~~~~}\includegraphics{images/image259.png}
+\includegraphics{images/image259.png}
 
 {}
 
@@ -3882,7 +3782,7 @@ moltiplicarlo per }\includegraphics{images/image235.png}{.}
 {~~~~~~~~Calcolo }\includegraphics{images/image262.png}{~ed estraggo la
 parte frazionaria}
 
-{~~~~~~~~}\includegraphics{images/image263.png}
+\includegraphics{images/image263.png}
 
 \includegraphics{images/image264.png}
 
@@ -3898,21 +3798,21 @@ A. Knuth suggerì il valore }\includegraphics{images/image265.png}{~.}
 {~~~~~~~~Per semplificare i conti possiamo scegliere
 }\includegraphics{images/image266.png}
 
-{~~~~~~~~}\includegraphics{images/image267.png}{~lunghezza di una parola
+\includegraphics{images/image267.png}{~lunghezza di una parola
 in memoria, }\includegraphics{images/image268.png}{intero.}
 
 {}
 
 {~~~~~~~~Ipotesi:}
 
-{~~~~~~~~~~~~~~~~}\includegraphics{images/image118.png}{~entra in una
+\includegraphics{images/image118.png}{~entra in una
 sola parola: }\includegraphics{images/image269.png}
 
-{~~~~~~~~~~~~~~~~}\includegraphics{images/image270.png}{~bit più
+\includegraphics{images/image270.png}{~bit più
 significativi della parola meno significativa di
 }\includegraphics{images/image271.png}{.}
 
-{~~~~~~~~~~~~~~~~}
+
 
 \begin{enumerate}
 \setcounter{enumi}{2}
@@ -4052,7 +3952,7 @@ piena''}\strut
 }\includegraphics{images/image244.png}{~contiene la chiave
 }\includegraphics{images/image118.png}{~oppure
 }\includegraphics{images/image240.png}{~se essa non esiste in
-}\includegraphics{images/image37.png}{.}
+}$T${.}
 
 {}
 
@@ -4184,7 +4084,7 @@ metodo dell'ispezione lineare usa la seguente funzione:}
 
 {}
 
-{~~~~~~~~}\includegraphics{images/image287.png}
+\includegraphics{images/image287.png}
 
 {con }\includegraphics{images/image288.png}
 
@@ -4298,7 +4198,7 @@ venga ispezionata.}
 }\includegraphics{images/image301.png}{coprimi, allora dimostrare che
 }\includegraphics{images/image302.png}
 
-{~~~~~~~~~~~~~~~~}{Dimostrazione A}{:}
+{Dimostrazione A}{:}
 
 {Scelgo }\includegraphics{images/image303.png}{~potenza di due e
 definisco }\includegraphics{images/image299.png}{in modo che produca
@@ -4386,7 +4286,7 @@ con}{~}\includegraphics{images/image326.png}
 {Se}{~}\includegraphics{images/image327.png}{~è costante, una ricerca
 senza sucesso viene eseguita in tempo medio
 }\includegraphics{images/image328.png}{~e in caso pessimo
-}\includegraphics{images/image146.png}
+}$O(n)$
 
 {}
 
@@ -4433,7 +4333,7 @@ le cui chiavi hanno uguale probabilità di essere scelte, il numero
 atteso di ispezioni è al massimo
 }\includegraphics{images/image334.png}{.}
 
-{~~~~~~~~}{Analisi del valore di
+{Analisi del valore di
 }\includegraphics{images/image327.png}{:}
 
 {Se }\includegraphics{images/image329.png}{~(tabella riempita a metà),
@@ -4461,7 +4361,7 @@ collisione).}
 \hypertarget{h.fi9e3nt34nfb}{\section{\texorpdfstring{{Mod 2 -
 }{Grafi}}{Mod 2 - Grafi}}\label{h.fi9e3nt34nfb}}
 
-{Coppia ordinata }\includegraphics{images/image335.png}{~formata da due
+{Coppia ordinata }$G=(V,E)${~formata da due
 insiemi V (vertici) ed E (archi)}
 
 \includegraphics{images/image336.png}
@@ -4483,7 +4383,7 @@ dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
 
 {~~~~~~~~se }\includegraphics{images/image338.png}
 
-{~~~~~~~~}
+
 
 {Non si ammettono cappi nei grafi non orientati.}
 
@@ -4493,10 +4393,10 @@ dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
 
 \hypertarget{h.5gj1hs8i1ooy}{\subsection{\texorpdfstring{{Sottografi}}{Sottografi}}\label{h.5gj1hs8i1ooy}}
 
-{Sottografo di }\includegraphics{images/image340.png}
+{Sottografo di }$G$
 
-{~~~~~~~~}\includegraphics{images/image341.png}{è sottografo di
-}\includegraphics{images/image340.png}{~se
+\includegraphics{images/image341.png}{è sottografo di
+}$G${~se
 }\includegraphics{images/image342.png}{~e
 }\includegraphics{images/image343.png}
 
@@ -4506,7 +4406,7 @@ dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
 
 {~~~~~~~~Dato }\includegraphics{images/image342.png}{, il sottografo
 indotto da
-}\includegraphics{images/image344.png}{~di}\includegraphics{images/image340.png}{~è
+}$V'${~di}$G${~è
 }\includegraphics{images/image345.png}{~con
 }\includegraphics{images/image346.png}{~ }
 
@@ -4514,7 +4414,7 @@ indotto da
 
 \hypertarget{h.lxvflhr4q9d8}{\subsection{\texorpdfstring{{Cammini}}{Cammini}}\label{h.lxvflhr4q9d8}}
 
-{Un cammino di }\includegraphics{images/image340.png}{~è una sequenza
+{Un cammino di }$G${~è una sequenza
 }\includegraphics{images/image347.png}{~dove i vertici appartengono al
 grafo di partenza. }
 
@@ -4524,9 +4424,9 @@ grafo di partenza. }
 semplici e cammini non
 semplici}}{Cammini semplici e cammini non semplici}}\label{h.sjz08mn040is}}
 
-\includegraphics{images/image349.png}{~è un cammino semplice}
 
-\includegraphics{images/image350.png}{~}{non}{~}{è un cammino semplice}
+$<1,2,3,4,5>$ è un cammino semplice\\
+$<1,2,3,1,4,5>$ non è un cammino semplice
 
 {Un cammino è semplice se tutti i vertici sono distinti}
 
@@ -4538,11 +4438,7 @@ di un cammino}}{Lunghezza di un cammino}}\label{h.e18ltelmo48z}}
 \hypertarget{h.4bm9pdnjdb2q}{\subsubsection{\texorpdfstring{{Raggiungibilità
 dei vertici}}{Raggiungibilità dei vertici}}\label{h.4bm9pdnjdb2q}}
 
-\includegraphics{images/image103.png}{è raggiungibile da
-}\includegraphics{images/image76.png}{, se esiste un cammino
-}\includegraphics{images/image347.png}{~tale che
-}\includegraphics{images/image351.png}{~e
-}\includegraphics{images/image352.png}
+$u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,...,X_k>$ tale che $X_0 = u$ e $X_k = v$
 
 \hypertarget{h.4fm287mz4am5}{\subsubsection{\texorpdfstring{{Ciclo}}{Ciclo}}\label{h.4fm287mz4am5}}
 
@@ -4553,28 +4449,23 @@ dei vertici}}{Raggiungibilità dei vertici}}\label{h.4bm9pdnjdb2q}}
 \hypertarget{h.rpdf8j1vq7g0}{\subsubsection{\texorpdfstring{{{[}NO{]}
 Grafo connesso}}{{[}NO{]} Grafo connesso}}\label{h.rpdf8j1vq7g0}}
 
-{Un grado non orientato si dice connesso se
-}\includegraphics{images/image354.png}{, esiste un cammino da
-}\includegraphics{images/image103.png}{~a
-}\includegraphics{images/image76.png}{~con
-}\includegraphics{images/image355.png}
+{Un grado non orientato si dice connesso se }\includegraphics{images/image354.png}{, esiste un cammino da $u$ a $v$ con }\includegraphics{images/image355.png}
 
 \hypertarget{h.iejp6ankfctp}{\subsubsection{\texorpdfstring{{{[}NO{]}
 Componente
 connessa}}{{[}NO{]} Componente connessa}}\label{h.iejp6ankfctp}}
 
-{Dato }\includegraphics{images/image335.png}{~e
+{Dato }$G=(V,E)${~e
 }\includegraphics{images/image342.png}
 
-\includegraphics{images/image344.png}{~si dirà componente connessa se }
+$V'${~si dirà componente connessa se }
 
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image356.png}{è connesso}
+  {$G[V']$ è connesso}
 \item
-  \includegraphics{images/image344.png}{~non è sottoinsieme stretto di
-  un sottografo connesso}
+  $V'${~non è sottoinsieme stretto di un sottografo connesso}
 \end{enumerate}
 
 {}
@@ -4585,7 +4476,7 @@ grafo è connesso.}
 \hypertarget{h.5nknzat57p06}{\subsubsection{\texorpdfstring{{{[}NO{]}
 Vertici adiacenti}}{{[}NO{]} Vertici adiacenti}}\label{h.5nknzat57p06}}
 
-{Dato }\includegraphics{images/image335.png}{~e
+{Dato }$G=(V,E)${~e
 }\includegraphics{images/image357.png}
 
 {Il grado di }\includegraphics{images/image358.png}{~è il numero di
@@ -4594,7 +4485,7 @@ vertici adiacenti a }\includegraphics{images/image103.png}
 \hypertarget{h.52hqmabofvh0}{\subsubsection{\texorpdfstring{{Arco
 incidente}}{Arco incidente}}\label{h.52hqmabofvh0}}
 
-{Un arco che è collegato ad }\includegraphics{images/image76.png}
+{Un arco che è collegato ad }$v$
 
 \hypertarget{h.vm6z084zc6rf}{\subsubsection{\texorpdfstring{{Vertici
 isolati e
@@ -4612,21 +4503,21 @@ Lemma)}}{Teorema della stretta di mano (HandShaking Lemma)}}\label{h.d1yeo9bkhut
 
 {{[}NO{]}}
 
-{~~~~~~~~}\includegraphics{images/image361.png}{, dove
+\includegraphics{images/image361.png}{, dove
 }\includegraphics{images/image235.png}{~è il numero di archi,
 }\includegraphics{images/image362.png}
 
 {{[}O{]}}
 
-{~~~~~~~~}\includegraphics{images/image363.png}{~numero degli archi
+\includegraphics{images/image363.png}{~numero degli archi
 uscenti da }\includegraphics{images/image103.png}
 
 \includegraphics{images/image364.png}{~numero degli archi entranti in
 }\includegraphics{images/image103.png}
 
-{~~~~~~~~}
 
-{~~~~~~~~}\includegraphics{images/image365.png}
+
+\includegraphics{images/image365.png}
 
 {}
 
@@ -4636,11 +4527,11 @@ uscenti da }\includegraphics{images/image103.png}
 
 {Dim: }
 
-{~~~~~~~~}\includegraphics{images/image366.png}
+\includegraphics{images/image366.png}
 
-{~~~~~~~~}\includegraphics{images/image367.png}
+\includegraphics{images/image367.png}
 
-{~~~~~~~~}\includegraphics{images/image368.png}
+\includegraphics{images/image368.png}
 
 {}
 
@@ -4665,7 +4556,7 @@ uscenti da }\includegraphics{images/image103.png}
 {Esercizio}{: }
 
 {~~~~~~~~Dimostrare che, dato
-}\includegraphics{images/image335.png}{~non orientato senza vertici
+}$G=(V,E)${~non orientato senza vertici
 isolati (nessuno vertice ha grado 0),}
 
 {~~~~~~~~con }\includegraphics{images/image375.png}
@@ -4676,7 +4567,7 @@ isolati (nessuno vertice ha grado 0),}
 
 {Dimostrazione per assurdo:}
 
-\includegraphics{images/image376.png}
+$n=\abs{V},m=\abs{E}$
 
 {Per il lemma della stretta di mano:}
 
@@ -4705,12 +4596,11 @@ vertici terminali}
 \hypertarget{h.viqjw1dxzez8}{\subsection{\texorpdfstring{{Matrice di
 adiacenza }}{Matrice di adiacenza }}\label{h.viqjw1dxzez8}}
 
-{Dato }\includegraphics{images/image335.png}{~}
+{Dato }$G=(V,E)${~}
 
-\includegraphics{images/image376.png}
+$n=\abs{V},m=\abs{E}$
 
-\includegraphics{images/image73.png}{Matrice quadrata
-}\includegraphics{images/image385.png}
+{$A$ Matrice quadrata $n x n$ }
 
 \begin{itemize}
 \tightlist
@@ -4718,10 +4608,10 @@ adiacenza }}{Matrice di adiacenza }}\label{h.viqjw1dxzez8}}
   {Per trovare il grado di un vertice basta calcolare la somma degli
   elementi sulla corrispondente riga}
 \item
-  {{[}NO{]}}\includegraphics{images/image41.png}{~archi in totale =
+  {{[}NO{]}}$n${~archi in totale =
   doppia somma di tutti gli elementi della matrice}
 \item
-  {{[}O{]} }\includegraphics{images/image41.png}{~archi in totale =
+  {{[}O{]} }$n${~archi in totale =
   doppia somma di tutti gli elementi della matrice}
 \end{itemize}
 
@@ -4875,7 +4765,7 @@ archi, altrimenti è meglio utilizzare le matrici.}
 
 \includegraphics{images/image391.png}
 
-\includegraphics{images/image376.png}
+$n=\abs{V},m=\abs{E}$
 
 \includegraphics{images/image392.png}
 
@@ -4906,22 +4796,20 @@ archi, altrimenti è meglio utilizzare le matrici.}
 
 {~~~~~~~~Caso base:}
 
-{~~~~~~~~~~~~~~~~se }\includegraphics{images/image42.png}{allora
-}\includegraphics{images/image399.png}
+{~~~~~~~~~~~~~~~~se }$n=1${allora}$m = 0$
 
-{~~~~~~~~~~~~~~~~se }\includegraphics{images/image400.png}{allora
-}\includegraphics{images/image401.png}
+{~~~~~~~~~~~~~~~~se }$n=2${allora}$m \leq 1$
 
-{~~~~~~~~Passo induttivo }\includegraphics{images/image402.png}{:}
+{~~~~~~~~Passo induttivo $n \geq 3$:}
 
-{~~~~~~~~~~~~~~~~}
+
 
 {{[}NO{]} Complemento di un grafo}
 
 {Il complemento di un grafo è un grafo con gli stessi vertici, i cui
 archi sono complementari:}
 
-\includegraphics{images/image403.png}
+$G=(V,E), \overline{G}=(\overline{V},\overline{E})$
 
 {}
 
@@ -4984,7 +4872,7 @@ dimensioni con le seguenti caratteristiche:}
 {``Sulla diagonale principale ho i gradi dei vertici''
 (}\includegraphics{images/image410.png}{)}
 
-{~~~~~~~~}\includegraphics{images/image411.png}
+\includegraphics{images/image411.png}
 
 {Essendo G non orientato, la matrice è simmetrica e
 }\includegraphics{images/image412.png}
@@ -5025,24 +4913,24 @@ esponente maggiore di
 {Dimostrazione per
 induzione:}\textsuperscript{\protect\hyperlink{cmnt22}{{[}v{]}}\protect\hyperlink{cmnt23}{{[}w{]}}}
 
-{~~~~~~~~}{Ipotesi:}
+{Ipotesi:}
 
 {~~~~~~~~Passo induttivo:\\
 \hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}\includegraphics{images/image418.png}
 
-{~~~~~~~~~~~~~~~~}\includegraphics{images/image419.png}{, ovvero il
+\includegraphics{images/image419.png}{, ovvero il
 numero di cammini da }{i}{~a }{j}{~passanti per }{k}{.}
 
-{~~~~~~~~~~~~~~~~}{\includegraphics{images/image538.png}}
+{\includegraphics{images/image538.png}}
 
 {}
 
 {Esercizio}
 
-{Mostrare che }\includegraphics{images/image420.png}{~contiene un
+{Mostrare che }$G=(V,E) [NO]$ {~contiene un
 }{triangolo}{, ovvero un ciclo di lunghezza 3, se e solo se esistono due
 indici i e j tali che sia la matrice di adiacenza
-}\includegraphics{images/image73.png}{~e la matrice al quadrato
+}$A${~e la matrice al quadrato
 }\includegraphics{images/image421.png}{~hanno un elemento non nullo in
 posizione }\includegraphics{images/image422.png}
 
@@ -5051,7 +4939,7 @@ posizione }\includegraphics{images/image422.png}
 \hypertarget{h.m8b6lpkoqj6x}{\subsection{\texorpdfstring{{{[}NO{]} Grafi
 regolari}}{{[}NO{]} Grafi regolari}}\label{h.m8b6lpkoqj6x}}
 
-\includegraphics{images/image335.png}{~si dice k-regolare se tutti i
+$G=(V,E)${~si dice k-regolare se tutti i
 vertici hanno grado k. Con }\includegraphics{images/image423.png}
 
 {}
@@ -5097,7 +4985,7 @@ essere adattata a grafi orientati.}
 
 {{[}NO{]} Definizione:}
 
-{~~~~~~~~}\includegraphics{images/image426.png}
+\includegraphics{images/image426.png}
 
 \includegraphics{images/image427.png}{si dice isomorfismo se valgono le
 due proprietà:}
@@ -5125,7 +5013,7 @@ isomorfismo da
 }\includegraphics{images/image430.png}{~}{a}\includegraphics{images/image431.png}{~}{e
 si indica con }\includegraphics{images/image432.png}
 
-{~~~~~~~~}
+
 
 {Condizioni necessarie perché }\includegraphics{images/image433.png}{:}
 
@@ -5150,9 +5038,9 @@ si indica con }\includegraphics{images/image432.png}
 \begin{longtable}[]{@{}lll@{}}
 \toprule
 \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-\includegraphics{images/image340.png}\strut
+$G$\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-\includegraphics{images/image438.png}\strut
+$\overline{G}$\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 {Può verificarsi}\strut
 \end{minipage}\tabularnewline
@@ -5205,11 +5093,8 @@ combinazioni si procede a mappare gli archi con grado analogo.}
 
 {{[}NO{]} Definizione}
 
-\includegraphics{images/image439.png}{si dice albero {[}libero{]} se è
-aciclico e connesso.\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Un
-albero libero in cui si seleziona un particolare vertice, chiamato
-``radice'', si dice }{radicato}{.}
+$G=(V,E)$ si dice albero {[}libero{]} se è aciclico e connesso.\\
+Un albero libero in cui si seleziona un particolare vertice, chiamato ``radice'', si dice radicato.
 
 {\includegraphics{images/image533.png}}
 
@@ -5221,20 +5106,15 @@ albero libero in cui si seleziona un particolare vertice, chiamato
 
 {Proprietà 1:}
 
-{~~~~~~~~}{Se }\includegraphics{images/image340.png}{~è un albero,
-allora }\includegraphics{images/image375.png}{~poichè è, per
-definizione, connesso e aciclico:}
+Se $G$ è un albero,
+allora $\abs{E} = \abs{V} - 1$ poichè è, per definizione, connesso e aciclico:
 
 \begin{itemize}
 \tightlist
 \item
-  \includegraphics{images/image340.png}{~è connesso se
-  }\includegraphics{images/image440.png}{~Si deve rispettare un numero
-  minimo di archi}
+  $G${~è connesso se $\abs{E} \geq \abs{V} - 1$ : si deve rispettare un numero minimo di archi}
 \item
-  \includegraphics{images/image340.png}{~è aciclico se
-  }\includegraphics{images/image441.png}{~Si deve rispettare un numero
-  massimo di archi}
+  $G${~è aciclico se $\abs{E} \leq \abs{V} - 1$ : si deve rispettare un numero massimo di archi}
 \end{itemize}
 
 {~~~~~~~~L'albero risulta essere quindi una struttura ``fragile'' per
@@ -5246,15 +5126,15 @@ quanto riguarda il numero di archi.}
 
 {Proprietà degli alberi {[}liberi{]}}
 
-{~~~~~~~~Sia }\includegraphics{images/image420.png}{, le seguenti
+{~~~~~~~~Sia }$G=(V,E) [NO]$ {, le seguenti
 affermazioni sono equivalenti:}
 
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image340.png}{~è un albero}
+  $G${~è un albero}
 \item
-  {Due vertici qualsiasi di }\includegraphics{images/image340.png}{~sono
+  {Due vertici qualsiasi di }$G${~sono
   connessi da un unico cammino semplice, ovvero senza vertici ripetuti}
 \end{enumerate}
 
@@ -5262,8 +5142,8 @@ affermazioni sono equivalenti:}
 
 {Dimostrazione}{:~~~~~~~~}
 
-{Sia }\includegraphics{images/image420.png}{, per assurdo assumo ci
-siano almeno due vertici }\includegraphics{images/image442.png}{, tali
+{Sia }$G=(V,E) [NO]$ {, per assurdo assumo ci
+siano almeno due vertici $u,v$, tali
 che esistono almeno due cammini che li collegano. Facendo ciò si forma
 un ciclo.}
 
@@ -5271,17 +5151,15 @@ un ciclo.}
 \setcounter{enumi}{2}
 \tightlist
 \item
-  \includegraphics{images/image340.png}{~è connesso, ma se un qualche
-  arco viene rimosso da }\includegraphics{images/image340.png}{, il
+  $G${~è connesso, ma se un qualche
+  arco viene rimosso da }$G${, il
   grafo risultante è disconnesso}
 \item
-  \includegraphics{images/image340.png}{~è connesso e
-  }\includegraphics{images/image375.png}
+  $G${~è connesso e $\abs{E}=\abs{V}-1$}
 \item
-  \includegraphics{images/image340.png}{~è aciclico e
-  }\includegraphics{images/image375.png}
+  $G${~è aciclico e $\abs{E}=\abs{V}-1$}
 \item
-  \includegraphics{images/image340.png}{~è aciclico, ma se un qualunque
+  $G${~è aciclico, ma se un qualunque
   arco viene aggiunto, allora il grafo risultante è ciclico.}
 \end{enumerate}
 
@@ -5290,16 +5168,15 @@ un ciclo.}
 \hypertarget{h.9btor4ygb1hb}{\subsection{\texorpdfstring{{Alberi di
 copertura}}{Alberi di copertura}}\label{h.9btor4ygb1hb}}
 
-{Un albero }\includegraphics{images/image420.png}{~connesso si dice di
+{Un albero }$G=(V,E) [NO]$ {~connesso si dice di
 copertura se tutti gli archi in
 }\includegraphics{images/image443.png}{~toccano tutti i vertici di
-}\includegraphics{images/image340.png}{.}
+}$G${.}
 
 \hypertarget{h.rdrr6bsx8ypo}{\subsubsection{\texorpdfstring{{Taglio di
 un albero}}{Taglio di un albero}}\label{h.rdrr6bsx8ypo}}
 
-{Un taglio di un albero è una divisione in due parti
-}\includegraphics{images/image444.png}{~dell'insieme dei vertici.}
+{Un taglio di un albero è una divisione in due parti $(S,V\S)$ dell'insieme dei vertici.}
 
 {}
 
@@ -5307,10 +5184,8 @@ un albero}}{Taglio di un albero}}\label{h.rdrr6bsx8ypo}}
 
 {}
 
-{Un taglio }{rispetta}{~}\includegraphics{images/image445.png}{se non
-esistono archi di }\includegraphics{images/image73.png}{~tagliati. Essi
-possono essere in una delle due partizioni ma non possono attraversare
-il taglio.}
+{Un taglio rispetta $A \subseteq E$ se non
+esistono archi di $A$ tagliati. Essi possono essere in una delle due partizioni ma non possono attraversare il taglio.}
 
 \hypertarget{h.gfycwx7ubmbv}{\subsubsection{\texorpdfstring{{Arco
 leggero}}{Arco leggero}}\label{h.gfycwx7ubmbv}}
@@ -5322,133 +5197,81 @@ attraversanti un taglio.}
 copertura minimo
 (MST)}}{Albero di copertura minimo (MST)}}\label{h.1evqcdl7exzv}}
 
-{Sia }\includegraphics{images/image37.png}{~un albero di copertura,
+{Sia }$T${~un albero di copertura,
 definisco}
 
-\includegraphics{images/image446.png}
+$w(T) = \sum_{(u,v)\in T}{w(u,v)}$
 
-{dove }\includegraphics{images/image447.png}{~è detta ``funzione peso''
+{dove $w:E\rightarrow \mathbb{R}$ è detta ``funzione peso''
 }
 
-{}
+{Definizione:}
 
-{Definizione}{:}
-
-{Un albero di copertura }\includegraphics{images/image37.png}{~si dice
-minimo o ``di peso minimo'' (minimum spanning tree) se
-}\includegraphics{images/image448.png}{~è il minimo rispetto a tutti gli
-alberi di copertura}
-
-{}
+{Un albero di copertura }$T${~si dice minimo o ``di peso minimo'' (minimum spanning tree) se $w(T)$ è il minimo rispetto a tutti gli alberi di copertura}
 
 {Teorema fondamentale degli MST}{:}
 
-{~~~~~~~~Sia }\includegraphics{images/image420.png}{connesso con
-funzione peso }\includegraphics{images/image224.png}{.}
+{~~~~~~~~Sia }$G=(V,E) [NO]$ {connesso con
+funzione peso }$w${.}
 
-{~~~~~~~~}
+
 
 {~~~~~~~~Se le tre condizioni}
 
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image445.png}{è contenuto in qualche MST}
+  $A \subseteq E${è contenuto in qualche MST}
 \item
-  \includegraphics{images/image444.png}{~è un }{taglio }{che
-  }{rispetta}{~}\includegraphics{images/image73.png}
+  $(S,V \setminus S)${~è un taglio che rispetta}$A$
 \item
-  {Sia }\includegraphics{images/image449.png}{~un arco }{leggero}{~che
-  attraversa il taglio }\includegraphics{images/image444.png}
+  {Sia }$(u,v)${~un arco leggero che attraversa il taglio }$(S,V \setminus S)$
 \end{enumerate}
 
-{sono rispettate, allora l'arco
-}\includegraphics{images/image449.png}{~è }{sicuro }{per
-}\includegraphics{images/image73.png}{, ovvero
-}\includegraphics{images/image450.png}{~è contenuto in qualche MST.}
+{sono rispettate, allora l'arco $(u,v)$ è sicuro per $A$, ovvero $A \subseteq \{(u,v)\}$ è contenuto in qualche MST.}
 
-{}
+\subsection{Dimostrazione}
 
-{~~~~~~~~}{Dimostrazione}{:}
 
-{~~~~~~~~~~~~~~~~}\includegraphics{images/image451.png}{con
-}\includegraphics{images/image37.png}{~MST}
+{$A \subseteq T$ con $T$ MST}
 
-{~~~~~~~~~~~~~~~~}
 
-{~~~~~~~~~~~~~~~~Due casi:}
+{Due casi:}
 
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image452.png}{, caso banale in quanto
-  }\includegraphics{images/image453.png}{~e
-  }\includegraphics{images/image37.png}{è l'MST che cerchiamo.}
+  {$(u,v) \in T$, caso banale in quanto $A \cup \{(u,v)\} \subseteq T$  e $T$ è l'MST che cerchiamo.}
 \item
-  \includegraphics{images/image454.png}{, quindi
-  }\includegraphics{images/image37.png}{non è l'MST che cerchiamo,
-  procediamo quindi a costruirne uno:}
+  {$(u,v) \notin T$, quindi $T$ non è l'MST che cerchiamo, procediamo quindi a costruirne uno:}
 \end{enumerate}
 
-{Per le sei proprietà fornite, se unisco
-}\includegraphics{images/image449.png}{~a
-}\includegraphics{images/image37.png}{~formo un ciclo, è quindi
-necessario rimuovere l'altro cammino
-}\includegraphics{images/image455.png}{~che lo forma tra gli archi che
-attraversano il taglio. }
+{Per le sei proprietà fornite, se unisco $(u,v)$ a $T$ formo un ciclo, è quindi necessario rimuovere l'altro cammino $(x,y)$ che lo forma tra gli archi che attraversano il taglio. }
 
-\includegraphics{images/image456.png}
-
-{}
+$T' = T \cup {(u,v)} \setminus \{(x,y)\} $
 
 {\includegraphics{images/image530.png}}
 
-{}
+$w(u,v) \leq w(x,y)${: Il peso dell'arco aggiunto è minore del peso dell'arco rimosso, in quanto esso è leggero per ipotesi.}
 
-{}
+{Quanto vale allora $w(T')$? }
 
-\includegraphics{images/image457.png}{: Il peso dell'arco aggiunto è
-minore del peso dell'arco rimosso, in quanto esso è leggero per
-ipotesi.}
+$w(T') \leq w(T)$ {ed essendo }$w(u,v) \leq w(x,y)${~allora $w(T') \leq w(T)$}
 
-{}
+{Da }$w(T) \leq w(T') \leq w(T)$ \textsuperscript{\protect\hyperlink{cmnt26}{{[}z{]}}}{risulta che $w(T') = w(T)$, e }$T'${~è quindi un MST.}
 
-{Quanto vale allora }\includegraphics{images/image458.png}{? }
+{Nota}\textsuperscript{\protect\hyperlink{cmnt27}{{[}aa{]}}}{: se $w(u,v) = w(x,y)$ allora $(u,v) = (x,y)$?}
 
-\includegraphics{images/image459.png}{ed essendo
-}\includegraphics{images/image457.png}{~allora
-}\includegraphics{images/image460.png}
+{Dobbiamo però dimostrare che $T'$ sia ``sicuro'', e perciò dimostriamo che \\ $A \cup \{(u,v)\} \subseteq T'$}
 
-{}
+\subsubsection{Corollario}
 
-{~~~~~~~~~~~~~~~~~~~~~~~~}{Da
-}\includegraphics{images/image461.png}\textsuperscript{\protect\hyperlink{cmnt26}{{[}z{]}}}{risulta
-che }\includegraphics{images/image462.png}{, e
-}\includegraphics{images/image463.png}{~è quindi un MST.}
-
-{}
-
-{Nota}\textsuperscript{\protect\hyperlink{cmnt27}{{[}aa{]}}}{:
-~se}\includegraphics{images/image464.png}{~allora
-}\includegraphics{images/image465.png}{?}
-
-{}
-
-{Dobbiamo però dimostrare che
-}\includegraphics{images/image463.png}{~sia ``sicuro'', e perciò
-dimostriamo che }\includegraphics{images/image466.png}
-
-{}
-
-{Corollario:}
-
-{Sia }\includegraphics{images/image420.png}{connesso con funzione peso
-}\includegraphics{images/image224.png}{. Se le tre condizioni}
+{Sia $G=(V,E) [NO]$ connesso con funzione peso $w$. Se le tre condizioni}
 
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image445.png}{è contenuto in qualche MST}
+  $A \subseteq E${è contenuto in qualche MST}
 \item
   {C è una componente connessa della foresta (V,A)}
 \item
@@ -5456,37 +5279,28 @@ dimostriamo che }\includegraphics{images/image466.png}
   resto del grafo}
 \end{enumerate}
 
-{sono rispettate, allora l'arco
-}\includegraphics{images/image449.png}{~è }{sicuro }{per
-}\includegraphics{images/image73.png}{, ovvero
-}\includegraphics{images/image450.png}{~è contenuto in qualche MST.}
+{sono rispettate, allora l'arco $(u,v)$ è sicuro per $A$, ovvero $A \cup \{(u,v)\}$ è contenuto in qualche MST.}
 
-{}
 
-{Dimostrazione:}
+\subsubsection{Dimostrazione}
 
 {Se impongo che}
 
 \begin{itemize}
 \tightlist
 \item
-  {Il taglio dell'ipotesi 2 sia }\includegraphics{images/image467.png}{,
-  in modo da isolare la componente connessa}
+  {Il taglio dell'ipotesi 2 sia $(C,V\setminus C)$, in modo da isolare la componente connessa}
 \item
   {MANCA}\textsuperscript{\protect\hyperlink{cmnt28}{{[}ab{]}}}
 \end{itemize}
 
 {posso utilizzare il teorema fondamentale per la dimostrazione}
 
-{}
+\subsubsection{Corollario}
 
-{Corollario}{:}
+{Sia $(u,v)$ un arco di peso minimo in $G$. Allora $(u,v)$ appartiene a qualche MST.}
 
-{Sia}\includegraphics{images/image468.png}{~un arco di peso minimo in G.
-Allora }\includegraphics{images/image449.png}{~appartiene }{a
-qualche}{~MST.}
-
-{Dimostrazione}{~tramite la tecnica ``cuci e taglia'':}
+\subsubsection{Dimostrazione tramite la tecnica ``cuci e taglia''}
 
 {Sia T un MST di G. }
 
@@ -5495,90 +5309,61 @@ qualche}{~MST.}
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image452.png}{, ovvio}
+  $(u,v)\in T${, ovvio}
 \item
-  \includegraphics{images/image454.png}
+  $(u,v)\notin T$
 \end{enumerate}
 
-{}
+\subsubsection{Corollario}
 
-{Corollario}{:}
+{Sia $(u,v)$ un arco di peso minimo in $G$ e supponiamo che sia unico. Allora $(u,v)$ appartiene a tutti gli MST}\textsuperscript{\protect\hyperlink{cmnt29}{{[}ac{]}}}{.}
 
-{Sia }\includegraphics{images/image449.png}{~un arco di peso minimo in G
-e supponiamo che sia unico. Allora
-}\includegraphics{images/image449.png}{~appartiene }{a tutti}{~gli
-MST}\textsuperscript{\protect\hyperlink{cmnt29}{{[}ac{]}}}{.}
-
-{Dimostrazione per assurdo:}
+\subsubsection{Dimostrazione per assurdo}
 
 {Nonostante le ipotesi, esiste {[}almeno{]} un MST senza l'arco in
 questione.}
 
-{Non esistendo, provvediamo ad aggiungerlo a T.
-}\includegraphics{images/image469.png}
+{Non esistendo, provvediamo ad aggiungerlo a T. $T' = T \cup \{(u,v)\}$}
 
 {Facendo ciò creo sicuramente un ciclo, in quanto T è albero. Scelto un
-arco }\includegraphics{images/image455.png}{~e lo rimuovo. Ho quindi
+arco }$(x,y)${~e lo rimuovo. Ho quindi
 costruito un albero di copertura con peso
 }\includegraphics{images/image470.png}
 
-{Con }\includegraphics{images/image471.png}{(minore stretto!)}
+{Con $w(u,v) < w(x,y)$ (minore stretto!)}
 
 {Contraddizione}{: essendo T MST, non può esistere un altro albero con
 peso inferiore.}
 
-{}
+\subsubsection{Esercizio}
 
-{}
+$G=(V,E) [NO]$ connesso con $w:E \rightarrow \mathbb{R}$
 
-{Esercizio}{:}
+{Sia $T_{min}$ un MST di G.}
 
-\includegraphics{images/image472.png}
+{Sia $T'$ un albero di copertura (ST) non necessariamente minimo (M).}
 
-{Sia }\includegraphics{images/image473.png}{~un MST di G.}
-
-{Sia }\includegraphics{images/image463.png}{~un albero di copertura (ST)
-non necessariamente minimo (M).}
-
-{Siano }\includegraphics{images/image474.png}{~rispettivamente gli archi
+{Siano $(u,v),(x,y)$ rispettivamente gli archi
 di }\includegraphics{images/image475.png}{di peso massimo. Ordino gli
 archi e considero i pesi maggiori.}
 
-{}
+\includegraphics{images/image476.png}{~con}\includegraphics{images/image477.png}
 
-\includegraphics{images/image476.png}{~con
-}\includegraphics{images/image477.png}
+\includegraphics{images/image478.png}{~con}\includegraphics{images/image479.png}
 
-\includegraphics{images/image478.png}{~con
-}\includegraphics{images/image479.png}
+{Congettura: }$w(u,v) \leq w(x,y)${~}
 
-{}
+{Si può procedere per confutazione con controesempio oppure per dimostrazione tramite metodo ``cuci e taglia''.}
 
-{Congettura: }\includegraphics{images/image457.png}{~}
+{Soluzione}\textsuperscript{\protect\hyperlink{cmnt30}{{[}ad{]}}}{:}
 
-{Si può procedere per confutazione con controesempio oppure per
-dimostrazione tramite metodo ``cuci e taglia''.}
+\subsubsection{Esercizio}
 
-{}
+{Dimostrare che, se tutti i pesi del grafo sono distinti, allora esiste un solo MST.}
 
-{~~~~~~~~}{Soluzione}\textsuperscript{\protect\hyperlink{cmnt30}{{[}ad{]}}}{:}
+{Soluzione}\textsuperscript{\protect\hyperlink{cmnt31}{{[}ae{]}}}{:}
 
-{}
-
-{Esercizio}{:}
-
-{Dimostrare che, se tutti i pesi del grafo sono distinti, allora esiste
-un solo MST.}
-
-{}
-
-{~~~~~~~~}{Soluzione}\textsuperscript{\protect\hyperlink{cmnt31}{{[}ae{]}}}{:}
-
-{}
-
-\hypertarget{h.42rszsg7qe80}{\subsubsection{\texorpdfstring{{Generazione
-degli alberi di copertura
-minima}}{Generazione degli alberi di copertura minima}}\label{h.42rszsg7qe80}}
+\hypertarget{h.42rszsg7qe80}{\subsubsection{\texorpdfstring{{Generazione degli alberi di copertura minima}}{Generazione degli alberi di copertura minima}}\label{h.42rszsg7qe80}}
 
 \protect\hypertarget{t.89c877068ffb6efc80378955af5aa00fb054212d}{}{}\protect\hypertarget{t.40}{}{}
 
@@ -5588,15 +5373,13 @@ minima}}{Generazione degli alberi di copertura minima}}\label{h.42rszsg7qe80}}
 {Generic\_MST(}{G}{, w)\\
 \hspace*{0.333em} ~A = {[}{]}\\
 \hspace*{0.333em} ~}{while}{~(A non }{forma}{~un MST) o analogamente
-(}\includegraphics{images/image480.png}{)\\
+(}$\abs{A}\leq \abs{V}-1${)\\
 \hspace*{0.333em} ~ ~ }{//Trova un arco sicuro per A (u,v)}{\\
 \hspace*{0.333em} ~ ~ A=A }{U}{~\{(}{u}{,v)\}\\
 \hspace*{0.333em} ~}{Return}{~A}\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
-
-{}
 
 {Verranno analizzati gli algoritmi di Kruskal e Prim, i quali
 differiscono per l'implementazione della ricerca dell'arco sicuro.}
@@ -5614,25 +5397,7 @@ disgiunti. Esse dispongono di tre operatori:}
   {Find\_set(x)}
 \end{enumerate}
 
-{}
-
-{}
-
-{}
-
-{}
-
-{}
-
-{}
-
-{}
-
-{}
-
 {Esempio}{~di utilizzo: determinare le componenti connesse di un grafo}
-
-{}
 
 \protect\hypertarget{t.9ae6642cabb7dfeda3c5292f67bce18bb08a8c38}{}{}\protect\hypertarget{t.41}{}{}
 
@@ -5650,68 +5415,29 @@ disgiunti. Esse dispongono di tre operatori:}
 \bottomrule
 \end{longtable}
 
-{}
-
 \hypertarget{h.tpoo55sx1m98}{\subsubsection{\texorpdfstring{{Generazione
 di MST : Kruskal}}{Generazione di MST : Kruskal}}\label{h.tpoo55sx1m98}}
 
-\includegraphics{images/image439.png}{connesso,
-}\includegraphics{images/image481.png}{~}
+$G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
 
 \protect\hypertarget{t.4b86b9e72214bfde6e44300f060a45f33bae59c6}{}{}\protect\hypertarget{t.42}{}{}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Kruskal(}{G}{,w)\\
-\hspace*{0.333em} ~ A = {[}{]}\\
-\hspace*{0.333em} ~ }{Foreach}{~}{u}{~}{in}{~V{[}}{G}{{]} }{do ~ ~ ~ ~ ~
-~ ~ ~ ~ ~ ~ ~ ~ ~}{~O(n)}{\\
-}{~ ~ ~ ~ ~Make\_set(}{u}{)\\
-\hspace*{0.333em} ~ Ordina gli archi }{di}{~}{E}{{[}}{G}{{]}
-}{in}{~ordine crescente ~ ~ }{Θ(m log m)\\
-}{~ ~ ~}{Foreach}{~(}{u}{,v) }{in}{~}{E}{{[}}{G}{{]} }{do ~ ~ ~ ~ ~ ~ ~
-~ ~ ~ ~ ~ }{O(m log m)}{\\
-\hspace*{0.333em} ~ ~ ~ }{If}{~find\_set(}{u}{) != find\_set(v) then ~ ~
-~ ~ ~ }{O(log m)*}{~\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}
-~ ~ ~ ~Union(}{u}{,v) ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~}{O(log m)*}{\\
-\hspace*{0.333em} ~ ~ ~ ~ ~ ~A = A }{U}{~\{(}{u}{,v)\}\\
-\hspace*{0.333em} ~ }{Return}{~A}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
+\lstinputlisting[language=Python]{code/kruskal.txt}
 
 {*Per l'analisi delle due find\_set e della union ci viene formita la
 complessità ottenuta tramite Heichmann.\\
 }{Complessità}{:}
 
-\includegraphics{images/image482.png}{,
-avendo}\includegraphics{images/image483.png}{archi poichè l'arco è
-connesso, la complessità è }\includegraphics{images/image484.png}
+\includegraphics{images/image482.png}{,avendo}\includegraphics{images/image483.png}{archi poichè l'arco è connesso, la complessità è }\includegraphics{images/image484.png}
 
 \hypertarget{h.4n5zx1ni4b2b}{\subsubsection{\texorpdfstring{{Simulazione
 di esecuzione}}{Simulazione di esecuzione}}\label{h.4n5zx1ni4b2b}}
 
-{Tramite grafo}
+\subsubsection{Tramite grafo}
 
 {\includegraphics{images/image519.png}}
 
-{}
-
-{}
-
-{}
-
-{}
-
-{}
-
-{Tramite tabella}
-
-{}
+\subsubsection{Tramite tabella}
 
 \protect\hypertarget{t.3d51b92c2ac905672959a85df610c27b5dc51a6c}{}{}\protect\hypertarget{t.43}{}{}
 
@@ -5769,115 +5495,50 @@ di esecuzione}}{Simulazione di esecuzione}}\label{h.4n5zx1ni4b2b}}
 \bottomrule
 \end{longtable}
 
-{}
+\hypertarget{h.l5wypo8krmqc}{\subsubsection{\texorpdfstring{{Generazione di MST : Prim}}{Generazione di MST : Prim}}\label{h.l5wypo8krmqc}}
 
-\hypertarget{h.l5wypo8krmqc}{\subsubsection{\texorpdfstring{{Generazione
-di MST : Prim}}{Generazione di MST : Prim}}\label{h.l5wypo8krmqc}}
-
-{A differenza di Kruskal, Prim richiede un vertice di partenza detto
-``radice''. Con l'insieme Q si indica l'insieme dei vertici da estrarre.
-}\includegraphics{images/image485.png}{~indica quindi l'insieme dei
-vertici già estratti. Q è una coda di priorità, implementata tramite
-Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
-
-{}
+{A differenza di Kruskal, Prim richiede un vertice di partenza detto ``radice''. Con l'insieme Q si indica l'insieme dei vertici da estrarre.
+$V\\Q$ indica quindi l'insieme dei vertici già estratti. $Q$ è una coda di priorità, implementata tramite Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
 
 \begin{itemize}
 \tightlist
 \item
-  {Predecessore: }\includegraphics{images/image486.png}
+  Predecessore: $\pi[u]$
 \item
-  {Chiave: }\includegraphics{images/image487.png}{valore dell'arco
-  incidente che attraversa il
-  taglio}\includegraphics{images/image488.png}{con peso minore. Si
-  utilizza il valore infinito positivo per indicare l'eventuale assenza
-  di archi.}
+Chiave: $Key[u]$ valore dell'arco incidente che attraversa il taglio $(Q,V\\Q)$ con peso minore. Si utilizza il valore infinito positivo per indicare l'eventuale assenza di archi.
 \end{itemize}
-
-{}
-
-{}
-
-{}
-
-{}
 
 \protect\hypertarget{t.8fdb0455858db4c6dd05987cee7bc92788c770bd}{}{}\protect\hypertarget{t.44}{}{}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Prim(}{G}{,w,r):\\
-1~~~~~~~~Q = V{[}}{G}{{]}\\
-2~~~~~~~~}{for}{~each v }{in}{~}{Q}{\\
-3~~~~~~~~~~~~~~~~key{[}v{]} = }{inf}{\\
-4~~~~~~~~key{[}r{]} = 0\\
-5~~~~~~~~π{[}r{]} = NIL\\
-6~~~~~~~~}{while}{~Q != {[}{]} }{do}{\\
-7~~~~~~~~~~~~~~~~}{u}{~= extractMin(Q)\\
-8~~~~~~~~~~~~~~~~}{for}{~each v }{in}{~Adj{[}}{u}{{]}\\
-9~~~~~~~~~~~~~~~~~~~~~~~~}{if}{~v }{in}{~Q and }{w}{(}{u}{,v)
-\textless{} key{[}v{]} then\\
-10~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~key{[}v{]} = }{w}{(}{u}{,v)\\
-11~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~π{[}v{]} = }{u}{\\
-12~~~~~~~~}{return}{~T = \{(v,π{[}v{]}\} \textbar{} v }{in}{~V
-\textbackslash{} \{r\}\}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting[language=Python]{code/prim.txt}
 
-{}
+La convergenza risulta essere finita
 
-{La convergenza risulta essere finita}
-
-{La complessità della funzione Prim è
-}\includegraphics{images/image489.png}
-
-{}
+La complessità della funzione Prim è $O(m logn)$
 
 {Simulazione}
 
 {\includegraphics{images/image542.png}}
 
-{}
+\subsection{\texorpdfstring{{Cammini minimi}}{Cammini minimi}}\label{h.yl5v086nw9el}
 
-\subsection{\texorpdfstring{{Cammini
-minimi}}{Cammini minimi}}\label{h.yl5v086nw9el}
+{Solitamente si sottointende l'utilizzo su grafi orientati, in caso di grafi non orientati, ogni arco può essere sostituito da una coppia di archi inversamente orientati.}
 
-{Solitamente si sottointende l'utilizzo su grafi orientati, in caso di
-grafi non orientati, ogni arco può essere sostituito da una coppia di
-archi inversamente orientati.}
+$G=(V,E,w)$ orientato, $w:E\rightarrow \mathbb{R}$
 
-{}
+Un cammino $p$ è una sequenza $<x_0,x_1,...,x_q>$, $\forall i, i\leq i \leq q, (x_{i-1},x_i) \in E$.
 
-\includegraphics{images/image490.png}
-
-{}
-
-{Un cammino }\includegraphics{images/image491.png}{~è una sequenza
-}\includegraphics{images/image492.png}
-
-\includegraphics{images/image493.png}{~è la funzione ``peso'' di un
-cammino p.}
-
-{}
+$w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 {La distanza }\includegraphics{images/image494.png}{tra due vertici
 }\includegraphics{images/image495.png}{è definita nel seguente modo:}
 
-{~~~~~~~~}\includegraphics{images/image496.png}{~se non esiste un
-cammino orientato da u a v}
+\includegraphics{images/image496.png}{~se non esiste un cammino orientato da u a v}
 
-{~~~~~~~~}\includegraphics{images/image497.png}{~minimo dei pesi dove p
+\includegraphics{images/image497.png}{~minimo dei pesi dove p
 è il cammino tra u e v}
 
 \subsection{\texorpdfstring{{}}{}}\label{h.h641h77p7srj}
-
-{}
-
-{}
-
-{}
 
 \subsubsection{\texorpdfstring{{Varianti}}{Varianti}}\label{h.39wfvuocrt5u}
 
@@ -5885,19 +5546,9 @@ cammino orientato da u a v}
 combinazioni dei due casi si numerosità dei vertici di partenza e di
 destinazione.}
 
-{}
-
 \protect\hypertarget{t.249d86aca9d964d15cac3725f6a7ace85a3425b4}{}{}\protect\hypertarget{t.45}{}{}
 
-{}
-
-{}
-
 {Destinazione}
-
-{}
-
-{}
 
 {Singola}
 
@@ -5937,17 +5588,14 @@ due sono sottoproblemi di essi.}
 
 {}
 
-\subsection{\texorpdfstring{{Archi con pesi
-negativi}}{Archi con pesi negativi}}\label{h.tf12b72w5l3}
+\subsection{\texorpdfstring{{Archi con pesi negativi}}{Archi con pesi negativi}}\label{h.tf12b72w5l3}
 
 {Ci domandiamo se sia possibile risolvere il problema degli archi con
 peso negativo sommando ai pesi di tutti gli archi del grafo G la
 costante k capace di renderli tutti positivi. Es:
 }\includegraphics{images/image507.png}
 
-\subsection{\texorpdfstring{{Strutture dati per la rappresentazione dei
-cammini
-minimi}}{Strutture dati per la rappresentazione dei cammini minimi}}\label{h.ee7q1txmgnne}
+\subsection{\texorpdfstring{{Strutture dati per la rappresentazione dei cammini minimi}}{Strutture dati per la rappresentazione dei cammini minimi}}\label{h.ee7q1txmgnne}
 
 {}
 
@@ -5957,37 +5605,28 @@ due campi:}
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image509.png}{~: stima della distanza tra s ed
-  u}
+$d[u]$ : stima della distanza tra $s$ ed $u$
 \item
-  \includegraphics{images/image486.png}{: predecessore}
+$\pi[u]$ : predecessore
 \end{enumerate}
 
-\subsubsection{\texorpdfstring{{Sottografo dei
-predecessori}}{Sottografo dei predecessori}}\label{h.ky1vo2u762au}
+\subsubsection{\texorpdfstring{{Sottografo dei predecessori}}{Sottografo dei predecessori}}\label{h.ky1vo2u762au}
 
-{Dato}\includegraphics{images/image510.png}{, il sottografo dei
-predecessori è}\includegraphics{images/image511.png}{dove}
+{Dato}$G=(V,E,w)${, il sottografo dei predecessori è $G_\pi=(V_\pi,E_\pi)$ dove}
 
 \includegraphics{images/image512.png}{~}
 
 \includegraphics{images/image513.png}{~}
 
-\subsubsection{\texorpdfstring{{Albero dei cammini
-minimi}}{Albero dei cammini minimi}}\label{h.2lffyamho46s}
+\subsubsection{\texorpdfstring{{Albero dei cammini minimi}}{Albero dei cammini minimi}}\label{h.2lffyamho46s}
 
-{Dato}\includegraphics{images/image510.png}{, l'albero dei cammini
-minimi }\includegraphics{images/image514.png}{è un sottografo di G dove}
+{Dato}$G=(V,E,w)${, l'albero dei cammini minimi $G'=(V',E')$ è un sottografo di $G$ dove}
 
-{V' : tutti gli archi ragiungibili dal vertice sorgente}
+{$V'$ : tutti gli archi ragiungibili dal vertice sorgente}
 
-\includegraphics{images/image515.png}{forma un albero radicato in s}
+{$G'$ : forma un albero radicato in s}
 
-\includegraphics{images/image516.png}{~l'unico cammino tra
-}\includegraphics{images/image517.png}{~e
-}\includegraphics{images/image76.png}{~in
-}\includegraphics{images/image518.png}{è un cammino minimo in
-}\includegraphics{images/image340.png}
+\includegraphics{images/image516.png}{~l'unico cammino tra $s$ e $v$ in $G'$ è un cammino minimo in}$G$
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -5998,69 +5637,19 @@ campi}}{Procedure di modifica dei due campi}}\label{h.5lg4kz3z4f5y}
 
 \protect\hypertarget{t.29f77ac6905498186484b14fa7bf14ea64fecb79}{}{}\protect\hypertarget{t.46}{}{}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{InitSingleSource}{(}{G}{,s)\\
-\hspace*{0.333em} ~foreach u }{in}{~}{V}{{[}}{G}{{]} }{do}{\\
-\hspace*{0.333em} ~ ~ ~d{[}u{]} \textless{}- + inf\\
-\hspace*{0.333em} ~ ~ ~π{[}u{]} \textless{}- }{NIL}{\\
-\hspace*{0.333em} ~d{[}s{]} \textless{}- }{0}{~~~~~~~~}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
 
-{}
+\lstinputlisting[language=Python]{code/init_single_source.txt}
 
 \protect\hypertarget{t.4fa4368bfb7c1d485140ed33f86edf6c298bfda0}{}{}\protect\hypertarget{t.47}{}{}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Relax}{(}{u}{,}{v}{,}{w}{)\\
-\hspace*{0.333em} ~}{if}{~}{d}{{[}v{]}}{~\textgreater{} }{d}{{[}u{]}}{~+
-}{w}{(}{u}{,}{v}{) }{then}{\\
-\hspace*{0.333em} ~ ~ ~}{d}{{[}v{]}}{~\textless{}}{-}{~}{d}{{[}u{]}}{~+
-}{w}{(}{u}{,}{v}{)\\
-\hspace*{0.333em} ~ ~ ~π}{{[}v{]}}{~\textless{}}{-}{~}{u}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{\\
-}
-
-{}
+\lstinputlisting[language=Python]{code/relax.txt}
 
 \subsubsection{\texorpdfstring{{Dijkstra}}{Dijkstra}}\label{h.d7e75pwi333b}
 
 \protect\hypertarget{t.d055ffe7c1698902badd9b7488033a931b1cfb1d}{}{}\protect\hypertarget{t.48}{}{}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Dijkstra}{(}{G}{,w,s)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{InitSingleSource}{(}{G}{,s)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{Q}{~\textless{}-
-}{V}{{[}}{G}{{]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{S}{~\textless{}-
-{[}{]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}while
-}{Q}{~!= {[}{]} }{do}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}u
-\textless{}- extractMin(}{Q}{)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{S}{~\textless{}-
-}{S}{~}{U}{~\{u\}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}foreach
-v }{in}{~}{Adj}{{[}u{]} }{do}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}relax(u,v,w)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}return
-d,π}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
 
-{}
+\lstinputlisting[language=Python]{code/dijkstra.txt}
 
 {La cosa di priorità Q può essere implementata tramite}
 
@@ -6072,16 +5661,8 @@ d,π}\strut
   {Heap binario}
 \end{enumerate}
 
-{}
-
 {Studiamo la complessità di Dijkstra con coda di priorità implementata
 con array lineare:}
-
-{}
-
-{}
-
-{}
 
 \protect\hyperlink{cmnt_ref1}{{[}a{]}}{Parte Intera Inferiore}
 

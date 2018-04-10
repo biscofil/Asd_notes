@@ -1,0 +1,5 @@
+InitSingleSource(G,s)
+    foreach u in V[G] do
+        d[u] <- + inf
+        $\pi$[u] <- NIL
+    d[s] <- 0	

@@ -1,0 +1,13 @@
+Prim(G,w,r):
+	Q = V[G]
+	for each v in Q
+		key[v] = inf
+	key[r] = 0
+	$\pi$[r] = NIL
+	while Q != [] do
+		u = extractMin(Q)
+		for each v in Adj[u]
+			if v in Q and w(u,v) < key[v] then
+				key[v] = w(u,v)
+				$\pi$[v] = u
+	return T = {(v,$\pi$[v]} | v in V \ {r}}
