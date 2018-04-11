@@ -1,0 +1,15 @@
+Hash_Insert(Array T, Elem k)
+	i = 0 //ispezioni
+	trovata = false //inserita
+	repeat
+		j = h(k,i)
+		if T[j] == NULL or T[j] == "deleted"
+			T[j] == k
+			trovata = true
+		else
+			i++
+	until trovata or i == m
+	if trovata
+		return j
+	else
+		return error "overflow, tabella piena"

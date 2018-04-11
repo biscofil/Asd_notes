@@ -1,0 +1,6 @@
+Generic_MST(G, w)
+	A = []
+	while (A non forma un MST) o analogamente ($\abs{A} \leq \abs{V} - 1$)
+		//Trova un arco sicuro per A $(u,v)$
+		$A=A \cup \{(u,v)\}$
+	Return A

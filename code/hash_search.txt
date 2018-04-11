@@ -1,0 +1,14 @@
+Hash_Search(Array T, Key K)
+	i=0
+	trovata = false
+	repeat
+		j=h(k,i)
+		if T[j] == k
+			trovata = true
+		else
+			i++
+	until trovata or i==m or T[j] == NULL
+	if trovata
+		return j
+	else
+		return NULL
