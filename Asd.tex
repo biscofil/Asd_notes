@@ -34,7 +34,6 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
 \lstdefinelanguage{pseudocode}{
 	sensitive=false,
 	keywords={}
@@ -49,7 +48,7 @@
 	stringstyle=\color{red}
 	numberstyle=\scriptsize
 }
- 
+
 \lstdefinestyle{pseudocodestyle}{
 	language=pseudocode,
     backgroundcolor=\color{backcolour},   
@@ -1042,50 +1041,25 @@ funzione esaminata.}
   efficiente}
 \end{itemize}
 
-{}
-
-{}
-
-{}
-
-{}
-
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-{}
 
 \hypertarget{h.x4ciu865ga1f}{\subsubsection{\texorpdfstring{{Strumento
 \#1 - albero di
 ricorsione}}{Strumento \#1 - albero di ricorsione}}\label{h.x4ciu865ga1f}}
 
-{}
-
 {Notiamo che }\includegraphics{images/image33.png}
 
-{dove (1 * 5) è la complessità delle foglie (5 foglie con peso 1)}
+{dove $(1 * 5)$ è la complessità delle foglie (5 foglie con peso 1)}
 
-{e (2 * 4) è la complessità dei nodi interni (4 nodi con peso 2)}
-
-{}
+{e $(2 * 4)$ è la complessità dei nodi interni (4 nodi con peso 2)}
 
 {\includegraphics{images/image523.png}}
 
 {Proprietà \#1}
 
-{}
-
-{Se }\includegraphics{images/image23.png}{rappresenta l'albero di
-ricorsione relativo a }\includegraphics{images/image34.png}{allora il
-numero di foglie di }\includegraphics{images/image23.png}{è uguale a
-}\includegraphics{images/image1.png}{(con
-}\includegraphics{images/image1.png}{indichiamo l'n-esimo numero della
-successione di Fibonacci)}
-
-{}
+{Se $T_n$ rappresenta l'albero di ricorsione relativo a $Fib2_n$, allora il numero di foglie di $T_n$ è uguale a $F_n$(con $F_n$ indichiamo l'n-esimo numero della successione di Fibonacci)}
 
 {Dimostrazione per induzione}
-
-{}
 
 {Base:}
 
@@ -1093,50 +1067,23 @@ successione di Fibonacci)}
 
 {se n = ~2 → numero di foglie di }\includegraphics{images/image36.png}
 
-{}
-
 {Passo induttivo:}
 
 {\includegraphics{images/image528.png}}
 
-
-
-{}
-
-{}
-
 {Proprietà \#2}
 
-{}
+{Sia $T$ un albero binario in cui ogni nodo interno ha esattamente 2 figli}
 
-{Sia}$T${un albero binario in cui ogni
-nodo interno ha esattamente 2 figli}
-
-{Allora }\includegraphics{images/image38.png}
-
-{dove ~~~~~~~~con }\includegraphics{images/image39.png}{indichiamo il
-numero di nodi interni dell'albero }$T$
-
-{e con }\includegraphics{images/image40.png}{indichiamo il numero di
-foglie dell'albero }$T$
-
-{}
-
-{}
+{Allora $i_T=f_T-1$, dove con $i_T$ indichiamo il numero di nodi interni dell'albero $T$ e con $f_T$ indichiamo il numero di foglie dell'albero $T$}
 
 {Dimostrazione per induzione}
 
-{dimostrazione su }$n${, dove
-}$n${~è il numero di nodi di
-}$T$
-
-{}
+{Dimostrazione su $n$, dove $n$ è il numero di nodi di $T$}
 
 {Base:}
 
 $n=1${~→ OVVIO}
-
-{}
 
 {Passo induttivo:}
 
@@ -1151,13 +1098,9 @@ $n=1${~→ OVVIO}
 
 {\includegraphics{images/image522.png}}
 
-{}
-
 {Notiamo che }
 
 \includegraphics{images/image45.png}{*}
-
-{}
 
 \includegraphics{images/image46.png}{**}
 
@@ -1171,18 +1114,11 @@ $n=1${~→ OVVIO}
 
 {→ (sostituisco }{**}{) ~ }\includegraphics{images/image38.png}
 
-{}
-
-{Studio complessità di }\includegraphics{images/image51.png}{l'utilizzo
-del metodo dell'albero di ricorsione}
-
-{}
+{Studio complessità di }\includegraphics{images/image51.png}{l'utilizzo del metodo dell'albero di ricorsione}
 
 {~}\includegraphics{images/image52.png}
 
 {~}\includegraphics{images/image53.png}
-
-{}
 
 \includegraphics{images/image54.png}
 
@@ -1191,8 +1127,6 @@ del metodo dell'albero di ricorsione}
 {→ }\includegraphics{images/image56.png}{~}
 
 {Proprietà \#3}
-
-{}
 
 \includegraphics{images/image57.png}
 
@@ -1210,21 +1144,15 @@ del metodo dell'albero di ricorsione}
 
 \includegraphics{images/image61.png}
 
-{}
-
 \includegraphics{images/image62.png}
 
 \includegraphics{images/image63.png}
 
 \includegraphics{images/image64.png}
 
-{}
-
 \includegraphics{images/image65.png}{~è sempre maggiore o uguale ad 1}
 
-{}
-
-{Fib2(n) risulta essere troppo poco efficiente}
+{$Fib2(n)$ risulta essere troppo poco efficiente}
 
 \includegraphics{images/image66.png}
 
@@ -1393,37 +1321,22 @@ x}\strut
 
 {{[}CLRS{]} pp. 977-979}
 
-{}
+{L'albero è un tipo particolare di grafo connesso, aciclico e non orientato.}
 
-{L'albero è un tipo particolare di grafo connesso, aciclico e non
-orientato.}
+{Un albero radicato è una coppia $T=(N,A)$}
 
-{}
-
-{Un albero radicato è una coppia }\includegraphics{images/image70.png}
-
-\includegraphics{images/image71.png}{~è un insieme finito di nodi fra
-cui si distingue un nodo }\includegraphics{images/image72.png}{~detto
-`Radice'.}
+{$N$ è un insieme finito di nodi fra cui si distingue un nodo $R$, detto `Radice'.}
 
 $A${~è un sottoinsieme del prodotto
-cartesiano }\includegraphics{images/image74.png}{,è un insieme di coppie
-di nodi che chiamiamo }{archi}{.}
+cartesiano $(NxN)$,è un insieme di coppie
+di nodi che chiamiamo archi.}
 
-{}
-
-{}
-
-{In un albero, ogni nodo v (eccetto la radice) ha esattamente un
-genitore che viene chiamato padre u, tale che
-}\includegraphics{images/image75.png}
+{In un albero, ogni nodo $v$ (eccetto la radice) ha esattamente un genitore che viene chiamato padre $u$, tale che $(u,v) \in A$}
 
 {\includegraphics{images/image539.png}}
 
-{}
 
-{Un nodo può avere 0 o più figli, un figlio è tale se esiste un arco
-}\includegraphics{images/image75.png}
+{Un nodo può avere 0 o più figli, un figlio è tale se esiste un arco $(u,v) \in A$}
 
 {}
 
@@ -1449,72 +1362,36 @@ condizioni:}
 
 \includegraphics{images/image81.png}
 
-
-
 {La lunghezza di un cammino è il numero di archi nel cammino oppure il
 numero di nodi - 1.}
-
-{}
 
 {Sia }$x${~un nodo dell'albero radicato
 }$T${con radice
 }\includegraphics{images/image83.png}{.}
 
-{Qualsiasi nodo }$y${~in un cammino che
-parte dalla radice }\includegraphics{images/image83.png}{~ed arriva ad
-}$x${è detto ANTENATO di
-}$x${~(}$x${~compreso,
-è antenato di se stesso).}
+{Qualsiasi nodo $y$ in un cammino, che parte dalla radice $r$ ed arriva ad $x$, è detto ANTENATO di $x$($x$ compreso, è antenato di se stesso).}
 
-{}
-
-{Se }$y${~è un antenato di
-}$x${, allora
-}$x${~è DISCENDENTE di
-}$y$
-
-{}
+{Se $y$ è un antenato di $x$, allora $x$ è DISCENDENTE di $y$}
 
 {NB: Ogni nodo è DISCENDENTE ed ANTENATO di sè stesso.}
 
-{}
+{Se $y$ è un antenato di $x$ ed $x$ è diverso da $y$, allora $y$ è un ANTENATO PROPRIO di $x$ ed $x$ è DISCENDENTE PROPRIO di $y$.}
 
-{Se }$y${~è un antenato di
-}$x${~ed
-}$x${~è diverso da
-}$y${, allora
-}$y${~è un ANTENATO PROPRIO di
-}$x${~ed
-}$x${~è DISCENDENTE PROPRIO di
-}$y${.}
+{Il sottoalbero con radice in $x$ è l'albero indotto dai discendenti di $x$}
 
-{Il sottoalbero con radice in }$x${~è
-l'albero indotto dai discendenti di
-}$x$
+{La profondità di un nodo $x$ è la lunghezza del cammino dalla radice ad $x$.}
 
-{La profondità}{~di un nodo }$x${~è la
-lunghezza del cammino dalla radice ad
-}$x${.}
+{Un livello di un albero è costituito da tutti i nodi che stanno alla stessa profondità. }
 
-{Un livello di un albero è costituito da tutti i nodi che stanno alla
-stessa profondità. }
-
-{L'altezza}{~di un nodo }$x${~è la
-lunghezza del più lungo cammino che scende da
-}$x${~alle foglie (qualsiasi foglia) di
-profondità massima.}
+{L'altezza di un nodo $x$ è la lunghezza del più lungo cammino che scende da $x$ alle foglie (qualsiasi foglia) di profondità massima.}
 
 {L'altezza di un albero è l'altezza del nodo radice.}
 
 {L'altezza è la massima profondità di un qualsiasi nodo dell'albero.}
 
-{}
-
 \hypertarget{h.rmzlh8kpnju}{\subsection{\texorpdfstring{{Alberi binari
 (Albero k-ario con K =
 2)}}{Alberi binari (Albero k-ario con K = 2)}}\label{h.rmzlh8kpnju}}
-
-{}
 
 {Gli alberi binari sono definiti in modo ricorsivo:}
 
@@ -1556,94 +1433,49 @@ profondità e tutti i nodi interni hanno grado
 
 {Trovare l'algoritmo per determinare la completezza di un albero}
 
-{}
+{Dimostro per induzione che le foglie sono $K^h$}
 
-{Dimostro}{~per induzione che le foglie sono
-}\includegraphics{images/image86.png}{~}
 
-{}
+{$h=0$ (caso base): $K^0=1$, OK}
 
-\includegraphics{images/image87.png}{~(caso base)
-}\includegraphics{images/image88.png}{~OK}
+{Assumiamo che per un albero di altezza $h$ sia vero che $n=K^h$}
 
-{assumiamo che per un albero di altezza
-}\includegraphics{images/image89.png}{~sia vero che
-}\includegraphics{images/image90.png}
+{Lo dimostro per $h+1$}
 
-{lo dimostro per }\includegraphics{images/image91.png}
+{Il numero di nodi di profondità $h$ è $K^h$ per ipotesi}
 
-{}
-
-{il numero di nodi di profondità
-}\includegraphics{images/image89.png}{~è
-}\includegraphics{images/image86.png}{per ipotesi}
-
-{il numero di nodi di profondità
-}\includegraphics{images/image91.png}{~è
-}\includegraphics{images/image92.png}{~OK}
-
-{}
+{Il numero di nodi di profondità $h+1$ è $K^h*K=K^{h+1}$, OK}
 
 {ALGORITMO}
 
-{Trovare il numero di foglie e il numero di nodi interni di un albero
-k-ario completo di altezza }\includegraphics{images/image89.png}{~}
-
-{}
+{Trovare il numero di foglie e il numero di nodi interni di un albero k-ario completo di altezza $h$}
 
 \includegraphics{images/image93.png}{~è una sommatoria GEOMETRICA, si
 semplifica in }\includegraphics{images/image94.png}{, quindi
 }\includegraphics{images/image95.png}
 
-{}
-
-{Altezza di un albero k-ario completo con
-}$n${~nodi:}
+{Altezza di un albero k-ario completo con $n$ nodi:}
 
 \includegraphics{images/image96.png}{~→
 }\includegraphics{images/image97.png}{~→
 }\includegraphics{images/image98.png}
 
-{}
-
-{}
-
 {Proprietà}
 
-{Dimostrare per induzione che in un albero BINARIO completo non nullo
-avente }$n${nodi, il numero di foglie è
-}\includegraphics{images/image99.png}
+{Dimostrare per induzione che in un albero BINARIO completo non nullo avente $n$ nodi, il numero di foglie è $\frac{n+1}{2}$}
 
-{}
+\hypertarget{h.8kg49eb4dpz1}{\subsubsection{\texorpdfstring{{Tipo di dato ALBERO}}{Tipo di dato ALBERO}}\label{h.8kg49eb4dpz1}}
 
-{}
-
-{}
-
-{}
-
-{}
-
-{}
-
-\hypertarget{h.8kg49eb4dpz1}{\subsubsection{\texorpdfstring{{Tipo di
-dato ALBERO}}{Tipo di dato ALBERO}}\label{h.8kg49eb4dpz1}}
-
-{}
 
 {Struttura:}
-
-{}
 
 {Insieme di nodi}
 
 {Insieme di archi}
 
-{}
 
 {Le operazioni del tipo ALBERO:}
 
-{}
 
 {~~~~~~~~newTree() → T~~~~~~~~~~~~~~~~Nuovo albero T}
 
@@ -4061,20 +3893,11 @@ dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
 
 {Sottografo di }$G$
 
-\includegraphics{images/image341.png}{è sottografo di
-}$G${~se
-}\includegraphics{images/image342.png}{~e
-}\includegraphics{images/image343.png}
-
-{}
+{$G'=(V',E')$ è sottografo di $G$ se $V'\subseteq V$ e $E'\subseteq E$}
 
 {Sottografo indotto }
 
-{~~~~~~~~Dato }\includegraphics{images/image342.png}{, il sottografo
-indotto da
-}$V'${~di}$G${~è
-}\includegraphics{images/image345.png}{~con
-}\includegraphics{images/image346.png}{~ }
+{Dato $V' \subseteq V$, il sottografo indotto da $V'$ di $G$ è $G[V']=(V',E')$, con $E' = E\,\cap\,V\,x\,V'$}
 
 \subsection{\texorpdfstring{{\protect\includegraphics{images/image534.png}}}{}}\label{h.alw0becdzne2}
 
@@ -4160,23 +3983,21 @@ Lemma)}}{Teorema della stretta di mano (HandShaking Lemma)}}\label{h.d1yeo9bkhut
 
 {{[}NO{]}}
 
-\includegraphics{images/image361.png}{, dove
-}\includegraphics{images/image235.png}{~è il numero di archi,
-}\includegraphics{images/image362.png}
+\begin{equation}
+\sum_{u \in V}{degree(u)} = 2m
+\end{equation}
+
+{dove $m = \abs{E}$ è il numero di archi.}
 
 {{[}O{]}}
 
-\includegraphics{images/image363.png}{~numero degli archi
-uscenti da }$u$
+{$outDegree(u)$ : numero degli archi uscenti da $u$}
 
-\includegraphics{images/image364.png}{~numero degli archi entranti in
-}$u$
+{$inDegree(u)$ : numero degli archi entranti in $u$}
 
-
-
-\includegraphics{images/image365.png}
-
-{}
+\begin{equation}
+\sum_{u \in V}{outDegree(u)} = \sum_{u \in V}{inDegree(u)} = m
+\end{equation}
 
 {{[}NO{]} Proprietà}
 
@@ -4216,7 +4037,7 @@ uscenti da }$u$
 }$G=(V,E)${~non orientato senza vertici
 isolati (nessuno vertice ha grado 0),}
 
-{~~~~~~~~con }\includegraphics{images/image375.png}
+{~~~~~~~~con $\abs{E} = \abs{V} -1$}
 
 {Allora, esistono almeno due vertici terminali}
 
@@ -4232,23 +4053,17 @@ $n=\abs{V},m=\abs{E}$
 
 \includegraphics{images/image378.png}
 
-{Chiamo }\includegraphics{images/image379.png}{un sottoinsieme di V di
-vertici terminali}
+{Chiamo $V_1$ un sottoinsieme di $V$ di vertici terminali}
 
-\includegraphics{images/image380.png}
+$V_1=\{u\in V\,|\,deg(u)=1\}$
 
-{Il problema diventa: dimostrare che
-}\includegraphics{images/image381.png}
+{Il problema diventa: dimostrare che $\abs{V_1} \geq 2$}
 
 \includegraphics{images/image382.png}
 
 \includegraphics{images/image383.png}{????}\textsuperscript{\protect\hyperlink{cmnt21}{{[}u{]}}}
 
-\includegraphics{images/image384.png}{~OK}
-
-{}
-
-{}
+{$\abs{V_1} \geq 2$ OK}
 
 \hypertarget{h.viqjw1dxzez8}{\subsection{\texorpdfstring{{Matrice di
 adiacenza }}{Matrice di adiacenza }}\label{h.viqjw1dxzez8}}
@@ -4425,7 +4240,9 @@ archi, altrimenti è meglio utilizzare le matrici.}
 
 {{[}O{]} Densità}
 
-\includegraphics{images/image391.png}
+\begin{equation}
+\delta=\frac{numero\,di\,archi}{numero\,di\,possibili\,archi} = \frac{numero\,di\,archi}{n^2}
+\end{equation}
 
 $n=\abs{V},m=\abs{E}$
 
@@ -4433,22 +4250,23 @@ $\delta=\frac{m}{n^2}$
 
 {{[}NO{]} Densità}
 
-\includegraphics{images/image393.png}
+\begin{equation}
+\delta=\frac{numero\,di\,archi}{numero\,di\,possibili\,archi}
+\end{equation}
 
-\includegraphics{images/image394.png}{coefficiente binomiale}
-
-{}
-
-{Grafi sparsi: }\includegraphics{images/image395.png}{~}{lista}
-
-{Grafi densi: }\includegraphics{images/image396.png}{~matrice}
+{$\delta=\frac{m}{k},\,k = \frac{n(n-1)}{2}$ coefficiente binomiale}
 
 {}
 
-{Proprietà}{:}
+{Grafi sparsi ($n\simeq m$): lista}
 
-{Sia G un grafo NO. }{Se G è aciclico}{, allora la cardinalità
-}\includegraphics{images/image397.png}
+{Grafi densi ($n^2\simeq m$): matrice}
+
+{}
+
+{Proprietà:}
+
+{Sia $G$ un grafo NO. Se $G$ è aciclico, allora la cardinalità $\abs{E} \leq \abs{V}-1$}
 
 {Dimostrazione}{~induttiva su $n=\abs{V}$:}
 
@@ -4492,9 +4310,8 @@ matrici}}{Prodotto di matrici}}\label{h.c39ti8il3qtf}}
 
 {Due matrici $n\,x\,m$ ed $p\,x\,n$ (il numero di righe della prima equivale al numero di colonne della seconda) possono essere moltiplicate tramite il prodotto ``righe per colonne''.}
 
-$C = A*B$
-
-\includegraphics{images/image407.png}
+$C = A*B$ \\
+$C_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 
 \hypertarget{h.md5vuljp7xm}{\subsubsection{\texorpdfstring{{Matrice al
 quadrato}}{Matrice al quadrato}}\label{h.md5vuljp7xm}}
@@ -4516,20 +4333,18 @@ dimensioni con le seguenti caratteristiche:}
 
 {}
 
-\includegraphics{images/image408.png}
-
-\includegraphics{images/image409.png}
+$A^2 = A*A = (a^{(2)}_{i,j})$ \\
+$a^{(2)}_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 
 {}
 
-{Dimostrazione}{:}
+{Dimostrazione:}
 
-{``Sulla diagonale principale ho i gradi dei vertici''
-(}\includegraphics{images/image410.png}{)}
+{``Sulla diagonale principale ho i gradi dei vertici'' ($i=j$)}
 
-\includegraphics{images/image411.png}
+$a^{(2)}_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,i}}$
 
-{Essendo G non orientato, la matrice è simmetrica e
+{Essendo $G$ non orientato, la matrice è simmetrica e
 }\includegraphics{images/image412.png}
 
 \includegraphics{images/image413.png}{, notiamo che il termine della
@@ -4613,12 +4428,12 @@ grafi}}{Isomorfismi di grafi}}\label{h.d5v408sc7po0}}
 
 $G_1=(v_1,E_1),G_2(V_2,E_2)$
 
-\includegraphics{images/image427.png}{si dice isomorfismo se valgono le due proprietà:}
+{$\Theta:V_1\rightarrow V_2$ si dice isomorfismo se valgono le due proprietà:}
 
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image428.png}{~deve essere una funzione biettiva (è necessaria una corrispondenza 1-1).}
+  {$\Theta$ deve essere una funzione biettiva (è necessaria una corrispondenza 1-1).}
 \item
   {La relazione di adiacenza deve essere preservata\\
   }\includegraphics{images/image429.png}
@@ -4631,21 +4446,21 @@ se due grafi sono isomorfi}}{Determinare se due grafi sono isomorfi}}\label{h.um
 
 {}
 
-{$G_1=(v_1,E_1),G_2(V_2,E_2)$ sono isomorfi se esiste un isomorfismo da $G_1$ a $G_2$ e si indica con }\includegraphics{images/image432.png}
+{$G_1=(v_1,E_1),G_2(V_2,E_2)$ sono isomorfi se esiste un isomorfismo da $G_1$ a $G_2$ e si indica con $G_1\simeq G_2$}
 
 
-{Condizioni necessarie perché }\includegraphics{images/image433.png}{:}
+{Condizioni necessarie perché $G_1\simeq G_2$:}
 
 \begin{enumerate}
 \tightlist
 \item
-  \includegraphics{images/image434.png}
+  $\abs{V_1}=\abs{V_2}$
 \item
-  \includegraphics{images/image435.png}
+  $\abs{E_1}=\abs{E_2}$
 \item
-  {Stessa degree sequence }\includegraphics{images/image436.png}
+  {Stessa degree sequence $degseq(G_1) = degseq(G_2)$}
 \item
-  \includegraphics{images/image437.png}
+  $\#ComponentiConnesse(G_1) = 	\#ComponentiConnesse(G_2)$
 \end{enumerate}
 
 {}
@@ -4661,7 +4476,7 @@ $G$\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 $\overline{G}$\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{Può verificarsi}\strut
+{Può verificarsi?}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 {Connesso}\strut
@@ -4675,7 +4490,7 @@ $\overline{G}$\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 {Disconnesso}\strut
 \end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{FALSO (Es: autocomplementare)}\strut
+{FALSO \\ (Es: autocomplementare)}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 {Disconnesso}\strut
@@ -4697,8 +4512,6 @@ $\overline{G}$\strut
 {}
 
 {Il problema di determinare l'esistenza di un'isomorfismo tra due grafi è esoso in termini di tempo. Per evitare il bruteforce di tutte le combinazioni si procede a mappare gli archi con grado analogo.}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \hypertarget{h.jnoiha3cadu8}{\section{\texorpdfstring{{Alberi}}{Alberi}}\label{h.jnoiha3cadu8}}
 
@@ -4984,7 +4797,7 @@ $G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
 complessità ottenuta tramite Heichmann.\\
 }{Complessità}{:}
 
-\includegraphics{images/image482.png}{,avendo}\includegraphics{images/image483.png}{archi poichè l'arco è connesso, la complessità è }\includegraphics{images/image484.png}
+{$O(mlog(m)+n+mlog(m))$ ,avendo $m \geq n-1$ archi poichè l'arco è connesso, la complessità è $O(mlog(m))$}
 
 \hypertarget{h.4n5zx1ni4b2b}{\subsubsection{\texorpdfstring{{Simulazione
 di esecuzione}}{Simulazione di esecuzione}}\label{h.4n5zx1ni4b2b}}
@@ -5088,7 +4901,7 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 {La distanza $\delta(u,v)$ tra due vertici $u,v \in V$ è definita nel seguente modo:}
 
-\includegraphics{images/image496.png}{~se non esiste un cammino orientato da u a v}
+{$\delta(u,v) = +\infty$ se non esiste un cammino orientato da u a v}
 
 {$\delta(u,v)=min(w(p))$ minimo dei pesi dove $p$ è il cammino tra $u$ e $v$}
 
