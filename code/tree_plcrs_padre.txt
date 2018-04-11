@@ -1,0 +1,2 @@
+padre(Tree P, Node v)
+	return v->p

@@ -1,0 +1,6 @@
+figli(Tree P, Node v)
+	l = crealista()
+	for i = 1 to n
+		if ( p[i]->parent == v )
+			inserisci(i,l)
+	return l

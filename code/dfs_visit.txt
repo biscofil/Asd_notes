@@ -1,0 +1,10 @@
+Dfs_Visit(Node r)
+	s = stack()
+	push (r,s)
+	while(not stackempty(s))
+		u = pop(s)
+		if(u <> null)
+			Dfs_Visit(u)
+			push(u->right, s)
+			push(u->left , s)
+	return s

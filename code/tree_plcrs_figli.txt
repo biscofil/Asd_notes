@@ -1,0 +1,7 @@
+figli(Tree P, Node v)
+	l = crealista()
+	iter = v->left_child
+	while ( iter <> null)
+		inserisci(iter,l)
+		iter = iter->right_sibling
+	return l

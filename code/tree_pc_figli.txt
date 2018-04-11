@@ -1,0 +1,7 @@
+figli(Tree P, Node v)
+	l = crealista()
+	if( v->left <>null )
+		inserisci(v->left ,l)
+	if( v->right<>null )
+		inserisci(v->right,l)
+	return l

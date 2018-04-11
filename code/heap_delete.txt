@@ -1,0 +1,13 @@
+Heap_Delete( Heap A, Node i)
+	if A.heapSize == 1
+		A.heapSize = 0
+	else
+		val = A[i]
+		A[i] = A[ A.heapSize ]
+		A.heapSize -= 1
+		if ( val > A[i] ) [l]
+			max_heapify ( A , i )
+		else [m]
+			while ( i > 1 AND A[i] > A[parent(i)] )
+				scambia ( A[i] , A[parent(i)] )
+				i = parent(i)

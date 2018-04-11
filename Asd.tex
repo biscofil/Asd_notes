@@ -11,6 +11,10 @@
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
+% Tables 
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+
 % Trees
 \usepackage{tikz}
 \usetikzlibrary{arrows}
@@ -37,8 +41,8 @@
 \lstdefinelanguage{pseudocode}{
 	sensitive=false,
 	keywords={}
-	otherkeywords={<,<=,>,>=,==,=, <-, !=}, %operators
-	keywords=[2]{foreach, while, if, then, do, return, repeat, until, and, or, in},
+	otherkeywords={<,<=,>,>=,==,=, <-,->, !=}, %operators
+	keywords=[2]{foreach, while, if, else, then, do, return, repeat, until, and, or, in},
 	keywords=[3]{true, false, nil, null},
 	keywordstyle=\color{black},
 	keywordstyle=[2]\color{blue},
@@ -143,739 +147,13 @@
 \maketitle
 \end{titlepage}
 
-{\protect\hyperlink{h.h3wcjgbw0vzs}{Corso}}{\protect\hyperlink{h.h3wcjgbw0vzs}{4}}
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-{\protect\hyperlink{h.h56evxq8lcvu}{Libri:}}{\protect\hyperlink{h.h56evxq8lcvu}{4}}
-
-{\protect\hyperlink{h.56skrlxpqr7c}{Lezioni:}}{\protect\hyperlink{h.56skrlxpqr7c}{4}}
-
-{\protect\hyperlink{h.erye91slvrba}{Algoritmi e loro complessità: i numeri di Fibonacci}}{\protect\hyperlink{h.erye91slvrba}{7}}
-
-{\protect\hyperlink{h.uo8t8gg7vdaw}{Formula di Binet}}{\protect\hyperlink{h.uo8t8gg7vdaw}{7}}
-
-{\protect\hyperlink{h.x4ciu865ga1f}{Strumento \#1 - albero di ricorsione}}{\protect\hyperlink{h.x4ciu865ga1f}{9}}
-
-{\protect\hyperlink{h.jkxlloc1lefg}{Notazione asintotica: le classi O, Omega, Theta}}{\protect\hyperlink{h.jkxlloc1lefg}{12}}
-
-{\protect\hyperlink{h.tn5j57miv2l8}{Esercizi sulla notazione asintotica. Le classi o, omega}}{\protect\hyperlink{h.tn5j57miv2l8}{12}}
-
-{\protect\hyperlink{h.qp9ilz1tito1}{Divide et impera. Il teorema fondamentale delle ricorrenze (o ``Teorema master''). Esercizi.}}{\protect\hyperlink{h.qp9ilz1tito1}{12}}
-
-{\protect\hyperlink{h.a5tr7osf4zwh}{Rappresentazione di una lista attraverso un vettore (matrice)}}{\protect\hyperlink{h.a5tr7osf4zwh}{12}}
-
-{\protect\hyperlink{h.rgokfftftjlb}{Alberi}}{\protect\hyperlink{h.rgokfftftjlb}{14}}
-
-{\protect\hyperlink{h.rmzlh8kpnju}{Alberi binari (Albero k-ario con K = 2)}}{\protect\hyperlink{h.rmzlh8kpnju}{15}}
-
-{\protect\hyperlink{h.chua2o837in5}{Albero k-ario}}{\protect\hyperlink{h.chua2o837in5}{15}}
-
-{\protect\hyperlink{h.8kg49eb4dpz1}{Tipo di dato ALBERO}}{\protect\hyperlink{h.8kg49eb4dpz1}{16}}
-
-{\protect\hyperlink{h.ueuovjwdu9zj}{Rappresentazione di alberi tramite array}}{\protect\hyperlink{h.ueuovjwdu9zj}{16}}
-
-{\protect\hyperlink{h.nrzs3ooed9o}{Utilizzo del vettore padri}}{\protect\hyperlink{h.nrzs3ooed9o}{16}}
-
-{\protect\hyperlink{h.ncrwkhkrovb2}{Implementazioni:}}{\protect\hyperlink{h.ncrwkhkrovb2}{17}}
-
-{\protect\hyperlink{h.5u7fhayyby4r}{2) Utilizzo del vettore posizionale}}{\protect\hyperlink{h.5u7fhayyby4r}{17}}
-
-{\protect\hyperlink{h.6c4aui6rl05k}{Implementazioni:}}{\protect\hyperlink{h.6c4aui6rl05k}{17}}
-
-{\protect\hyperlink{h.bhzctdrna7ur}{3) Utilizzo di strutture collegate}}{\protect\hyperlink{h.bhzctdrna7ur}{18}}
-
-{\protect\hyperlink{h.qoohix7mgjib}{3.a) Parent + Childs}}{\protect\hyperlink{h.qoohix7mgjib}{18}}
-
-{\protect\hyperlink{h.7iunf1nu58vy}{Implementazioni:}}{\protect\hyperlink{h.7iunf1nu58vy}{18}}
-
-{\protect\hyperlink{h.jlqu76iomg9e}{3.b) Parent + Left child + Right sibling}}{\protect\hyperlink{h.jlqu76iomg9e}{19}}
-
-{\protect\hyperlink{h.ekfyi4oujqjt}{Implementazioni:}}{\protect\hyperlink{h.ekfyi4oujqjt}{19}}
-
-{\protect\hyperlink{h.ike679k4smgg}{Algoritmi Di Visita Degli Alberi}}{\protect\hyperlink{h.ike679k4smgg}{20}}
-
-{\protect\hyperlink{h.dvc71mavuqx7}{Visita generica}}{\protect\hyperlink{h.dvc71mavuqx7}{20}}
-
-{\protect\hyperlink{h.6xasx7f8zgn1}{Teorema}}{\protect\hyperlink{h.6xasx7f8zgn1}{20}}
-
-{\protect\hyperlink{h.zdc8liauzt1c}{Dimostrazione}}{\protect\hyperlink{h.zdc8liauzt1c}{20}}
-
-{\protect\hyperlink{h.5u7m241wpdag}{Visita DFS - Depth first search - Ricerca in profondità}}{\protect\hyperlink{h.5u7m241wpdag}{20}}
-
-{\protect\hyperlink{h.j29c1mxwyzyn}{Visita BFS - Breadth first search - Ricerca in ampiezza}}{\protect\hyperlink{h.j29c1mxwyzyn}{21}}
-
-{\protect\hyperlink{h.8cvon0yw5yug}{Heap}}{\protect\hyperlink{h.8cvon0yw5yug}{22}}
-
-{\protect\hyperlink{h.twk46x6owxrr}{Lemma 2:}}{\protect\hyperlink{h.twk46x6owxrr}{22}}
-
-{\protect\hyperlink{h.wlc8yrs7inpk}{Lemma 3:}}{\protect\hyperlink{h.wlc8yrs7inpk}{22}}
-
-{\protect\hyperlink{h.t1rcecigqmbx}{Max\_heapify}}{\protect\hyperlink{h.t1rcecigqmbx}{22}}
-
-{\protect\hyperlink{h.symae1e4ut5b}{Dato un vettore disordinato, costruire un heap}}{\protect\hyperlink{h.symae1e4ut5b}{23}}
-
-{\protect\hyperlink{h.vi4eu8p6i55e}{Heapsort}}{\protect\hyperlink{h.vi4eu8p6i55e}{23}}
-
-{\protect\hyperlink{h.rdu8s741ww8w}{Teorema}}{\protect\hyperlink{h.rdu8s741ww8w}{24}}
-
-{\protect\hyperlink{h.jih9riph7gns}{Code di priorità}}{\protect\hyperlink{h.jih9riph7gns}{24}}
-
-{\protect\hyperlink{h.aocay3iqens1}{Implementazione di code di massima priorità con le strutture Heap}}{\protect\hyperlink{h.aocay3iqens1}{25}}
-
-{\protect\hyperlink{h.r8bopy9q4g8f}{Esercizi}}{\protect\hyperlink{h.r8bopy9q4g8f}{26}}
-
-{\protect\hyperlink{h.7gslm72cwwxs}{Limite inferiore per l'ordinamento per confronti}}{\protect\hyperlink{h.7gslm72cwwxs}{28}}
-
-{\protect\hyperlink{h.oynrnvh2y1cp}{Esempio: Ordina 3 elementi}}{\protect\hyperlink{h.oynrnvh2y1cp}{28}}
-
-{\protect\hyperlink{h.prflgx3s7s1g}{Quanto è grande un albero di decisione?}}{\protect\hyperlink{h.prflgx3s7s1g}{29}}
-
-{\protect\hyperlink{h.cphw2k3mqktf}{Quante foglie contiene?}}{\protect\hyperlink{h.cphw2k3mqktf}{29}}
-
-{\protect\hyperlink{h.yiy1tipj4aof}{Lemma 2:}}{\protect\hyperlink{h.yiy1tipj4aof}{29}}
-
-{\protect\hyperlink{h.hr66c3ikhdcj}{Teorema:}}{\protect\hyperlink{h.hr66c3ikhdcj}{30}}
-
-{\protect\hyperlink{h.emyylm3q4aq8}{Corollario:}}{\protect\hyperlink{h.emyylm3q4aq8}{30}}
-
-{\protect\hyperlink{h.p17586cst16}{Algoritmi di ordinamento privi di confronti}}{\protect\hyperlink{h.p17586cst16}{31}}
-
-{\protect\hyperlink{h.bfk18jaq5ar4}{CountingSort}}{\protect\hyperlink{h.bfk18jaq5ar4}{31}}
-
-{\protect\hyperlink{h.ixohzh3ypk6v}{RadixSort}}{\protect\hyperlink{h.ixohzh3ypk6v}{32}}
-
-{\protect\hyperlink{h.u6e4yemegdiq}{Come ripartire le chiavi in cifre?}}{\protect\hyperlink{h.u6e4yemegdiq}{33}}
-
-{\protect\hyperlink{h.1gvh3qlqsocy}{Tabelle hash}}{\protect\hyperlink{h.1gvh3qlqsocy}{34}}
-
-{\protect\hyperlink{h.ocrobrrshwsz}{Risoluzione delle collisioni tramite metodo di concatenamento}}{\protect\hyperlink{h.ocrobrrshwsz}{35}}
-
-{\protect\hyperlink{h.lhp1y3nzdu6x}{Implementazioni}}{\protect\hyperlink{h.lhp1y3nzdu6x}{36}}
-
-{\protect\hyperlink{h.coagge9vpuqt}{Teorema 1}}{\protect\hyperlink{h.coagge9vpuqt}{36}}
-
-{\protect\hyperlink{h.u0cyuvvucft2}{Teorema 2}}{\protect\hyperlink{h.u0cyuvvucft2}{37}}
-
-{\protect\hyperlink{h.9kljpwmnt7yd}{Come si costruiscono le funzioni hash?}}{\protect\hyperlink{h.9kljpwmnt7yd}{37}}
-
-{\protect\hyperlink{h.3fhh68cy94hw}{Risoluzione delle collisioni tramite indirizzamento aperto}}{\protect\hyperlink{h.3fhh68cy94hw}{38}}
-
-{\protect\hyperlink{h.i6sv1bn6gjla}{1. Ispezione (o ``scansione'') lineare}}{\protect\hyperlink{h.i6sv1bn6gjla}{40}}
-
-{\protect\hyperlink{h.83xwipol2nwy}{2. Ispezione (o ``scansione'') quadratica}}{\protect\hyperlink{h.83xwipol2nwy}{41}}
-
-{\protect\hyperlink{h.8kg9yyirra9i}{3. Hashing doppio}}{\protect\hyperlink{h.8kg9yyirra9i}{41}}
-
-{\protect\hyperlink{h.wkyvylqq2lrt}{Analisi dell'hashing a indirizzamento aperto}}{\protect\hyperlink{h.wkyvylqq2lrt}{42}}
-
-{\protect\hyperlink{h.sg1b57l388xe}{Confrontro tra metodi di risoluzione delle collisioni}}{\protect\hyperlink{h.sg1b57l388xe}{43}}
-
-{\protect\hyperlink{h.fi9e3nt34nfb}{Mod 2 - Grafi}}{\protect\hyperlink{h.fi9e3nt34nfb}{43}}
-
-{\protect\hyperlink{h.5gj1hs8i1ooy}{Sottografi}}{\protect\hyperlink{h.5gj1hs8i1ooy}{44}}
-
-{\protect\hyperlink{h.lxvflhr4q9d8}{Cammini}}{\protect\hyperlink{h.lxvflhr4q9d8}{44}}
-
-{\protect\hyperlink{h.sjz08mn040is}{Cammini semplici e cammini non semplici}}{\protect\hyperlink{h.sjz08mn040is}{44}}
-
-{\protect\hyperlink{h.e18ltelmo48z}{Lunghezza di un cammino}}{\protect\hyperlink{h.e18ltelmo48z}{44}}
-
-{\protect\hyperlink{h.4bm9pdnjdb2q}{Raggiungibilità dei vertici}}{\protect\hyperlink{h.4bm9pdnjdb2q}{44}}
-
-{\protect\hyperlink{h.4fm287mz4am5}{Ciclo}}{\protect\hyperlink{h.4fm287mz4am5}{44}}
-
-{\protect\hyperlink{h.rpdf8j1vq7g0}{{[}NO{]} Grafo connesso}}{\protect\hyperlink{h.rpdf8j1vq7g0}{44}}
-
-{\protect\hyperlink{h.iejp6ankfctp}{{[}NO{]} Componente connessa}}{\protect\hyperlink{h.iejp6ankfctp}{45}}
-
-{\protect\hyperlink{h.5nknzat57p06}{{[}NO{]} Vertici adiacenti}}{\protect\hyperlink{h.5nknzat57p06}{45}}
-
-{\protect\hyperlink{h.52hqmabofvh0}{Arco incidente}}{\protect\hyperlink{h.52hqmabofvh0}{45}}
-
-{\protect\hyperlink{h.vm6z084zc6rf}{Vertici isolati e terminali}}{\protect\hyperlink{h.vm6z084zc6rf}{45}}
-
-{\protect\hyperlink{h.d1yeo9bkhutt}{Teorema della stretta di mano (HandShaking Lemma)}}{\protect\hyperlink{h.d1yeo9bkhutt}{45}}
-
-{\protect\hyperlink{h.viqjw1dxzez8}{Matrice di adiacenza}}{\protect\hyperlink{h.viqjw1dxzez8}{46}}
-
-{\protect\hyperlink{h.30h8k4akc7l}{Matrice di adiacenza per grafi orientati}}{\protect\hyperlink{h.30h8k4akc7l}{46}}
-
-{\protect\hyperlink{h.iuwxcos21awu}{Matrice di adiacenza per grafi non orientati}}{\protect\hyperlink{h.iuwxcos21awu}{47}}
-
-{\protect\hyperlink{h.qwq1tiruc9xg}{Liste concatenate}}{\protect\hyperlink{h.qwq1tiruc9xg}{48}}
-
-{\protect\hyperlink{h.tsrwv4qy0dku}{Grafo autocomplementare}}{\protect\hyperlink{h.tsrwv4qy0dku}{48}}
-
-{\protect\hyperlink{h.akx1r9fzvwzo}{Prodotto tra matrici di adiacenza}}{\protect\hyperlink{h.akx1r9fzvwzo}{49}}
-
-{\protect\hyperlink{h.c39ti8il3qtf}{Prodotto di matrici}}{\protect\hyperlink{h.c39ti8il3qtf}{49}}
-
-{\protect\hyperlink{h.md5vuljp7xm}{Matrice al quadrato}}{\protect\hyperlink{h.md5vuljp7xm}{49}}
-
-{\protect\hyperlink{h.yvqsj238z2mk}{Matrice con esponente maggiore di 2}}{\protect\hyperlink{h.yvqsj238z2mk}{50}}
-
-{\protect\hyperlink{h.m8b6lpkoqj6x}{{[}NO{]} Grafi regolari}}{\protect\hyperlink{h.m8b6lpkoqj6x}{50}}
-
-{\protect\hyperlink{h.d5v408sc7po0}{Isomorfismi di grafi}}{\protect\hyperlink{h.d5v408sc7po0}{51}}
-
-{\protect\hyperlink{h.umjijdswjd6a}{Determinare se due grafi sono isomorfi}}{\protect\hyperlink{h.umjijdswjd6a}{51}}
-
-{\protect\hyperlink{h.jnoiha3cadu8}{Alberi}}{\protect\hyperlink{h.jnoiha3cadu8}{52}}
-
-{\protect\hyperlink{h.9btor4ygb1hb}{Alberi di copertura}}{\protect\hyperlink{h.9btor4ygb1hb}{52}}
-
-{\protect\hyperlink{h.rdrr6bsx8ypo}{Taglio di un albero}}{\protect\hyperlink{h.rdrr6bsx8ypo}{52}}
-
-{\protect\hyperlink{h.gfycwx7ubmbv}{Arco leggero}}{\protect\hyperlink{h.gfycwx7ubmbv}{53}}
-
-{\protect\hyperlink{h.1evqcdl7exzv}{Albero di copertura minimo (MST)}}{\protect\hyperlink{h.1evqcdl7exzv}{53}}
-
-{\protect\hyperlink{h.42rszsg7qe80}{Generazione degli alberi di copertura minima}}{\protect\hyperlink{h.42rszsg7qe80}{55}}
-
-{\protect\hyperlink{h.tpoo55sx1m98}{Generazione di MST : Kruskal}}{\protect\hyperlink{h.tpoo55sx1m98}{56}}
-
-{\protect\hyperlink{h.4n5zx1ni4b2b}{Simulazione di esecuzione}}{\protect\hyperlink{h.4n5zx1ni4b2b}{56}}
-
-{\protect\hyperlink{h.l5wypo8krmqc}{Generazione di MST : Prim}}{\protect\hyperlink{h.l5wypo8krmqc}{57}}
+\tableofcontents
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\section{\texorpdfstring{{}}{}}\label{h.3n9hcd93vjrp}
-
-\hypertarget{h.h3wcjgbw0vzs}{\section{\texorpdfstring{{Corso}}{Corso}}\label{h.h3wcjgbw0vzs}}
-
-\hypertarget{h.h56evxq8lcvu}{\subsection{\texorpdfstring{{Libri:}}{Libri:}}\label{h.h56evxq8lcvu}}
-
-\begin{itemize}
-\tightlist
-\item
-  {{[}DFI{]} C. Demetrescu, I. Finocchi, G.F. Italiano. Algoritmi e
-  strutture dati. Seconda Edizione. McGraw-Hill, 2008.}
-\item
-  {{[}CLRS{]} T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein.
-  Introduzione agli algoritmi e strutture dati 3/ed. McGraw-Hill, 2010.}
-\end{itemize}
-
-\hypertarget{h.56skrlxpqr7c}{\subsection{\texorpdfstring{{Lezioni:}}{Lezioni:}}\label{h.56skrlxpqr7c}}
-
-\begin{enumerate}
-\tightlist
-\item
-  {Lezione (20/09/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Introduzione al corso}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  {Lezione (21/09/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Algoritmi e loro complessità: i numeri di Fibonacci ({[}DFI{]} cap.
-  1)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  {Lezione (27/09/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Notazione asintotica: le classi O, Omega, Theta ({[}DFI{]} 2.2;
-  {[}CLRS{]} 3.1)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{3}
-\tightlist
-\item
-  {Lezione (28/09/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Esercizi sulla notazione asintotica. Le classi o, omega ({[}CLRS{]}
-  3.1)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{4}
-\tightlist
-\item
-  {Lezione (04/10/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Ulteriori esercizi sulla notazione asintotica.}
-\item
-  {Delimitazioni inferiori e superiori. Metodi di analisi ({[}DFI{]}
-  2.3, 2.4)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{5}
-\tightlist
-\item
-  {Lezione (05/10/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Ricorrenze. Metodi di iterazione e sostituzione ({[}DFI{]} 2.5;
-  {[}CLRS{]} 4.1)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{6}
-\tightlist
-\item
-  {Lezione (11/10/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Divide et impera. Il teorema fondamentale delle ricorrenze (o
-  ``Teorema master''). Esercizi. ({[}DFI{]} 2.5; {[}CLRS{]} 4.3)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{7}
-\tightlist
-\item
-  {Lezione (12/10/2017): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Dimostrazione del Teorema master}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{8}
-\tightlist
-\item
-  {Lezione (18/10/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {I tipi di dato e le strutture dati. ({[}DFI{]} pp. 63-65)}
-\item
-  {Tecniche per rappresentare collezioni di oggetti: strutture
-  indicizzate. ({[}DFI{]} pp. 65-68)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{9}
-\tightlist
-\item
-  {Lezione (19/10/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Tecniche per rappresentare collezioni di oggetti: strutture
-  collegate. ({[}DFI{]} pp. 68-70)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{10}
-\tightlist
-\item
-  {Lezione (25/10/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Esercizi su calcolo della complessità}
-\item
-  {Esercizi su array}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{11}
-\tightlist
-\item
-  {Lezione (26/10/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Esercitazione in laboratorio: esercizi su array}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{12}
-\tightlist
-\item
-  {Lezione (2/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Le pile e le code. ({[}CLRS{]} pp. 192-195)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{13}
-\tightlist
-\item
-  {Lezione (8/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Implementazione in C dei tipi di dato.}
-\item
-  {Esercizi su pile e code.}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{14}
-\tightlist
-\item
-  {Lezione (9/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Il tipo di dato Lista. Realizzazione con strutture concatenate
-  ({[}CLRS{]} pp. 195-199)}
-\item
-  {Le invarianti di ciclo e la correttezza ({[}CLRS{]} p. 16)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{15}
-\tightlist
-\item
-  {Lezione (15/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Realizzazione delle liste con array. ({[}CLRS{]} pp. 199-203)}
-\item
-  {Esercizi su liste}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{16}
-\tightlist
-\item
-  {Lezione (16/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Gli alberi: definizioni. ({[}CLRS{]} pp. 977-979)}
-\item
-  {Dimostrazioni per induzione di proprietà degli alberi}
-\item
-  {Realizzazione degli alberi con vettori}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{17}
-\tightlist
-\item
-  {Lezione (22/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Realizzazione degli alberi con strutture concatenate. ({[}CLRS{]} pp.
-  203-205)}
-\item
-  {Visite di alberi. ({[}DFI{]} pp. 77-80)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{18}
-\tightlist
-\item
-  {Lezione (23/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Esercitazione in laboratorio: esercizi su liste e alberi generali}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{19}
-\tightlist
-\item
-  {Lezione (29/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Esercizi su alberi binari}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{20}
-\tightlist
-\item
-  {Lezione (30/11/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Alberi Binari di ricerca. (Prima parte {[}CLRS{]} pp. 237-244)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{21}
-\tightlist
-\item
-  {Lezione (13/12/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Alberi Binari di ricerca: cancellazione ({[}CLRS{]} pp. 244-247)}
-\item
-  {Cenni su alberi AVL, B-alberi e alberi rosso-neri.}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{22}
-\tightlist
-\item
-  {Lezione (14/12/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Esercizi su alberi binari di ricerca e alberi generali}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{23}
-\tightlist
-\item
-  {Lezione (20/12/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Il problema dell'ordinamento. ({[}CLRS{]} pp. 123-125)}
-\item
-  {Ordinare in tempo quadratico: Insertion sort. ({[}CLRS{]} pp. 14-17 e
-  pp. 21-25)}
-\item
-  {L'algoritmo mergesort. ({[}CLRS{]} pp. 25-33}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{24}
-\tightlist
-\item
-  {Lezione (21/12/2017): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Esercitazione in laboratorio: esercizi su alberi binari e alberi
-  binari di ricerca.}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{25}
-\tightlist
-\item
-  {Lezione (7/02/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {L'algoritmo quicksort. ({[}CLRS{]} pp. 141-147)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{26}
-\tightlist
-\item
-  {Lezione (8/02/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Versione randomizzata di quicksort ({[}CLRS{]} pp. 148)}
-\item
-  {Quicksort con elementi di valore uguale}
-\item
-  {Definizione e proprietà dell'heap ({[}CLRS{]} pp. 127-129)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{27}
-\tightlist
-\item
-  {Lezione (14/02/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {L'algoritmo heapsort. ({[}CLRS{]} pp. 129-135)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{28}
-\tightlist
-\item
-  {Lezione (15/02/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Code di priorità. ({[}CLRS{]} pp. 135-140)}
-\item
-  {Esercizi}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{29}
-\tightlist
-\item
-  {Lezione (21/02/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Limite inferiore per l'ordinamento per confronti. ({[}CLRS{]} pp.
-  157-159)}
-\item
-  {Counting sort. ({[}CLRS{]} pp. 159-161)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{30}
-\tightlist
-\item
-  {Lezione (22/02/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Radix sort ({[}CLRS{]} pp. 162-164)}
-\item
-  {Le tabelle ad indirizzamento diretto. ({[}CLRS{]} pp.
-  209-211)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{31}
-\tightlist
-\item
-  {~Lezione (28/02/2018): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Grafi: definizione e prime proprietà ({[}CLRS{]} 22.1, B.4)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{32}
-\tightlist
-\item
-  {Lezione (01/03/2018): MP}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Proprietà dei grafi connessi e aciclici ({[}CLRS{]} B.4)}
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{33}
-\tightlist
-\item
-  {Lezione (07/03/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Le tabelle Hash. ({[}CLRS{]} pp. 211-213)}
-\item
-  {Analisi dell'hashing con concatenamento. ({[}CLRS{]} pp. 213-216,
-  teoremi senza dimostrazione)\\
-  }
-\end{itemize}
-
-\begin{enumerate}
-\setcounter{enumi}{34}
-\tightlist
-\item
-  {Lezione (08/03/2018): AR}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  {Le funzioni Hash. ({[}CLRS{]} pp. 216-219)}
-\end{itemize}
-
-\begin{itemize}
-\tightlist
-\item
-  {Tabelle Hash con indirizzamento aperto. ({[}CLRS{]} pp. 223-225)}
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\section{\texorpdfstring{{}}{}}\label{h.yttge93miuso}
-
-\hypertarget{h.erye91slvrba}{\section{\texorpdfstring{{Algoritmi e loro
-complessità: i numeri di Fibonacci
-}}{Algoritmi e loro complessità: i numeri di Fibonacci }}\label{h.erye91slvrba}}
+\section{Algoritmi e loro complessità: i numeri di Fibonacci}
 
 {~{[}DFI{]} cap. 1}
 
@@ -887,19 +165,15 @@ f(n) =
 \end{cases}
 \end{equation}
 
-\hypertarget{h.uo8t8gg7vdaw}{\subsubsection{\texorpdfstring{{Formula di
-Binet}}{Formula di Binet}}\label{h.uo8t8gg7vdaw}}
+\subsection{Formula di Binet}
 
 \begin{equation}
-\forall n \in N
+\forall n \in N, F_n = \frac{1}{\sqrt{5}}(\Phi^n-\overline{\Phi}^n)
 \end{equation}
-
-\includegraphics{images/image1.png}{~=
-}\includegraphics{images/image4.png}
 
 Dove con $\Phi$ si indica la sezione aurea $\frac{1+\sqrt{5}}{2} \simeq -0,618$ e con $\overline{\Phi}$ si indica $\frac{1-\sqrt{5}}{2} \simeq -0,618$
 
-{Dimostrazione}
+\subsubsection{Dimostrazione}
 
 {Dimostriamo per Induzione la formula di Binet:}
 
@@ -983,12 +257,7 @@ imprecisa}
 
 \includegraphics{images/image30.png}\includegraphics{images/image31.png}
 
-{}
-
-\includegraphics{images/image32.png}{~è una }{formula
-ricorsiva}{~}{o}{~}{ricorrenza}
-
-{}
+\includegraphics{images/image32.png}{~è una formula ricorsiva o ricorrenza}
 
 \protect\hypertarget{t.b835927b516aa4a0b07c3acab4f4cd0150ff7dd8}{}{}\protect\hypertarget{t.1}{}{}
 
@@ -1498,104 +767,35 @@ array}}{Rappresentazione di alberi tramite array}}\label{h.ueuovjwdu9zj}}
 
 {}
 
-\begin{enumerate}
-\item ~
-  \hypertarget{h.nrzs3ooed9o}{\subsection{\texorpdfstring{{Utilizzo del
-  vettore padri}}{Utilizzo del vettore padri}}\label{h.nrzs3ooed9o}}
-\end{enumerate}
+\subsection{Utilizzo del vettore padri}
 
-{}
+{Sia $T=(N,A), N = \{n_1,n_2,...,n_n\}$}
 
-{}
+{Costruisco un vettore di dimensione $n$, le cui celle contengono copie di $(i,u)$. Con $i$ indichiamo l'informazione del nodo e con $u$ indichiamo il nodo padre (indice).}
 
-{}
-
-{}
-
-{sia }\includegraphics{images/image100.png}
-
-{Costruisco un vettore di dimensione
-}$n${, le cui celle contengono copie di
-}\includegraphics{images/image101.png}{. Con
-}$i${~indichiamo l'informazione del
-nodo e con }$u${~indichiamo il nodo
-padre (indice).}
-
-{}
-
-\includegraphics{images/image104.png}
+$\forall v \in [1,n]$
 
 {p{[}v{]} → info = contenuto}
 
-{p{[}v{]} → padre = indice del padre,
-}\includegraphics{images/image105.png}{, se
-}$v${~è radice il padre è NULL/-1/0}
+{p{[}v{]} → padre = indice del padre,$(u,v) \in A(archi)$, se $v$ è radice il padre è NULL/-1/0}
 
-{}
+{Spazio per memorizzare $n=\Theta(n)$}
 
-{Spazio per memorizzare }\includegraphics{images/image106.png}
+\subsubsection{Implementazioni}
 
-{}
+{Padre - Complessità $\Theta(1)$}
 
-\hypertarget{h.ncrwkhkrovb2}{\subsubsection{\texorpdfstring{{Implementazioni:}}{Implementazioni:}}\label{h.ncrwkhkrovb2}}
+\lstinputlisting{code/tree_vecp_padre.txt}
 
-{Padre - }{Complessità}\includegraphics{images/image107.png}
+{Figli - Complessità $\Theta(n)$}
 
-\protect\hypertarget{t.13d3d44b5647536d159823e4ed75c88728308b7e}{}{}\protect\hypertarget{t.5}{}{}
+\lstinputlisting{code/tree_vecp_figli.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{padre(Tree P, Node v)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-p{[}v{]} == }{0}{~)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~}{null}{\\
-\hspace*{0.333em} ~ ~}{else}{\\
-\hspace*{0.333em} ~ ~ ~ ~ ~}{return}{~p{[}v{]} → parent;}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\subsection{Utilizzo del vettore posizionale}
 
-{}
+{L'albero deve essere completo e con $k \geq 2$. La ricerca è ottimizzata rispetto all'albero dei padri. Ogni nodo ha una posizione prestabilita.}
 
-{Figli - }{Complessità }\includegraphics{images/image108.png}
-
-\protect\hypertarget{t.7a531182f90cd5bf7a846292288a5a5bf5dd6eaa}{}{}\protect\hypertarget{t.6}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{figli(Tree P, Node v)\\
-\hspace*{0.333em} ~ l = crealista()\\
-\hspace*{0.333em} ~ }{for}{~}{i}{~= }{1}{~to n\\
-\hspace*{0.333em} ~ ~ ~ ~}{if}{~( p{[}i{]} → parent == v )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}
-~ ~inserisci(}{i}{,l)\\
-\hspace*{0.333em} ~ }{return}{~l}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{}
-
-{}
-
-\hypertarget{h.5u7fhayyby4r}{\subsection{\texorpdfstring{{2) Utilizzo
-del vettore
-posizionale}}{2) Utilizzo del vettore posizionale}}\label{h.5u7fhayyby4r}}
-
-{}
-
-{L'albero deve essere completo e con
-}\includegraphics{images/image109.png}{. La ricerca è ottimizzata
-rispetto all'albero dei padri. Ogni nodo ha una posizione prestabilita.}
-
-{Utilizzo un vettore posizionale P di dimensione n tale che }
+{Utilizzo un vettore posizionale $P$ di dimensione $n$ tale che }
 
 \begin{enumerate}
 \tightlist
@@ -1607,76 +807,23 @@ rispetto all'albero dei padri. Ogni nodo ha una posizione prestabilita.}
   }\includegraphics{images/image111.png}
 \end{enumerate}
 
-{}
+{un nodo $f$ è foglia se non ha figli, quindi se }\includegraphics{images/image113.png}
 
-{un nodo }\includegraphics{images/image112.png}{~è foglia se non ha
-figli, quindi se }\includegraphics{images/image113.png}
+{Il padre del nodo $f$ è in posizione $\floor{\frac{f-1}{k}}$ (parte intera inferiore) e i figli si trovano tra $kv+1$ e $kv+1+i-1$.
 
-{}
+\subsubsection{Implementazioni}
 
-{Il padre del nodo }\includegraphics{images/image112.png}{~è in
-posizione $\floor{\frac{f-1}{k}}$ (parte intera
-inferiore) }{ed i figli si trovano tra $kv+1$ e $kv+1+i-1$
+{Padre - Complessità $\Theta(1)$}
 
-{}
+\lstinputlisting{code/tree_vec_padre.txt}
 
-\hypertarget{h.6c4aui6rl05k}{\subsubsection{\texorpdfstring{{Implementazioni:}}{Implementazioni:}}\label{h.6c4aui6rl05k}}
+{Figli - Complessità $\Theta(k)$, con $k$ = grado di $v$}
 
-{}
+\lstinputlisting{code/tree_vec_figli.txt}
 
-{Padre - }{Complessità $\Theta(1)$}
+\subsection{Utilizzo di strutture collegate}
 
-\protect\hypertarget{t.985fc1f36a4403829b157356928a51ed5f0644e7}{}{}\protect\hypertarget{t.7}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{padre(Tree P, Node v)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-n == }{0}{~)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~}{null}{\\
-\hspace*{0.333em} ~ ~}{else}{\\
-\hspace*{0.333em} ~ ~ ~ ~
-~}{return}{~}{PII}\textsuperscript{\protect\hyperlink{cmnt1}{{[}a{]}}}{{[}(v}{-1}{)
-/ K{]}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{}
-
-{}
-
-{Figli - }{Complessità $\Theta(k)$, con $k$ = grado di $v$}
-
-\protect\hypertarget{t.cd7a9ec4a28abd0a2505b50e0d559923d8963c8d}{}{}\protect\hypertarget{t.8}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{figli(Tree P, Node v)\\
-\hspace*{0.333em} ~ ~l = crealista()\\
-\hspace*{0.333em} ~ ~}{if}{( kv + }{1}{~n)\\
-\hspace*{0.333em} ~ ~ ~ ~ }{return}{~l\\
-\hspace*{0.333em} ~ ~}{else}{\\
-\hspace*{0.333em} ~ ~ ~ ~ }{for}{~i = }{0}{~to k}{-1}{\\
-\hspace*{0.333em} ~ ~ ~ ~ ~ ~ ~inserisci(kv + }{1}{~+ i ,l)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}
-~ ~ }{return}{~l}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-\hypertarget{h.bhzctdrna7ur}{\subsection{\texorpdfstring{{3) Utilizzo di
-strutture
-collegate}}{3) Utilizzo di strutture collegate}}\label{h.bhzctdrna7ur}}
-
-\hypertarget{h.qoohix7mgjib}{\paragraph{\texorpdfstring{{3.a) Parent +
-Childs}}{3.a) Parent + Childs}}\label{h.qoohix7mgjib}}
+\paragraph{Parent + Childs}
 
 {}
 
@@ -1700,83 +847,25 @@ Childs}}{3.a) Parent + Childs}}\label{h.qoohix7mgjib}}
 
 {Altrimenti si utilizza una lista di puntatori ai propri figli}
 
-{}
-
 {c {[}{]} : lista di puntatori ai figli~~~~~~~~}
 
-{}
+{Se ogni nodo ha grado al più $k$, è possibile mantenere in ogni nodo un puntatore a ciascuno dei possibili $k$ figli}
 
-{Se ogni nodo ha grado al più }\includegraphics{images/image118.png}{, è
-possibile mantenere in ogni nodo un puntatore a ciascuno dei possibili
-}\includegraphics{images/image118.png}{~figli}
+{Spazio necessario: $\Theta(nk)$, se $k$ costante allora $\Theta(n)$}
 
-{}
+\subsubsection{Implementazioni:}
 
-{Spazio necessario: }\includegraphics{images/image119.png}{~, se
-}\includegraphics{images/image118.png}{~costante allora
-}\includegraphics{images/image120.png}
+{Padre - Complessità $O(1)$}
 
-{}
+\lstinputlisting{code/tree_pc_padre.txt}
 
-\hypertarget{h.7iunf1nu58vy}{\subsubsection{\texorpdfstring{{Implementazioni:}}{Implementazioni:}}\label{h.7iunf1nu58vy}}
+{Figli - Complessità $O(k)$, con $k$ = grado di $v$ }
 
-{Padre - }{Complessità }$O(1)$
+{Con $k$ non noto si utilizza un ciclo che scorre c{[}{]}}
 
-\protect\hypertarget{t.1fda366af82bd8d3dda4418d0091c3a44b3de824}{}{}\protect\hypertarget{t.9}{}{}
+\lstinputlisting{code/tree_pc_figli.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{padre(Tree P, Node v)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~v
-→ p}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{Figli - }{Complessità}\includegraphics{images/image122.png}{, con
-}\includegraphics{images/image118.png}{~= grado di
-}$v${~ }
-
-{Con k non noto si utilizza un ciclo che scorre c{[}{]}}
-
-\protect\hypertarget{t.124118a94a4960d4f86078198fd0f2c89105856f}{}{}\protect\hypertarget{t.10}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{figli(}{Tree}{~}{P}{, }{Node}{~v)\\
-\hspace*{0.333em} ~ l = crealista()\\
-\hspace*{0.333em} ~ }{if}{( v → }{left}{~\textless{}\textgreater{}null
-)\\
-\hspace*{0.333em} ~ ~ ~ ~ inserisci(v → }{left}{~,l)\\
-\hspace*{0.333em} ~ }{if}{( v → }{right}{\textless{}\textgreater{}null
-)\\
-\hspace*{0.333em} ~ ~ ~ ~ inserisci(v → }{right}{,l)\\
-\hspace*{0.333em} ~ }{return}{~l}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-\hypertarget{h.jlqu76iomg9e}{\paragraph{\texorpdfstring{{3.b) Parent +
-Left child + Right
-sibling}}{3.b) Parent + Left child + Right sibling}}\label{h.jlqu76iomg9e}}
-
-\paragraph{\texorpdfstring{{}}{}}\label{h.jlqu76iomg9e-1}
-
-{}
-
-{}
-
-{}
-
-{}
-
-{}
+\paragraph{Parent + Left child + Right sibling}
 
 {Ogni nodo è un record con i seguenti campi:}
 
@@ -1788,190 +877,63 @@ sibling}}{3.b) Parent + Left child + Right sibling}}\label{h.jlqu76iomg9e}}
 
 {~~~~~~~~right\_sibling : puntatore al fratello immediatamente a destra}
 
-{}
+\subsubsection{Implementazioni}
 
-\hypertarget{h.ekfyi4oujqjt}{\subsubsection{\texorpdfstring{{Implementazioni:}}{Implementazioni:}}\label{h.ekfyi4oujqjt}}
+{Padre - Complessità $\Theta(1)$}
 
-{Padre - }{Complessità}\includegraphics{images/image107.png}
+\lstinputlisting{code/tree_plcrs_padre.txt}
 
-{}
+{Figli - Complessità $\Theta(k)$ con $k$ = grado di $v$}
 
-\protect\hypertarget{t.1fda366af82bd8d3dda4418d0091c3a44b3de824}{}{}\protect\hypertarget{t.11}{}{}
+\lstinputlisting{code/tree_plcrs_figli.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{padre(Tree P, Node v)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~v
-→ p}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{Figli - }{Complessità}\includegraphics{images/image117.png}{~con
-}\includegraphics{images/image118.png}{~= grado di
-}$v${~ }
-
-{}
-
-\protect\hypertarget{t.3d98f2c9e8b44fd4f200b41e25c7a6ffdbeba100}{}{}\protect\hypertarget{t.12}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{figli(Tree P, Node v)\\
-\hspace*{0.333em} ~ l = crealista()\\
-\hspace*{0.333em} ~ iter = v → left\_child\\
-\hspace*{0.333em} ~ }{while}{~( iter \textless{}\textgreater{}
-}{null}{)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}
-~ ~ inserisci(iter,l)\\
-\hspace*{0.333em} ~ ~ ~ ~ iter = iter → right\_sibling\\
-\hspace*{0.333em} ~ }{return}{~l ~}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\section{\texorpdfstring{{}}{}}\label{h.d2exy8bjqfbs}
-
-\hypertarget{h.ike679k4smgg}{\section{\texorpdfstring{{Algoritmi Di
-Visita Degli
-Alberi}}{Algoritmi Di Visita Degli Alberi}}\label{h.ike679k4smgg}}
+\section{Algoritmi di visita degli Alberi}
 
 {{[}DFI{]} pp. 77-80}
 
-\hypertarget{h.dvc71mavuqx7}{\subsubsection{\texorpdfstring{{Visita
-generica}}{Visita generica}}\label{h.dvc71mavuqx7}}
+\subsubsection{Visita generica}
 
-{}
+\lstinputlisting{code/visita_generica.txt}
 
-\protect\hypertarget{t.3fc5afa232d0d5009ba66fff59b11fc6057a782f}{}{}\protect\hypertarget{t.13}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{VisitaGenerica(Node v)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}s
-= \{ v \}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{while}{~(
-s \textless{}\textgreater{} \{\} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}u
-= }{pop}{(s)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}figli
-= VisitaGenerica(u)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}s
-= s U figli\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~s}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{Dimostrare che ha costo
-LINEARE}\textsuperscript{\protect\hyperlink{cmnt2}{{[}b{]}}}
-
-{}
+{Dimostrare che ha costo LINEARE}\textsuperscript{\protect\hyperlink{cmnt2}{{[}b{]}}}
 
 \hypertarget{h.6xasx7f8zgn1}{\paragraph{\texorpdfstring{{Teorema}}{Teorema}}\label{h.6xasx7f8zgn1}}
 
-{L'algoritmo di visita, applicato alla radice di un albero con m nodi,
-termina in O(m) iterazioni. Lo spazio usato è O (}{n}{)}
-
-{}
+{L'algoritmo di visita, applicato alla radice di un albero con $m$ nodi, termina in $O(m)$ iterazioni. Lo spazio usato è $O(n)$}
 
 \hypertarget{h.zdc8liauzt1c}{\paragraph{\texorpdfstring{{Dimostrazione}}{Dimostrazione}}\label{h.zdc8liauzt1c}}
 
 {Hp: L'inserimento e la cancellazione da $S$ sono effettuati in tempo costante}
 
-{}
-
 {Ogni nodo verrà inserito ed estratto dall'insieme $s$ una sola volta, perchè in un albero non si può tornare ad un nodo a partire dai suoi figli.}
-
-{}
 
 {Quindi le iterazioni del ciclo while saranno al più $O(n)$}
 
-{Poiché ogno nodo compare al più una volta in S, lo spazio richiesto non è più alto di $O(n)$}
+{Poiché ogno nodo compare al più una volta in $S$, lo spazio richiesto non è più alto di $O(n)$}
 
-{}
-
-\hypertarget{h.5u7m241wpdag}{\subsubsection{\texorpdfstring{{Visita DFS
-- Depth first search - Ricerca in profondità}}{Visita DFS - Depth first search - Ricerca in profondità}}\label{h.5u7m241wpdag}}
-
-{}
+\subsubsection{Visita DFS - Depth first search - Ricerca in profondità}
 
 {Seguiamo tutti i figli sinistri, andando in profondità fino a che non si raggiunge la prima foglia sinistra. Solo quando il sottoalbero sx è stato completamente visitato, si passa ~a visitare il sottoalbero dx}
 
-{}
+\lstinputlisting{code/dfs_visit.txt}
 
-\protect\hypertarget{t.e3f356e73d933eb65b1a6a8cfd4ee1a50561f73c}{}{}\protect\hypertarget{t.14}{}{}
+\subsubsection{Visita BFS - Breadth first search - Ricerca in ampiezza}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Dfs\_Visit(Node r)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}s
-= stack()\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{push}{~(r,s)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{while}{(not
-stackempty(s))\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}u
-= }{pop}{(s)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{(u
-\textless{}\textgreater{} }{null}{)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Dfs\_Visit(u)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{push}{(u
-→ right, s)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{push}{(u
-→ left , s)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~s}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-\hypertarget{h.j29c1mxwyzyn}{\subsubsection{\texorpdfstring{{Visita BFS - Breadth first search - Ricerca in ampiezza}}{Visita BFS - Breadth first search - Ricerca in ampiezza}}\label{h.j29c1mxwyzyn}}
-
-{}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\section{\texorpdfstring{{}}{}}\label{h.5ptbhdwvisbf}
-
-\hypertarget{h.8cvon0yw5yug}{\section{\texorpdfstring{{Heap}}{Heap}}\label{h.8cvon0yw5yug}}
+\section{Heap}
 
 {Heap: albero quasi completo con tutti i nodi dell'ultimo livello a sinistra}
-
-{}
 
 {MaxHeap: La radice ha valore maggiore o uguale a quello dei figli}
 
 {MinHeap: La radice ha valore minore o uguale a quello dei figli}
 
-{}
-
-\hypertarget{h.twk46x6owxrr}{\subsubsection{\texorpdfstring{{Lemma
-2:}}{Lemma 2:}}\label{h.twk46x6owxrr}}
+\subsubsection{Lemma 2}
 
 {Nell'array che rappresenta un heap di $n$ elementi, le foglie sono i nodi con indici che vanno alle posizioni}
 
-{}
+$\frac{n}{2}+1,\frac{n}{2}+2,...,n$
 
-\includegraphics{images/image123.png}
-
-{}
-
-{\includegraphics{images/image526.png}}
-
-{}
-
-\protect\hypertarget{t.0db836340677fe77e6dcdbae821987d7a7a9aed8}{}{}\protect\hypertarget{t.15}{}{}
+\includegraphics{images/image526.png}
 
 {Elemento}
 
@@ -2037,100 +999,36 @@ stackempty(s))\\
 
 {n}
 
-{}
-
 \hypertarget{h.wlc8yrs7inpk}{\subsubsection{\texorpdfstring{{Lemma 3:}}{Lemma 3:}}\label{h.wlc8yrs7inpk}}
-
-{}
 
 {Il teorema definisce la numerosità di nodi con una certa altezza:}
 
-{Ci sono al massimo}\includegraphics{images/image129.png}{nodi di altezza}\textsuperscript{\protect\hyperlink{cmnt3}{{[}c{]}}}{~}{h}{~in
+{Ci sono al massimo $\frac{n}{2^{h+1}}$ nodi di altezza}\textsuperscript{\protect\hyperlink{cmnt3}{{[}c{]}}}{~}{h}{~in
 un qualsiasi heap di $n$ elementi}
 
 \hypertarget{h.t1rcecigqmbx}{\subsubsection{\texorpdfstring{{Max\_heapify}}{Max\_heapify}}\label{h.t1rcecigqmbx}}
 
 {L'operazione max\_heapify permette di mantenere le proprietà di maxheap}
 
-{}
-
-{Precondizioni}{:}
+{Precondizioni:}
 
 {Gli alberi binari con radice in left(i) e right(i) sono maxheap}
 
-{Postcondizioni}{:}
+{Postcondizioni:}
 
 {~~~~~~~~L'albero radicato in $i$ è un maxheap}
 
-{}
-
-\protect\hypertarget{t.cd7cd87746d5c02a44eb80c0828166b19e38f945}{}{}\protect\hypertarget{t.16}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Max\_heapify( Heap A, Node }{i}{)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}l
-= left(}{i}{)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}r
-= right(}{i}{)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-l \textless{}= A.heapsize AND A{[}l{]} \textgreater{} A{[}i{]} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}massimo
-= l\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}massimo
-=
-}{i}{\\[2\baselineskip]\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-r \textless{}= A.heapsize AND A{[}r{]} \textgreater{} A{[}massimo{]} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}massimo
-=
-r\\[2\baselineskip]\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-massimo != }{i}{~)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}scambia
-( A{[}i{]} , A{[}massimo{]} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{max\_heapify}\textsuperscript{\protect\hyperlink{cmnt4}{{[}d{]}}}{(A,
-massimo)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
+\lstinputlisting{code/max_heapify.txt}
 
 {Tempo di esecuzione : $O(h)$ dove $h$ è l'altezza del nodi i poichè l'heap ha altezza $log(n)$ (LEMMA 2)}
 
-{}
-
 \hypertarget{h.symae1e4ut5b}{\subsection{\texorpdfstring{{Dato un vettore disordinato, costruire un heap}}{Dato un vettore disordinato, costruire un heap}}\label{h.symae1e4ut5b}}
 
-{}
-
-\protect\hypertarget{t.7cd7f95f2cb15308ae008ffe6fd7598b3dd68d3c}{}{}\protect\hypertarget{t.17}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Build\_maxheap ( Array A )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A.heapsize
-= A.}{length}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~}{i}{~in
-}{PII}\textsuperscript{\protect\hyperlink{cmnt5}{{[}e{]}}}{~(
-A.}{length}{~/ }{2}{~) downto }{1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}max\_heapify
-( A , }{i}{~)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
+\lstinputlisting{code/build_maxheap.txt}
 
 {Invariante: ogni nodo in posizione \includegraphics{images/image130.png} è radice di un maxheap, con n = }
 
-{}
-
 {Sembrerebbe complessa }\includegraphics{images/image131.png}{ma max\_heapify lavora principalmente su foglie, }{quindi la complessità è lineare }\includegraphics{images/image132.png}{.}
-
-{}
 
 \includegraphics{images/image133.png}
 
@@ -2140,35 +1038,15 @@ A.}{length}{~/ }{2}{~) downto }{1}{\\
 
 {Quindi }\includegraphics{images/image137.png}
 
-\hypertarget{h.vi4eu8p6i55e}{\subsection{\texorpdfstring{{Heapsort}}{Heapsort}}\label{h.vi4eu8p6i55e}}
+\subsection{Heapsort}
 
-\protect\hypertarget{t.6067bda8a5da2e84ade010bd50161a2ed3d5c2cd}{}{}\protect\hypertarget{t.18}{}{}
+\lstinputlisting{code/heapsort.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{HeapSort ( Array A )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}build\_maxheap
-( A )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~}{i}{~=
-A.}{length}{~downto }{2}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}scambia
-A{[} }{1}{~{]} e A{[} i {]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A.heapsize
--= }{1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}max\_heapify
-( A , }{1}{~)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{INV = Il sottoarray che va dalla posizione $1$ alla posizione $i$ è un maxheap che contiene gli elementi più piccoli del intero vettore di partenza, mentre }\includegraphics{images/image138.png}{contiene gli }\includegraphics{images/image139.png}{~elementi più grandi di }\includegraphics{images/image140.png}{~}{ordinati}{.}
+{INV = Il sottoarray che va dalla posizione $1$ alla posizione $i$ è un maxheap che contiene gli elementi più piccoli del intero vettore di partenza, mentre }\includegraphics{images/image138.png}{contiene gli $n-1$ elementi più grandi di $A[1..n]$ ordinati}{.}
 
 \hypertarget{h.rdu8s741ww8w}{\subsubsection{\texorpdfstring{{Teorema}}{Teorema}}\label{h.rdu8s741ww8w}}
 
-{L'algoritmo HeapSort ordina }{in loco}{~n elementi eseguendo nel peggiore dei casi }\includegraphics{images/image141.png}{~confronti in quanto algoritmo }{basato sui confronti.}
+{L'algoritmo HeapSort ordina in loco $n$ elementi eseguendo nel peggiore dei casi $O(nlog(n))$ confronti in quanto algoritmo basato sui confronti.}
 
 \hypertarget{h.jih9riph7gns}{\subsection{\texorpdfstring{{Code di
 priorità}}{Code di priorità}}\label{h.jih9riph7gns}}
@@ -2189,47 +1067,23 @@ priorità}}{Code di priorità}}\label{h.jih9riph7gns}}
 
 {Le operazioni delle code di priorità massima/minima sono:}
 
-{Insert( Coda s , Elemento X)}
+{Insert( Coda s , Elemento X) : Inserisce l'elemento $X$ in $S$}
 
-{Inserisce l'elemento $X$ in $S$}
+{Maximum( Coda s ): Restituisce l'elemento di $S$ con la chiave maggiore senza rimuoverlo}
 
-{Maximum( Coda s )}
+{Minimum( Coda s) : Restituisce l'elemento di $S$ con la chiave minore senza rimuoverlo}
 
-{Restituisce l'elemento di $S$ con la chiave maggiore senza rimuoverlo}
+{Extract\_max( Coda s) : Elimina e restituisce l'elemento di $S$ con la chiave maggiore}
 
-{Minimum( Coda s) }
+{Extract\_min( Coda s) : Elimina e restituisce l'elemento di $S$ con la chiave minore}
 
-{Restituisce l'elemento di $S$ con la chiave minore senza rimuoverlo}
+{Increase\_key( Coda s, Elemento x, Chiave k) : Incrementa il valore della chiave di $X$ al nuovo valore $K$. Si suppone che $K$ sia maggiore o uguale al valore corrente della chiave di $X$, $K \geq chiave(X)$}
 
-{Extract\_max( Coda s)}
-
-{Elimina e restituisce l'elemento di $S$ con la chiave maggiore}
-
-{Extract\_min( Coda s) }
-
-{Elimina e restituisce l'elemento di $S$ con la chiave minore}
-
-{Increase\_key( Coda s, Elemento x, Chiave k) }
-
-{Incrementa il valore della chiave di $X$ al nuovo valore $K$. Si suppone che $K$ sia maggiore o uguale al valore corrente della chiave di $X$}
-
-\includegraphics{images/image142.png}
-
-{Decrease\_key( Coda s, Elemento x, Chiave k)}
-
-{Decrementa il valore della chiave di $X$ al nuovo valore $K$. Si suppone che $K$ sia minore o uguale al valore corrente della chiave di $X$}
-
-\includegraphics{images/image143.png}
+{Decrease\_key( Coda s, Elemento x, Chiave k) : Decrementa il valore della chiave di $X$ al nuovo valore $K$. Si suppone che $K$ sia minore o uguale al valore corrente della chiave di $X$, $K \leq chiave(X)$}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\subsection{\texorpdfstring{{}}{}}\label{h.7vrdkvwj5vt}
-
-\hypertarget{h.aocay3iqens1}{\subsection{\texorpdfstring{{Implementazione di code di massima priorità con le strutture Heap}}{Implementazione di code di massima priorità con le strutture Heap}}\label{h.aocay3iqens1}}
-
-{}
-
-\protect\hypertarget{t.fb709a8e208067c1bfab491f087053eba0be66c5}{}{}\protect\hypertarget{t.19}{}{}
+\subsection{Implementazione di code di massima priorità con le strutture Heap}}
 
 \begin{longtable}[]{@{}l@{}}
 \toprule
@@ -2247,11 +1101,7 @@ A{[}}{1}{{]}\\
 \bottomrule
 \end{longtable}
 
-{Complessità di Heap Maximum : }$O(1)$
-
-{}
-
-\protect\hypertarget{t.a2df3fbad46ddea60bea6624e0f6ba11a8bfb6c9}{}{}\protect\hypertarget{t.20}{}{}
+{Complessità di Heap Maximum : $O(1)$}
 
 \begin{longtable}[]{@{}l@{}}
 \toprule
@@ -2307,83 +1157,23 @@ A{[}}{parent}{(i){]} )\\
 \bottomrule
 \end{longtable}
 
-{Complessità di Heap Increase Key :
-}$O(log(n))$
+{Complessità di Heap Increase Key : $O(log(n))$}
 
-{}
 
 {Invariante del while:
-L'array}\includegraphics{images/image145.png}{soddisfa le proprietà di maxHeap tranne una possibile violazione: A{[}i{]} potrebbe essere più grande di A{[}parent(i){]}}
+L'array $A[i,...,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possibile violazione: A{[}i{]} potrebbe essere più grande di A{[}parent(i){]}}
 
-{}
+{Con un Heap di n elementi, la complessità è $O(log(n))$ in quanto il cammino dal nodo fino alla radice ha lunghezza }$O(log(n))$
 
-{Con un Heap di n elementi, la complessità è }$O(log(n))${~in quanto il cammino dal nodo fino alla radice ha lunghezza }$O(log(n))$
-
-{}
-
-\lstinputlisting{code/heap_insert.txt}[style=pseudocodestyle]
-
-
-\protect\hypertarget{t.7958f2ce179c49f87f7516fa41b6af3c180a9c3d}{}{}\protect\hypertarget{t.22}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Heap\_Insert(Heap A, Element K)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A.heapSize
-+= }{1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A{[}A.heapSize{]}
-= }{-}{inf}\textsuperscript{\protect\hyperlink{cmnt10}{{[}j{]}}}{\\
-\hspace*{0.333em} ~
-~}{Heap\_increase\_key}\textsuperscript{\protect\hyperlink{cmnt11}{{[}k{]}}}{(
-A, A.heapSize, K)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/heap_insert.txt}
 
 {Complessità di Heap\_Insert : }$O(log(n))$
 
-{}
-
 {La ricerca su una cosa di priorità, nel caso peggiore, ha costo }$O(n)$
 
-{}
+{Premessa : $1 \leq i \leq A.heapSize$}
 
-{Premessa : }\includegraphics{images/image147.png}
-
-\protect\hypertarget{t.d28036819d2430727ba73bfba81d85deab3e3f8e}{}{}\protect\hypertarget{t.23}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Heap\_Delete( Heap A, Node }{i}{)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~A.heapSize
-== }{1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A.heapSize
-= }{0}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}val
-= A{[}i{]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A{[}i{]}
-= A{[} A.heapSize {]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A.heapSize
--= }{1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-val \textgreater{} A{[}i{]}
-)}\textsuperscript{\protect\hyperlink{cmnt12}{{[}l{]}}}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}max\_heapify
-( A , }{i}{~)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}\textsuperscript{\protect\hyperlink{cmnt13}{{[}m{]}}}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{while}{~(
-}{i}{~\textgreater{} }{1}{~AND A{[}i{]} \textgreater{} A{[}parent(i){]}
-)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}scambia
-( A{[}i{]} , A{[}parent(i){]} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{i}{~=
-parent(}{i}{)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/heap_delete.txt}
 
 {Complessità di Heap Delete : }$O(log(n))$
 
@@ -2391,94 +1181,36 @@ parent(}{i}{)}\strut
 
 {Esercizio 1 }{: }
 
-{Scrivere una funzione che determini se un albero è quasi completo. Gli output devono essere 1 se l'albero è quasi completo o 0 se non lo è. }{L'albero è rappresentato con notazione left e right}{.}
+{Scrivere una funzione che determini se un albero è quasi completo. Gli output devono essere 1 se l'albero è quasi completo o 0 se non lo è. }{L'albero è rappresentato con notazione left e right.}
 
 {Note: notiamo che non è sufficiente sapere se un albero è quasi completo o meno, necessitiamo anche di un valore per rappresentare l'albero completo.}
 
 {Gli output saranno quindi: 0 - albero completo, 1 - albero quasi completo, 2 - albero non quasi completo.}
 
-{}
 
-\protect\hypertarget{t.de21fc3fbf0389dd2e8717ed10f1e8186d7aa477}{}{}\protect\hypertarget{t.24}{}{}
+\lstinputlisting{code/is_quasi_completo.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{is\_quasi\_completo( Node u )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{int}{~h\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~is\_quasi\_completo\_aux(u,\&h)
-}{== }{1}\textsuperscript{\protect\hyperlink{cmnt14}{{[}n{]}}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/is_quasi_completo_aux.txt}
 
-{}
-
-\protect\hypertarget{t.fbe0aa435e9955135c686308b738612e04b692a9}{}{}\protect\hypertarget{t.25}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{is\_quasi\_completo\_aux( Node u, int *h)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}int
-risSx, risDx, hSx, hDx\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-u == }{NULL}{~)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}*h
-= }{-1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~}{0}{~}{//albero
-completo}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}risSx
-= is\_quasi\_completo\_aux(u-\textgreater{}left, \&hSx) \textless{}=
-}{1}{~}{//se completo o quasi completo}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}risDx
-= is\_quasi\_completo\_aux(u-\textgreater{}right, \&hDx) \textless{}=
-}{1}{~}{//se completo o quasi completo}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}*h
-= ( hSx \textless{} hDx ? hDx : hSx ) + }{1}{~}{//l'altezza massima +
-1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{(\\
-\hspace*{0.333em} ~ ~ ~ ~ ~( risSx == }{0}{~}{AND}{~risDx ==
-}{0}{~}{AND}{~hDx \textless{}= hSd }{AND}{~hSx \textless{}= (hDdx +
-}{1}{) )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\textbar{}\textbar{}
-( risSx == }{0}{~}{AND}{~risDx == }{1}{~}{AND}{~hSx == hDx)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\textbar{}\textbar{}
-( risSx == }{1}{~}{AND}{~risDx == }{0}{~}{AND}{~hSx == (hDx + }{1}{) )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em})\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~(hDx
-\textless{} hSx ? }{1}{~: risDx)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~}{2}{~}{//non
-è quasi completo}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{Complessità di is\_quasi\_completo :
-}$O(n)${~}
+{Complessità di is\_quasi\_completo : $O(n)$}
 
 \includegraphics{images/image148.png}
 
-{Esercizio 2}{~: }
+{Esercizio 2 : }
 
-{Siano dati due alberi binari completi di radice $r$ ed $s$ aventi la stessa
-altezza $h$ e dimensione totale ( somma dei nodi dei due alberi ) $n$. Le chiavi memorizzate nei nodi soddisfano la proprietà di maxheap. Si vuole creare un unico albero quasi completo maxheap, fusione dei due alberi, con altezza $h+1$ e dimensione $n$.}
+{Siano dati due alberi binari completi di radice $r$ ed $s$ aventi la stessa altezza $h$ e dimensione totale ( somma dei nodi dei due alberi ) $n$. Le chiavi memorizzate nei nodi soddisfano la proprietà di maxheap. Si vuole creare un unico albero quasi completo maxheap, fusione dei due alberi, con altezza $h+1$ e dimensione $n$.}
 
 {Le seguenti soluzioni vengono accettate:}
 
 \begin{enumerate}
 \tightlist
 \item
-  {Soluzione di costo e tempo }\includegraphics{images/image149.png}{~e
-  in spazio aggiuntivo }\includegraphics{images/image149.png}
+  {Soluzione di costo e tempo }\includegraphics{images/image149.png}{~e in spazio aggiuntivo }\includegraphics{images/image149.png}
 \item
-  {Soluzione (più elegante) di costo e tempo
-  }$O(log(n))${~e spazio aggiuntivo costante}
+  {Soluzione (più elegante) di costo e tempo $O(log(n))$ e spazio aggiuntivo costante}
 \end{enumerate}
 
-{}
-
-{Soluzione}{:}
+{Soluzione :}
 
 \begin{enumerate}
 \tightlist
@@ -2676,13 +1408,9 @@ determinare il tempo di esecuzione.}
 \begin{itemize}
 \tightlist
 \item
-  {Se $h=0$ abbiamo un albero
-  costituito da un solo nodo radice che è l'unica foglia, quindi le
-  foglie sono 1. Ovviamente con }\includegraphics{images/image162.png}{,
-  }\includegraphics{images/image163.png}{~è verificata, infatti
-  }\includegraphics{images/image164.png}{.}
+  {Se $h=0$ abbiamo un albero costituito da un solo nodo radice che è l'unica foglia. Ovviamente con $h=0$, $1 \leq 2^h$ è verificata, infatti $1\leq 2^0$.}
 \item
-  {Assumiamo vera la proprietà per alberi binari di altezza $k<h$ e lo dimostro per h. Sia $r$ la radice dell'albero $t$. }
+  {Assumiamo vera la proprietà per alberi binari di altezza $k<h$ e lo dimostro per $h$. Sia $r$ la radice dell'albero $t$. }
 \end{itemize}
 
 \begin{itemize}
@@ -2768,17 +1496,13 @@ k, per qualche k prefissato}
 
 {Input:}
 
-\includegraphics{images/image182.png}{~dove
-}\includegraphics{images/image183.png}{~, n e k sono parametri}
+{$A=[0,...,n]$ dove $A[j] \in [0,...,k]$, $n,k$ sono parametri}
 
 {Output:}
 
-\includegraphics{images/image184.png}{~}{ordinato}{,
-permutazione di A}
+{$B=[0,...,n]$ ordinato, permutazione di A}
 
-{Utilizzo una memoria ausiliaria C , costituita da
-}\includegraphics{images/image185.png}{elementi,
-}\includegraphics{images/image186.png}
+{Utilizzo una memoria ausiliaria $C$, costituita da $k+1$ elementi, $C=[0,...,n]$}
 
 {Codice:}
 
@@ -3850,24 +2574,18 @@ collisioni}}{Confrontro tra metodi di risoluzione delle collisioni}}\label{h.sg1
 
 {\includegraphics{images/image541.png}}
 
-{}
-
 {Notiamo che i costi del concatenamento in nero (indirizzamento aperto)
 crescono molto più velocemente delle altre due rosse (liste di
 collisione).}
 
-\hypertarget{h.fi9e3nt34nfb}{\section{\texorpdfstring{{Mod 2 -
-}{Grafi}}{Mod 2 - Grafi}}\label{h.fi9e3nt34nfb}}
+\section{Mod 2 - Grafi}
 
 {Coppia ordinata }$G=(V,E)${~formata da due
 insiemi V (vertici) ed E (archi)}
 
 \includegraphics{images/image336.png}
 
-\includegraphics{images/image337.png}{, ovvero E è un sottoinsieme
-dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
-
-{}
+\includegraphics{images/image337.png}{, ovvero E è un sottoinsieme dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
 
 {I grafi possono essere}
 
@@ -3876,22 +2594,18 @@ dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
 \item
   {Orientati}
 \item
-  {Non orientati , se le relazioni sono simmetriche}
+  {Non orientati, se le relazioni sono simmetriche}
 \end{itemize}
 
 {~~~~~~~~se }\includegraphics{images/image338.png}
-
-
 
 {Non si ammettono cappi nei grafi non orientati.}
 
 \includegraphics{images/image339.png}
 
-{}
+\subsection{Sottografi}
 
-\hypertarget{h.5gj1hs8i1ooy}{\subsection{\texorpdfstring{{Sottografi}}{Sottografi}}\label{h.5gj1hs8i1ooy}}
-
-{Sottografo di }$G$
+{Sottografo di $G$}
 
 {$G'=(V',E')$ è sottografo di $G$ se $V'\subseteq V$ e $E'\subseteq E$}
 
@@ -3899,48 +2613,40 @@ dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
 
 {Dato $V' \subseteq V$, il sottografo indotto da $V'$ di $G$ è $G[V']=(V',E')$, con $E' = E\,\cap\,V\,x\,V'$}
 
-\subsection{\texorpdfstring{{\protect\includegraphics{images/image534.png}}}{}}\label{h.alw0becdzne2}
+\includegraphics{images/image534.png}
 
-\hypertarget{h.lxvflhr4q9d8}{\subsection{\texorpdfstring{{Cammini}}{Cammini}}\label{h.lxvflhr4q9d8}}
+\subsection{Cammini}
 
-{Un cammino di }$G${~è una sequenza
-}\includegraphics{images/image347.png}{~dove i vertici appartengono al
-grafo di partenza. }
+{Un cammino di $G$ è una sequenza \includegraphics{images/image347.png} dove i vertici appartengono al grafo di partenza.}
 
 \includegraphics{images/image348.png}
 
-\hypertarget{h.sjz08mn040is}{\subsubsection{\texorpdfstring{{Cammini
-semplici e cammini non
-semplici}}{Cammini semplici e cammini non semplici}}\label{h.sjz08mn040is}}
-
+\subsubsection{Cammini semplici e cammini non semplici}
 
 $<1,2,3,4,5>$ è un cammino semplice\\
 $<1,2,3,1,4,5>$ non è un cammino semplice
 
 {Un cammino è semplice se tutti i vertici sono distinti}
 
-\hypertarget{h.e18ltelmo48z}{\subsubsection{\texorpdfstring{{Lunghezza
-di un cammino}}{Lunghezza di un cammino}}\label{h.e18ltelmo48z}}
+\subsubsection{Lunghezza di un cammino}
 
 {La lunghezza di un cammino è il numero dei suoi archi}
 
-\hypertarget{h.4bm9pdnjdb2q}{\subsubsection{\texorpdfstring{{Raggiungibilità
-dei vertici}}{Raggiungibilità dei vertici}}\label{h.4bm9pdnjdb2q}}
+\subsubsection{Raggiungibilità dei vertici}
 
 $u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,...,X_k>$ tale che $X_0 = u$ e $X_k = v$
 
-\hypertarget{h.4fm287mz4am5}{\subsubsection{\texorpdfstring{{Ciclo}}{Ciclo}}\label{h.4fm287mz4am5}}
+\subsubsection{Ciclo}
 
 {Un ciclo è un cammino dove $X_0 = X_k$}
 
 {Un grafo senza cicli si dice aciclico.}
 
-\hypertarget{h.rpdf8j1vq7g0}{\subsubsection{\texorpdfstring{{{[}NO{]}
-Grafo connesso}}{{[}NO{]} Grafo connesso}}\label{h.rpdf8j1vq7g0}}
+\subsubsection{{[}NO{]}Grafo connesso}
 
 {Un grado non orientato si dice connesso se }\includegraphics{images/image354.png}{, esiste un cammino da $u$ a $v$ con }\includegraphics{images/image355.png}
 
-\hypertarget{h.iejp6ankfctp}{\subsubsection{\texorpdfstring{{{[}NO{]} Componente connessa}}{{[}NO{]} Componente connessa}}\label{h.iejp6ankfctp}}
+\subsubsection{{[}NO{]} Componente connessa}
 
 {Dato $G=(V,E)$ e $V' \subseteq V$}
 
@@ -3954,32 +2660,26 @@ Grafo connesso}}{{[}NO{]} Grafo connesso}}\label{h.rpdf8j1vq7g0}}
   $V'${~non è sottoinsieme stretto di un sottografo connesso}
 \end{enumerate}
 
-{}
-
 {Se il numero di componenti connesse di un grafo è uguale a 1, }{il
 grafo è connesso.}
 
-\hypertarget{h.5nknzat57p06}{\subsubsection{\texorpdfstring{{{[}NO{]}
-Vertici adiacenti}}{{[}NO{]} Vertici adiacenti}}\label{h.5nknzat57p06}}
+\subsubsection{{[}NO{]}Vertici adiacenti}
 
 {Dato $G=(V,E)$ e $u \in V$}
 
 {Il grado di $u$, $deg(u)$ è il numero di vertici adiacenti a $u$}
 
-\hypertarget{h.52hqmabofvh0}{\subsubsection{\texorpdfstring{{Arco
-incidente}}{Arco incidente}}\label{h.52hqmabofvh0}}
+\subsubsection{Arco incidente}
 
 {Un arco che è collegato ad $v$}
 
-\hypertarget{h.vm6z084zc6rf}{\subsubsection{\texorpdfstring{{Vertici isolati e terminali}}{Vertici isolati e terminali}}\label{h.vm6z084zc6rf}}
+\subsubsection{Vertici isolati e terminali}
 
 {Se $deg(u) = 0$ allora $u$ è isolato}
 
 {Se $deg(u) = 1$ allora $u$ è terminale}
 
-\hypertarget{h.d1yeo9bkhutt}{\subsubsection{\texorpdfstring{{Teorema
-della stretta di mano (HandShaking
-Lemma)}}{Teorema della stretta di mano (HandShaking Lemma)}}\label{h.d1yeo9bkhutt}}
+\subsubsection{Teorema della stretta di mano (HandShaking Lemma)}
 
 {{[}NO{]}}
 
@@ -4913,6 +3613,20 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 \protect\hypertarget{t.249d86aca9d964d15cac3725f6a7ace85a3425b4}{}{}\protect\hypertarget{t.45}{}{}
 
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{ll|l|l|}
+\cline{3-4}
+                                                 &                               & \multicolumn{2}{c|}{Destinazione}                            \\ \cline{3-4} 
+                                                 &                               & \multicolumn{1}{c|}{Singola} & \multicolumn{1}{c|}{Multipla} \\ \hline
+\multicolumn{1}{|c|}{}                           & \multicolumn{1}{c|}{Singola}  & a                            & \cellcolor[HTML]{F8A102}b     \\ \cline{2-4} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{Sorgente}} & \multicolumn{1}{c|}{Multipla} & c                            & \cellcolor[HTML]{F8A102}d     \\ \hline
+\end{tabular}
+\end{table}
+
 {Destinazione}
 
 {Singola}
@@ -4957,6 +3671,8 @@ due sono sottoproblemi di essi.}
 
 {Ci domandiamo se sia possibile risolvere il problema degli archi con peso negativo sommando ai pesi di tutti gli archi del grafo $G$ la costante $k$ capace di renderli tutti positivi. Es: $k=-min(w(u,v))\,\forall u,v \in E$}
 
+{NO. Sommare una costante ai pesi degli archi altera eventuali somme di pesi di archi di lunghezza differente in maniera diversa.}
+
 \subsection{\texorpdfstring{{Strutture dati per la rappresentazione dei cammini minimi}}{Strutture dati per la rappresentazione dei cammini minimi}}\label{h.ee7q1txmgnne}
 
 {}
@@ -4975,9 +3691,10 @@ $\pi[u]$ : predecessore
 
 {Dato $G=(V,E,w)$, il sottografo dei predecessori è $G_\pi=(V_\pi,E_\pi)$ dove}
 
-\includegraphics{images/image512.png}{~}
+$V_\pi=\{u \in V | \pi[u] \neq NIL\} \cup \{s\}$
 
-\includegraphics{images/image513.png}{~}
+
+$E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
 \subsubsection{\texorpdfstring{{Albero dei cammini minimi}}{Albero dei cammini minimi}}\label{h.2lffyamho46s}
 
@@ -5023,6 +3740,36 @@ $\pi[u]$ : predecessore
 {Studiamo la complessità di Dijkstra con coda di priorità implementata con array lineare:}
 
 
+\section{Correttezza di Dijkstra}
+\subsection{Proprietà 1}
+
+Un sottocammino $p'$ di un cammino minimo $p$, è anch'esso minimo.
+
+\subsubsection{Dimostrazione}
+
+Se, per assurdo, suppongo che $p'$ non sia minimo.\\
+Allora deve esistere un terzo cammino $p''$ tra $x$ e $y$ con $w(p'') < w(p')$.\\
+Se così fosse, $p$ non sarebbe minimo.
+
+
+\subsection{Proprietà 2}
+
+Dato $p$ cammino minimo, \\
+$\delta(s,v)=\delta(s,u)+\delta(u,v)$ \\
+
+
+
+\subsection{Proprietà 3 - Diseguaglianza triangolare}
+
+
+$\delta(s,v)\leq \delta(s,u)+w(u,v)$ \\
+
+\subsubsection{Dimostrazione}
+
+caso a, $u$ non è raggiungibile da $s$, quindi $\delta(s,u) = +\inf$ \\
+caso b, $u$ è raggiungibile da $s$, allora $\delta(s,u) < +\inf$ \\
+
+se $p$ è minimo $\delta(s,v)=w(s,u)+w(u,v)$, altrimenti $\delta(s,v)<w(s,u)+w(u,v)$ \\
 
 
 \protect\hyperlink{cmnt_ref1}{{[}a{]}}{Parte Intera Inferiore}

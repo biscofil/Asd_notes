@@ -1,0 +1,5 @@
+padre(Tree P, Node v)
+	if ( p[v] == 0 )
+		return null
+	else
+		return p[v]->parent;

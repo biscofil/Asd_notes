@@ -1,0 +1,5 @@
+padre(Tree P, Node v)
+	if ( n == 0 )
+		return null
+	else
+		return $\floor{\frac{v-1}{K}}$

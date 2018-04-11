@@ -1,0 +1,7 @@
+VisitaGenerica(Node v)
+	s={v}
+	while ( s <> {} )
+		u = pop(s)
+		figli = VisitaGenerica(u)
+		s = s $\cup$ figli
+	return s

@@ -1,0 +1,4 @@
+Build_maxheap ( Array A )
+	A.heapsize = A.length
+	for i in $\floor{\frac{A.length}{2}}$ downto 1
+		max_heapify(A,i)

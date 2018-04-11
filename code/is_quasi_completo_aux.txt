@@ -1,0 +1,15 @@
+is_quasi_completo_aux( Node u, int *h)
+		int risSx, risDx, hSx, hDx
+		if ( u == NULL )
+				*h = -1
+				return 0 //albero completo
+		risSx = is_quasi_completo_aux(u->left, &hSx) <= 1 //se completo o quasi completo
+		risDx = is_quasi_completo_aux(u->right, &hDx) <= 1 //se completo o quasi completo
+		*h = ( hSx < hDx ? hDx : hSx ) + 1 //l'altezza massima + 1
+		if(
+		( risSx == 0 AND risDx == 0 AND hDx <= hSd AND hSx <= (hDdx + 1) )
+		|| ( risSx == 0 AND risDx == 1 AND hSx == hDx)
+		|| ( risSx == 1 AND risDx == 0 AND hSx == (hDx + 1) )
+		)
+				return (hDx < hSx ? 1 : risDx)
+		return 2 //non quasi completo

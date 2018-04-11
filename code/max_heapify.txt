@@ -1,0 +1,14 @@
+Max_heapify( Heap A, Node i)
+	l = left(i)
+	r = right(i)
+	if ( l <= A.heapsize AND A[l] > A[i] )
+		massimo = l
+	else
+		massimo = i
+
+	if ( r <= A.heapsize AND A[r] > A[massimo] )
+		massimo = r
+
+	if ( massimo != i )
+		scambia ( A[i] , A[massimo] )
+		max_heapify (A, massimo)

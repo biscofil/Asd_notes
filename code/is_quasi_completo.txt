@@ -1,0 +1,3 @@
+is_quasi_completo( Node u )
+	int h
+	return is_quasi_completo_aux(u,&h) == 1 [n]

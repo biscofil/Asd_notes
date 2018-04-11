@@ -1,0 +1,8 @@
+figli(Tree P, Node v)
+	l = crealista()
+	if( kv + 1 n)
+		return l
+	else
+		for i = 0 to k-1
+			inserisci(kv + 1 + i ,l)
+	return l

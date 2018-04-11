@@ -1,0 +1,6 @@
+HeapSort ( Array A )
+	build_maxheap ( A )
+	for i = A.length downto 2
+		scambia A[ 1 ] e A[ i ]
+		A.heapsize -= 1
+		max_heapify ( A , 1 )
