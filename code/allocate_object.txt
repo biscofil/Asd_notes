@@ -1,0 +1,7 @@
+Allocate_Object()
+	if(free == null)
+		errore "spazio esaurito"
+	else
+		x = free
+		free = next[free]
+		return x

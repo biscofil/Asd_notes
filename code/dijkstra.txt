@@ -1,10 +1,10 @@
 Dijkstra(G,w,s)
 	InitSingleSource(G,s)
 	Q <- V[G]
-	S <- []
-	while Q != [] do
+	S <- \emptyset
+	while Q != \emptyset do
 		u <- extractMin(Q)
-		S <- S U {u}
+		S <- $S \cup \{u\}$
 		foreach v in Adj[u] do
 			relax(u,v,w)
 	return d,$\pi$

@@ -1,11 +1,10 @@
 Kruskal(G,w)
-     A = []
+     A = $\emptyset$
      Foreach u in V[G] do                             	$O(n)$
          Make_set(u)
      Ordina gli archi di E[G] in ordine crescente     	$\Theta(m log m)$
      Foreach (u,v) in E[G] do                         	$O(m log m)$
-         If find_set(u) != find_set(v) then           	$O(log m)$*  
+         If find_set(u) != find_set(v) then           	$O(log m)$*
 	        Union(u,v)                              $O(log m)$*
-              	A = A U {(u,v)}
+              	A = $A \cup \{(u,v)\}$
      Return A
-

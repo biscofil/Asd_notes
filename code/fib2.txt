@@ -1,0 +1,5 @@
+Fib2 (int n) : int
+	if $n \leq 2$ then 
+		return 1
+	else
+		return Fib2(n-1) + Fib2(n-2)

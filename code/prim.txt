@@ -1,10 +1,10 @@
 Prim(G,w,r):
 	Q = V[G]
 	foreach v in Q
-		key[v] = inf
+		key[v] = +$\infty$
 	key[r] = 0
 	$\pi$[r] = NIL
-	while Q != [] do
+	while Q != $\emptyset$ do
 		u = extractMin(Q)
 		foreach v in Adj[u]
 			if v in Q and w(u,v) < key[v] then

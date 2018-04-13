@@ -1,0 +1,2 @@
+Fib1 (int n) : int
+	return $\frac{1}{\sqrt{5}}(\Phi^n-\overline{\Phi}^n)$

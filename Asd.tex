@@ -177,89 +177,56 @@ Dove con $\Phi$ si indica la sezione aurea $\frac{1+\sqrt{5}}{2} \simeq -0,618$ 
 
 {Dimostriamo per Induzione la formula di Binet:}
 
-{Base \#1}
+{Base:}
 
-{$n = 1$}
+{$n = 1 \rightarrow F_n = \frac{1}{\sqrt{5}}(\Phi^1-\overline{\Phi}^1)$
 
-$\frac{1}{\sqrt{5}}(\Phi^1-\overline{\Phi}^1)$
+{Sostistuisco con le definizioni di $\Phi$ e semplifico}
 
-{sostistuisco con le definizioni di $\Phi$ e semplifico}
+{$F_n = 1 = F_1$}
 
-{= 1 = $F_1$}
+{$n = 2 \rightarrow F_n =\frac{1}{\sqrt{5}}(\Phi^2-\overline{\Phi}^2)$
 
-{Base \#2}
+{Sostistuisco con le definizioni di $\Phi$ e semplifico}
 
-{$n = 2$}
+{$F_n = 1 = F_2$}
 
-$\frac{1}{\sqrt{5}}(\Phi^2-\overline{\Phi}^2)$
+{Passo induttivo $n \geq 3$ :}
 
-{sostistuisco con le definizioni di $\Phi$ e semplifico}
+$F_n = F_{n-1} + F_{n-2}$
 
-{= 1 = $F_2$}
+$F_{n-1}=\frac{1}{\sqrt{5}}(\Phi^{n-1}-\overline{\Phi}^{n-1})$ e 
+$F_{n-2}=\frac{1}{\sqrt{5}}(\Phi^{n-2}-\overline{\Phi}^{n-2})$
 
-{Passo induttivo}
+{assomiglia alla forma $F_n=\frac{1}{\sqrt{5}}(\Phi^n-\overline{\Phi}^n)$}
 
-\includegraphics{images/image13.png}
+{ci chiediamo se $\Phi^n=\Phi^{n-1}+\Phi^{n-2}$ e se $\overline{\Phi}^n=\overline{\Phi}^{n-1}+\overline{\Phi}^{n-2}$
 
-\includegraphics{images/image14.png}{~}
+{divido da entrambe le parti per $\Phi^{n-2}$ e $\overline{\Phi}^{n-2}$}
 
-\includegraphics{images/image15.png}\includegraphics{images/image16.png}{~e
-}\includegraphics{images/image17.png}\includegraphics{images/image18.png}
+\paragraph{Definizione 1}
 
-{assomiglia alla forma }\includegraphics{images/image1.png}{~=
-}\includegraphics{images/image4.png}{~}
+{Utilizzeremo la notazione $T_n$ per indicare la velocità/complessità di una particolare funzione (numero di righe di codice eseguite) }
 
-{ci chiediamo se }\includegraphics{images/image19.png}{~e se
-}\includegraphics{images/image20.png}
+\lstinputlisting{code/fib1.txt}
 
-{divido da entrambe le parti per
-}\includegraphics{images/image21.png}{~e
-}\includegraphics{images/image22.png}
+$T(Fib1)_n = 1\,\forall n$
 
-{Definizione \#1}
+{Problema: con l'aumentare di $n$, la funzione $Fib1(n)$ diventa sempre più imprecisa}
 
-{Utilizzeremo la notazione }\includegraphics{images/image23.png}{~per
-indicare la velocità/complessità di una particolare funzione (numero di
-righe di codice eseguite) }
+$Fib1_3=1,9999.. \simeq 2$ \\
+$Fib1_{16}=986,699.. \simeq 987$ \\
+$Fib1_{18}=2583,1.. \simeq 2584$
 
-{Fib1 (int n) → int}
+\paragraph{Definizione 2}
 
-{~~~~~~~~return }\includegraphics{images/image4.png}
-
-\includegraphics{images/image24.png}{~}\includegraphics{images/image25.png}
-
-{Problema: con l'aumentare di n, la funzione Fib1(n) diventa sempre più
-imprecisa}
-
-\includegraphics{images/image26.png}
-
-\includegraphics{images/image27.png}
-
-\includegraphics{images/image28.png}
-
-{Definizione \#2}
-
-\protect\hypertarget{t.b6ceb73d86c2dc3f3cbc86e1ad6e301e593880f5}{}{}\protect\hypertarget{t.0}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Fib2 (}{int}{~n) → }{int}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~n
-\textless{}= }{2}{~then }{return}{~}{1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}{~}{return}{~Fib2(n}{-1}{)
-+ Fib2(n}{-2}{)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/fib2.txt}
 
 \includegraphics{images/image29.png}
 
-\includegraphics{images/image30.png}\includegraphics{images/image31.png}
+$2+T_{n-1} + T_{n-2},\,\forall n \geq 3$
 
-\includegraphics{images/image32.png}{~è una formula ricorsiva o ricorrenza}
-
-\protect\hypertarget{t.b835927b516aa4a0b07c3acab4f4cd0150ff7dd8}{}{}\protect\hypertarget{t.1}{}{}
+{$T(Fib2)_n$ è una formula ricorsiva o ricorrenza}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
@@ -304,9 +271,9 @@ funzione esaminata.}
 \begin{itemize}
 \tightlist
 \item
-  {andamento esponenziale rispetto ad n → funzione NON efficiente}
+  {andamento esponenziale rispetto ad $n$: funzione NON efficiente}
 \item
-  {andamento logaritmico / proporzionale rispetto ad n → funzione
+  {andamento logaritmico / proporzionale rispetto ad $n$: funzione
   efficiente}
 \end{itemize}
 
@@ -316,15 +283,11 @@ funzione esaminata.}
 \#1 - albero di
 ricorsione}}{Strumento \#1 - albero di ricorsione}}\label{h.x4ciu865ga1f}}
 
-{Notiamo che }\includegraphics{images/image33.png}
-
-{dove $(1 * 5)$ è la complessità delle foglie (5 foglie con peso 1)}
-
-{e $(2 * 4)$ è la complessità dei nodi interni (4 nodi con peso 2)}
+{Notiamo che $T(Fib2)_5=(1*5)+(2*4)=13$, dove $(1 * 5)$ è la complessità delle foglie (5 foglie con peso 1) e $(2 * 4)$ è la complessità dei nodi interni (4 nodi con peso 2)}
 
 {\includegraphics{images/image523.png}}
 
-{Proprietà \#1}
+\paragraph{Proprietà 1}
 
 {Se $T_n$ rappresenta l'albero di ricorsione relativo a $Fib2_n$, allora il numero di foglie di $T_n$ è uguale a $F_n$(con $F_n$ indichiamo l'n-esimo numero della successione di Fibonacci)}
 
@@ -332,128 +295,98 @@ ricorsione}}{Strumento \#1 - albero di ricorsione}}\label{h.x4ciu865ga1f}}
 
 {Base:}
 
-{se n = ~1 → numero di foglie di }\includegraphics{images/image35.png}
+{se $n = 1$, il numero di foglie di $T_2$, $F_1=1$}
 
-{se n = ~2 → numero di foglie di }\includegraphics{images/image36.png}
+{se $n = 2$, il numero di foglie di $T_2$, $F_2=1$}
 
 {Passo induttivo:}
 
 {\includegraphics{images/image528.png}}
 
-{Proprietà \#2}
+\paragraph{Proprietà 2}
 
 {Sia $T$ un albero binario in cui ogni nodo interno ha esattamente 2 figli}
 
 {Allora $i_T=f_T-1$, dove con $i_T$ indichiamo il numero di nodi interni dell'albero $T$ e con $f_T$ indichiamo il numero di foglie dell'albero $T$}
 
-{Dimostrazione per induzione}
+\paragraph{Dimostrazione per induzione}
 
 {Dimostrazione su $n$, dove $n$ è il numero di nodi di $T$}
 
-{Base:}
+{Base $n=1$ : OVVIO}
 
-$n=1${~→ OVVIO}
-
-{Passo induttivo:}
-
-\includegraphics{images/image43.png}
+{Passo induttivo: $n \geq 2$}
 
 {\includegraphics{images/image525.png}}
 
 {\includegraphics{images/image536.png}}
 
-{L'albero risultante lo chiamiamo
-}\includegraphics{images/image44.png}{~:}
+{L'albero risultante lo chiamiamo $\overline{T}$:}
 
 {\includegraphics{images/image522.png}}
 
 {Notiamo che }
 
-\includegraphics{images/image45.png}{*}
+$t_{\overline{T}} = f_{\overline{T}}-1${*}
 
-\includegraphics{images/image46.png}{**}
+$f_{\overline{T}} = f_{T}-1${**}
 
-\includegraphics{images/image47.png}{~ ~}
+$i_{\overline{T}} = i_{T}-1$
 
-{→ (inverto) ~ ~}\includegraphics{images/image48.png}{~ }
+{→ (inverto) $i_T=i_{\overline{T}}+1$}
 
-{→ (sostituisco }{*}{) }\includegraphics{images/image49.png}
+{→ (sostituisco*) $i_T=f_{\overline{T}}+1-1$}
 
-{→ (semplifico) ~}\includegraphics{images/image50.png}{~ }
+{→ (semplifico) $i_T=f_{\overline{T}}$}
 
-{→ (sostituisco }{**}{) ~ }\includegraphics{images/image38.png}
+{→ (sostituisco**) $i_T=f_T-1$}
 
-{Studio complessità di }\includegraphics{images/image51.png}{l'utilizzo del metodo dell'albero di ricorsione}
+{Studio complessità di $Fib2_n$ con l'utilizzo del metodo dell'albero di ricorsione}
 
-{~}\includegraphics{images/image52.png}
+$i_{T_n}=F_n-1$
 
-{~}\includegraphics{images/image53.png}
+$f_{T_n}=F_n$
 
-\includegraphics{images/image54.png}
+$T_n = 2 * i_{T_n}+1*f_{T_n}$
 
-{→ }\includegraphics{images/image55.png}
+{→ $2 * F_{n-1} + F_n$}
 
-{→ }\includegraphics{images/image56.png}{~}
+{→ $3 * F_n - 2$}
 
-{Proprietà \#3}
+\paragraph{Proprietà 3}
 
-\includegraphics{images/image57.png}
+\begin{equation}
+\forall n \geq 6 \rightarrow F_n \geq 2^{\frac{n}{2}}
+\end{equation}
 
 {Dimostrazione per induzione}
 
-{Base:}
+{Base $n=6$ :}
 
-\includegraphics{images/image58.png}
+$F_6=8$	\\
+$2^{\frac{6}{3}}=2^3=8$
 
-\includegraphics{images/image59.png}
+{Passo induttivo $n \geq 7$ :}
 
-\includegraphics{images/image60.png}
+$F(n) \geq 2^{\frac{n-1}{2}} + 2^{\frac{n-2}{2}}$
 
-{Passo induttivo:}
+$F(n) \geq 2^{\frac{n}{2}} * 2^{-\frac{1}{2}} + 2^{\frac{n}{2}} * 2^{-1} $
 
-\includegraphics{images/image61.png}
+$F(n) \geq 2^{\frac{n}{2}} * ( 2^{-\frac{1}{2}} + 2^{-1} )$
 
-\includegraphics{images/image62.png}
-
-\includegraphics{images/image63.png}
-
-\includegraphics{images/image64.png}
-
-\includegraphics{images/image65.png}{~è sempre maggiore o uguale ad 1}
+{$2^{-\frac{1}{2}}+2^{-1}$ è sempre maggiore o uguale ad 1}
 
 {$Fib2(n)$ risulta essere troppo poco efficiente}
 
-\includegraphics{images/image66.png}
+$T(8)=61$
 
-\includegraphics{images/image67.png}
+$T(45) = 3,404,709,508$
 
-{}
+{Definiamo allora $Fib3(n)$ utilizzando l'iterazione al posto della ricorsione}
 
-{Definiamo allora Fib3(n) utilizzando l'iterazione al posto della
-ricorsione}
+\lstinputlisting{code/fib3.txt}
 
-{}
-
-\protect\hypertarget{t.aae11fb7a2c0b52467b2ae76a760f55e201df9fd}{}{}\protect\hypertarget{t.2}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Fib3 (int }{n}{) --\textgreater{} int\\
-\hspace*{0.333em} ~ }{//Allocazione di un array lungo n;}{\\
-\hspace*{0.333em} ~ }{F}{(1) = 1; }{F}{(2) = 1;\\
-\hspace*{0.333em} ~ }{For}{~i = 3 to }{n}{~\\
-\hspace*{0.333em} ~ ~ ~ }{F}{(i) = }{F}{(i-1) + }{F}{(i-2);\\
-\hspace*{0.333em} ~ }{Return}{~}{F}{(}{n}{)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-\includegraphics{images/image68.png}
-
-{}
+$T(Fib3_n)=3+(n-2)+(n-1)=2n$
 
 {Ci chiediamo se fib3 sia efficiente dal punto di vista della
 memoria\ldots{}}
@@ -518,75 +451,21 @@ all'insieme degli indici del vettore (0 in pseudocodice, -1 in C)}
 
 {}
 
-{Analogamente si può creare una lista singolarmente concatenata chiamata
-FreeList contenente le celle libere (i campi Key e Previous si possono
-ignorare). Essa verrà utilizzata per l'allocazione di una nuova lista.
-FreeList è una variabile globale.}
+{Analogamente si può creare una lista singolarmente concatenata chiamata FreeList contenente le celle libere (i campi Key e Previous si possono ignorare). Essa verrà utilizzata per l'allocazione di una nuova lista. FreeList è una variabile globale.}
 
-{}
+{All'inizio {[}\ldots{}{]} la FreeList contiene TUTTI gli oggetti non allocati.}
 
-{All'inizio {[}\ldots{}{]} la FreeList contiene TUTTI gli oggetti non
-allocati.}
+{Allocate\_Object()~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}{Complessità $\Theta(1)$}
 
-{}
-
-{Allocate\_Object()~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}{Complessità
-}\includegraphics{images/image69.png}
-
-
-
-\protect\hypertarget{t.6867fb3c644d0c0b07e14f5253c873dd313c05de}{}{}\protect\hypertarget{t.3}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{if}{(}{free}{~== null)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}errore
-}{``spazio esaurito''}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}x
-= }{free}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{free}{~=
-nexy{[}}{free}{{]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~x}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-
-
-{}
+\lstinputlisting{code/allocate_object.txt}
 
 {\#Inserisce la cella da liberare in testa alla FreeList}
 
-{Free\_Object(x)}{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Complessità
-}\includegraphics{images/image69.png}
+{Free\_Object(x)}{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Complessità $\Theta(1)$}
 
+\lstinputlisting{code/free_object.txt}
 
-
-\protect\hypertarget{t.ca6d9bfbccaf8ba905655d1fba7938b11c658c64}{}{}\protect\hypertarget{t.4}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{next{[}x{]} = }{free}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{free}{~=
-x}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{}
-
-{}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\section{\texorpdfstring{{}}{}}\label{h.eidcfonq0wug}
-
-\hypertarget{h.rgokfftftjlb}{\section{\texorpdfstring{{Alberi}}{Alberi}}\label{h.rgokfftftjlb}}
+\section{Alberi}
 
 {{[}CLRS{]} pp. 977-979}
 
@@ -596,18 +475,13 @@ x}\strut
 
 {$N$ è un insieme finito di nodi fra cui si distingue un nodo $R$, detto `Radice'.}
 
-$A${~è un sottoinsieme del prodotto
-cartesiano $(NxN)$,è un insieme di coppie
-di nodi che chiamiamo archi.}
+$A${~è un sottoinsieme del prodotto cartesiano $(NxN)$,è un insieme di coppie di nodi che chiamiamo archi.}
 
 {In un albero, ogni nodo $v$ (eccetto la radice) ha esattamente un genitore che viene chiamato padre $u$, tale che $(u,v) \in A$}
 
 {\includegraphics{images/image539.png}}
 
-
-{Un nodo può avere 0 o più figli, un figlio è tale se esiste un arco $(u,v) \in A$}
-
-{}
+{Un nodo può avere $0$ o più figli, un figlio è tale se esiste un arco $(u,v) \in A$}
 
 {Il numero dei figli di un nodo si chiama GRADO del nodo.}
 
@@ -617,26 +491,17 @@ di nodi che chiamiamo archi.}
 
 {Se due nodi hanno lo stesso padre, allora sono fratelli.}
 
-{}
+{Il cammino da $v$ a $v'$ nell'albero $T$ è una sequenza di nodi $n_0,n_1,\ldots,n_k$ tale che soddisfa queste condizioni:}
 
-{Il cammino da}{~}$v${~ad
-}\includegraphics{images/image77.png}{nell'albero
-}$T${~è una sequenza di nodi
-}\includegraphics{images/image78.png}{tale che soddisfa queste
-condizioni:}
+$v=n_0$
 
-\includegraphics{images/image79.png}
+$v'=n_k$
 
-\includegraphics{images/image80.png}
+$(n_{i-i},n_i) \in A\,\forall\,1>i>k$
 
-\includegraphics{images/image81.png}
+{La lunghezza di un cammino è il numero di archi nel cammino oppure il numero di nodi diminuito di 1.}
 
-{La lunghezza di un cammino è il numero di archi nel cammino oppure il
-numero di nodi - 1.}
-
-{Sia }$x${~un nodo dell'albero radicato
-}$T${con radice
-}\includegraphics{images/image83.png}{.}
+{Sia $x$ un nodo dell'albero radicato $T$ con radice }\includegraphics{images/image83.png}{.}
 
 {Qualsiasi nodo $y$ in un cammino, che parte dalla radice $r$ ed arriva ad $x$, è detto ANTENATO di $x$($x$ compreso, è antenato di se stesso).}
 
@@ -658,9 +523,7 @@ numero di nodi - 1.}
 
 {L'altezza è la massima profondità di un qualsiasi nodo dell'albero.}
 
-\hypertarget{h.rmzlh8kpnju}{\subsection{\texorpdfstring{{Alberi binari
-(Albero k-ario con K =
-2)}}{Alberi binari (Albero k-ario con K = 2)}}\label{h.rmzlh8kpnju}}
+\subsection{Alberi binari}
 
 {Gli alberi binari sono definiti in modo ricorsivo:}
 
@@ -680,23 +543,11 @@ della radice}
 
 {~~~~~~~~~~~~~~~~è detto un albero binario.}
 
-{}
+\subsection{Albero k-ario}
 
-\hypertarget{h.chua2o837in5}{\subsection{\texorpdfstring{{Albero
-k-ario}}{Albero k-ario}}\label{h.chua2o837in5}}
+{E' un albero in cui i figli si un nodo sono etichettati con interi positivi distinti e le etichette maggiori di $K$ sono assenti = ogni nodo può avere al più $K$ figli.}
 
-{E' un albero in cui i figli si un nodo sono etichettati con interi
-positivi distinti e le etichette maggiori di
-}$K${~sono assenti = ogni nodo può
-avere al più }$K${~figli.}
-
-{}
-
-{Un albero K-ario completo è tale quando tutte le foglie hanno la stessa
-profondità e tutti i nodi interni hanno grado
-}$K${~}
-
-{}
+{Un albero K-ario completo è tale quando tutte le foglie hanno la stessa profondità e tutti i nodi interni hanno grado $K$}
 
 {ALGORITMO}
 
@@ -715,26 +566,21 @@ profondità e tutti i nodi interni hanno grado
 
 {Il numero di nodi di profondità $h+1$ è $K^h*K=K^{h+1}$, OK}
 
-{ALGORITMO}
+\paragraph{ALGORITMO}
 
 {Trovare il numero di foglie e il numero di nodi interni di un albero k-ario completo di altezza $h$}
 
-\includegraphics{images/image93.png}{~è una sommatoria GEOMETRICA, si
-semplifica in }\includegraphics{images/image94.png}{, quindi
-}\includegraphics{images/image95.png}
+{$\sum_{\varphi=0}^{h-1}{K^{\varphi}}$ è una sommatoria GEOMETRICA, si semplifica in $\frac{K^{h-1+1}-1}{K-1}$ con $k\neq 1$, quindi $\frac{K^h-1}{K-1}$}
 
 {Altezza di un albero k-ario completo con $n$ nodi:}
 
-\includegraphics{images/image96.png}{~→
-}\includegraphics{images/image97.png}{~→
-}\includegraphics{images/image98.png}
+$n=K^h \rightarrow log_k(n) = log_k(K^h) \rightarrow log_k(n) = h$
 
-{Proprietà}
+\paragraph{Proprietà}
 
 {Dimostrare per induzione che in un albero BINARIO completo non nullo avente $n$ nodi, il numero di foglie è $\frac{n+1}{2}$}
 
-\hypertarget{h.8kg49eb4dpz1}{\subsubsection{\texorpdfstring{{Tipo di dato ALBERO}}{Tipo di dato ALBERO}}\label{h.8kg49eb4dpz1}}
-
+\subsubsection{Tipo di dato ALBERO}
 
 {Struttura:}
 
@@ -761,15 +607,11 @@ del nodo N, N appartenente a T}
 
 {}
 
-\hypertarget{h.ueuovjwdu9zj}{\section{\texorpdfstring{{Rappresentazione
-di alberi tramite
-array}}{Rappresentazione di alberi tramite array}}\label{h.ueuovjwdu9zj}}
-
-{}
+\section{Rappresentazione di alberi tramite array}
 
 \subsection{Utilizzo del vettore padri}
 
-{Sia $T=(N,A), N = \{n_1,n_2,...,n_n\}$}
+{Sia $T=(N,A), N = \{n_1,n_2,\ldots,n_n\}$}
 
 {Costruisco un vettore di dimensione $n$, le cui celle contengono copie di $(i,u)$. Con $i$ indichiamo l'informazione del nodo e con $u$ indichiamo il nodo padre (indice).}
 
@@ -777,7 +619,7 @@ $\forall v \in [1,n]$
 
 {p{[}v{]} → info = contenuto}
 
-{p{[}v{]} → padre = indice del padre,$(u,v) \in A(archi)$, se $v$ è radice il padre è NULL/-1/0}
+{p{[}v{]} → padre = indice del padre,$(u,v) \in A(archi)$, se $v$ è radice il padre è $NULL/-1/0$}
 
 {Spazio per memorizzare $n=\Theta(n)$}
 
@@ -802,12 +644,10 @@ $\forall v \in [1,n]$
 \item
   {0 è la posizione della radice}
 \item
-  {l'i-esimo figlio di un certo nodo v è in posizione
-  }\includegraphics{images/image110.png}{, con
-  }\includegraphics{images/image111.png}
+  {l'i-esimo figlio di un certo nodo $v$ è in posizione $kv+i+1$, con $0\leq i < K-1$}
 \end{enumerate}
 
-{un nodo $f$ è foglia se non ha figli, quindi se }\includegraphics{images/image113.png}
+{un nodo $f$ è foglia se non ha figli, quindi se $kv+1>n$}
 
 {Il padre del nodo $f$ è in posizione $\floor{\frac{f-1}{k}}$ (parte intera inferiore) e i figli si trovano tra $kv+1$ e $kv+1+i-1$.
 
@@ -931,82 +771,30 @@ $\forall v \in [1,n]$
 
 {Nell'array che rappresenta un heap di $n$ elementi, le foglie sono i nodi con indici che vanno alle posizioni}
 
-$\frac{n}{2}+1,\frac{n}{2}+2,...,n$
+$\frac{n}{2}+1,\frac{n}{2}+2,\ldots,n$
 
 \includegraphics{images/image526.png}
 
-{Elemento}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Elemento & 16 & 15 & 10 & 14 & 7 & 9 & 3 & 2 & 8 & 1 \\ 
+\hline 
+Posizione & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+\hline 
+ &  &  &  &  & $\frac{n}{2}$ & $\frac{n}{2}+1$ & $\frac{n}{2}+2$ & $\frac{n}{2}+3$ & $\frac{n}{2}+4$ & $n$ \\ 
+\hline 
+\end{tabular} 
 
-{16}
+\subsubsection{Lemma 3}
 
-{15}
-
-{10}
-
-{14}
-
-{7}
-
-{9}
-
-{3}
-
-{2}
-
-{8}
-
-{1}
-
-{Posizione}
-
-{1°}
-
-{2°}
-
-{3°}
-
-{4°}
-
-{5°}
-
-{6°}
-
-{7°}
-
-{8°}
-
-{9°}
-
-{10°}
-
-{}
-
-{}
-
-{}
-
-{}
-
-\includegraphics{images/image124.png}
-
-\includegraphics{images/image125.png}
-
-\includegraphics{images/image126.png}
-
-\includegraphics{images/image127.png}
-
-\includegraphics{images/image128.png}
-
-{n}
-
-\hypertarget{h.wlc8yrs7inpk}{\subsubsection{\texorpdfstring{{Lemma 3:}}{Lemma 3:}}\label{h.wlc8yrs7inpk}}
+{Altezza di un nodo: cammino più lungo verso una foglia}
 
 {Il teorema definisce la numerosità di nodi con una certa altezza:}
 
-{Ci sono al massimo $\frac{n}{2^{h+1}}$ nodi di altezza}\textsuperscript{\protect\hyperlink{cmnt3}{{[}c{]}}}{~}{h}{~in
+{Ci sono al massimo $\frac{n}{2^{h+1}}$ nodi di altezza $h$ in
 un qualsiasi heap di $n$ elementi}
 
-\hypertarget{h.t1rcecigqmbx}{\subsubsection{\texorpdfstring{{Max\_heapify}}{Max\_heapify}}\label{h.t1rcecigqmbx}}
+\subsubsection{Max\_heapify}}}
 
 {L'operazione max\_heapify permette di mantenere le proprietà di maxheap}
 
@@ -1022,29 +810,43 @@ un qualsiasi heap di $n$ elementi}
 
 {Tempo di esecuzione : $O(h)$ dove $h$ è l'altezza del nodi i poichè l'heap ha altezza $log(n)$ (LEMMA 2)}
 
-\hypertarget{h.symae1e4ut5b}{\subsection{\texorpdfstring{{Dato un vettore disordinato, costruire un heap}}{Dato un vettore disordinato, costruire un heap}}\label{h.symae1e4ut5b}}
+\subsection{Dato un vettore disordinato, costruire un heap}
 
 \lstinputlisting{code/build_maxheap.txt}
 
-{Invariante: ogni nodo in posizione \includegraphics{images/image130.png} è radice di un maxheap, con n = }
+{Invariante: ogni nodo in posizione $i+1,\ldots,n$ è radice di un maxheap, con n = MANCA}
 
-{Sembrerebbe complessa }\includegraphics{images/image131.png}{ma max\_heapify lavora principalmente su foglie, }{quindi la complessità è lineare }\includegraphics{images/image132.png}{.}
+{Sembrerebbe complessa $O(\frac{n}{2}\,log(n)) = O(n\,log(n))$ ma max\_heapify lavora principalmente su foglie, quindi la complessità è lineare $O(n)$.}
 
-\includegraphics{images/image133.png}
+\begin{equation}
+\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^{h-1}}}*O(h)} = O(n*\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^h}})}
+\end{equation}
 
-{L'ultima sommatoria è la serie nota}\includegraphics{images/image134.png}
+{L'ultima sommatoria è la serie nota}
 
-{Con }\includegraphics{images/image135.png}{,}\includegraphics{images/image136.png}
+\begin{equation}
+\sum_{h=0}^{+\infty}{h*x^h} = \frac{x}{{(1-x)}^2}
+\end{equation}
 
-{Quindi }\includegraphics{images/image137.png}
+{Con $x=\frac{1}{2}$:}
+
+\begin{equation}
+\sum_{h=0}^{+\infty}{h*x^h} = \frac{\frac{1}{2}}{{(1-\frac{1}{2})}^2} = 2
+\end{equation}
+
+{Quindi}
+
+\begin{equation}
+O(n*\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^h}}}) = O(2n) = O(n)
+\end{equation}
 
 \subsection{Heapsort}
 
 \lstinputlisting{code/heapsort.txt}
 
-{INV = Il sottoarray che va dalla posizione $1$ alla posizione $i$ è un maxheap che contiene gli elementi più piccoli del intero vettore di partenza, mentre }\includegraphics{images/image138.png}{contiene gli $n-1$ elementi più grandi di $A[1..n]$ ordinati}{.}
+{INV = Il sottoarray che va dalla posizione $1$ alla posizione $i$ è un maxheap che contiene gli elementi più piccoli del intero vettore di partenza, mentre $A[a+1,\ldots,n]$ contiene gli $n-1$ elementi più grandi di $A[1..n]$ ordinati}{.}
 
-\hypertarget{h.rdu8s741ww8w}{\subsubsection{\texorpdfstring{{Teorema}}{Teorema}}\label{h.rdu8s741ww8w}}
+\subsubsection{Teorema}
 
 {L'algoritmo HeapSort ordina in loco $n$ elementi eseguendo nel peggiore dei casi $O(nlog(n))$ confronti in quanto algoritmo basato sui confronti.}
 
@@ -1161,7 +963,7 @@ A{[}}{parent}{(i){]} )\\
 
 
 {Invariante del while:
-L'array $A[i,...,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possibile violazione: A{[}i{]} potrebbe essere più grande di A{[}parent(i){]}}
+L'array $A[i,\ldots,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possibile violazione: A{[}i{]} potrebbe essere più grande di A{[}parent(i){]}}
 
 {Con un Heap di n elementi, la complessità è $O(log(n))$ in quanto il cammino dal nodo fino alla radice ha lunghezza }$O(log(n))$
 
@@ -1187,25 +989,24 @@ L'array $A[i,...,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possi
 
 {Gli output saranno quindi: 0 - albero completo, 1 - albero quasi completo, 2 - albero non quasi completo.}
 
-
 \lstinputlisting{code/is_quasi_completo.txt}
 
 \lstinputlisting{code/is_quasi_completo_aux.txt}
 
 {Complessità di is\_quasi\_completo : $O(n)$}
 
-\includegraphics{images/image148.png}
+$T(n) = T(k) + T(n-k-1) + c = O(n)$
 
-{Esercizio 2 : }
+\paragraph{Esercizio 2}
 
-{Siano dati due alberi binari completi di radice $r$ ed $s$ aventi la stessa altezza $h$ e dimensione totale ( somma dei nodi dei due alberi ) $n$. Le chiavi memorizzate nei nodi soddisfano la proprietà di maxheap. Si vuole creare un unico albero quasi completo maxheap, fusione dei due alberi, con altezza $h+1$ e dimensione $n$.}
+{Siano dati due alberi binari completi di radice $r$ ed $s$ aventi la stessa altezza $h$ e dimensione totale (somma dei nodi dei due alberi) $n$. Le chiavi memorizzate nei nodi soddisfano la proprietà di maxheap. Si vuole creare un unico albero quasi completo maxheap, fusione dei due alberi, con altezza $h+1$ e dimensione $n$.}
 
 {Le seguenti soluzioni vengono accettate:}
 
 \begin{enumerate}
 \tightlist
 \item
-  {Soluzione di costo e tempo }\includegraphics{images/image149.png}{~e in spazio aggiuntivo }\includegraphics{images/image149.png}
+  {Soluzione di costo e tempo $\Theta(n)$ e in spazio aggiuntivo $\Theta(n)$}
 \item
   {Soluzione (più elegante) di costo e tempo $O(log(n))$ e spazio aggiuntivo costante}
 \end{enumerate}
@@ -1215,24 +1016,16 @@ L'array $A[i,...,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possi
 \begin{enumerate}
 \tightlist
 \item
-  {Soluzione di costo e tempo }\includegraphics{images/image149.png}{~e in spazio aggiuntivo }\includegraphics{images/image149.png}
+  {Soluzione di costo e tempo $\Theta(n)$ e in spazio aggiuntivo $\Theta(n)$}
 \end{enumerate}
 
-{}
+{~~~~~~~~~~~~~~~~~~~~~~~~Vettore di n elementi v. (spazio aggiuntivo $\Theta(n)$)}
 
-{~~~~~~~~~~~~~~~~~~~~~~~~Vettore di n elementi v. (spazio aggiuntivo
-}\includegraphics{images/image149.png}{)}
+{~~~~~~~~~~~~~~~~~~~~~~~~Carichiamo il vettore con i valori di $r$ ed $s$. $\Theta(n)$}
 
-{~~~~~~~~~~~~~~~~~~~~~~~~Carichiamo il vettore con i valori di r ed s.
-}\includegraphics{images/image149.png}
+{~~~~~~~~~~~~~~~~~~~~~~~~Applichiamo build\_maxheap all'intero vettore $v$. $\Theta(n)$}
 
-{~~~~~~~~~~~~~~~~~~~~~~~~Applichiamo build\_maxheap all'intero vettore
-v.}\includegraphics{images/image149.png}
-
-{~~~~~~~~~~~~~~~~~~~~~~~~Creo l'albero corrispondente.
-}\includegraphics{images/image149.png}
-
-{}
+{~~~~~~~~~~~~~~~~~~~~~~~~Creo l'albero corrispondente. $\Theta(n)$}
 
 \begin{enumerate}
 \setcounter{enumi}{1}
@@ -1243,86 +1036,55 @@ v.}\includegraphics{images/image149.png}
 
 {Non possiamo fare altro che modificare le strutture a nostra disposizione, non usiamo strutture ausiliarie.}
 
-{}
+{Prendo come radice il nodo foglia $x$ più a destra dell'albero $s$. $\Theta(log(n))$}}
 
-{Prendo come radice il nodo foglia x più a destra dell'albero s.
-~}\includegraphics{images/image150.png}
+{Assegno $x.left$ ad $s$ e $x.right$ ad $r$.}
 
-{Assegno x.left ad s e x.right as r.}
+{Applico la max\_heapify al nuovo nodo radice x. $\Theta(log(n))$}
 
-{Applico la max\_heapify al nuovo nodo radice x.
-}\includegraphics{images/image150.png}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-{}
-
-\hypertarget{h.7gslm72cwwxs}{\section{\texorpdfstring{{Limite inferiore
-per l'ordinamento per
-confronti}}{Limite inferiore per l'ordinamento per confronti}}\label{h.7gslm72cwwxs}}
+\section{Limite inferiore per l'ordinamento per confronti}
 
 {{[}CLRS{]} pp. 157-159}
 
-{}
-
 {Fino ad ora abbiamo visto i seguenti algoritmi di ordinamento, tutti basati sul confronto.}
-
-{}
-
-\protect\hypertarget{t.d27200ce3c3d6e65597fb549126b470657d85de0}{}{}\protect\hypertarget{t.26}{}{}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
 \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
 {MergeSort}\strut
 \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-\includegraphics{images/image151.png}\strut
+$\Theta(n\,log(n)))$\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
 {QuickSort}\strut
 \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{Caso medio : }\includegraphics{images/image151.png}{, caso pessimo :
-}\includegraphics{images/image152.png}\strut
+{Caso medio : $\Theta(n\,log(n)))$, caso pessimo : $\Theta(n^2)$}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
 {HeapSort}\strut
 \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-\includegraphics{images/image151.png}\strut
+$\Theta(n\,log(n)))$\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
 {InsertionSort}\strut
 \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-\includegraphics{images/image152.png}\strut
+$\Theta(n^2)$\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
-{}
-
-{}
-
-{Ci domandiamo, }{è possibile infrangere il limite inferiore di }\includegraphics{images/image151.png}{? Dimostreremo che NON è possibile farlo con algoritmi basati sul confronto.}
-
-{}
+{Ci domandiamo, è possibile infrangere il limite inferiore di $\Theta(n\,log(n))$? Dimostreremo che NON è possibile farlo con algoritmi basati sul confronto.}
 
 {Analizziamo il limite inferiore degli algoritmi basati sul confronto:}
 
-\includegraphics{images/image149.png}{è il limite banale, in quanto devo analizzare n elementi. Questo limite è tuttavia irrealistico e insensato.}
+{$\Omega(n)$ è il limite banale, in quanto devo analizzare n elementi. Questo limite è tuttavia irrealistico e insensato.}
 
-{}
-
-{Tutti gli algoritmi basati sul confronto hanno come limite inferiore
-}\includegraphics{images/image153.png}{. Per dimostrarlo facciamo uso
-degli }{alberi di decisione.}
-
-{}
+{Tutti gli algoritmi basati sul confronto hanno come limite inferiore $\Omega(n\,log(n))$. Per dimostrarlo facciamo uso degli alberi di decisione.}
 
 {Un albero di decisione è un'astrazione di un qualsiasi algoritmo di ordinamento basato sui confronti.}
 
-\hypertarget{h.oynrnvh2y1cp}{\subsection{\texorpdfstring{{Esempio:
-Ordina 3 elementi}}{Esempio: Ordina 3 elementi}}\label{h.oynrnvh2y1cp}}
-
-{}
+\subsection{Esempio: Ordina 3 elementi}
 
 {\includegraphics{images/image531.png}}
 
@@ -1357,9 +1119,7 @@ Esempio: $<6,8,3>$
 {Questa struttura assomiglia
 all'InsertionSort}\textsuperscript{\protect\hyperlink{cmnt15}{{[}o{]}}}
 
-{}
-
-{Per un input $A = <A_1,...,A_n>$ di dimensione $n$, ogni nodo interno è etichettato da una coppia $i:j$ dove $i,j$ sono indici dell'insieme da ordinare.}
+{Per un input $A = <A_1,\ldots,A_n>$ di dimensione $n$, ogni nodo interno è etichettato da una coppia $i:j$ dove $i,j$ sono indici dell'insieme da ordinare.}
 
 \begin{itemize}
 \tightlist
@@ -1393,13 +1153,13 @@ possibile costruirmi gli alberi di decisione.}
 {Mi basta quindi trovare la dimensione dell'albero di decisione per
 determinare il tempo di esecuzione.}
 
-\hypertarget{h.prflgx3s7s1g}{\subsection{\texorpdfstring{{Quanto è grande un albero di decisione?}}{Quanto è grande un albero di decisione?}}\label{h.prflgx3s7s1g}}
+\subsection{Quanto è grande un albero di decisione?}
 
-\hypertarget{h.cphw2k3mqktf}{\subsubsection{\texorpdfstring{{Quante foglie contiene?}}{Quante foglie contiene?}}\label{h.cphw2k3mqktf}}
+\subsubsection{Quante foglie contiene?}
 
 {L'albero ha come minimo $n!$ foglie poichè, per essere corretto, ogni permutazione deve comparire almeno una volta.}
 
-\hypertarget{h.yiy1tipj4aof}{\paragraph{\texorpdfstring{{Lemma 2:}}{Lemma 2:}}\label{h.yiy1tipj4aof}}
+\paragraph{Lemma 2}
 
 {Un albero binario di altezza h ha al più $2^h$ foglie.}
 
@@ -1418,21 +1178,18 @@ determinare il tempo di esecuzione.}
 \item
   {Se $t$ ha un solo figlio allora il numero di foglie di $t$ è uguale a quello del figlio che ha altezza $h-1$. }{Per ipotesi induttiva}{: Il numero delle foglie del sottoalbero figlio è minore di $2^{h-1}$, che è minore di $2^h$.}
 \item
-  {Se sono presenti entrambi il figlio sx e il figlio dx, allora il numero delle foglie è dato dalla somma delle foglie dei due sottoalberi. Siano $h_L,h_R$ le altezze
-  dei due figli. Entrambe sono minori di $h$.}
+  {Se sono presenti entrambi il figlio sx e il figlio dx, allora il numero delle foglie è dato dalla somma delle foglie dei due sottoalberi. Siano $h_L,h_R$ le altezze dei due figli. Entrambe sono minori di $h$.}
 \end{itemize}
 
-\includegraphics{images/image169.png}
+\begin{equation}
+f=f_L+f_R = 2^{h_L} + 2^{h_R} \leq 2 * 2^{max(h_L,h_R)}
+\end{equation}
 
-\includegraphics{images/image170.png}{ma
-}\includegraphics{images/image171.png}{, quindi
-}$f \leq 2^h$
+{$f \leq 2^{1+max(h_L,h_R)}$ ma $1+max(h_L,h_R) = h$, quindi $f \leq 2^h$}
 
 {Quindi il numero delle foglie è compreso tra $n!$ e $2^h$.}
 
-
-
-\hypertarget{h.hr66c3ikhdcj}{\paragraph{\texorpdfstring{{Teorema:}}{Teorema:}}\label{h.hr66c3ikhdcj}}
+\paragraph{Teorema:}
 
 {Qualsiasi algoritmo di ordinamento per confronti richiede almeno
 }\includegraphics{images/image153.png}{confronti nel caso peggiore.}
@@ -1464,7 +1221,7 @@ approssimare }\includegraphics{images/image160.png}{~:
 
 {Non ci può essere quindi un algoritmo basato sui confronti minore di }\includegraphics{images/image180.png}
 
-\hypertarget{h.emyylm3q4aq8}{\paragraph{\texorpdfstring{{Corollario:}}{Corollario:}}\label{h.emyylm3q4aq8}}
+\paragraph{Corollario:}
 
 {Gli algoritmi HeapSort e MergeSort sono algoritmi di ordinamento per confronti asintoticamente ottimali.}
 
@@ -1496,49 +1253,17 @@ k, per qualche k prefissato}
 
 {Input:}
 
-{$A=[0,...,n]$ dove $A[j] \in [0,...,k]$, $n,k$ sono parametri}
+{$A=[0,\ldots,n]$ dove $A[j] \in [0,\ldots,k]$, $n,k$ sono parametri}
 
 {Output:}
 
-{$B=[0,...,n]$ ordinato, permutazione di A}
+{$B=[0,\ldots,n]$ ordinato, permutazione di A}
 
-{Utilizzo una memoria ausiliaria $C$, costituita da $k+1$ elementi, $C=[0,...,n]$}
+{Utilizzo una memoria ausiliaria $C$, costituita da $k+1$ elementi, $C=[0,\ldots,n]$}
 
 {Codice:}
 
-
-
-\protect\hypertarget{t.838fe42014bbeb1605fc7de3c1957472acce8e3d}{}{}\protect\hypertarget{t.27}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{CountingSort(}{Array}{~A, }{Array}{~B, }{int}{~k, }{int}{~k)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~i
-= }{0}{~to k\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}C{[}i{]}
-= }{0}{~}{//inizializzo a 0 i
-contatori}\includegraphics{images/image187.png}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~j
-= }{1}{~to n }{//conto le occorrenze, bound garantito da ipotesi di
-k}{~}\includegraphics{images/image149.png}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}C{[}A{[}j{]}{]}
-++\\[2\baselineskip]\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~i
-= }{1}{~to k }{//somme prefisse}\includegraphics{images/image187.png}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}C{[}i{]}
-= C{[}i{]} + C{[}i}{-1}{{]} }
-
-{
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~j
-= n downto }{1 }{//ciclo di
-distribuzione}\includegraphics{images/image149.png}{\\
-}{~~~~~~~~~~~~~~~~~~~~~~~~B{[}C{[}A{[}j{]}{]}{]} = A{[}j{]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}C{[}A{[}j{]}{]}
---}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/counting_sort.txt}
 
 {Complessità di CountingSort : }\includegraphics{images/image188.png}
 
@@ -1595,7 +1320,7 @@ i-esima}\strut
 \bottomrule
 \end{longtable}
 
-{Dimostriamo}{~la correttezza dell'algoritmo tramite induzione sulla
+{Dimostriamo la correttezza dell'algoritmo tramite induzione sulla
 colonna da ordinare:}
 
 {Caso base (i=1)}
@@ -1604,9 +1329,7 @@ colonna da ordinare:}
 
 {Assumo}
 
-{che le cifre delle colonne che vanno da
-}$1${~a
-}\includegraphics{images/image195.png}{siano ordinate}
+{che le cifre delle colonne che vanno da $1$ a $i-1$ siano ordinate}
 
 {Dimostro }
 
@@ -1634,48 +1357,30 @@ colonna da ordinare:}
 
 {Teorema: }
 
-{Dati }$n${~numeri di
-}\includegraphics{images/image197.png}{~cifre, }{dove ogni cifra può
-avere fino a }\includegraphics{images/image118.png}{valori
-possibili}\textsuperscript{\protect\hyperlink{cmnt16}{{[}p{]}}}{, la
-procedura ordina correttamente i numeri nel tempo di
-}\includegraphics{images/image196.png}{~se l'algoritmo stabile
-utilizzato dalla procedura impiega un tempo
-}\includegraphics{images/image198.png}
+{Dati $n$ numeri di $d$ cifre, dove ogni cifra può avere fino a $k$ valori possibili}\textsuperscript{\protect\hyperlink{cmnt16}{{[}p{]}}}{, la procedura ordina correttamente i numeri nel tempo di }\includegraphics{images/image196.png}{~se l'algoritmo stabile utilizzato dalla procedura impiega un tempo }\includegraphics{images/image198.png}
 
 {Dimostrazione:}
 
 {Per ogni iterazione, il costo risulta essere}\includegraphics{images/image198.png}
 
-{Le iterazioni sono d, per un totale di
-}\includegraphics{images/image196.png}
+{Le iterazioni sono d, per un totale di }\includegraphics{images/image196.png}
 
-{Osservazioni}{:}
+{Osservazioni:}
 
-{~~~~~~~~Se }\includegraphics{images/image189.png}{~il tempo di
-esecuzione è }\includegraphics{images/image199.png}
+{~~~~~~~~Se $k=(n)$ il tempo di esecuzione è }\includegraphics{images/image199.png}
 
-{Inoltre, se }\includegraphics{images/image197.png}{~è
-costante, la complessità è }\includegraphics{images/image149.png}
+{Inoltre, se $d$ è costante, la complessità è }\includegraphics{images/image149.png}
 
-\hypertarget{h.u6e4yemegdiq}{\paragraph{\texorpdfstring{{Come ripartire
-le chiavi in
-cifre?}}{Come ripartire le chiavi in cifre?}}\label{h.u6e4yemegdiq}}
+\paragraph{Come ripartire le chiavi in cifre?}
 
 \begin{itemize}
 \tightlist
 \item
-  {Usiamo il CountingSort su ciascuna cifra
-  }\includegraphics{images/image198.png}
+  {Usiamo il CountingSort su ciascuna cifra}\includegraphics{images/image198.png}
 \item
-  {Siano }$n${~interi, ognuno
-  costituito da }\includegraphics{images/image200.png}{~bits}
+  {Siano }$n${~interi, ognuno costituito da $b$ bits}
 \item
-  {Divido ogni intero in
-  }\includegraphics{images/image201.png}{~``cifre'', ognuna di
-  }\includegraphics{images/image83.png}{~bits. La cifra appartiene a
-  }\includegraphics{images/image202.png}{,
-  }\includegraphics{images/image203.png}
+  {Divido ogni intero in $\ceil*{\frac{b}{r}}$ ``cifre'', ognuna di $r$ bits. La cifra appartiene a $[0,\ldots,2^r-1]$, $k=2^r$}
 \end{itemize}
 
 {Esempio: Parola di 32 bits}
@@ -1688,17 +1393,11 @@ cifre?}}{Come ripartire le chiavi in cifre?}}\label{h.u6e4yemegdiq}}
 
 \includegraphics{images/image206.png}
 
-{Cerco di minimizzare la complessità ponendo
-}\includegraphics{images/image83.png}{~grande,
+{Cerco di minimizzare la complessità ponendo $r$ grande,
 }\includegraphics{images/image207.png}{risulta diminuito, ma }\includegraphics{images/image208.png}{è cresciuto esponenzialmente.
-Scelgo }\includegraphics{images/image83.png}{~piccolo, altrimenti
-}\includegraphics{images/image209.png}{domina su
-}$n${.}
+Scelgo $r$ piccolo, altrimenti $2^r $domina su $n$.}
 
-{Scegliamo }\includegraphics{images/image83.png}{~essere il massimo
-valore tale che }$n${~risulti essere
-}\includegraphics{images/image210.png}{, ~quindi
-}\includegraphics{images/image211.png}{.}
+{Scegliamo $r$ essere il massimo valore tale che $n$ risulti essere $n\geq 2^r$, quindi $r=log(n)$.}
 
 {Sostituendo:}
 
@@ -1749,9 +1448,9 @@ hash}}{Tabelle hash}}\label{h.1gvh3qlqsocy}}
 \begin{itemize}
 \tightlist
 \item
-  {non bilanciati ~~~~~~~~~~~~~~~~}$O(n)$
+  {non bilanciati ~~~~~~~~~~~~~~~~$O(n)$}
 \item
-  {bilanciati ~~~~~~~~~~~~~~~~}\includegraphics{images/image220.png}
+  {bilanciati ~~~~~~~~~~~~~~~~$O(log(n))$}
 \end{itemize}
 
 \begin{itemize}
@@ -1903,7 +1602,7 @@ tabelle hash.}
 
 {}
 
-{$h:U\rightarrow\{0,1,...,m-1\}$, dove $m$ della tabella hash è generalmente molto più piccola della dimensione dello spazio di tutte le chiavi.}
+{$h:U\rightarrow\{0,1,\ldots,m-1\}$, dove $m$ della tabella hash è generalmente molto più piccola della dimensione dello spazio di tutte le chiavi.}
 
 {}
 
@@ -2296,7 +1995,7 @@ $k${~entra in una sola parola: }\includegraphics{images/image269.png}
 {}
 
 {per ogni chiave, la sequenza di ispezioni data da \\
-$<h(k,0),h(k,1),...,h(k,m-1)),>$ deve essere una permutazione di $<0,1,...,m-1>$ \\ in modo che ogni posizione della tabella hash possa essere considerata come possibile cella in cui inserire una nuova chiave.}
+$<h(k,0),h(k,1),\ldots,h(k,m-1)),>$ deve essere una permutazione di $<0,1,\ldots,m-1>$ \\ in modo che ogni posizione della tabella hash possa essere considerata come possibile cella in cui inserire una nuova chiave.}
 
 {}
 
@@ -2344,13 +2043,13 @@ Si utilizza invece il concatenamento.}
 {Hash\_Delete(Array T, Key
 K)}\textsuperscript{\protect\hyperlink{cmnt18}{{[}r{]}}}
 
-{La posizione viene determinata dalla funzione \\ $h:U\cup U\rightarrow \{0,1,...,m-1\}$ che restituisce \\ $<h(k,0),h(k,1),...,h(k,m-1)>$, permutazioni di $\{0,1,...,m-1\}$. Le possibili permutazioni sono $m!$ ma ottenere un sufficiente numero di permutazioni distinte non è banale.}
+{La posizione viene determinata dalla funzione \\ $h:U\cup U\rightarrow \{0,1,\ldots,m-1\}$ che restituisce \\ $<h(k,0),h(k,1),\ldots,h(k,m-1)>$, permutazioni di $\{0,1,\ldots,m-1\}$. Le possibili permutazioni sono $m!$ ma ottenere un sufficiente numero di permutazioni distinte non è banale.}
 
 {}
 
 {Estensione dell'hashing uniforme semplice: }
 
-{Situazione ideale : }{$h$ deve rispettare la proprietà di }{hashing uniforme}{, ovvero ogni chiave deve avere la stessa probabilità di avere come sequenza di ispezione, una delle $n!$ permutazioni di $\{0,1,...,m-1\}$}
+{Situazione ideale : }{$h$ deve rispettare la proprietà di }{hashing uniforme}{, ovvero ogni chiave deve avere la stessa probabilità di avere come sequenza di ispezione, una delle $n!$ permutazioni di $\{0,1,\ldots,m-1\}$}
 
 {Per far ciò:}
 
@@ -2422,7 +2121,7 @@ quadratica}}{2. Ispezione (o scansione) quadratica}}\label{h.83xwipol2nwy}}
 
 \includegraphics{images/image290.png}
 
-{con $C_1,C_2$ costanti non nulle ed $i \in \{0,1,...,m-1\}$}
+{con $C_1,C_2$ costanti non nulle ed $i \in \{0,1,\ldots,m-1\}$}
 {}
 
 {La scansione quadratica }{funziona
@@ -2580,12 +2279,11 @@ collisione).}
 
 \section{Mod 2 - Grafi}
 
-{Coppia ordinata }$G=(V,E)${~formata da due
-insiemi V (vertici) ed E (archi)}
+{Coppia ordinata $G=(V,E)$ formata da due insiemi $V$ (vertici) ed $E$ (archi)}
 
-\includegraphics{images/image336.png}
+$V = \{1,2,3,\ldots,n\}$
 
-\includegraphics{images/image337.png}{, ovvero E è un sottoinsieme dell'insieme delle parti (prodotto cartesiano) dell'insieme V}
+{$E \subseteq VxV$, ovvero $E$ è un sottoinsieme dell'insieme delle parti (prodotto cartesiano) dell'insieme $V$}
 
 {I grafi possono essere}
 
@@ -2597,11 +2295,11 @@ insiemi V (vertici) ed E (archi)}
   {Non orientati, se le relazioni sono simmetriche}
 \end{itemize}
 
-{~~~~~~~~se }\includegraphics{images/image338.png}
+{~~~~~~~~se $\forall(u,v) \in E \iff (v,u) \in E$}
 
 {Non si ammettono cappi nei grafi non orientati.}
 
-\includegraphics{images/image339.png}
+$\forall u \in E \iff (u,u) \notin E$
 
 \subsection{Sottografi}
 
@@ -2609,7 +2307,7 @@ insiemi V (vertici) ed E (archi)}
 
 {$G'=(V',E')$ è sottografo di $G$ se $V'\subseteq V$ e $E'\subseteq E$}
 
-{Sottografo indotto }
+\paragraph{Sottografo  indotto}
 
 {Dato $V' \subseteq V$, il sottografo indotto da $V'$ di $G$ è $G[V']=(V',E')$, con $E' = E\,\cap\,V\,x\,V'$}
 
@@ -2617,9 +2315,9 @@ insiemi V (vertici) ed E (archi)}
 
 \subsection{Cammini}
 
-{Un cammino di $G$ è una sequenza \includegraphics{images/image347.png} dove i vertici appartengono al grafo di partenza.}
+{Un cammino di $G$ è una sequenza $<X_0,X_1,\ldots,X_k>$ dove i vertici appartengono al grafo di partenza.}
 
-\includegraphics{images/image348.png}
+$\forall i,0\leq i\leq k,(X_i,X_{i+1})\in E$
 
 \subsubsection{Cammini semplici e cammini non semplici}
 
@@ -2634,7 +2332,7 @@ $<1,2,3,1,4,5>$ non è un cammino semplice
 
 \subsubsection{Raggiungibilità dei vertici}
 
-$u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,...,X_k>$ tale che $X_0 = u$ e $X_k = v$
+$u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,\ldots,X_k>$ tale che $X_0 = u$ e $X_k = v$
 
 \subsubsection{Ciclo}
 
@@ -2644,7 +2342,7 @@ $u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,...,X_k>$ tale ch
 
 \subsubsection{{[}NO{]}Grafo connesso}
 
-{Un grado non orientato si dice connesso se }\includegraphics{images/image354.png}{, esiste un cammino da $u$ a $v$ con }\includegraphics{images/image355.png}
+{Un grado non orientato si dice connesso se $\forall (u,v) | u,v \in V$, esiste un cammino da $u$ a $v$ con $u\neq v$}
 
 \subsubsection{{[}NO{]} Componente connessa}
 
@@ -3044,31 +2742,19 @@ $a^{(2)}_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 
 $a^{(2)}_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,i}}$
 
-{Essendo $G$ non orientato, la matrice è simmetrica e
-}\includegraphics{images/image412.png}
+{Essendo $G$ non orientato, la matrice è simmetrica e $a_{i,k}*a_{k,i} = a^2_{i,k}$}
 
-\includegraphics{images/image413.png}{, notiamo che il termine della
-sommatoria contiene solo valori binari che elevati al quadrato
-restituiscono il medesimo valore. Perciò}
+{$a^{(2)}_{i,i} = \sum^n_{k=1}{a^2_{i,k}}$ , notiamo che il termine della sommatoria contiene solo valori binari che elevati al quadrato restituiscono il medesimo valore. Perciò}
 
-\includegraphics{images/image414.png}
+$a^{(2)}_{i,i} = \sum^n_{k=1}{a^2_{i,k}} = \sum^n_{k=1}{a_{i,k}} = deg(i)$
 
-{}
+{``Nelle altre posizioni ho il numero di cammini tra $i$ e $j$ di lunghezza'' ($i\neq j$)}
 
-{``Nelle altre posizioni ho il numero di cammini tra i e j di
-lunghezza'' (}\includegraphics{images/image415.png}{)}
+{$a^2_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$, essendo la matrice di adiacenza composta da valori binari, il prodotto risulta valere 1 solo se entrambi i fattori valgono 1, ovvero se esiste un cammino di lunghezza 2}
 
-\includegraphics{images/image416.png}{, essendo la matrice di adiacenza
-composta da valori binari, il prodotto risulta valere 1 solo se entrambi
-i fattori valgono 1, ovvero se esiste un cammino di lunghezza 2}
+\subsubsection{Matrice con esponente maggiore di 2}
 
-{}
-
-\hypertarget{h.yvqsj238z2mk}{\subsubsection{\texorpdfstring{{Matrice con
-esponente maggiore di
-2}}{Matrice con esponente maggiore di 2}}\label{h.yvqsj238z2mk}}
-
-\includegraphics{images/image417.png}{~conterrà}
+{$A^n, n > 2$ conterrà}
 
 \begin{itemize}
 \tightlist
@@ -3136,7 +2822,7 @@ $G_1=(v_1,E_1),G_2(V_2,E_2)$
   {$\Theta$ deve essere una funzione biettiva (è necessaria una corrispondenza 1-1).}
 \item
   {La relazione di adiacenza deve essere preservata\\
-  }\includegraphics{images/image429.png}
+  $\forall u,v \in V_1, (u,v) \in E_1 \iff (\Phi(u),\Phi(v)) \in E_2$}
 \end{enumerate}
 
 {}
@@ -3283,11 +2969,9 @@ un albero}}{Taglio di un albero}}\label{h.rdrr6bsx8ypo}}
 
 {Un taglio di un albero è una divisione in due parti $(S,V\setminus S)$ dell'insieme dei vertici.}
 
-{}
 
 {\includegraphics{images/image527.png}}
 
-{}
 
 {Un taglio rispetta $A \subseteq E$ se non esistono archi di $A$ tagliati. Essi possono essere in una delle due partizioni ma non possono attraversare il taglio.}
 
@@ -3302,8 +2986,7 @@ leggero}}{Arco leggero}}\label{h.gfycwx7ubmbv}}
 
 $w(T) = \sum_{(u,v)\in T}{w(u,v)}$
 
-{dove $w:E\rightarrow \mathbb{R}$ è detta ``funzione peso''
-}
+{dove $w:E\rightarrow \mathbb{R}$ è detta ``funzione peso''}
 
 {Definizione:}
 
@@ -3366,16 +3049,14 @@ $w(T') \leq w(T)$ {ed essendo }$w(u,v) \leq w(x,y)${~allora $w(T') \leq w(T)$}
 \begin{enumerate}
 \tightlist
 \item
-  $A \subseteq E${è contenuto in qualche MST}
+  {$A \subseteq E$ è contenuto in qualche MST}
 \item
-  {C è una componente connessa della foresta (V,A)}
+  {$C$ è una componente connessa della foresta $(V,A)$}
 \item
-  {Sia (u,v) un arco }{leggero}{~che collega la componente C con il
-  resto del grafo}
+  {Sia $(u,v)$ un arco leggero che collega la componente $C$ con il resto del grafo}
 \end{enumerate}
 
 {sono rispettate, allora l'arco $(u,v)$ è sicuro per $A$, ovvero $A \cup \{(u,v)\}$ è contenuto in qualche MST.}
-
 
 \subsubsection{Dimostrazione}
 
@@ -3420,10 +3101,7 @@ questione.}
 
 {Non esistendo, provvediamo ad aggiungerlo a T. $T' = T \cup \{(u,v)\}$}
 
-{Facendo ciò creo sicuramente un ciclo, in quanto T è albero. Scelto un
-arco }$(x,y)${~e lo rimuovo. Ho quindi
-costruito un albero di copertura con peso
-}\includegraphics{images/image470.png}
+{Facendo ciò creo sicuramente un ciclo, in quanto $T$ è albero. Scelto un arco $(x,y)$ e lo rimuovo. Ho quindi costruito un albero di copertura con peso}\includegraphics{images/image470.png}
 
 {Con $w(u,v) < w(x,y)$ (minore stretto!)}
 
@@ -3480,35 +3158,26 @@ archi e considero i pesi maggiori.}
 
 {Esempio di utilizzo: determinare le componenti connesse di un grafo}
 
-\protect\hypertarget{t.9ae6642cabb7dfeda3c5292f67bce18bb08a8c38}{}{}\protect\hypertarget{t.41}{}{}
-
 \lstinputlisting{code/componenti_connesse.txt}
 
-\hypertarget{h.tpoo55sx1m98}{\subsubsection{\texorpdfstring{{Generazione
-di MST : Kruskal}}{Generazione di MST : Kruskal}}\label{h.tpoo55sx1m98}}
+\subsubsection{Generazione di MST : Kruskal}
 
 $G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
 
-\protect\hypertarget{t.4b86b9e72214bfde6e44300f060a45f33bae59c6}{}{}\protect\hypertarget{t.42}{}{}
-
 \lstinputlisting{code/kruskal.txt}
 
-{*Per l'analisi delle due find\_set e della union ci viene formita la
-complessità ottenuta tramite Heichmann.\\
+{*Per l'analisi delle due find\_set e della union ci viene fornita la complessità ottenuta tramite Heichmann.\\
 }{Complessità}{:}
 
-{$O(mlog(m)+n+mlog(m))$ ,avendo $m \geq n-1$ archi poichè l'arco è connesso, la complessità è $O(mlog(m))$}
+{$O(mlog(m)+n+mlog(m))$, avendo $m \geq n-1$ archi poichè l'arco è connesso, la complessità è $O(mlog(m))$}
 
-\hypertarget{h.4n5zx1ni4b2b}{\subsubsection{\texorpdfstring{{Simulazione
-di esecuzione}}{Simulazione di esecuzione}}\label{h.4n5zx1ni4b2b}}
+\subsubsection{Simulazione di esecuzione}
 
 \subsubsection{Tramite grafo}
 
 {\includegraphics{images/image519.png}}
 
 \subsubsection{Tramite tabella}
-
-\protect\hypertarget{t.3d51b92c2ac905672959a85df610c27b5dc51a6c}{}{}\protect\hypertarget{t.43}{}{}
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule
@@ -3567,17 +3236,15 @@ di esecuzione}}{Simulazione di esecuzione}}\label{h.4n5zx1ni4b2b}}
 \hypertarget{h.l5wypo8krmqc}{\subsubsection{\texorpdfstring{{Generazione di MST : Prim}}{Generazione di MST : Prim}}\label{h.l5wypo8krmqc}}
 
 {A differenza di Kruskal, Prim richiede un vertice di partenza detto ``radice''. Con l'insieme Q si indica l'insieme dei vertici da estrarre.
-$V\\Q$ indica quindi l'insieme dei vertici già estratti. $Q$ è una coda di priorità, implementata tramite Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
+$V\setminus Q$ indica quindi l'insieme dei vertici già estratti. $Q$ è una coda di priorità, implementata tramite Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
 
 \begin{itemize}
 \tightlist
 \item
   Predecessore: $\pi[u]$
 \item
-Chiave: $Key[u]$ valore dell'arco incidente che attraversa il taglio $(Q,V\\Q)$ con peso minore. Si utilizza il valore infinito positivo per indicare l'eventuale assenza di archi.
+Chiave: $Key[u]$ valore dell'arco incidente che attraversa il taglio $(Q,Vsetminus Q)$ con peso minore. Si utilizza il valore infinito positivo per indicare l'eventuale assenza di archi.
 \end{itemize}
-
-\protect\hypertarget{t.8fdb0455858db4c6dd05987cee7bc92788c770bd}{}{}\protect\hypertarget{t.44}{}{}
 
 \lstinputlisting{code/prim.txt}
 
@@ -3589,13 +3256,13 @@ La complessità della funzione Prim è $O(m logn)$
 
 {\includegraphics{images/image542.png}}
 
-\subsection{\texorpdfstring{{Cammini minimi}}{Cammini minimi}}\label{h.yl5v086nw9el}
+\subsection{Cammini minimi}
 
 {Solitamente si sottointende l'utilizzo su grafi orientati, in caso di grafi non orientati, ogni arco può essere sostituito da una coppia di archi inversamente orientati.}
 
 $G=(V,E,w)$ orientato, $w:E\rightarrow \mathbb{R}$
 
-Un cammino $p$ è una sequenza $<x_0,x_1,...,x_q>$, $\forall i, i\leq i \leq q, (x_{i-1},x_i) \in E$.
+Un cammino $p$ è una sequenza $<x_0,x_1,\ldots,x_q>$, $\forall i, i\leq i \leq q, (x_{i-1},x_i) \in E$.
 
 $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
@@ -3605,14 +3272,9 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 {$\delta(u,v)=min(w(p))$ minimo dei pesi dove $p$ è il cammino tra $u$ e $v$}
 
-\subsection{\texorpdfstring{{}}{}}\label{h.h641h77p7srj}
-
-\subsubsection{\texorpdfstring{{Varianti}}{Varianti}}\label{h.39wfvuocrt5u}
+\subsubsection{Varianti}
 
 {Esistono quattro diverse varianti di ricerva dei cammini minimi, combinazioni dei due casi si numerosità dei vertici di partenza e di destinazione.}
-
-\protect\hypertarget{t.249d86aca9d964d15cac3725f6a7ace85a3425b4}{}{}\protect\hypertarget{t.45}{}{}
-
 
 \begin{table}[]
 \centering
@@ -3667,15 +3329,13 @@ due sono sottoproblemi di essi.}
 
 {}
 
-\subsection{\texorpdfstring{{Archi con pesi negativi}}{Archi con pesi negativi}}\label{h.tf12b72w5l3}
+\subsection{Archi con pesi negativi}}
 
 {Ci domandiamo se sia possibile risolvere il problema degli archi con peso negativo sommando ai pesi di tutti gli archi del grafo $G$ la costante $k$ capace di renderli tutti positivi. Es: $k=-min(w(u,v))\,\forall u,v \in E$}
 
 {NO. Sommare una costante ai pesi degli archi altera eventuali somme di pesi di archi di lunghezza differente in maniera diversa.}
 
-\subsection{\texorpdfstring{{Strutture dati per la rappresentazione dei cammini minimi}}{Strutture dati per la rappresentazione dei cammini minimi}}\label{h.ee7q1txmgnne}
-
-{}
+\subsection{Strutture dati per la rappresentazione dei cammini minimi}
 
 {Per ogni vertice $u \in V$ necessitiamo di due campi:}
 
@@ -3687,16 +3347,15 @@ $d[u]$ : stima della distanza tra $s$ ed $u$
 $\pi[u]$ : predecessore
 \end{enumerate}
 
-\subsubsection{\texorpdfstring{{Sottografo dei predecessori}}{Sottografo dei predecessori}}\label{h.ky1vo2u762au}
+\subsubsection{Sottografo dei predecessori}
 
 {Dato $G=(V,E,w)$, il sottografo dei predecessori è $G_\pi=(V_\pi,E_\pi)$ dove}
 
 $V_\pi=\{u \in V | \pi[u] \neq NIL\} \cup \{s\}$
 
-
 $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
-\subsubsection{\texorpdfstring{{Albero dei cammini minimi}}{Albero dei cammini minimi}}\label{h.2lffyamho46s}
+\subsubsection{Albero dei cammini minimi}
 
 {Dato $G=(V,E,w)$, l'albero dei cammini minimi $G'=(V',E')$ è un sottografo di $G$ dove}
 
@@ -3706,28 +3365,17 @@ $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
 {$\forall v \in V'$ l'unico cammino tra $s$ e $v$ in $G'$ è un cammino minimo in $G$}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\subsubsection{\texorpdfstring{{}}{}}\label{h.h4dk3zmkq25w}
-
-\subsubsection{\texorpdfstring{{Procedure di modifica dei due campi}}{Procedure di modifica dei due campi}}\label{h.5lg4kz3z4f5y}
-
-\protect\hypertarget{t.29f77ac6905498186484b14fa7bf14ea64fecb79}{}{}\protect\hypertarget{t.46}{}{}
+\subsubsection{Procedure di modifica dei due campi}
 
 \lstinputlisting{code/init_single_source.txt}
 
-\protect\hypertarget{t.4fa4368bfb7c1d485140ed33f86edf6c298bfda0}{}{}\protect\hypertarget{t.47}{}{}
-
 \lstinputlisting{code/relax.txt}
 
-\subsubsection{\texorpdfstring{{Dijkstra}}{Dijkstra}}\label{h.d7e75pwi333b}
-
-\protect\hypertarget{t.d055ffe7c1698902badd9b7488033a931b1cfb1d}{}{}\protect\hypertarget{t.48}{}{}
-
+\subsubsection{Dijkstra}
 
 \lstinputlisting{code/dijkstra.txt}
 
-{La coda di priorità Q può essere implementata tramite}
+{La coda di priorità $Q$ può essere implementata tramite}
 
 \begin{enumerate}
 \tightlist
@@ -3739,8 +3387,8 @@ $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
 {Studiamo la complessità di Dijkstra con coda di priorità implementata con array lineare:}
 
-
 \section{Correttezza di Dijkstra}
+
 \subsection{Proprietà 1}
 
 Un sottocammino $p'$ di un cammino minimo $p$, è anch'esso minimo.
@@ -3751,26 +3399,103 @@ Se, per assurdo, suppongo che $p'$ non sia minimo.\\
 Allora deve esistere un terzo cammino $p''$ tra $x$ e $y$ con $w(p'') < w(p')$.\\
 Se così fosse, $p$ non sarebbe minimo.
 
-
-\subsection{Proprietà 2}
+\subsection{Proprietà}
 
 Dato $p$ cammino minimo, \\
 $\delta(s,v)=\delta(s,u)+\delta(u,v)$ \\
 
 
-
-\subsection{Proprietà 3 - Diseguaglianza triangolare}
-
+\subsection{Proprietà 2 - Diseguaglianza triangolare}
 
 $\delta(s,v)\leq \delta(s,u)+w(u,v)$ \\
 
 \subsubsection{Dimostrazione}
 
-caso a, $u$ non è raggiungibile da $s$, quindi $\delta(s,u) = +\inf$ \\
-caso b, $u$ è raggiungibile da $s$, allora $\delta(s,u) < +\inf$ \\
+caso a, $u$ non è raggiungibile da $s$, quindi $\delta(s,u) = +\infty$ \\
+caso b, $u$ è raggiungibile da $s$, allora $\delta(s,u) < +\infty$ \\
 
 se $p$ è minimo $\delta(s,v)=w(s,u)+w(u,v)$, altrimenti $\delta(s,v)<w(s,u)+w(u,v)$ \\
 
+
+\subsection{Proprietà 3 - Limite inferiore}
+
+\subsection{Proprietà 4 - Convergenza}
+
+\input{graphs/prop_4.tex}
+
+{Dopo aver eseguito una Relax quindi avrò:}
+
+$d[v] \leq d[u] + w(u,v)$
+
+$d[v] = \delta(s,v) + w(u,v)$
+
+$d[v] = \delta(s,v)$ 
+
+Inoltre $\delta(s,v) \leq d[v]$ (Per il teorema del limite inferiore)
+
+Perciò $d[v]=\delta(s,v)$
+
+\subsection{Proprietà 5 - Sottografo dei predecessori ($G_\pi$)}
+
+{In un qualsiasi algoritmo, se $\forall u \in V: d[u] = \delta(s,u)$, allora $G_\pi$ è un albero di cammini minimi}
+
+\subsection{Teorema di Dijkstra}
+
+{Dato $G=(V,E,w)$ orientato con $w:E\rightarrow \mathbb{R}$ non negativa ($w(u,v) \geq 0 \forall (u,v) \in E$) e $s$ sorgente. Allora alla fine dell'esecuzione dell'algoritmo di Dijkstra si avrà:}
+
+\begin{itemize}
+\tightlist
+\item
+{$\forall u \in V, d[u]=\delta(s,u)$ nel momento in cui il vertice $u$ viene estratto da $Q$.}
+\item
+{$G_\pi$ è albero di cammini minimi.}
+\end{itemize}
+
+\subsubsection{Dimostrazione}
+
+{Dimostreremo che $\forall u \in V, d[u]=\delta(s,u)$ nel momento in cui il vertice $u$ viene estratto da $Q$.}
+
+{Supponiamo per assurdo che $u\in V$, sia il primo vertice per cui, al momento della sua estrazione, $d[u] \neq \delta(s,u)$}
+
+\paragraph{Osservazione 1:}
+
+{Non può essere la sorgente poichè $\delta(s,s)=0=d[s]$, quindi $u\neq s$.}
+
+\paragraph{Osservazione 2:}
+
+$s \neq \emptyset$
+
+\paragraph{Osservazione 3:}
+
+Ci domandiamo se $u$ sia non raggiungibile da $s$, ovvero se $\delta(s,u)=+\infty$.
+Una volta eseguita la Init\_SS disporrò di vertici con distanze $+\infty$.
+
+$u$ è perciò raggiungibile da $s$.
+
+\paragraph{Osservazione 4:}
+
+\paragraph{Osservazione 5:}
+
+$d[u] \leq d[y]$ (Poichè stà per essere estratto $y$ e non $u$)
+
+\paragraph{Osservazione 6:}
+
+\paragraph{Osservazione 7:}
+
+$\delta(s,y) \leq \delta(s,u)$ (Poichè, per ipotesi, i pesi degli archi sono positivi)
+
+\paragraph{Osservazione 8:}
+
+$\delta(s,u) \leq d[u]$ (Per proprietà del limite inferiore)
+
+\paragraph{Conclusioni:}
+
+Perciò $d[u] \leq d[y] = \delta(s,y) \leq \delta(s,u) \leq d[u]$. \\ Quindi $d[u]= \delta(s,u)$ Assurdo, contraddizione.
+
+
+\subsection{Algoritmo di Bellmann-Ford}
+
+{L'algoritmo di Dijkstra risulta efficiente ma solo per grafi con archi i cui pesi sono tutti positivi. L'algoritmo di Bellmann-Ford ovvia a tale limitazione richiedendo però elevata potenza computazionale in quanto esso si basa sul brute-force. Rispetto a Dijkstra non sono più necessarie strutture dati e permette di segnalare eventuali cicli negativi.}
 
 \protect\hyperlink{cmnt_ref1}{{[}a{]}}{Parte Intera Inferiore}
 

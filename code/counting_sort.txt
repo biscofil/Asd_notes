@@ -1,0 +1,12 @@
+CountingSort(Array A, Array B, int k, int k)
+	for i = 0 to k
+		//inizializzo a 0 i contatori $\Theta(k)$
+		C[i] = 0 
+	for j = 1 to n 
+		//conto le occorrenze, bound garantito da ipotesi di k $\Theta(n)$
+		C[A[j]] ++
+	for i = 1 to k //somme prefisse $\Theta(k)$
+		C[i] = C[i] + C[i-1]
+	for j = n downto 1 //ciclo di distribuzione $\Theta(n)$
+		B[C[A[j]]] = A[j]
+		C[A[j]] --

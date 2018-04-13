@@ -1,6 +1,6 @@
 VisitaGenerica(Node v)
 	s={v}
-	while ( s <> {} )
+	while ( s <> $\emptyset$ )
 		u = pop(s)
 		figli = VisitaGenerica(u)
 		s = s $\cup$ figli

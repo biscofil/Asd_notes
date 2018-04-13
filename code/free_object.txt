@@ -1,0 +1,3 @@
+Free_Object(x)
+	next[x] = free
+	free = x
