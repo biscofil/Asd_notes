@@ -1,0 +1,2 @@
+Chained_Hash_Insert( Array A, Elem x)
+  //inserisci x in testa alla lista T[h(x.key)]

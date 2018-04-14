@@ -1,0 +1,2 @@
+Direct_Access_Insert(Array T, Elem X)
+  T[X.key] = X

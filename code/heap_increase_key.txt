@@ -1,0 +1,8 @@
+Heap_Increase_Key(Heap A, Nodo i, Key K)
+	if ( K < A[i] )
+		error "la nuova chiave deve essere maggiore o uguale a quella esistente"
+	else
+		A[i] = K
+		while [h][i] ( i > 1 AND A[i] > A[parent(i)] )
+			scambia ( A[i] , A[parent(i)] )
+		i = parent(i)

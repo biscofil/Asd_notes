@@ -1,0 +1,6 @@
+Heap_maximum(Heap A)
+	if ( A.heapSize < 1 )
+		error "heap underflow"
+	else
+		max = A[1]
+		return max

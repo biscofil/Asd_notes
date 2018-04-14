@@ -1,0 +1,9 @@
+Heap_extract_max(Heap A)
+	if ( A.heapSize < 1 )
+		error "heap underflow"
+	else
+		max = A[1]
+		A[1] = A[ A.heapSize ]
+		A.heapSize -= 1
+		max_heapify [f] ( A , 1 [g] )
+		return max

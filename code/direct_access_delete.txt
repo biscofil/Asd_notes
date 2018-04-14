@@ -1,0 +1,2 @@
+Direct_Access_Delete(Array T, Elem X)
+  T[X.key] = NULL

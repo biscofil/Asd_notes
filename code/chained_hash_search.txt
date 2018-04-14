@@ -1,0 +1,2 @@
+Chained_Hash_Search( Array A, Key k)
+  //ricerca un elemento con chiave k nella lista T[h(k)]

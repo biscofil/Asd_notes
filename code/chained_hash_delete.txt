@@ -1,0 +1,2 @@
+Chained_Hash_Delete( Array T, Elem x)
+  //cancella x dalla lista T[h(k)]

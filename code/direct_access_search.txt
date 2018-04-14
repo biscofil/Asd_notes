@@ -1,0 +1,2 @@
+Direct_Access_Search(Array T, Chiave K)
+  return T[K]
