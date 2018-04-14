@@ -14,8 +14,11 @@
 % Tables 
 \usepackage{multirow}
 \usepackage[table,xcdraw]{xcolor}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 % Trees
+\usepackage{graphviz}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \tikzset{
@@ -222,9 +225,13 @@ $Fib1_{18}=2583,1.. \simeq 2584$
 
 \lstinputlisting{code/fib2.txt}
 
-\includegraphics{images/image29.png}
-
-$2+T_{n-1} + T_{n-2},\,\forall n \geq 3$
+\begin{equation}
+T(Fib2)_n = 
+\begin{cases}
+1 & \mbox{se } n=1,n=2 \\ 
+2 + T_{n-1} + T_{n-2} & \mbox{se } \forall n \geq 3 
+\end{cases}
+\end{equation}
 
 {$T(Fib2)_n$ è una formula ricorsiva o ricorrenza}
 
@@ -501,7 +508,7 @@ $(n_{i-i},n_i) \in A\,\forall\,1>i>k$
 
 {La lunghezza di un cammino è il numero di archi nel cammino oppure il numero di nodi diminuito di 1.}
 
-{Sia $x$ un nodo dell'albero radicato $T$ con radice }\includegraphics{images/image83.png}{.}
+{Sia $x$ un nodo dell'albero radicato $T$ con radice $r$.}
 
 {Qualsiasi nodo $y$ in un cammino, che parte dalla radice $r$ ed arriva ad $x$, è detto ANTENATO di $x$($x$ compreso, è antenato di se stesso).}
 
@@ -887,83 +894,19 @@ priorità}}{Code di priorità}}\label{h.jih9riph7gns}}
 
 \subsection{Implementazione di code di massima priorità con le strutture Heap}}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Heap\_maximum(Heap A)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-A.heapSize \textless{} }{1}{~)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{error}{~}{``heap
-underflow''}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{max}{~=
-A{[}}{1}{{]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~}{max}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/heap_maximum.txt}
 
 {Complessità di Heap Maximum : $O(1)$}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Heap\_extract\_max(Heap A)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-A.heapSize \textless{} }{1}{~)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{error}{~}{``heap
-underflow''}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{max}{~=
-A{[}}{1}{{]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A{[}}{1}{{]}
-= A{[} A.heapSize {]}\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A.heapSize
--= }{1}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{max\_heapify}\textsuperscript{\protect\hyperlink{cmnt6}{{[}f{]}}}{~(
-A , }{1}\textsuperscript{\protect\hyperlink{cmnt7}{{[}g{]}}}{~)\\
-\hspace*{0.333em} ~ ~ ~ ~ ~}{return}{~}{max}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/heap_extract_max.txt}
 
-{Complessità di Heap Extract Max :}$O(log(n))$
+{Complessità di Heap Extract Max : $O(log(n))$}
 
-{}
-
-{}
-
-{}
-
-\protect\hypertarget{t.0e5b1be2be4b16559db247c1c6d503c6b86fb0d1}{}{}\protect\hypertarget{t.21}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Heap\_Increase\_Key(Heap A, Nodo i, Key K)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{if}{~(
-K \textless{} A{[}i{]} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}error
-}{``la nuova chiave è più piccola di quella esistente''}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{else}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}A{[}i{]}
-= K\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{while}\textsuperscript{\protect\hyperlink{cmnt8}{{[}h{]}}\protect\hyperlink{cmnt9}{{[}i{]}}}{~(
-i \textgreater{} }{1}{~}{AND}{~A{[}i{]} \textgreater{}
-A{[}}{parent}{(i){]} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}scambia
-( A{[}i{]} , A{[}}{parent}{(i){]} )\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}i
-= }{parent}{(i)}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/heap_increase_key.txt}
 
 {Complessità di Heap Increase Key : $O(log(n))$}
 
-
-{Invariante del while:
-L'array $A[i,\ldots,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possibile violazione: A{[}i{]} potrebbe essere più grande di A{[}parent(i){]}}
+{Invariante del while: L'array $A[i,\ldots,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possibile violazione: A{[}i{]} potrebbe essere più grande di A{[}parent(i){]}}
 
 {Con un Heap di n elementi, la complessità è $O(log(n))$ in quanto il cammino dal nodo fino alla radice ha lunghezza }$O(log(n))$
 
@@ -1088,36 +1031,7 @@ $\Theta(n^2)$\strut
 
 {\includegraphics{images/image531.png}}
 
-Esempio: $<6,8,3>$
-
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm}] 
-\node [arn_n] {1:2}
-    child{ node [arn_r] {2:3} 
-            child{ node [arn_n] {10} 
-            	child{ node [arn_r] {5} edge from parent node[above left]
-                         {$x$}} %for a named pointer
-							child{ node [arn_x] {}}
-            }
-            child{ node [arn_n] {1:3}
-							child{ node [arn_r] {18}}
-							child{ node [arn_x] {}}
-            }                            
-    }
-    child{ node [arn_r] {1:3}
-            child{ node [arn_n] {38} 
-							child{ node [arn_r] {36}}
-							child{ node [arn_r] {39}}
-            }
-            child{ node [arn_n] {2:3}
-							child{ node [arn_r] {49}}
-							child{ node [arn_x] {}}
-            }
-		}
-; 
-\end{tikzpicture}
-
-{Questa struttura assomiglia
-all'InsertionSort}\textsuperscript{\protect\hyperlink{cmnt15}{{[}o{]}}}
+{Questa struttura assomiglia all'InsertionSort}\textsuperscript{\protect\hyperlink{cmnt15}{{[}o{]}}}
 
 {Per un input $A = <A_1,\ldots,A_n>$ di dimensione $n$, ogni nodo interno è etichettato da una coppia $i:j$ dove $i,j$ sono indici dell'insieme da ordinare.}
 
@@ -1133,8 +1047,7 @@ all'InsertionSort}\textsuperscript{\protect\hyperlink{cmnt15}{{[}o{]}}}
   {ogni foglia fornisce una permutazione dell'input tale che se io vado a prendere gli elementi dell'input, ordinati a seconda della permutazione, ottengo l'insieme ordinato in ordine crescente}
 \end{itemize}
 
-{Dato un qualsiasi algoritmo di ordinamento basato sul confronto, è
-possibile costruirmi gli alberi di decisione.}
+{Dato un qualsiasi algoritmo di ordinamento basato sul confronto, è possibile costruirmi gli alberi di decisione.}
 
 \begin{itemize}
 \tightlist
@@ -1143,11 +1056,9 @@ possibile costruirmi gli alberi di decisione.}
 \item
   {L'albero modella tutte le tracce possibile di esecuzione.}
 \item
-  {Il tempo di esecuzione (cioè il numero di confronti necessari) è la
-  lunghezza di un cammino sull'albero.}
+  {Il tempo di esecuzione (cioè il numero di confronti necessari) è la lunghezza di un cammino sull'albero.}
 \item
-  {Il tempo di esecuzione nel caso peggiore è il più lungo cammino
-  dell'albero, }{ovvero l'altezza dell'albero.}
+  {Il tempo di esecuzione nel caso peggiore è il più lungo cammino dell'albero, ovvero l'altezza dell'albero.}
 \end{itemize}
 
 {Mi basta quindi trovare la dimensione dell'albero di decisione per
@@ -1191,8 +1102,7 @@ f=f_L+f_R = 2^{h_L} + 2^{h_R} \leq 2 * 2^{max(h_L,h_R)}
 
 \paragraph{Teorema:}
 
-{Qualsiasi algoritmo di ordinamento per confronti richiede almeno
-}\includegraphics{images/image153.png}{confronti nel caso peggiore.}
+{Qualsiasi algoritmo di ordinamento per confronti richiede almeno $\Omega(n\,log(n))$ confronti nel caso peggiore.}
 
 {Dimostrazione:}
 
@@ -1202,24 +1112,25 @@ f=f_L+f_R = 2^{h_L} + 2^{h_R} \leq 2 * 2^{max(h_L,h_R)}
 
 {Passando al logaritmo, $h \geq log(n!)$}
 
-{Utilizziamo l'approssimazione di
-}{\href{https://www.google.com/url?q=https://it.wikipedia.org/wiki/Approssimazione_di_Stirling\&sa=D\&ust=1523379128517000}{Stirling}}{~per
-approssimare }\includegraphics{images/image160.png}{~:
-}\includegraphics{images/image175.png}{~}
+{Utilizziamo l'approssimazione di \href{https://www.google.com/url?q=https://it.wikipedia.org/wiki/Approssimazione_di_Stirling\&sa=D\&ust=1523379128517000}{Stirling} per approssimare $n!$:}
+
+\begin{equation}
+n! \simeq \sqrt{2\pi n }* {(\frac{n}{e})}^n
+\end{equation}
 
 {Per n sufficientemente grande, considero solo il termine più grande}
 
-\includegraphics{images/image176.png}
+$h \geq log({(\frac{n}{e})}^n)$
 
 {Per proprietà dei logaritmi}
 
-\includegraphics{images/image177.png}
+$h \geq n*log(\frac{n}{e})$
 
-\includegraphics{images/image178.png}{, il secondo algoritmo è costante}
+{$h \geq n*(log(n) - log(e))$ , il secondo algoritmo è costante}
 
-\includegraphics{images/image179.png}
+$n \geq n * log(n)$
 
-{Non ci può essere quindi un algoritmo basato sui confronti minore di }\includegraphics{images/image180.png}
+{Non ci può essere quindi un algoritmo basato sui confronti minore di $n * log(n)$}
 
 \paragraph{Corollario:}
 
@@ -1227,29 +1138,19 @@ approssimare }\includegraphics{images/image160.png}{~:
 
 {Dimostrazione:}
 
-{I limiti superiori dei sue algoritmi sono }\includegraphics{images/image181.png}{nei tempi di esecuzione
-corrispondono al limite inferiore }\includegraphics{images/image153.png}{~nel caso peggiore dato dal
-teorema.}
+{I limiti superiori dei sue algoritmi sono $O(n\,log(n))$ nei tempi di esecuzione corrispondono al limite inferiore $\Omega(n\,log(n))$ nel caso peggiore dato dal teorema.}
 
-{Se elimino il modello basato sui confronti, posso battere il limite
-inferiore di }\includegraphics{images/image153.png}{? SI.}
+{Se elimino il modello basato sui confronti, posso battere il limite inferiore di $\Omega(n\,log(n))$? SI.}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\subsection{Algoritmi di ordinamento privi di confronti}
 
-\subsection{\texorpdfstring{{}}{}}\label{h.9sera6op4yxc}
-
-\hypertarget{h.p17586cst16}{\subsection{\texorpdfstring{{Algoritmi di
-ordinamento privi di
-confronti}}{Algoritmi di ordinamento privi di confronti}}\label{h.p17586cst16}}
-
-\hypertarget{h.bfk18jaq5ar4}{\subsubsection{\texorpdfstring{{CountingSort}}{CountingSort}}\label{h.bfk18jaq5ar4}}
+\subsubsection{CountingSort}
 
 {{[}CLRS{]} pp. 159-161}
 
 {Assunzione:}
 
-{~~~~~~~~I numeri da ordinare sono interi in un intervallo che va da 0 a
-k, per qualche k prefissato}
+{~~~~~~~~I numeri da ordinare sono interi in un intervallo che va da 0 a $k$, per qualche $k$ prefissato}
 
 {Input:}
 
@@ -1265,111 +1166,67 @@ k, per qualche k prefissato}
 
 \lstinputlisting{code/counting_sort.txt}
 
-{Complessità di CountingSort : }\includegraphics{images/image188.png}
+{Complessità di CountingSort : $\Theta(n+k)$}
 
+{Di solito il CountingSort quando $k$ è limitato superiormente da n, $k=O(n)$. Allora il tempo di esecuzione risulta $\Theta(n)$. Il tempo di esecuzione di questo algoritmo è dato da
+$\Theta(n+k)$. Il CountingSort di solito è utilizzato quando $k$ è limitato superiormente da $n$ in $k=O(n)$. Allora, il tempo di esecuzione risulta essere $O(n)$.}
 
-{Di solito il CountingSort quando k è limitato superiormente da n,
-}\includegraphics{images/image189.png}{. Allora il tempo di esecuzione
-risulta }\includegraphics{images/image190.png}{. }{Il tempo di
-esecuzione di questo algoritmo è dato da
-}\includegraphics{images/image188.png}{. Di solito è utilizzato (Il
-CountingSort). Quando }\includegraphics{images/image118.png}{~è limitato
-superiormente da }$n${~in
-}\includegraphics{images/image191.png}{. Allora, il tempo di esecuzione
-risulta essere }$O(n)${.}
-
-{Il CountingSort è un algoritmo stabile, caratteristica molto
-importante.}
+{Il CountingSort è un algoritmo stabile, caratteristica molto importante.}
 
 {Analisi:}
 
-{~~~~~~~~All'uscita dal secondo
-ciclo:}\includegraphics{images/image192.png}
+{~~~~~~~~All'uscita dal secondo ciclo: $C[i] = \abs{\{x \in \{1\ldots n\}\,|\,A[x] = i\}}$}
 
-{~~~~~~~~All'uscita dal terzo giro:
-}\includegraphics{images/image193.png}
+{~~~~~~~~All'uscita dal terzo giro: $C[i] = \abs{\{x \in \{1\ldots n\}\,|\,A[x] \leq i\}}$}
 
 
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\subsubsection{\texorpdfstring{{}}{}}\label{h.f4yzmjxt5mx}
-
-\hypertarget{h.ixohzh3ypk6v}{\subsubsection{\texorpdfstring{{RadixSort}}{RadixSort}}\label{h.ixohzh3ypk6v}}
+\subsubsection{RadixSort}
 
 {{[}CLRS{]} pp. 162-164}
 
 {\includegraphics{images/image540.png}}
 
-{L'algoritmo di ordinamento scelto deve essere stabili e rispettare
-l'ordine.}
+{L'algoritmo di ordinamento scelto deve essere stabili e rispettare l'ordine.}
 
-\protect\hypertarget{t.9351034389c7df45f2289244d1a6b5684029a393}{}{}\protect\hypertarget{t.28}{}{}
+\lstinputlisting{code/radix_sort.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{RadixSort(}{Array}{~A, }{int}{~d) }{// A contiene interi di d cifre}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{for}{~i
-= }{1}{~to d }{// 1: cifra meno significativa, d: cifra più
-significativa}{\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{//uso
-un ordinamento stabile per ordinare l'array A sulla crifra
-i-esima}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{Dimostriamo la correttezza dell'algoritmo tramite induzione sulla
-colonna da ordinare:}
+{Dimostriamo la correttezza dell'algoritmo tramite induzione sulla colonna da ordinare:}
 
 {Caso base (i=1)}
 
 {~~~~~~~~Ordino l'unica colonna}
 
-{Assumo}
+{Assumo che le cifre delle colonne che vanno da $1$ a $i-1$ siano ordinate}
 
-{che le cifre delle colonne che vanno da $1$ a $i-1$ siano ordinate}
-
-{Dimostro }
-
-{che un algoritmo stabile sulla colonna $i$, lascia le colonne da $1$ a $i$ ordinate:}
+{Dimostro che un algoritmo stabile sulla colonna $i$, lascia le colonne da $1$ a $i$ ordinate:}
 
 {Se due cifre in posizione $i$}
 
 \begin{itemize}
 \tightlist
 \item
-  {sono }{uguali}{: }
-\end{itemize}
-
-{per stabilità, rimangono nello stesso ordine e, per ipotesi induttiva, sono ordinate.}
-
-\begin{itemize}
-\tightlist
+  {sono uguali: per stabilità, rimangono nello stesso ordine e, per ipotesi induttiva, sono ordinate.}
 \item
-  {sono }{diverse}{:}
+  {sono diverse: l'algoritmo di ordinamento sulle colonna $i$ le ordina e le mette in posizione corretta.}
 \end{itemize}
 
-{l'algoritmo di ordinamento sulle colonna $i$ le ordina e le mette in posizione corretta.}
-
-{Complessità: }\includegraphics{images/image196.png}
+{Complessità: $\Theta(d*(k+n))$}
 
 {Teorema: }
 
-{Dati $n$ numeri di $d$ cifre, dove ogni cifra può avere fino a $k$ valori possibili}\textsuperscript{\protect\hyperlink{cmnt16}{{[}p{]}}}{, la procedura ordina correttamente i numeri nel tempo di }\includegraphics{images/image196.png}{~se l'algoritmo stabile utilizzato dalla procedura impiega un tempo }\includegraphics{images/image198.png}
+{Dati $n$ numeri di $d$ cifre, dove ogni cifra può avere fino a $k$ valori possibili}\textsuperscript{\protect\hyperlink{cmnt16}{{[}p{]}}}{, la procedura ordina correttamente i numeri nel tempo di $\Theta(d*(k+n))$ se l'algoritmo stabile utilizzato dalla procedura impiega un tempo $\Theta(k+n)$}
 
 {Dimostrazione:}
 
-{Per ogni iterazione, il costo risulta essere}\includegraphics{images/image198.png}
+{Per ogni iterazione, il costo risulta essere $\Theta(k+n)$}
 
-{Le iterazioni sono d, per un totale di }\includegraphics{images/image196.png}
+{Le iterazioni sono $d$, per un totale di $\Theta(d*(k+n))$}
 
 {Osservazioni:}
 
-{~~~~~~~~Se $k=(n)$ il tempo di esecuzione è }\includegraphics{images/image199.png}
+{~~~~~~~~Se $k=O(n)$ il tempo di esecuzione è $\Theta(d*n)$}
 
-{Inoltre, se $d$ è costante, la complessità è }\includegraphics{images/image149.png}
+{Inoltre, se $d$ è costante, la complessità è $\Theta(n)$}
 
 \paragraph{Come ripartire le chiavi in cifre?}
 
@@ -1393,116 +1250,71 @@ colonna da ordinare:}
 
 \includegraphics{images/image206.png}
 
-{Cerco di minimizzare la complessità ponendo $r$ grande,
-}\includegraphics{images/image207.png}{risulta diminuito, ma }\includegraphics{images/image208.png}{è cresciuto esponenzialmente.
-Scelgo $r$ piccolo, altrimenti $2^r $domina su $n$.}
+{Cerco di minimizzare la complessità ponendo $r$ grande, $\frac{b}{r}*n$ risulta diminuito, ma $\frac{b}{r}*2^r$ è cresciuto esponenzialmente. Scelgo $r$ piccolo, altrimenti $2^r$ domina su $n$.}
 
 {Scegliamo $r$ essere il massimo valore tale che $n$ risulti essere $n\geq 2^r$, quindi $r=log(n)$.}
 
 {Sostituendo:}
 
-\includegraphics{images/image212.png}{, essendo
-}\includegraphics{images/image213.png}{~}
+\includegraphics{images/image212.png}{, essendo $2^{log(n)}$, abbiamo }\includegraphics{images/image214.png}
 
-{abbiamo }\includegraphics{images/image214.png}
+{I numeri variano nell'intervallo $[0,\ldots,2^b-1]$. Se fisso $b=c*log(n)$, allora l'intervallo diventa $[0,\ldots,n^c-1]$.}
 
-{I numeri variano nell'intervallo
-}\includegraphics{images/image215.png}{. Se fisso
-}\includegraphics{images/image216.png}{, allora l'intervallo diventa
-}\includegraphics{images/image217.png}{.}
-
-{Allora il tempo è uguale a }\includegraphics{images/image218.png}{, se
-}\includegraphics{images/image219.png}{~è costante, allora il tempo è
-}\includegraphics{images/image149.png}{.}
-
-{}
+{Allora il tempo è uguale a $\Theta(c*n)$, se $c$ è costante, allora il tempo è $\Theta(n)$.}
 
 {Ho ampliato la grandezza dell'intervallo su cui posso applicare l'algoritmo.}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\section{\texorpdfstring{{}}{}}\label{h.nfzrbduhc0fl}
-
-\hypertarget{h.1gvh3qlqsocy}{\section{\texorpdfstring{{Tabelle
-hash}}{Tabelle hash}}\label{h.1gvh3qlqsocy}}
+\section{Tabelle hash}
 
 {{[}CLRS{]} pp. 209-211}
 
-{}
-
 {Le tabelle hash sono una possibile implementazione dei dizionari,insiemi dinamici con inserimento, cancellazione e ricerca dove ogni elemento è associato ad una chiave.}
-
-{}
 
 {I dizionari possono essere implementati nei seguenti modi:}
 
 \begin{itemize}
 \tightlist
 \item
-  {Con le liste:
-  ~~~~~~~~~~~~~~~~~~~~~~~~}$O(n)$
+  {Liste: $O(n)$}
 \item
-  {Con gli alberi binari di ricerca}
-\end{itemize}
-
+	{Alberi binari}
+	
 \begin{itemize}
 \tightlist
 \item
-  {non bilanciati ~~~~~~~~~~~~~~~~$O(n)$}
+  	{Non bilanciati: $O(n)$}
 \item
-  {bilanciati ~~~~~~~~~~~~~~~~$O(log(n))$}
+  	{Bilanciati: $O(log(n))$}
 \end{itemize}
 
+\item
+  	{Tabelle hash}
+  	
 \begin{itemize}
 \tightlist
 \item
-  {Tabelle hash}
+	{Tempo medio: $\Theta(1)$ (Motivo principale per l'utilizzo delle tabelle hash)}
+\item
+	{Caso peggiore: $\Theta(n)$}
 \end{itemize}
 
-\begin{itemize}
-\tightlist
-\item
-  {Tempo
-  medio~~~~~~~~~~~~~~~~}\includegraphics{images/image221.png}{~~~~~~~~~Motivo
-  principale per l'utilizzo delle tabelle hash}
-\item
-  {Caso peggiore ~~~~~~~~}\includegraphics{images/image149.png}
 \end{itemize}
 
-{}
-
-{Vogliamo fornire un'applicazione che ha bisogno di un insieme dinamico
-(insert/delete/search). Ogni elemento ha una chiave estratta da un
-universo }\includegraphics{images/image222.png}{~con
-}\includegraphics{images/image223.png}{, dove
-}$w${~non è troppo grande. Nessun
-elemento ha la stessa chiave (elementi distinti). }
-
-{}
+{Vogliamo fornire un'applicazione che ha bisogno di un insieme dinamico (insert/delete/search). Ogni elemento ha una chiave estratta da un universo $\mathbb{U}$ con $\abs{\mathbb{U}} = \{0,\ldots,w-1\}$, dove $w$ non è troppo grande. Nessun elemento ha la stessa chiave (elementi distinti). }
 
 {\includegraphics{images/image521.png}}
 
-{}
-
-{Mi costruisco una tabella ad accesso diretto. Si può utilizzare un
-array }\includegraphics{images/image225.png}{~dove}
+{Mi costruisco una tabella ad accesso diretto. Si può utilizzare un array $[0,\ldots,w-1]$ dove}
 
 \begin{itemize}
 \tightlist
 \item
-  {ogni posizione (o cella) corrisponde ad una chiave di
-  }\includegraphics{images/image222.png}
+  {ogni posizione (o cella) corrisponde ad una chiave di $\mathbb{U}$}
 \item
-  {Se c'è un elemento }$x${~con chiave
-  }\includegraphics{images/image118.png}{, allora nella posizione
-  }\includegraphics{images/image226.png}{~è contenuto un puntatore a
-  }$x$
+  {Se c'è un elemento $x$ con chiave $k$, allora nella posizione $T(k)$ è contenuto un puntatore a $x$}
 \item
-  {Altrimenti, se l'insieme non contiene l'elemento,
-  }\includegraphics{images/image227.png}
+  {Altrimenti, se l'insieme non contiene l'elemento, $T(k) = NULL$}
 \end{itemize}
-
-{}
 
 \begin{equation}
 T(k) = 
@@ -1514,55 +1326,17 @@ NULL & \mbox{altrimenti}
 
 {Direct\_Access\_Search : }$O(1)$
 
-\protect\hypertarget{t.5e647ac497c8d570c974acbb45dca5c64a153f0d}{}{}\protect\hypertarget{t.29}{}{}
+\lstinputlisting{code/direct_access_search.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Direct\_Access\_Search(}{Array}{~}{T}{, Chiave K)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{return}{~}{T}{{[}K{]}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+{Direct\_Access\_Insert : $O(1)$}
 
-{}
+\lstinputlisting{code/direct_access_insert.txt}
 
-{Direct\_Access\_Insert : }$O(1)$
+{Direct\_Access\_Delete : $O(1)$}
 
-\protect\hypertarget{t.1a853012f31c781449bf60e81efe16d999f7f4e5}{}{}\protect\hypertarget{t.30}{}{}
+\lstinputlisting{code/direct_access_delete.txt}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Direct\_Access\_Insert(}{Array}{~T, Elem X)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{T}{{[}X.}{key}{{]}
-= X}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{Direct\_Access\_Delete : }$O(1)$
-
-\protect\hypertarget{t.6814f70387384056c2df068fef0ba3b0089ed70d}{}{}\protect\hypertarget{t.31}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Direct\_Access\_Delete(}{Array}{~}{T}{, Elem X)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{T}{{[}X.}{key}{{]}
-= }{NULL}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{}
-
-{Potrebbe essere uno spreco se
-}\includegraphics{images/image231.png}{~(Molto minore)}
-
-{}
+{Potrebbe essere uno spreco se $\abs{K} \ll \abs{\mathbb{U}}$ (Molto minore)}
 
 {Pregi:}
 
@@ -1570,17 +1344,9 @@ NULL & \mbox{altrimenti}
 
 {Difetti:}
 
-{Lo spazio utilizzato è proporzionale a
-}$w${~e non al numero
-}$n${~di elementi. Di conseguenza si
-può avere un importante spreco di memoria.}
+{Lo spazio utilizzato è proporzionale a $w$ e non al numero $n$ di elementi. Di conseguenza si può avere un importante spreco di memoria.}
 
-{}
-
-{Per ovviare al problema dello spreco di memoria si utilizzano le
-tabelle hash.}
-
-{}
+{Per ovviare al problema dello spreco di memoria si utilizzano le tabelle hash.}
 
 {Richieste:}
 
@@ -1590,38 +1356,25 @@ tabelle hash.}
   {Vogliamo ridurre lo spazio per la tabella ad $\Theta(\abs{K})$, ovvero il numero di chiavi
   effettivamente utilizzate}
 \item
-  {Le operazioni siano con costo medio
-  }$\Theta(1)${, ma non nel caso pessimo}
+  {Le operazioni siano con costo medio $\Theta(1)$, ma non nel caso pessimo}
 \end{enumerate}
-
-{}
 
 {Idea:}
 
 {Invece di memorizzazione un elemento con chiave o nella cella $k$, si usa una funzione $h$, detta funzione hash, e si memorizza l'elemento nella cella $h(k)$}
 
-{}
 
-{$h:U\rightarrow\{0,1,\ldots,m-1\}$, dove $m$ della tabella hash è generalmente molto più piccola della dimensione dello spazio di tutte le chiavi.}
-
-{}
+{$h:\mathbb{U}\rightarrow\{0,1,\ldots,m-1\}$, dove $m$ della tabella hash è generalmente molto più piccola della dimensione dello spazio di tutte le chiavi.}
 
 {Problema: }
 
-{Se $m < \abs{U}$, due valori possono essere
-mappati nella stessa cella, ciò è chiamato collisione. }
-
-{}
+{Se $m < \abs{\mathbb{U}}$, due valori possono essere mappati nella stessa cella, ciò è chiamato collisione. }
 
 {Le tabelle hash possono soffrire del problema delle collisioni: quando un elemento da inserire è mappato, tramite $h$, in una cella già occupata, si verifica una collisione.}
 
-\includegraphics{images/image237.png}
-
-{}
+$k_1 \neq k_2 \in \mathbb{U}, h(k_1) = h(k_2)$
 
 {Se $\abs{K} > m$, ho la certezza di imbattermi in collisioni.}
-
-{}
 
 {Cerchiamo quindi strategie per gestire le collisioni, ne analizzeremo due:}
 
@@ -1633,61 +1386,21 @@ mappati nella stessa cella, ciò è chiamato collisione. }
   {Indirizzamento aperto}
 \end{enumerate}
 
-{}
+\subsection{Risoluzione delle collisioni tramite metodo di concatenamento}
 
-{}
+{Si mettono tutti gli elementi che sono associati alla stessa cella in una lista concatenata.}
 
-\hypertarget{h.ocrobrrshwsz}{\subsection{\texorpdfstring{{Risoluzione
-delle collisioni tramite metodo di
-concatenamento}}{Risoluzione delle collisioni tramite metodo di concatenamento}}\label{h.ocrobrrshwsz}}
+{La cella $j$ contiene un puntatore alla testa di una lista di tutti gli elementi memorizzati che sono mappati in $j$. Se non ci sono elementi, la cella $j$ conterrà $NULL$.}
 
-{Si mettono tutti gli elementi che sono associati alla stessa cella in
-una lista concatenata.}
-
-{}
-
-{La cella $j$ contiene un puntatore alla testa di una lista di tutti gli elementi memorizzati che sono
-mappati in $j$. Se non ci sono elementi, la cella $j$ conterrà $NULL$.}
-
-{}
-
-\hypertarget{h.lhp1y3nzdu6x}{\subsubsection{\texorpdfstring{{Implementazioni}}{Implementazioni}}\label{h.lhp1y3nzdu6x}}
-
-{}
+\subsubsection{Implementazioni}
 
 {Andiamo ad analizzare l'hashing con concatenamento.}
 
-{}
+\lstinputlisting{code/chained_hash_insert.txt}
 
-\protect\hypertarget{t.4c8d61e7e14e07dc1d88e32b3d14a2e8168251a4}{}{}\protect\hypertarget{t.32}{}{}
+{Tempo di esecuzione: $\Theta(1)$ se $h$ impiega tempo costante $\Theta(1)$ e l'elemento non è presente nella lista}
 
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Chained\_Hash\_Insert( }{Array}{~A, Elem x)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{//inserisci
-x in testa alla lista T{[}h(x.key){]}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-{Tempo di esecuzione: }$\Theta(1)${~se $h$ impiega tempo costante
-}$\Theta(1)${~e l'elemento non è presente nella
-lista}
-
-{}
-
-\protect\hypertarget{t.b82da7cd062ba3d6c9dd0eeac061b5cba9d0ea54}{}{}\protect\hypertarget{t.33}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Chained\_Hash\_Search( }{Array}{~A, Key k)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{//ricerca
-un elemento con chiave k nella lista T{[}h(k){]}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/chained_hash_search.txt}
 
 {Tempo di esecuzione:}
 
@@ -1695,35 +1408,17 @@ un elemento con chiave k nella lista T{[}h(k){]}}\strut
 
 {~~~~~~~~~~~~~~~~Proporzionale alla lunghezza della lista nella cella $h(x)$}
 
-{}
-
-\protect\hypertarget{t.96568ab5a095d8d42b89dca644d59c9047e492c4}{}{}\protect\hypertarget{t.34}{}{}
-
-\begin{longtable}[]{@{}l@{}}
-\toprule
-\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
-{Chained\_Hash\_Delete( }{Array}{~T, Elem x)\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}{//cancella
-x dalla lista T{[}h(k){]}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\lstinputlisting{code/chained_hash_delete.txt}
 
 {Tempo di esecuzione:}
 
 {Caso peggiore:}
 
-$\Theta(1)${~se la lista doppiamente
-concatenata (ci serve un puntatore al predecessore)}
+{$\Theta(1)$ se la lista doppiamente concatenata (ci serve un puntatore al predecessore)}
 
-{Senza una lista doppiamente concatenata servirebbe ricercare la chiave
-del predecessore come ulteriore step.\\
-}
+{Senza una lista doppiamente concatenata servirebbe ricercare la chiave del predecessore come ulteriore step.}
 
-{}
-
-{Sia T una tabella hash con n celle dove sono stati memorizzati n
-elementi. }
+{Sia T una tabella hash con n celle dove sono stati memorizzati $n$ elementi. }
 
 {Caso peggiore:}
 
@@ -1734,41 +1429,25 @@ un'unica lista di lunghezza $n$.}
 
 {Caso medio:}
 
-{Analisi di h}
+{Analisi di $h$}
 
 {Deve soddisfare la proprietà di }{Hashing Uniforme Semplice:}
 
 {Ogni elemento ha la stessa probabilità di essere mandato in una qualsiasi delle $m$ celle, indipendentemente dalle celle in cui sono mancati gli altri elementi.}
 
-\includegraphics{images/image242.png}
-
-{}
+$\forall i \in \{0,\ldots,n-1\}, Q(i) = \frac{1}{n}$
 
 {Assumo che $h$ soddisfi la proprietà di Hashing Uniforme Semplice: indico con $n_j$ la lunghezza della lista $T[j]$}
 
-{}
-
-{Il valore medio di }\includegraphics{images/image243.png}{~è
-}\includegraphics{images/image245.png}
-
-{}
+{Il valore medio di $n_j$ è $\alpha=\frac{n_0+n_1+\ldots+n_{m-1}}{m}=\frac{n}{m}$}
 
 {Fattore di carico: }
 
-{In una tabella hash con $n$ chiavi ed $m$ celle, il fattore di carico è $\alpha = \frac{n}{m}$. Esso è il numero medio di
-elementi memorizzati in ogni lista.}
+{In una tabella hash con $n$ chiavi ed $m$ celle, il fattore di carico è $\alpha = \frac{n}{m}$. Esso è il numero medio di elementi memorizzati in ogni lista.}
 
-{}
+\paragraph{Teorema 1}
 
-\hypertarget{h.coagge9vpuqt}{\paragraph{\texorpdfstring{{Teorema
-1}}{Teorema 1}}\label{h.coagge9vpuqt}}
-
-{In una tabella hash in cui le collisioni sono risolte con il
-concatenamento, una }{ricerca senza successo}{~richiede, nel caso medio,
-un tempo $\Theta(1+\alpha)$, nell'ipotesi di
-Hashing Uniforme Semplice.}
-
-{}
+{In una tabella hash in cui le collisioni sono risolte con il concatenamento, una ricerca senza successo richiede, nel caso medio, un tempo $\Theta(1+\alpha)$, nell'ipotesi di Hashing Uniforme Semplice.}
 
 {Intuizione:}
 
@@ -1782,34 +1461,22 @@ Hashing Uniforme Semplice.}
   {Scorro la lista $T[j]$ fino alla fine) : $\Theta(\alpha)$ (in media)}
 \end{itemize}
 
-{}
-
-\hypertarget{h.u0cyuvvucft2}{\paragraph{\texorpdfstring{{Teorema
-2}}{Teorema 2}}\label{h.u0cyuvvucft2}}
+\paragraph{Teorema 2}
 
 {In una tabella hash in cui le collisioni sono risolte con il concatenamento, una ricerca con successo richiede, nel caso medio,un tempo $\Theta(1+\frac{\alpha}{2}) = \Theta(1+\alpha)$ nell'ipotesi di Hashing Uniforme Semplice.}
-
-{}
 
 {Se il numero di celle della tabella hash è almeno proporzionale al numero di elementi da memorizzare, cioè abbiamo $n=O(m)$, di conseguenza \\ $\alpha=\frac{n}{m} = \frac{O(m)}{m}=\Theta(1)$. (Se alpha è costante) }
 
 Tutte le operazioni quindi, mediamente, sono svolte in tempo $\Theta(1)$.
 
-{}
 
-\hypertarget{h.9kljpwmnt7yd}{\subsubsection{\texorpdfstring{{Come si
-costruiscono le funzioni
-hash?}}{Come si costruiscono le funzioni hash?}}\label{h.9kljpwmnt7yd}}
+\subsubsection{Come si costruiscono le funzioni hash?}
 
 {Significato di hash: polpetta, tritare.}
-
-{}
 
 {Una buona funzione hash dovrebbe essere in grado di distribuire in modo
 uniforme le chiavi nello spazio degli indici della tabella. Deve quindi
 rispettare l'ipotesi di HUS.}
-
-{}
 
 {Esempio: la distribuzione delle chiavi è nota.}
 
@@ -1819,15 +1486,9 @@ rispettare l'ipotesi di HUS.}
 
 {Questa funzione soddisfa l'ipotesi HUS.}
 
-{}
-
 {Le distribuzioni delle chiavi difficilmente risultano note a priori. }
 
-{}
-
 {Metodi di costruzione delle funzioni hash.}
-
-{}
 
 \begin{enumerate}
 \tightlist
@@ -1877,52 +1538,38 @@ esatta di 2 o 10.}
   {Metodo della moltiplicazione}
 \end{enumerate}
 
-{}
+{~~~~~~~~Se $x \in [0\ldots1]$ uniformemente distribuiti}
 
-{~~~~~~~~Se }\includegraphics{images/image258.png}{uniformemente
-distribuiti}
+$h(x) = \floor*{m*x}$
 
-\includegraphics{images/image259.png}
+{~~~~~~~~Data una chiave naturale, la trasformo in un numero nell'intervallo $[0\ldots1]$ per poi moltiplicarlo per $m$.}
 
-{}
+{~~~~~~~~Fisso una costante $A, 0 \leq A \leq 1$}
 
-{~~~~~~~~Data una chiave naturale, la trasformo in un numero
-nell'intervallo }\includegraphics{images/image260.png}{~per poi
-moltiplicarlo per }\includegraphics{images/image235.png}{.}
+{~~~~~~~~Calcolo $K*A$ ed estraggo la parte frazionaria}
 
-{~~~~~~~~Fisso cuna costante }\includegraphics{images/image261.png}
+\begin{equation}
+(K*A)\,mod\,1 = k * A - \floor*{k*A}
+\end{equation}
 
-{~~~~~~~~Calcolo }\includegraphics{images/image262.png}{~ed estraggo la
-parte frazionaria}
-
-\includegraphics{images/image263.png}
-
-\includegraphics{images/image264.png}
-
-{}
+\begin{equation}
+h(x) = \floor*{m*(K*A)\,mod\,1}
+\end{equation}
 
 {Vantaggio:}
 
-{Il valore di m non è più critico. Funziona bene con tutti i valori di
-A. Knuth suggerì il valore }\includegraphics{images/image265.png}{~.}
+{Il valore di $m$ non è più critico. Funziona bene con tutti i valori di A. Knuth suggerì il valore $\frac{\sqrt{5}-1}{2}$.}
 
-{}
 
-{~~~~~~~~Per semplificare i conti possiamo scegliere
-}\includegraphics{images/image266.png}
+{~~~~~~~~Per semplificare i conti possiamo scegliere $m=2^p$}
 
-\includegraphics{images/image267.png}{~lunghezza di una parola in memoria, }\includegraphics{images/image268.png}{intero.}
-
-{}
+{$A = \frac{q}{2w} = $ lunghezza di una parola in memoria, $0<q<2^w$ intero.}
 
 {~~~~~~~~Ipotesi:}
 
-$k${~entra in una sola parola: }\includegraphics{images/image269.png}
+{$k$ entra in una sola parola: $k*a = mod 1 = \frac{k*q}{2^w}\,mod\,1$}
 
-\includegraphics{images/image270.png}{~bit più significativi della parola meno significativa di
-}\includegraphics{images/image271.png}{.}
-
-
+{$h(k)=p$ bit più significativi della parola meno significativa di $k*q$.}
 
 \begin{enumerate}
 \setcounter{enumi}{2}
@@ -1931,15 +1578,9 @@ $k${~entra in una sola parola: }\includegraphics{images/image269.png}
   {Hashing universale}
 \end{enumerate}
 
-{}
-
 {Se un avversario conosce la funzione hash, qualunque essa sia, potrebbe inserire nella tabella elementi che finiscono tutti nella stessa cella e ciò porterebbe a pessime prestazioni.}
 
-{}
-
 {La soluzione è costruire un insieme di funzioni hash da pescare casualmente.}
-
-{}
 
 \begin{enumerate}
 \tightlist
@@ -1950,13 +1591,11 @@ $k${~entra in una sola parola: }\includegraphics{images/image269.png}
   {Il programma sceglie casualmente h dall' insieme}
 \end{enumerate}
 
-\hypertarget{h.3fhh68cy94hw}{\subsection{\texorpdfstring{{Risoluzione delle collisioni tramite indirizzamento aperto}}{Risoluzione delle collisioni tramite indirizzamento aperto}}\label{h.3fhh68cy94hw}}
+\subsection{Risoluzione delle collisioni tramite indirizzamento aperto}
 
 {Ipotesi: }
 
 {Non ho alcuna struttura ausiliaria esterna.}
-
-{}
 
 {Idea:}
 
@@ -1964,11 +1603,7 @@ $k${~entra in una sola parola: }\includegraphics{images/image269.png}
 
 {Non c'è memoria esterna}
 
-{}
-
 {Ogni cella contiene un elemento dell'insieme dinamico oppure $NULL$}
-
-{}
 
 {Per cercare un elemento di chiave $k$:}
 
@@ -1981,42 +1616,29 @@ $k${~entra in una sola parola: }\includegraphics{images/image269.png}
 \item
   {Se invece contiene $NULL$, la ricerca termina senza successo.}
 \item
-  {Se la cella contiene una chiave che non è $k$ calcoliamo l'indice di un'altra cella in base a k e all'ordine di ispezione. Si continua la scansione della tabella finché non si trova $k$ (successo), una cella contenente $NULL$ oppure dopo $m$ ispezioni senza successo.}
+  {Se la cella contiene una chiave che non è $k$ calcoliamo l'indice di un'altra cella in base a $k$ e all'ordine di ispezione. Si continua la scansione della tabella finché non si trova $k$ (successo), una cella contenente $NULL$ oppure dopo $m$ ispezioni senza successo.}
 \end{enumerate}
-
-{}
 
 {La funzione hash per l'indirizzamento aperto è la seguente:}
 
-\includegraphics{images/image272.png}
+\begin{equation}
+h:\mathbb{U}x\{0,0,\ldots,m-1\} \rightarrow \{0,0,\ldots,m-1\}
+\end{equation}
 
 {$h(k,i)$ rappresenta la posizione della chiave $k$ dopo $i$ ispezioni fallite}
 
-{}
-
 {per ogni chiave, la sequenza di ispezioni data da \\
-$<h(k,0),h(k,1),\ldots,h(k,m-1)),>$ deve essere una permutazione di $<0,1,\ldots,m-1>$ \\ in modo che ogni posizione della tabella hash possa essere considerata come possibile cella in cui inserire una nuova chiave.}
-
-{}
+$<h(k,0),h(k,1),\ldots,h(k,m-1))>$ deve essere una permutazione di $<0,1,\ldots,m-1>$ \\ in modo che ogni posizione della tabella hash possa essere considerata come possibile cella in cui inserire una nuova chiave.}
 
 {Assunzioni:}
 
 {~~~~~~~~gli elementi della tabella hash sono senza dati satellite}
 
-{}
-
 {Hash insert: restituisce l'indice della cella dove ha memorizzato la chiave $k$, oppure segnala un errore se la tabella è piena}
-
-\protect\hypertarget{t.7217df0c08ad885ebc654960645bab5fae2cfb4d}{}{}\protect\hypertarget{t.35}{}{}
 
 \lstinputlisting{code/hash_insert.txt}
 
 {Hash search: restituisce $j$ se $T[j]$ contiene la chiave $k$ oppure $NULL$ se essa non esiste in $T$.}
-
-{}
-
-\protect\hypertarget{t.9facc68cfa90288f5906042d8bc73266aeff5bdd}{}{}\protect\hypertarget{t.36}{}{}
-
 
 \lstinputlisting{code/hash_search.txt}
 
@@ -2024,13 +1646,9 @@ $<h(k,0),h(k,1),\ldots,h(k,m-1)),>$ deve essere una permutazione di $<0,1,\ldots
 
 {La cancellazione da una tabella hash con indirizzamento aperto è problematica. }
 
-{}
-
 {Soluzione:}
 
 {Non si può cancellare ponendo $NULL$ al posto della chiave. Usiamo quindi un marcatore (un valore speciale, chiamato ``deleted'') al posto di $NULL$ per marcare una cella come vuota a causa di un'eliminazione.}
-
-{}
 
 {Svantaggio:}
 
@@ -2038,14 +1656,10 @@ $<h(k,0),h(k,1),\ldots,h(k,m-1)),>$ deve essere una permutazione di $<0,1,\ldots
 {Non si usa l'indirizzamento aperto quando le chiavi vanno cancellate.
 Si utilizza invece il concatenamento.}
 
-{}
-
 {Hash\_Delete(Array T, Key
 K)}\textsuperscript{\protect\hyperlink{cmnt18}{{[}r{]}}}
 
 {La posizione viene determinata dalla funzione \\ $h:U\cup U\rightarrow \{0,1,\ldots,m-1\}$ che restituisce \\ $<h(k,0),h(k,1),\ldots,h(k,m-1)>$, permutazioni di $\{0,1,\ldots,m-1\}$. Le possibili permutazioni sono $m!$ ma ottenere un sufficiente numero di permutazioni distinte non è banale.}
-
-{}
 
 {Estensione dell'hashing uniforme semplice: }
 
@@ -2061,15 +1675,9 @@ K)}\textsuperscript{\protect\hyperlink{cmnt18}{{[}r{]}}}
 
 {$h(k,m-1)$ deve distribuire obbligatoriamente nell'unica cella ancora vuota.}
 
-{}
-
 {Ovvero, $h$ deve rispettare la proprietà di Hashing Uniforme Semplice per ogni ispezione (o ``iterazione'') }
 
-{~}
-
 {Analizziamo quindi tre metodi di scansione}
-
-{}
 
 \begin{enumerate}
 \tightlist
@@ -2081,27 +1689,19 @@ K)}\textsuperscript{\protect\hyperlink{cmnt18}{{[}r{]}}}
   {Hashing doppio}
 \end{enumerate}
 
-{}
+\subsubsection{1. Ispezione (o ``scansione'') lineare}
 
-\hypertarget{h.i6sv1bn6gjla}{\subsubsection{\texorpdfstring{{1.
-}{Ispezione (o ``scansione'')
-lineare}}{1. Ispezione (o scansione) lineare}}\label{h.i6sv1bn6gjla}}
+{Data una funzione hash ordinaria $h':\mathbb{U} \rightarrow \{0,0,\ldots,m-1\}$ chiamata funzione ausiliaria, il metodo dell'ispezione lineare usa la seguente funzione:}
 
-{Data una funzione hash ordinaria
-}\includegraphics{images/image286.png}{chiamata funzione ausiliaria, il metodo dell'ispezione lineare usa la seguente funzione:}
+\begin{equation}
+h(k,i) = (h'(k) + i)\,mod\,m
+\end{equation}
 
-{}
+{con $i \in \{0,0,\ldots,m-1\}$}
 
-\includegraphics{images/image287.png}
+{Nota: la prima cella ispezionata determina l'intera sequenza diispezioni, quindi ci sono soltanto $m$ sequenze di ispezioni distinte.}
 
-{con }\includegraphics{images/image288.png}
-
-{}
-
-{Nota: la prima cella ispezionata determina l'intera sequenza di
-ispezioni, }{quindi ci sono soltanto m sequenze di ispezioni distinte.}
-
-{Vantaggi}{: }
+{Vantaggi: }
 
 {Facilità di calcolo}
 
@@ -2109,62 +1709,45 @@ ispezioni, }{quindi ci sono soltanto m sequenze di ispezioni distinte.}
 
 {Dopo $i$ celle occupate la proprietà che venga estratta la cella immediatamente successiva è $\frac{1+i}{m}$. Abbiamo quindi un problema di addensamento o aglomerazione primaria. Si possono formare lunghe file di celle occupate che aumentano il tempo di ricerca.}
 
-{}
+{Per superare il limite delle $m$ ispezioni distinte e dell'addensamento, proviamo a cambiare il passo con una funzione quadratica.}
 
-{Per superare il limite delle m ispezioni distinte e dell'addensamento, proviamo a cambiare il passo con una funzione quadratica.}
-
-\hypertarget{h.83xwipol2nwy}{\subsubsection{\texorpdfstring{{2.
-Ispezione (o ``scansione'')
-quadratica}}{2. Ispezione (o scansione) quadratica}}\label{h.83xwipol2nwy}}
+\subsubsection{2. Ispezione (o ``scansione'') quadratica}
 
 {Utilizziamo una funzione di hashing quadratica.}
 
-\includegraphics{images/image290.png}
+\begin{equation}
+h(k,i) = (h'(k) + C_1*i + C_2 * i^2)\,mod\,m
+\end{equation}
 
 {con $C_1,C_2$ costanti non nulle ed $i \in \{0,1,\ldots,m-1\}$}
-{}
 
-{La scansione quadratica }{funziona
-meglio}\textsuperscript{\protect\hyperlink{cmnt19}{{[}s{]}}}{~maparticolare attenzione va posta nella ricerca dei valori di $C_1,C_2$ in modo che vengano generati tutti gli indici. Non possono essere scegli in modo arbitrario.}
+{La scansione quadratica funziona meglio}\textsuperscript{\protect\hyperlink{cmnt19}{{[}s{]}}}{~maparticolare attenzione va posta nella ricerca dei valori di $C_1,C_2$ in modo che vengano generati tutti gli indici. Non possono essere scegli in modo arbitrario.}
 
-{}
+{Esempio: $C_1=C_2=\frac{1}{2}$,$m=2^p$}
 
-{Esempio}{: $C_1=C_2=\frac{1}{2}$,$m=2^p$}
-
-{}
-
-{Ho un massimo di  $m$ sequenze di ispezione distinte.}
-
-{}
+{Ho un massimo di $m$ sequenze di ispezione distinte.}
 
 {Svantaggio}{: ``Addensamento secondario''}
 
-{Se due chiavi distinte }\includegraphics{images/image293.png}{hanno valore hash ausiliario }\includegraphics{images/image294.png}{~allora hanno la stessa sequenza di ispezione.}
-
-{}
+{Se due chiavi distinte $k_1 \neq k_2$ hanno valore hash ausiliario $h'(k_1) = h'(k_2)$ allora hanno la stessa sequenza di ispezione.}
 
 {Nonostante tutto, continuo ad avere lo stesso passo tra un'iterazione e la successiva. Procedo quindo con una seconda funzione hash.}
 
-\hypertarget{h.8kg9yyirra9i}{\subsubsection{\texorpdfstring{{3.
-}{Hashing doppio}}{3. Hashing doppio}}\label{h.8kg9yyirra9i}}
+\subsubsection{3. Hashing doppio}
 
-\includegraphics{images/image295.png}
+\begin{equation}
+h(k,i) = (h_1(k) + i*h_2(k))\,mod\,m
+\end{equation}		
 
-{~~~~~~~~Con $h_1,h_2$ funzioni hash ausiliarie e }\includegraphics{images/image288.png}
+{~~~~~~~~Con $h_1,h_2$ funzioni hash ausiliarie e $i \in \{0,1,\ldots,m-1\}$}
 
-{}
-
-{Vantaggio}{:}
+{Vantaggio:}
 
 {La posizione finale viene data dai valori combinati della coppia $(h_1(k),h_2(k))$, i cui elementi producono $m$ combinazioni distinte ciascuno.}
 
-{Ho quindi }\includegraphics{images/image298.png}{sequenze di ispezione perchè ogni possibile coppia
-}\includegraphics{images/image297.png}{produce una sequenza distinta di ispezione.}
+{Ho quindi $\Theta(m^2)$ sequenze di ispezione perchè ogni possibile coppia $(h_1(k),h_2(k))$ produce una sequenza distinta di ispezione.}
 
-{Vogliamo porre }\includegraphics{images/image299.png}{ed
-}\includegraphics{images/image235.png}{~(dimensione della tabella hash) coprimi (relativamente primi). Ciò mi assicura che l'intera tabella venga ispezionata.}
-
-{}
+{Vogliamo porre $h_2(k)$ ed $m$ (dimensione della tabella hash) coprimi (relativamente primi). Ciò mi assicura che l'intera tabella venga ispezionata.}
 
 \subsection{Esercizio}
 
@@ -2173,40 +1756,35 @@ meglio}\textsuperscript{\protect\hyperlink{cmnt19}{{[}s{]}}}{~maparticolare atte
 
 {Dimostrazione A}{:}
 
-{Scelgo }\includegraphics{images/image303.png}{~potenza di due e definisco }\includegraphics{images/image299.png}{in modo che produca sempre un numero dispari: }\includegraphics{images/image304.png}
+{Scelgo $m=2^p$ potenza di due e definisco $h_2(k)$ in modo che produca sempre un numero dispari: }\includegraphics{images/image304.png}
 
 {Dimostrazione B}{:}
 
-{Scelgo m primo, definisco }\includegraphics{images/image299.png}{in modo che generi sempre un numero intero positivo minore di }\includegraphics{images/image235.png}{: }\includegraphics{images/image305.png}
+{Scelgo m primo, definisco $h_2(k)$ in modo che generi sempre un numero intero positivo minore di }\includegraphics{images/image235.png}{: }\includegraphics{images/image305.png}
 
 {Esempio:}
 
-\includegraphics{images/image306.png}
+$m=13$
 
-\includegraphics{images/image307.png}
+$h_1(k)=k\,mod\,13$
 
-\includegraphics{images/image308.png}
+$h_2(k)=1 + (k\,mod\,11)$
 
-\includegraphics{images/image309.png}{~}
+$h(k,i) = (h_1(k) + i * h_2(k))\,mod\,m$
 
-{}
-
-{Input: }\includegraphics{images/image310.png}
+{Input: $<79,50,69,72,98,14>$}
 
 {}
 
-\includegraphics{images/image311.png}{,
-}\includegraphics{images/image312.png}{,
-}\includegraphics{images/image313.png}{,
-}\includegraphics{images/image314.png}
+$h(79,0)=1$, $h(50,0)=11$, $h(69,0)=4$, $h(72,0)=7$, 
 
-\includegraphics{images/image315.png}
+$h(98,0)=7$
 
-{~~~~~~~~Collisione: }\includegraphics{images/image316.png}
+{~~~~~~~~Collisione: $h(98,1) = 5$}
 
-\includegraphics{images/image317.png}
+$h(14,0)=5$
 
-{Collisione: }\includegraphics{images/image318.png}
+{Collisione: $h(14,1) = 9$}
 
 \hypertarget{h.wkyvylqq2lrt}{\subsubsection{\texorpdfstring{{Analisi dell'hashing a indirizzamento aperto}}{Analisi dell'hashing a indirizzamento aperto}}\label{h.wkyvylqq2lrt}}
 
@@ -2223,25 +1801,31 @@ meglio}\textsuperscript{\protect\hyperlink{cmnt19}{{[}s{]}}}{~maparticolare atte
 \item
   {Funzione hash che rispetta l'ipotesi di hashing uniforme}
 \item
-  \includegraphics{images/image319.png}{~fattore di carico. Essendo
-  }\includegraphics{images/image320.png}
+  {$\alpha = \frac{m}{n}$ fattore di carico. Essendo $n \leq m$, $0 \leq \alpha \leq 1$}
 \end{itemize}
 
-{il numero atteso (medio) di ispezioni in una ricerca senza successo è al massimo }$\frac{1}{1-\alpha}${.}
+{il numero atteso (medio) di ispezioni in una ricerca senza successo è al massimo $\frac{1}{1-\alpha}$.}
 
 \subsubsection{Dimostrazione}
 
-{Essendo }\includegraphics{images/image322.png}{per ipotesi, sono presenti delle celle vuote.}
+{Essendo $\alpha \leq 1$ per ipotesi, sono presenti delle celle vuote.}
 
 {La prima scansione avviene con probabilità 1.}
 
-{La seconda scansione avviene con probabilità }\includegraphics{images/image323.png}
+{La seconda scansione avviene con probabilità $\frac{m}{n} = \alpha$}
 
-{La terza scansione avviene con probabilità }\includegraphics{images/image324.png}\textsuperscript{\protect\hyperlink{cmnt20}{{[}t{]}}}
+{La terza scansione avviene con probabilità $\frac{n}{m} * \frac{n-1}{m-1} \simeq \alpha^2 $}
+\textsuperscript{\protect\hyperlink{cmnt20}{{[}t{]}}}
 
-{Il valore atteso (medio) del numero di ispezioni sarà quindi }\includegraphics{images/image325.png}{, con}{~}\includegraphics{images/image326.png}
+{Il valore atteso (medio) del numero di ispezioni sarà quindi:}
 
-{Se $\alpha$ è costante, una ricerca senza sucesso viene eseguita in tempo medio \includegraphics{images/image328.png} e in caso pessimo $O(n)$}
+\begin{equation}
+1+\alpha+\alpha^2+\ldots \leq \sum_{i=0}^{\infty}{\alpha^i} = \frac{1}{1-\alpha}
+\end{equation}
+
+{con $\alpha^i\leq1$}
+
+{Se $\alpha$ è costante, una ricerca senza sucesso viene eseguita in tempo medio $\Theta(1)$ e in caso pessimo $O(n)$}
 
 {Analisi del valore di $\alpha$:}
 
@@ -2259,7 +1843,7 @@ meglio}\textsuperscript{\protect\hyperlink{cmnt19}{{[}s{]}}}{~maparticolare atte
 
 \subsection{Teorema}
 
-{Data una tabella hash ad indirizzamento aperto con $\alpha \leq 1$ e funzione hash che rispetti l'ipotesi di Hash Uniforme, in una ricerca con successo in una tabella le cui chiavi hanno uguale probabilità di essere scelte, il numero atteso di ispezioni è al massimo \includegraphics{images/image334.png}.}
+{Data una tabella hash ad indirizzamento aperto con $\alpha \leq 1$ e funzione hash che rispetti l'ipotesi di Hash Uniforme, in una ricerca con successo in una tabella le cui chiavi hanno uguale probabilità di essere scelte, il numero atteso di ispezioni è al massimo $\frac{1}{\alpha} * log(\frac{1}{1-\alpha})$.}
 
 {Analisi del valore di $\alpha$:}
 
@@ -2267,15 +1851,11 @@ meglio}\textsuperscript{\protect\hyperlink{cmnt19}{{[}s{]}}}{~maparticolare atte
 
 {Se $\alpha=0.9$ (tabella riempita al 90\%), allora il numero massimo di ispezioni è $2.255$, ovvero con meno di 3 accessi riesco a trovare l'elemento cercato.}
 
-\hypertarget{h.sg1b57l388xe}{\subsection{\texorpdfstring{{Confrontro tra
-metodi di risoluzione delle
-collisioni}}{Confrontro tra metodi di risoluzione delle collisioni}}\label{h.sg1b57l388xe}}
+\subsection{Confrontro tra metodi di risoluzione delle collisioni}
 
 {\includegraphics{images/image541.png}}
 
-{Notiamo che i costi del concatenamento in nero (indirizzamento aperto)
-crescono molto più velocemente delle altre due rosse (liste di
-collisione).}
+{Notiamo che i costi del concatenamento in nero (indirizzamento aperto) crescono molto più velocemente delle altre due rosse (liste di collisione).}
 
 \section{Mod 2 - Grafi}
 
@@ -3284,50 +2864,16 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 \cline{3-4}
                                                  &                               & \multicolumn{2}{c|}{Destinazione}                            \\ \cline{3-4} 
                                                  &                               & \multicolumn{1}{c|}{Singola} & \multicolumn{1}{c|}{Multipla} \\ \hline
-\multicolumn{1}{|c|}{}                           & \multicolumn{1}{c|}{Singola}  & a                            & \cellcolor[HTML]{F8A102}b     \\ \cline{2-4} 
-\multicolumn{1}{|c|}{\multirow{-2}{*}{Sorgente}} & \multicolumn{1}{c|}{Multipla} & c                            & \cellcolor[HTML]{F8A102}d     \\ \hline
+\multicolumn{1}{|c|}{}                           & \multicolumn{1}{c|}{Singola}  
+& \specialcell{In: $G(V;E;w)\,u,v\in V$\\Out: $\delta(u,v)$ }                                                       
+& \cellcolor[HTML]{F8A102}\specialcell{In: $G(V;E;w)\,s\in V$\\Out: $\forall v \in V, \delta(s,v)$}   \\ \cline{2-4} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{Sorgente}} & \multicolumn{1}{c|}{Multipla} 
+& \specialcell{In: $G(V;E;w)\,d\in V$\\Out: $\forall v \in V, \delta(v,d)$} 
+& \cellcolor[HTML]{F8A102}\specialcell{In: $G(V;E;w)$\\Out: $\forall u,v \in V, \delta(u,v)$}    \\ \hline
 \end{tabular}
 \end{table}
 
-{Destinazione}
-
-{Singola}
-
-{Multipla}
-
-{(tutti i vertici)}
-
-{Sorgente}
-
-{Singola}
-
-{In: }\includegraphics{images/image498.png}{\\
-Out: }\includegraphics{images/image499.png}
-
-\includegraphics{images/image500.png}{~cammino minimo}
-
-{In: }\includegraphics{images/image501.png}
-
-{Out: }\includegraphics{images/image502.png}
-
-{Multipla}
-
-{(tutti i vertici)}
-
-{In: }\includegraphics{images/image503.png}
-
-{Out: }\includegraphics{images/image504.png}
-
-{In: }\includegraphics{images/image505.png}
-
-{Out: }\includegraphics{images/image506.png}
-
-{}
-
-{Solo i casi evidenziati verranno presi in analisi, in quanto gli altri
-due sono sottoproblemi di essi.}
-
-{}
+{Solo i casi evidenziati verranno presi in analisi, in quanto gli altri due sono sottoproblemi di essi.}
 
 \subsection{Archi con pesi negativi}}
 
@@ -3421,7 +2967,8 @@ se $p$ è minimo $\delta(s,v)=w(s,u)+w(u,v)$, altrimenti $\delta(s,v)<w(s,u)+w(u
 
 \subsection{Proprietà 4 - Convergenza}
 
-\input{graphs/prop_4.tex}
+%\input{graphs/prop_4.tex}
+%\digraph[scale=0.5]{abc}{rankdir=LR; a->b->c;}
 
 {Dopo aver eseguito una Relax quindi avrò:}
 
