@@ -556,7 +556,7 @@ della radice}
 
 {Un albero K-ario completo è tale quando tutte le foglie hanno la stessa profondità e tutti i nodi interni hanno grado $K$}
 
-{ALGORITMO}
+\paragraph{ALGORITMO}
 
 {Trovare l'algoritmo per determinare la completezza di un albero}
 
@@ -922,9 +922,7 @@ priorità}}{Code di priorità}}\label{h.jih9riph7gns}}
 
 {Complessità di Heap Delete : }$O(log(n))$
 
-\hypertarget{h.r8bopy9q4g8f}{\subsubsection{\texorpdfstring{{Esercizi}}{Esercizi}}\label{h.r8bopy9q4g8f}}
-
-{Esercizio 1 }{: }
+\paragraph{Esercizio 1}
 
 {Scrivere una funzione che determini se un albero è quasi completo. Gli output devono essere 1 se l'albero è quasi completo o 0 se non lo è. }{L'albero è rappresentato con notazione left e right.}
 
@@ -1233,7 +1231,7 @@ $\Theta(n+k)$. Il CountingSort di solito è utilizzato quando $k$ è limitato su
 \begin{itemize}
 \tightlist
 \item
-  {Usiamo il CountingSort su ciascuna cifra}\includegraphics{images/image198.png}
+  {Usiamo il CountingSort su ciascuna cifra $\Theta(k+n)$}
 \item
   {Siano }$n${~interi, ognuno costituito da $b$ bits}
 \item
@@ -1244,11 +1242,11 @@ $\Theta(n+k)$. Il CountingSort di solito è utilizzato quando $k$ è limitato su
 
 {La suddivido in cifre, ciascuna di 8 bits}
 
-\includegraphics{images/image204.png}
+$b=32, r=8, d=4$ (4 cifre)
 
-\includegraphics{images/image205.png}
+$\Theta(\frac{b}{r}*(n+k))$
 
-\includegraphics{images/image206.png}
+$\Theta(\frac{b}{r}*(n+2^r)) = \Theta(\frac{b}{r}*n + \frac{b}{r}*2^r)$
 
 {Cerco di minimizzare la complessità ponendo $r$ grande, $\frac{b}{r}*n$ risulta diminuito, ma $\frac{b}{r}*2^r$ è cresciuto esponenzialmente. Scelgo $r$ piccolo, altrimenti $2^r$ domina su $n$.}
 
@@ -1256,7 +1254,7 @@ $\Theta(n+k)$. Il CountingSort di solito è utilizzato quando $k$ è limitato su
 
 {Sostituendo:}
 
-\includegraphics{images/image212.png}{, essendo $2^{log(n)}$, abbiamo }\includegraphics{images/image214.png}
+{$\Theta(\frac{b}{log(n)}*(n+2^{log(n)}))$, essendo $2^{log(n)} = n$, abbiamo $\Theta(\frac{b}{log(n)}*n)$}
 
 {I numeri variano nell'intervallo $[0,\ldots,2^b-1]$. Se fisso $b=c*log(n)$, allora l'intervallo diventa $[0,\ldots,n^c-1]$.}
 
@@ -1525,11 +1523,7 @@ meno significativi ed evitare problemi (carattere uguale di fine
 stringa). Scegliamo un numero primo non troppo vicino ad una potenza
 esatta di 2 o 10.}
 
-{Es: 3 collisioni accettabili, }\includegraphics{images/image257.png}
-
-{}
-
-{}
+{Es: 3 collisioni accettabili, $n=2000,\frac{n}{3}=666$, perciò $m=701$}
 
 \begin{enumerate}
 \setcounter{enumi}{1}
@@ -1751,16 +1745,19 @@ h(k,i) = (h_1(k) + i*h_2(k))\,mod\,m
 
 \subsection{Esercizio}
 
-{Date due ispezioni }\includegraphics{images/image300.png}{~con
-}\includegraphics{images/image301.png}{coprimi, allora dimostrare che $i=i'$}
+{Date due ispezioni $i,i' < m, h(k,i) = h(k,i')$ con $h_2(k),m$ coprimi, allora dimostrare che $i=i'$}
 
-{Dimostrazione A}{:}
+\paragraph{Dimostrazione A}
 
-{Scelgo $m=2^p$ potenza di due e definisco $h_2(k)$ in modo che produca sempre un numero dispari: }\includegraphics{images/image304.png}
+{Scelgo $m=2^p$ potenza di due e definisco $h_2(k)$ in modo che produca sempre un numero dispari: $h_2(k) = 2*h_1(k)+1$}
 
-{Dimostrazione B}{:}
+\paragraph{Dimostrazione B}
 
-{Scelgo m primo, definisco $h_2(k)$ in modo che generi sempre un numero intero positivo minore di }\includegraphics{images/image235.png}{: }\includegraphics{images/image305.png}
+{Scelgo $m$ primo, definisco $h_2(k)$ in modo che generi sempre un numero intero positivo minore di $m$:}
+
+\begin{equation}
+h_1(k)=k\,mod\,m,\,h_2(k)=1+(k\,mod\,m'),\,m' < m
+\end{equation}
 
 {Esempio:}
 
@@ -1774,8 +1771,6 @@ $h(k,i) = (h_1(k) + i * h_2(k))\,mod\,m$
 
 {Input: $<79,50,69,72,98,14>$}
 
-{}
-
 $h(79,0)=1$, $h(50,0)=11$, $h(69,0)=4$, $h(72,0)=7$, 
 
 $h(98,0)=7$
@@ -1787,8 +1782,6 @@ $h(14,0)=5$
 {Collisione: $h(14,1) = 9$}
 
 \hypertarget{h.wkyvylqq2lrt}{\subsubsection{\texorpdfstring{{Analisi dell'hashing a indirizzamento aperto}}{Analisi dell'hashing a indirizzamento aperto}}\label{h.wkyvylqq2lrt}}
-
-{}
 
 \subsection{Teorema}
 
@@ -1981,45 +1974,33 @@ grafo è connesso.}
 
 {Il numero di vertici che hanno grado dispari è sempre pari}
 
-{Dim: }
+\paragraph{Dimostrazione}
 
-\includegraphics{images/image366.png}
+$V=P\cup D$
 
-\includegraphics{images/image367.png}
+$P = \{u \in V | deg(u) \, pari\}$
 
-\includegraphics{images/image368.png}
+$D = \{u \in V | deg(u) \, dispari\}$
 
-{}
+$2m = \sum_{u \in V}{deg(u)} = \sum_{u \in P}{deg(u)} + \sum_{u \in D}{deg(u)}$
 
-\includegraphics{images/image369.png}
+$2m = \sum_{u \in P}{2*h(u)} + \sum_{u \in D}{2*h(u)+1}$
 
-\includegraphics{images/image370.png}{~}
+$2m = \sum_{u \in P}{2*h(u)} + \sum_{u \in D}{2*h(u)} + \abs{D}$
 
-\includegraphics{images/image371.png}{~}
+$\abs{D} = 2m - 2 *\sum_{u \in P}{h(u)} + 2*\sum_{u \in D}{h(u)}$
 
-\includegraphics{images/image372.png}{~}
-
-{}
-
-\includegraphics{images/image373.png}
-
-\includegraphics{images/image374.png}{~}
+$\abs{D} = 2*(m-\sum_{u \in V}{h(u)})$
 
 {Il numero di vertici con grado dispari è quindi pari}
 
-{}
+{Esercizio: }
 
-{Esercizio}{: }
-
-{~~~~~~~~Dimostrare che, dato
-}$G=(V,E)${~non orientato senza vertici
-isolati (nessuno vertice ha grado 0),}
+{~~~~~~~~Dimostrare che, dato $G=(V,E)$ non orientato senza vertici isolati (nessuno vertice ha grado 0),}
 
 {~~~~~~~~con $\abs{E} = \abs{V} -1$}
 
 {Allora, esistono almeno due vertici terminali}
-
-{}
 
 {Dimostrazione per assurdo:}
 
@@ -2027,9 +2008,9 @@ $n=\abs{V},m=\abs{E}$
 
 {Per il lemma della stretta di mano:}
 
-\includegraphics{images/image377.png}
+$\sum_{u \in V}{deg(u)} = 2$ e $\abs{E} = 2m$
 
-\includegraphics{images/image378.png}
+$2n-2 = 2m = \sum_{u \in V}{deg(u)}$
 
 {Chiamo $V_1$ un sottoinsieme di $V$ di vertici terminali}
 
@@ -2037,16 +2018,17 @@ $V_1=\{u\in V\,|\,deg(u)=1\}$
 
 {Il problema diventa: dimostrare che $\abs{V_1} \geq 2$}
 
-\includegraphics{images/image382.png}
+$2m = \sum_{u \in V_1}{deg(u)} +  \sum_{u \in V \setminus V_1}{deg(u)}$
 
-\includegraphics{images/image383.png}{????}\textsuperscript{\protect\hyperlink{cmnt21}{{[}u{]}}}
+$2n -2 \geq 2n - \abs{V_1}$
+
+{????}\textsuperscript{\protect\hyperlink{cmnt21}{{[}u{]}}}
 
 {$\abs{V_1} \geq 2$ OK}
 
-\hypertarget{h.viqjw1dxzez8}{\subsection{\texorpdfstring{{Matrice di
-adiacenza }}{Matrice di adiacenza }}\label{h.viqjw1dxzez8}}
+\subsection{Matrice di adiacenza}
 
-{Dato }$G=(V,E)${~}
+{Dato $G=(V,E)$}
 
 $n=\abs{V},m=\abs{E}$
 
@@ -2055,23 +2037,16 @@ $n=\abs{V},m=\abs{E}$
 \begin{itemize}
 \tightlist
 \item
-  {Per trovare il grado di un vertice basta calcolare la somma degli
-  elementi sulla corrispondente riga}
+  {Per trovare il grado di un vertice basta calcolare la somma degli elementi sulla corrispondente riga}
 \item
-  {{[}NO{]}}$n${~archi in totale =
-  doppia somma di tutti gli elementi della matrice}
+  {{[}NO{]} $n$ archi in totale = doppia somma di tutti gli elementi della matrice}
 \item
-  {{[}O{]} }$n${~archi in totale =
-  doppia somma di tutti gli elementi della matrice}
+  {{[}O{]} $n$ archi in totale = doppia somma di tutti gli elementi della matrice}
 \end{itemize}
 
-{}
+{Usare le matrici di adiacenza solitamente conviene se ci sono molti archi, altrimenti è meglio utilizzare le liste.}
 
-{Usare le matrici di adiacenza solitamente conviene se ci sono molti
-archi, altrimenti è meglio utilizzare le liste.}
-
-\hypertarget{h.30h8k4akc7l}{\subsubsection{\texorpdfstring{{Matrice di adiacenza per grafi orientati}}{Matrice di adiacenza per grafi orientati}}\label{h.30h8k4akc7l}}
-
+\subsubsection{Matrice di adiacenza per grafi orientati}
 
 \begin{equation}
 A_{i,j} = 
@@ -2081,65 +2056,23 @@ A_{i,j} =
 \end{cases}
 \end{equation}
 
-\protect\hypertarget{t.baa371c993d5b7baad0f4dd74d8432f916b9230a}{}{}\protect\hypertarget{t.37}{}{}
-
 {\includegraphics{images/image529.png}}
 
-{}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+  & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\ 
+\hline 
+\textbf{1} & 0 & 1 & 1 & 0 \\ 
+\hline 
+\textbf{2} & 0 & 0 & 0 & 0 \\ 
+\hline 
+\textbf{3} & 0 & 1 & 0 & 0 \\ 
+\hline 
+\textbf{4} & 1 & 1 & 1 & 0 \\ 
+\hline 
+\end{tabular} 
 
-{1}
-
-{2}
-
-{3}
-
-{4}
-
-{1}
-
-{0}
-
-{1}
-
-{1}
-
-{0}
-
-{2}
-
-{0}
-
-{0}
-
-{0}
-
-{0}
-
-{3}
-
-{0}
-
-{1}
-
-{0}
-
-{0}
-
-{4}
-
-{1}
-
-{1}
-
-{1}
-
-{0}
-
-{}
-
-\hypertarget{h.iuwxcos21awu}{\subsubsection{\texorpdfstring{{Matrice di
-adiacenza per grafi non
-orientati}}{Matrice di adiacenza per grafi non orientati}}\label{h.iuwxcos21awu}}
+\subsubsection{Matrice di adiacenza per grafi non orientati}
 
 \begin{equation}
 A_{i,j} = 
@@ -2149,72 +2082,27 @@ A_{i,j} =
 \end{cases}
 \end{equation}
 
-
-{Essendo la relazione tra vertici simmetrica,}\includegraphics{images/image390.png}
-
-{}
-
-{}
-
-\protect\hypertarget{t.1db15af38187ce98dc87977567f42b70be1e9c99}{}{}\protect\hypertarget{t.38}{}{}
+{Essendo la relazione tra vertici simmetrica, $A=A^T$ (trasposta)}
 
 {\includegraphics{images/image535.png}}
 
-{}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+  & \textbf{1} & \textbf{2} & \textbf{3} \\ 
+\hline 
+\textbf{1} & 0 & 1 & 1 \\ 
+\hline 
+\textbf{2} & 1 & 0 & 0 \\ 
+\hline 
+\textbf{3} & 1 & 0 & 0 \\ 
+\hline 
+\end{tabular} 
 
-{1}
-
-{2}
-
-{3}
-
-{1}
-
-{0}
-
-{1}
-
-{1}
-
-{2}
-
-{1}
-
-{0}
-
-{0}
-
-{3}
-
-{1}
-
-{0}
-
-{0}
-
-{}
-
-{}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\subsection{\texorpdfstring{{}}{}}\label{h.fq77zq901ude}
-
-\hypertarget{h.qwq1tiruc9xg}{\subsection{\texorpdfstring{{Liste
-concatenate}}{Liste concatenate}}\label{h.qwq1tiruc9xg}}
-
-{}
+\subsection{Liste concatenate}
 
 {\includegraphics{images/image537.png}}
 
-{}
-
-{}
-
-{Usare le liste di adiacenza solitamente conviene se ci sono pochi
-archi, altrimenti è meglio utilizzare le matrici.}
-
-{}
+{Usare le liste di adiacenza solitamente conviene se ci sono pochi archi, altrimenti è meglio utilizzare le matrici.}
 
 {{[}O{]} Densità}
 
@@ -2234,13 +2122,10 @@ $\delta=\frac{m}{n^2}$
 
 {$\delta=\frac{m}{k},\,k = \frac{n(n-1)}{2}$ coefficiente binomiale}
 
-{}
 
 {Grafi sparsi ($n\simeq m$): lista}
 
 {Grafi densi ($n^2\simeq m$): matrice}
-
-{}
 
 {Proprietà:}
 
@@ -2265,40 +2150,26 @@ archi sono complementari:}
 
 $G=(V,E), \overline{G}=(\overline{V},\overline{E})$
 
-{}
-
 \hypertarget{h.tsrwv4qy0dku}{\subsubsection{\texorpdfstring{{Grafo
 autocomplementare}}{Grafo autocomplementare}}\label{h.tsrwv4qy0dku}}
 
-{Un grafo è detto autocomplementare se $\overline{G}=G$ ovvero se
-}\includegraphics{images/image405.png}
+{Un grafo è detto autocomplementare se $\overline{G}=G$ ovvero se $\forall(i,j) \in E\,sse\,(i,j) \in \overline{E}$}
 
 {\includegraphics{images/image532.png}}
 
-{}
+\subsection{Prodotto tra matrici di adiacenza}
 
-\hypertarget{h.akx1r9fzvwzo}{\subsection{\texorpdfstring{{Prodotto tra
-matrici di
-adiacenza}}{Prodotto tra matrici di adiacenza}}\label{h.akx1r9fzvwzo}}
-
-{}
-
-\hypertarget{h.c39ti8il3qtf}{\subsubsection{\texorpdfstring{{Prodotto di
-matrici}}{Prodotto di matrici}}\label{h.c39ti8il3qtf}}
+\subsubsection{Prodotto di matrici}
 
 {Due matrici $n\,x\,m$ ed $p\,x\,n$ (il numero di righe della prima equivale al numero di colonne della seconda) possono essere moltiplicate tramite il prodotto ``righe per colonne''.}
 
 $C = A*B$ \\
 $C_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 
-\hypertarget{h.md5vuljp7xm}{\subsubsection{\texorpdfstring{{Matrice al
-quadrato}}{Matrice al quadrato}}\label{h.md5vuljp7xm}}
+\subsubsection{Matrice alquadrato}
 
-{}
 
-{Moltiplicando una matrice di adiacenza A per se stessa, tramite il
-prodotto tra righe e colonne, ottengo una matrice delle stesse
-dimensioni con le seguenti caratteristiche:}
+{Moltiplicando una matrice di adiacenza $A$ per se stessa, tramite il prodotto tra righe e colonne, ottengo una matrice delle stesse dimensioni con le seguenti caratteristiche:}
 
 \begin{itemize}
 \tightlist
@@ -2309,12 +2180,8 @@ dimensioni con le seguenti caratteristiche:}
   2}
 \end{itemize}
 
-{}
-
 $A^2 = A*A = (a^{(2)}_{i,j})$ \\
 $a^{(2)}_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
-
-{}
 
 {Dimostrazione:}
 
@@ -2344,18 +2211,15 @@ $a^{(2)}_{i,i} = \sum^n_{k=1}{a^2_{i,k}} = \sum^n_{k=1}{a_{i,k}} = deg(i)$
   {Fuori dalla diagonale: il numero di cammini di lunghezza n}
 \end{itemize}
 
-{}
-
-{Dimostrazione per
-induzione:}\textsuperscript{\protect\hyperlink{cmnt22}{{[}v{]}}\protect\hyperlink{cmnt23}{{[}w{]}}}
+{Dimostrazione per induzione:}\textsuperscript{\protect\hyperlink{cmnt22}{{[}v{]}}\protect\hyperlink{cmnt23}{{[}w{]}}}
 
 {Ipotesi:}
 
-{~~~~~~~~Passo induttivo:\\
-\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}}\includegraphics{images/image418.png}
+{~~~~~~~~Passo induttivo:}
 
-\includegraphics{images/image419.png}{, ovvero il
-numero di cammini da }{i}{~a }{j}{~passanti per }{k}{.}
+$A^n = A *A* A * \ldots * A$ ($n$ volte) $=A^{n-1}*A$
+
+{$a_{i,j^{(n)}} = \sum_{k=1}^n{a^{(n-1)}_{i,k}*a_{k,j}}$, ovvero il numero di cammini da $i$ a $j$ passanti per $k$.}
 
 {\includegraphics{images/image538.png}}
 
@@ -2405,15 +2269,9 @@ $G_1=(v_1,E_1),G_2(V_2,E_2)$
   $\forall u,v \in V_1, (u,v) \in E_1 \iff (\Phi(u),\Phi(v)) \in E_2$}
 \end{enumerate}
 
-{}
-
-\hypertarget{h.umjijdswjd6a}{\subsubsection{\texorpdfstring{{Determinare
-se due grafi sono isomorfi}}{Determinare se due grafi sono isomorfi}}\label{h.umjijdswjd6a}}
-
-{}
+\subsubsection{Determinare se due grafi sono isomorfi}
 
 {$G_1=(v_1,E_1),G_2(V_2,E_2)$ sono isomorfi se esiste un isomorfismo da $G_1$ a $G_2$ e si indica con $G_1\simeq G_2$}
-
 
 {Condizioni necessarie perché $G_1\simeq G_2$:}
 
@@ -2429,11 +2287,6 @@ se due grafi sono isomorfi}}{Determinare se due grafi sono isomorfi}}\label{h.um
   $\#ComponentiConnesse(G_1) = 	\#ComponentiConnesse(G_2)$
 \end{enumerate}
 
-{}
-
-{}
-
-\protect\hypertarget{t.b6067c6d36f86489b9093689693d69077c2015d4}{}{}\protect\hypertarget{t.39}{}{}
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule
@@ -2475,11 +2328,9 @@ $\overline{G}$\strut
 \bottomrule
 \end{longtable}
 
-{}
-
 {Il problema di determinare l'esistenza di un'isomorfismo tra due grafi è esoso in termini di tempo. Per evitare il bruteforce di tutte le combinazioni si procede a mappare gli archi con grado analogo.}
 
-\hypertarget{h.jnoiha3cadu8}{\section{\texorpdfstring{{Alberi}}{Alberi}}\label{h.jnoiha3cadu8}}
+\section{Alberi}
 
 {Un albero è una particolare categoria di grafo}
 
@@ -2512,13 +2363,12 @@ quanto riguarda il numero di archi.}
 \begin{enumerate}
 \tightlist
 \item
-  $G${~è un albero}
+  {$G$ è un albero}
 \item
-  {Due vertici qualsiasi di }$G${~sono
-  connessi da un unico cammino semplice, ovvero senza vertici ripetuti}
+  {Due vertici qualsiasi di $G$ sono connessi da un unico cammino semplice, ovvero senza vertici ripetuti}
 \end{enumerate}
 
-{Dimostrazione}{:~~~~~~~~}
+{Dimostrazione:~~~~~~~~}
 
 {Sia }$G=(V,E) [NO]$ {, per assurdo assumo ci siano almeno due vertici $u,v$, tali che esistono almeno due cammini che li collegano. Facendo ciò si forma un ciclo.}
 
@@ -2537,30 +2387,23 @@ quanto riguarda il numero di archi.}
   {$G$ è aciclico, ma se un qualunque arco viene aggiunto, allora il grafo risultante è ciclico.}
 \end{enumerate}
 
-{}
-
-\hypertarget{h.9btor4ygb1hb}{\subsection{\texorpdfstring{{Alberi di
-copertura}}{Alberi di copertura}}\label{h.9btor4ygb1hb}}
+\subsection{Alberi di copertura}
 
 {Un albero $G=(V,E) [NO]$ connesso si dice di copertura se tutti gli archi in $T \subseteq E$ toccano tutti i vertici di $G$.}
 
-\hypertarget{h.rdrr6bsx8ypo}{\subsubsection{\texorpdfstring{{Taglio di
-un albero}}{Taglio di un albero}}\label{h.rdrr6bsx8ypo}}
+\subsubsection{Taglio di un albero}
 
 {Un taglio di un albero è una divisione in due parti $(S,V\setminus S)$ dell'insieme dei vertici.}
 
-
 {\includegraphics{images/image527.png}}
-
 
 {Un taglio rispetta $A \subseteq E$ se non esistono archi di $A$ tagliati. Essi possono essere in una delle due partizioni ma non possono attraversare il taglio.}
 
-\hypertarget{h.gfycwx7ubmbv}{\subsubsection{\texorpdfstring{{Arco
-leggero}}{Arco leggero}}\label{h.gfycwx7ubmbv}}
+\subsubsection{Arco leggero}
 
 {Un arco è leggero se ha il peso minore tra gli altri archi attraversanti un taglio.}
 
-\hypertarget{h.1evqcdl7exzv}{\subsubsection{\texorpdfstring{{Albero di copertura minimo (MST)}}{Albero di copertura minimo (MST)}}\label{h.1evqcdl7exzv}}
+\subsubsection{Albero di copertura minimo (MST)}
 
 {Sia $T$ un albero di copertura,definisco}
 
@@ -2681,12 +2524,11 @@ questione.}
 
 {Non esistendo, provvediamo ad aggiungerlo a T. $T' = T \cup \{(u,v)\}$}
 
-{Facendo ciò creo sicuramente un ciclo, in quanto $T$ è albero. Scelto un arco $(x,y)$ e lo rimuovo. Ho quindi costruito un albero di copertura con peso}\includegraphics{images/image470.png}
+{Facendo ciò creo sicuramente un ciclo, in quanto $T$ è albero. Scelto un arco $(x,y)$ e lo rimuovo. Ho quindi costruito un albero di copertura con peso $W(T') = W(T) + w(u,v) - w(x,y) < W(T)$}
 
 {Con $w(u,v) < w(x,y)$ (minore stretto!)}
 
-{Contraddizione}{: essendo T MST, non può esistere un altro albero con
-peso inferiore.}
+{Contraddizione}{: essendo T MST, non può esistere un altro albero con peso inferiore.}
 
 \subsection{Esercizio}
 
@@ -2696,15 +2538,13 @@ $G=(V,E) [NO]$ connesso con $w:E \rightarrow \mathbb{R}$
 
 {Sia $T'$ un albero di copertura (ST) non necessariamente minimo (M).}
 
-{Siano $(u,v),(x,y)$ rispettivamente gli archi
-di }\includegraphics{images/image475.png}{di peso massimo. Ordino gli
-archi e considero i pesi maggiori.}
+{Siano $(u,v),(x,y)$ rispettivamente gli archi di $T,T'$ di peso massimo. Ordino gli archi e considero i pesi maggiori.}
 
-\includegraphics{images/image476.png}{~con}\includegraphics{images/image477.png}
+$T_{min}: <e_1,e_2,\ldots,e_{n-1}>$ con $e_{n-1} = (u,v)$
 
-\includegraphics{images/image478.png}{~con}\includegraphics{images/image479.png}
+$T': <e'_1,e'_2,\ldots,e'_{n-1}>$ con $e'_{n-1} = (x,y)$
 
-{Congettura: }$w(u,v) \leq w(x,y)${~}
+{Congettura: $w(u,v) \leq w(x,y)$}
 
 {Si può procedere per confutazione con controesempio oppure per dimostrazione tramite metodo ``cuci e taglia''.}
 
@@ -2716,9 +2556,7 @@ archi e considero i pesi maggiori.}
 
 {Soluzione}\textsuperscript{\protect\hyperlink{cmnt31}{{[}ae{]}}}{:}
 
-\hypertarget{h.42rszsg7qe80}{\subsubsection{\texorpdfstring{{Generazione degli alberi di copertura minima}}{Generazione degli alberi di copertura minima}}\label{h.42rszsg7qe80}}
-
-\protect\hypertarget{t.89c877068ffb6efc80378955af5aa00fb054212d}{}{}\protect\hypertarget{t.40}{}{}
+\subsubsection{Generazione degli alberi di copertura minima}
 
 \lstinputlisting{code/generic_mst.txt}
 
@@ -2813,7 +2651,7 @@ $G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
 \bottomrule
 \end{longtable}
 
-\hypertarget{h.l5wypo8krmqc}{\subsubsection{\texorpdfstring{{Generazione di MST : Prim}}{Generazione di MST : Prim}}\label{h.l5wypo8krmqc}}
+\subsubsection{Generazione di MST : Prim}
 
 {A differenza di Kruskal, Prim richiede un vertice di partenza detto ``radice''. Con l'insieme Q si indica l'insieme dei vertici da estrarre.
 $V\setminus Q$ indica quindi l'insieme dei vertici già estratti. $Q$ è una coda di priorità, implementata tramite Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
@@ -2875,7 +2713,7 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 {Solo i casi evidenziati verranno presi in analisi, in quanto gli altri due sono sottoproblemi di essi.}
 
-\subsection{Archi con pesi negativi}}
+\subsection{Archi con pesi negativi}
 
 {Ci domandiamo se sia possibile risolvere il problema degli archi con peso negativo sommando ai pesi di tutti gli archi del grafo $G$ la costante $k$ capace di renderli tutti positivi. Es: $k=-min(w(u,v))\,\forall u,v \in E$}
 
@@ -2966,9 +2804,6 @@ se $p$ è minimo $\delta(s,v)=w(s,u)+w(u,v)$, altrimenti $\delta(s,v)<w(s,u)+w(u
 \subsection{Proprietà 3 - Limite inferiore}
 
 \subsection{Proprietà 4 - Convergenza}
-
-%\input{graphs/prop_4.tex}
-%\digraph[scale=0.5]{abc}{rankdir=LR; a->b->c;}
 
 {Dopo aver eseguito una Relax quindi avrò:}
 
