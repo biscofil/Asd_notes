@@ -1,0 +1,9 @@
+Bellmann_Ford(G,w,s)
+	Init_single_source(G,s)
+	for i = 1 to n-1 
+		foreach $(u,v) \in E[G]$ do
+			relax(u,v,w(u,v))
+	foreach $(u,v) \in E[G]$ do
+		if d[v] > d[u] + w(u,v) do
+			return FALSE
+	return TRUE

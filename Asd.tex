@@ -1,4 +1,5 @@
-\documentclass{article}
+\documentclass[tikz]{article}
+%\documentclass[tikz,border=10pt]{article}
 
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -31,6 +32,12 @@
     minimum width=0.5em, minimum height=0.5em}% arbre rouge noir, nil
 }
 
+% Graphs
+\usepackage{float}
+\usetikzlibrary{graphdrawing}
+\usetikzlibrary{graphs}
+\usegdlibrary{trees}
+
 %
 \usepackage{amssymb}
 
@@ -45,7 +52,7 @@
 	sensitive=false,
 	keywords={}
 	otherkeywords={<,<=,>,>=,==,=, <-,->, !=}, %operators
-	keywords=[2]{foreach, while, if, else, then, do, return, repeat, until, and, or, in},
+	keywords=[2]{for, to, downto, foreach, while, if, else, then, do, return, repeat, until, and, or, in},
 	keywords=[3]{true, false, nil, null},
 	keywordstyle=\color{black},
 	keywordstyle=[2]\color{blue},
@@ -270,10 +277,7 @@ $T_n$\strut
 \bottomrule
 \end{longtable}
 
-{}
-
-{Risolviamo la ricorrenza per determinare la complessità / bontà della
-funzione esaminata.}
+{Risolviamo la ricorrenza per determinare la complessità / bontà della funzione esaminata.}
 
 \begin{itemize}
 \tightlist
@@ -286,13 +290,11 @@ funzione esaminata.}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\hypertarget{h.x4ciu865ga1f}{\subsubsection{\texorpdfstring{{Strumento
-\#1 - albero di
-ricorsione}}{Strumento \#1 - albero di ricorsione}}\label{h.x4ciu865ga1f}}
+\subsubsection{Strumento 1 - Albero di ricorsione}
 
 {Notiamo che $T(Fib2)_5=(1*5)+(2*4)=13$, dove $(1 * 5)$ è la complessità delle foglie (5 foglie con peso 1) e $(2 * 4)$ è la complessità dei nodi interni (4 nodi con peso 2)}
 
-{\includegraphics{images/image523.png}}
+\input{graphs/albero_ricorsione.tex}
 
 \paragraph{Proprietà 1}
 
@@ -308,7 +310,7 @@ ricorsione}}{Strumento \#1 - albero di ricorsione}}\label{h.x4ciu865ga1f}}
 
 {Passo induttivo:}
 
-{\includegraphics{images/image528.png}}
+\input{graphs/albero_ricorsione_induzione.tex}
 
 \paragraph{Proprietà 2}
 
@@ -400,63 +402,25 @@ memoria\ldots{}}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\section{\texorpdfstring{{}}{}}\label{h.t0xc4p18h6wu}
-
-\hypertarget{h.jkxlloc1lefg}{\section{\texorpdfstring{{Notazione
-asintotica: le classi O, Omega, Theta
-}}{Notazione asintotica: le classi O, Omega, Theta }}\label{h.jkxlloc1lefg}}
+\section{Notazione asintotica: le classi O, Omega, Theta}
 
 {{[}DFI{]} 2.2; {[}CLRS{]} 3.1}
 
-{}
-
-{}
-
-{}
-
-\hypertarget{h.tn5j57miv2l8}{\section{\texorpdfstring{{Esercizi sulla
-notazione asintotica. Le classi o,
-omega}}{Esercizi sulla notazione asintotica. Le classi o, omega}}\label{h.tn5j57miv2l8}}
+\section{Esercizi sulla notazione asintotica. Le classi o,omega}}
 
 {{[}CLRS{]} 3.1}
 
-{}
-
-{}
-
-\hypertarget{h.qp9ilz1tito1}{\section{\texorpdfstring{{Divide et impera.
-Il teorema fondamentale delle ricorrenze (o ``Teorema master'').
-Esercizi.}}{Divide et impera. Il teorema fondamentale delle ricorrenze (o Teorema master). Esercizi.}}\label{h.qp9ilz1tito1}}
+\section{Divide et impera. Il teorema fondamentale delle ricorrenze (o ``Teorema master'')}
 
 {{[}DFI{]} 2.5; {[}CLRS{]} 4.3}
 
-{}
+\section{Rappresentazione di una lista attraverso un vettore (matrice)}
 
-{}
+{La lista è doppiamente concatenata, ovvero contiene riferimento sia all'elemento precedente che a quello successivo.}
 
-{}
+{La costante NULL viene rappresentata da un indice che non appartiene all'insieme degli indici del vettore (0 in pseudocodice, -1 in $C$)}
 
-\hypertarget{h.a5tr7osf4zwh}{\section{\texorpdfstring{{Rappresentazione
-di una lista attraverso un vettore
-(matrice)}}{Rappresentazione di una lista attraverso un vettore (matrice)}}\label{h.a5tr7osf4zwh}}
-
-{}
-
-{La lista è doppiamente concatenata, ovvero contiene riferimento sia
-all'elemento precedente che a quello successivo.}
-
-{}
-
-{La costante NULL viene rappresentata da un indice che non appartiene
-all'insieme degli indici del vettore (0 in pseudocodice, -1 in C)}
-
-{}
-
-{\includegraphics{images/image520.png}}
-
-{}
-
-{}
+\input{graphs/lista_matrice.tex}
 
 {Analogamente si può creare una lista singolarmente concatenata chiamata FreeList contenente le celle libere (i campi Key e Previous si possono ignorare). Essa verrà utilizzata per l'allocazione di una nuova lista. FreeList è una variabile globale.}
 
@@ -486,7 +450,7 @@ $A${~è un sottoinsieme del prodotto cartesiano $(NxN)$,è un insieme di coppie 
 
 {In un albero, ogni nodo $v$ (eccetto la radice) ha esattamente un genitore che viene chiamato padre $u$, tale che $(u,v) \in A$}
 
-{\includegraphics{images/image539.png}}
+\input{graphs/alberi_livelli.tex}
 
 {Un nodo può avere $0$ o più figli, un figlio è tale se esiste un arco $(u,v) \in A$}
 
@@ -780,7 +744,7 @@ $\forall v \in [1,n]$
 
 $\frac{n}{2}+1,\frac{n}{2}+2,\ldots,n$
 
-\includegraphics{images/image526.png}
+\input{graphs/heap_lemma_2.tex}
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
@@ -977,7 +941,7 @@ $T(n) = T(k) + T(n-k-1) + c = O(n)$
 
 {Non possiamo fare altro che modificare le strutture a nostra disposizione, non usiamo strutture ausiliarie.}
 
-{Prendo come radice il nodo foglia $x$ più a destra dell'albero $s$. $\Theta(log(n))$}}
+{Prendo come radice il nodo foglia $x$ più a destra dell'albero $s$. $\Theta(log(n))$}
 
 {Assegno $x.left$ ad $s$ e $x.right$ ad $r$.}
 
@@ -2451,7 +2415,7 @@ $w(T) = \sum_{(u,v)\in T}{w(u,v)}$
 
 $T' = T \cup {(u,v)} \setminus \{(x,y)\} $
 
-{\includegraphics{images/image530.png}}
+\input{graphs/taglio_arco_leggero.tex}
 
 $w(u,v) \leq w(x,y)${: Il peso dell'arco aggiunto è minore del peso dell'arco rimosso, in quanto esso è leggero per ipotesi.}
 
@@ -2751,7 +2715,15 @@ $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
 \subsubsection{Procedure di modifica dei due campi}
 
+\paragraph{Init single source}
+
 \lstinputlisting{code/init_single_source.txt}
+
+\paragraph{Relax}
+
+La relax è una procedura che agiorna i valori  delle distanze dei vertici dall'origine.
+
+\input{graphs/relax.tex}
 
 \lstinputlisting{code/relax.txt}
 
@@ -2769,7 +2741,44 @@ $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
   {Heap binario}
 \end{enumerate}
 
-{Studiamo la complessità di Dijkstra con coda di priorità implementata con array lineare:}
+\paragraph{Complessità}
+
+Notiamo che la Relax viene eseguita $\sum_{u \in V}{outDeg(u)} = m$ volte e non $n^2$. 
+
+\paragraph{Array Lineare}
+
+{Studiamo la complessità di Dijkstra con coda di priorità implementata tramite array lineare:}
+
+La fase di inizializzazione è complessa $O(n)$. \\
+ExtractMin è complessa $O(n)$, essendo dentro al ciclo di $n$ ripetizioni, la complessità totale sarà $O(n^2)$. \\
+Relax è complessa $O(1)$ e, nonostante sia dentro al ciclo, viene eseguita $m$ volte per una complessità totale di $O(m)$.
+
+La complessità totale è $O(n+n^2+m)$, il cui termine prevalente $n^2$ determina la complessità $O(n^2)$.
+
+\paragraph{Heap Binario}
+
+{Studiamo la complessità di Dijkstra con coda di priorità implementata tramite heap binario:}
+
+La fase di inizializzazione è complessa $O(n)$. \\
+ExtractMin è complessa $O(log(n))$, essendo dentro al ciclo di $n$ ripetizioni, la complessità totale sarà $O(n*log(n))$. \\
+Relax è complessa $O(log(n))$ e, nonostante sia dentro al ciclo, viene eseguita $m$ volte per una complessità totale di $O(m*log(n))$.
+
+La complessità totale è $O(n+n*log(n)+m*log(n))$, il cui termine prevalente $m*log(n)$ determina la complessità $O(m*log(n))$.
+
+\paragraph{Conclusioni}
+
+\begin{table}[h]
+\centering
+\caption{Complessità}
+\label{my-label}
+\begin{tabular}{ll|l|l|}
+\cline{3-4}
+                                                        &                                      & \multicolumn{2}{c|}{\textbf{Implementazione}}                                            \\ \cline{3-4} 
+                                                        &                                      & \multicolumn{1}{c|}{\textbf{Array Lineare}} & \multicolumn{1}{c|}{\textbf{Heap Binario}} \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Grafo G}}} & \multicolumn{1}{c|}{\textbf{Sparso} ($m \approx n$)} & $n^2$                                         & $n*log(n)$                                        \\ \cline{2-4} 
+\multicolumn{1}{|c|}{}                                  & \multicolumn{1}{c|}{\textbf{Denso}  ($m \approx n^2$)}  & $n^2$                                         & $n^2*log(n)$                                                                               \\ \hline
+\end{tabular}
+\end{table}
 
 \section{Correttezza di Dijkstra}
 
@@ -2878,6 +2887,88 @@ Perciò $d[u] \leq d[y] = \delta(s,y) \leq \delta(s,u) \leq d[u]$. \\ Quindi $d[
 \subsection{Algoritmo di Bellmann-Ford}
 
 {L'algoritmo di Dijkstra risulta efficiente ma solo per grafi con archi i cui pesi sono tutti positivi. L'algoritmo di Bellmann-Ford ovvia a tale limitazione richiedendo però elevata potenza computazionale in quanto esso si basa sul brute-force. Rispetto a Dijkstra non sono più necessarie strutture dati e permette di segnalare eventuali cicli negativi.}
+
+\lstinputlisting{code/bellmann_ford.txt}
+
+Nota: Il secondo ciclo è introdotto per il controllo di eventuali cicli negativi. Può essere omesso.
+
+\paragraph{Complessità}
+
+Relax viene eseguita $m(n-1)$ volte.
+
+La complessità di Bellmann-Ford è quindi $\Theta(m*n)$
+
+\begin{tabular}{|c|c|c|}
+\hline 
+  & Grafo $G$ sparso & Grafo $G$ denso \\ 
+\hline 
+Dijkstra (Array) & $n^2$ & $n^2$ \\ 
+\hline 
+Dijkstra (Heap Binario) & $n*log(n)$ & $n^2*log(n)$ \\ 
+\hline 
+Bellmann-Ford & $n^2$ & $n^3$ \\ 
+\hline 
+\end{tabular} 
+
+\paragraph{Correttezza}
+
+\subparagraph{Teorema di Bellmann-Ford}
+
+Dato un grafo $G=(V,E,w)$, 
+
+Nel caso A in cui $G$ non contenga cicli negativi raggiungibili dalla sorgente\\
+(A1) $\forall v \in V : d[v] = \delta(s,v)$ \\
+(A2) $G_\pi$ è un albero di cammini minimi\\
+(A3) L'algoritmo ritorna $TRUE$
+
+Nel caso B in cui $G$ contenga cicli negativi raggiungibili: \\
+(B1) L'algoritmo restiruisce $FALSE$
+
+\subparagraph{Dimostrazione}
+
+(A1) \\ 
+$v \in V$ \\ 
+Caso 1 : $v$ non è raggiungibile da $s$ : $ \delta(s,v) = + \infty $, valore settato dalla Init\_SS
+
+Caso 2: $v$ è raggiungibile da $s$. Esiste quindi un cammino e, per A, esiste anche un cammino minimo $p$ semplice tra il vertice $s$ e il vertice $u$. Esso avrà al più $n-1$ archi.
+
+$p = <X_0=s, X_1, X_2, \ldots, X_q=v>$ \\
+$d[X_0] = \delta(s,X_0) = \delta(s,s)$ \\
+$d[X_1] = \delta(s,X_1)$ \\
+$d[X_2] = \delta(s,X_2)$ \\
+$d[v] = \delta(s,v)$ \\
+
+(A3) \\ 
+$\forall (u,v) \in E, d[v] \leq d[u] + w(u,v) ? $\\
+Utilizzo il punto A1 appena dimostrato:\\
+$d[v] = \delta(s,v)$
+
+$d[v] \leq \delta(s,v) + w(u,v)$ (Per proprietà triangolare)\\
+$d[v] = d[u] + w(u,v)$ \\
+
+(B1) \\ 
+Per assurdo: esiste un ciclo ciclo negativo $c$ \\
+$\exists c = <X_0,X_1,\ldots,X_q>$ con $X_0 =  X_q$ \\ 
+$\sum_{i=1}^{q}{w(x_{i-1},x_i)} < 0$ (per ipotesi)
+
+$\forall (u,v) \in E : d[v] \leq d[u] + w(u,v)$ , in altre parole: \\
+$\forall i = [1\ldots q],\,d[x_i] \leq d[x_{i-1}] + w(x_{i-1},x_i)$ \\ 
+
+$\sum_{i=1}^q{d[x_i]} \leq \sum_{i=1}^q{d[x_{i-1}] + w(x_{i-1},x_i)}$ \\
+
+$\sum_{i=1}^q{d[x_i]} \leq \sum_{i=1}^q{d[x_{i-1}]} + \sum_{i=1}^q{w(x_{i-1},x_i)}$ \\
+
+Notiamo che le prime due sommatorie possono essere semplificate in quanto uguali: La prima produrrà la sommatoria $d[x_1] + d[x_2] +\ldots + d[x_{q-1}] + d[x_q]$ mentre la seconda produrrà  $d[x_0] + d[x_1] + d[x_2] +\ldots + d[x_{q-1}]$. Le due sommatorie differiscono solo per $d[x_0],d[x_q]$ che combaciano in quanto ciclo.
+
+$\sum_{i=1}^q{w(x_{i-1},x_i)} \geq 0$, ASSURDO
+
+
+\paragraph{Esercizi}
+
+Si vuole rappresentare, tramite un grafo $G$, una rete di canali di comunicazione di cui si conoscono le affidabilità delle singole dorsali. L'affidabilità viene calcolata tramite la funzione $r : E \rightarrow [0,1]$. Si vuole trovare il canale più affidabile per la trasmissione di un messaggio. Vogliamo massimizzare quindi il prodotto dei pesi degli archi. \\
+Ricordiamo che la probabilità che due eventi indipendenti si verifichino è $P(A) * P(B)$. Ricordiamo inoltre la proprietà dei logaritmi $log(a*b) = log(a) + log(b)$, comodo modo di utilizzare le tecniche già studiate di somma dei pesi degli archi.
+
+\subsection{Note}
 
 \protect\hyperlink{cmnt_ref1}{{[}a{]}}{Parte Intera Inferiore}
 
