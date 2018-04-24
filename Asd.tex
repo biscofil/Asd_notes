@@ -708,11 +708,11 @@ $\forall v \in [1,n]$
 
 {Dimostrare che ha costo LINEARE}\textsuperscript{\protect\hyperlink{cmnt2}{{[}b{]}}}
 
-\hypertarget{h.6xasx7f8zgn1}{\paragraph{\texorpdfstring{{Teorema}}{Teorema}}\label{h.6xasx7f8zgn1}}
+\paragraph{Teorema}
 
 {L'algoritmo di visita, applicato alla radice di un albero con $m$ nodi, termina in $O(m)$ iterazioni. Lo spazio usato è $O(n)$}
 
-\hypertarget{h.zdc8liauzt1c}{\paragraph{\texorpdfstring{{Dimostrazione}}{Dimostrazione}}\label{h.zdc8liauzt1c}}
+\paragraph{Dimostrazione}
 
 {Hp: L'inserimento e la cancellazione da $S$ sono effettuati in tempo costante}
 
@@ -821,8 +821,7 @@ O(n*\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^h}}}) = O(2n) = O(n)
 
 {L'algoritmo HeapSort ordina in loco $n$ elementi eseguendo nel peggiore dei casi $O(nlog(n))$ confronti in quanto algoritmo basato sui confronti.}
 
-\hypertarget{h.jih9riph7gns}{\subsection{\texorpdfstring{{Code di
-priorità}}{Code di priorità}}\label{h.jih9riph7gns}}
+\subsection{Code di priorità}
 
 {{[}CLRS{]} pp. 135-140}
 
@@ -1745,7 +1744,7 @@ $h(14,0)=5$
 
 {Collisione: $h(14,1) = 9$}
 
-\hypertarget{h.wkyvylqq2lrt}{\subsubsection{\texorpdfstring{{Analisi dell'hashing a indirizzamento aperto}}{Analisi dell'hashing a indirizzamento aperto}}\label{h.wkyvylqq2lrt}}
+\subsubsection{Analisi dell'hashing a indirizzamento aperto}
 
 \subsection{Teorema}
 
@@ -2114,8 +2113,7 @@ archi sono complementari:}
 
 $G=(V,E), \overline{G}=(\overline{V},\overline{E})$
 
-\hypertarget{h.tsrwv4qy0dku}{\subsubsection{\texorpdfstring{{Grafo
-autocomplementare}}{Grafo autocomplementare}}\label{h.tsrwv4qy0dku}}
+\subsubsection{Grafo autocomplementare}
 
 {Un grafo è detto autocomplementare se $\overline{G}=G$ ovvero se $\forall(i,j) \in E\,sse\,(i,j) \in \overline{E}$}
 
@@ -2191,7 +2189,7 @@ $A^n = A *A* A * \ldots * A$ ($n$ volte) $=A^{n-1}*A$
 
 {Mostrare che $G=(V,E) [NO]$ contiene un triangolo, ovvero un ciclo di lunghezza 3, se e solo se esistono due indici $i,j$ tali che sia la matrice di adiacenza $A$ e la matrice al quadrato $A^2$ hanno un elemento non nullo in posizione $(i,j)$}
 
-\hypertarget{h.m8b6lpkoqj6x}{\subsection{\texorpdfstring{{{[}NO{]} Grafi regolari}}{{[}NO{]} Grafi regolari}}\label{h.m8b6lpkoqj6x}}
+\subsection{{[}NO{]} Grafi regolari}
 
 {$G=(V,E)$ si dice k-regolare se tutti i vertici hanno grado $k$. Con $n=\abs{V},m=\abs{E}$}
 
@@ -2211,8 +2209,7 @@ $2m=\sum_{u\in V}{deg(u)}$\textsuperscript{\protect\hyperlink{cmnt24}{{[}x{]}}\p
 
 {Dimostrare che se il grafo $G$ è 3-regolare, allora $n$ è pari. Analogamente, analizzare $G$ 4-regolare. }
 
-\hypertarget{h.d5v408sc7po0}{\subsection{\texorpdfstring{{Isomorfismi di
-grafi}}{Isomorfismi di grafi}}\label{h.d5v408sc7po0}}
+\subsection{Isomorfismi di grafi}
 
 {Un isomorfismo di grafi è un funzione che mappa un grafo in un secondo dalla stessa forma.}
 
@@ -2661,7 +2658,6 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 \begin{table}[]
 \centering
 \caption{My caption}
-\label{my-label}
 \begin{tabular}{ll|l|l|}
 \cline{3-4}
                                                  &                               & \multicolumn{2}{c|}{Destinazione}                            \\ \cline{3-4} 
@@ -2770,7 +2766,6 @@ La complessità totale è $O(n+n*log(n)+m*log(n))$, il cui termine prevalente $m
 \begin{table}[h]
 \centering
 \caption{Complessità}
-\label{my-label}
 \begin{tabular}{ll|l|l|}
 \cline{3-4}
                                                         &                                      & \multicolumn{2}{c|}{\textbf{Implementazione}}                                            \\ \cline{3-4} 
@@ -2963,12 +2958,121 @@ Notiamo che le prime due sommatorie possono essere semplificate in quanto uguali
 $\sum_{i=1}^q{w(x_{i-1},x_i)} \geq 0$, ASSURDO
 
 
-\paragraph{Esercizi}
+\paragraph{Esercizio}
 
-Si vuole rappresentare, tramite un grafo $G$, una rete di canali di comunicazione di cui si conoscono le affidabilità delle singole dorsali. L'affidabilità viene calcolata tramite la funzione $r : E \rightarrow [0,1]$. Si vuole trovare il canale più affidabile per la trasmissione di un messaggio. Vogliamo massimizzare quindi il prodotto dei pesi degli archi. \\
-Ricordiamo che la probabilità che due eventi indipendenti si verifichino è $P(A) * P(B)$. Ricordiamo inoltre la proprietà dei logaritmi $log(a*b) = log(a) + log(b)$, comodo modo di utilizzare le tecniche già studiate di somma dei pesi degli archi.
+Si vuole rappresentare, tramite un grafo $G$, una rete di canali di comunicazione di cui si conoscono le affidabilità delle singole dorsali. L'affidabilità viene calcolata tramite la funzione $r : E \rightarrow [0,1]$. Si vuole trovare il canale più affidabile per la trasmissione di un messaggio tramite il cammino $p = <X_0,X_1,\ldots,X_q>$ tra i nodi $u =X_0,v=X_q$. Vogliamo massimizzare quindi il prodotto dei pesi degli archi. \\
+Ricordiamo che la probabilità che due eventi indipendenti si verifichino è $P(A) * P(B)$ che, applicata al cammino, diventa $\alpha(p) = \prod_{i=1}^{q}{r(X_{i-1},X_i)}$. Ricordiamo inoltre la proprietà dei logaritmi $log(a*b) = log(a) + log(b)$, comodo modo di utilizzare le tecniche già studiate di somma dei pesi degli archi.
 
-\subsection{Note}
+
+che è equivalente a massimizare \\ 		 
+$\sum_{i=1}^q{log(r(X_{i-1},X_i))}$
+che è a sua volta equivalente a minimizzare \\
+$-\sum_{i=1}^q{log(r(X_{i-1},X_i))} = \sum_{i=1}^q{-log(r(X_{i-1},X_i))}$ \\
+$ = \sum_{i=1}^q{log(\frac{1}{r(X_{i-1},X_i)})}$ ovvero la sommatoria dei nuovi pesi calcolati tramite 
+
+\begin{equation}
+r'(u,v) = log(\frac{1}{r(u,v)})
+\end{equation}
+
+\paragraph{Esercizio}
+
+$G=(V,E,w)$ con $w: R \rightarrow \mathbb{R}, w(u,v) >0\,\forall (u,v) \in E$
+
+
+\subsection{Problema dell'arbitraggio}
+Cerchiamo un ciclo $c = <X_0,\ldots,X_q>$ con $X_0 = X_q$, dove $\prod_{i=1}^q{w(c_{i-1},c_i)} > 1$
+
+Passando al logaritmo, $log(\prod_{i=1}^q{w(c_{i-1},c_i)}) > 0$ \\
+$-log(\prod_{i=1}^q{w(c_{i-1},c_i)}) < 0$ \\
+Otteniamo $\sum_{i=1}^q{log(\frac{1}{w(c_{i-1},c_i)})} < 0$, a cui posso applicare Bellmann-Ford.
+
+\subsection{Cammini minimi tra tutte le coppie di vertici}
+
+Dato $G=(V,E,w), w: E \rightarrow \mathbb{R}$
+$\forall u,v \in V$, cerco $\delta(u,v)$, calcolo della distanza
+
+
+\lstinputlisting{code/all_pairs_dijkstra.txt}
+
+\paragraph{Complessità}
+
+\begin{tabular}{|c|c|c|}
+\hline 
+Algoritmo & Sparso & Denso \\ 
+\hline 
+All\_Pairs\_Dijkstra (APD) (Array) & $n^3$ & $n^3$ \\ 
+\hline 
+All\_Pairs\_Dijkstra (APD) (Heap) & $n^2log(n)$ & $n^3log(n)$ \\ 
+\hline 
+All\_Pairs\_Bellmann\_Ford & $n^3$ & $n^4$ \\ 
+\hline 
+\end{tabular} 
+
+Ricordiamo che Dijkstra funziona bene solo con pesi positivi.
+
+\subsection{Floyd–Warshall}
+
+Algoritmo di programmazione dinamica
+
+\paragraph{Trasformare il grafo in una matrice}
+
+Dato $G=(V,E,w), w : R \rightarrow \mathbb{R}$ senza cicli negativi, costruisco $W=(w_{ij})$, matrice $nxn$ con
+
+\begin{equation}
+w_{ij} = 
+\begin{cases}
+0 & \mbox{se } i=j \\ 
+w(i,j) & \mbox{se } i\neq j, (i,j) \in E \\ 
+\alpha & \mbox{se } i\neq j, (i,j) \notin E
+\end{cases}
+\end{equation}
+
+$D=(d_{ij}), d_{ij} = \delta(i,j)$ \\ 
+$V=\{1,2,\ldots,n\}$
+
+Presi $i,j \in V, K \in V$, 
+
+\begin{equation}
+\mathfrak{D}_{ij}^{(k)} = \{p | p \mbox{ è cammino semplice tra } i,j \mbox{ e i vertici intermedi sono }\leq K \}
+\end{equation}
+
+
+\begin{equation}
+d_{ij}^{(k)} = min(w(p))\mbox{, con }p \in \mathfrak{D}_{ij}^{(k)}
+\end{equation}
+
+
+\paragraph{Trovare il minimo di un insieme X}
+
+Considerato l'insieme $X$ diviso in due partizioni $A,B$,
+
+\begin{equation}
+min(X) = min(min(A),min(B))
+\end{equation}
+
+Dividiamo l'insieme degli archi in due partizioni, ovvero quelli che passano per il nodo $K$ e quelli che non lo attraversano.
+
+\begin{equation}
+\hat{\mathfrak{D}_{ij}^{(k)}} = \{p | p \in \mathfrak{D}_{ij}^{(k)} \mbox{ e } p \mbox{ passa per } K \}
+\end{equation}
+
+\begin{equation}
+\mathfrak{D}_{ij}^{(k)} = \mathfrak{D}_{ij}^{(k-1)} \cup \hat{\mathfrak{D}_{ij}^{(k)}} 
+\end{equation}
+
+$1 \leq k \leq n$
+
+$d_{ij}^{(k)} = min(w(p)), p \in \mathfrak{D}_{ij}^{(k)}$ \\ 
+$d_{ij}^{(k)} = min(p=\mathfrak{D}_{ij}^{(k-1)} \cup \hat{\mathfrak{D}_{ij}^{(k)}} )$ \\ 
+$d_{ij}^{(k)} = min(min(p \in \mathfrak{D}_{ij}^{(k-1)}), min(p \in \hat{\mathfrak{D}_{ij}^{(k)}} ))$ \\ 
+
+
+
+$d_{ij}^{(k)} = min(d_{ij}^{(k-1)}, d_{ik}^{(k-1)} + d_{kj}^{(k-1)} )$ \\ 
+
+
+
+\section{Note}
 
 \protect\hyperlink{cmnt_ref1}{{[}a{]}}{Parte Intera Inferiore}
 
