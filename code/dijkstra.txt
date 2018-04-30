@@ -1,8 +1,8 @@
 Dijkstra(G,w,s)
 	InitSingleSource(G,s)
 	Q <- V[G]
-	S <- \emptyset
-	while Q != \emptyset do
+	S <- $\emptyset$
+	while Q != $\emptyset$ do
 		u <- extractMin(Q)
 		S <- $S \cup \{u\}$
 		foreach v in Adj[u] do

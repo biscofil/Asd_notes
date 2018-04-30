@@ -1,0 +1,8 @@
+Floyd_Warshall_Single_Matrix(W)
+	n <- rows(W)
+	D <- W
+	for k = 1 to n do
+		for i = 1 to n do
+			for j = 1 to n do
+				$d_{ij}$ <- min($d_{ij}$ , $d_{ik} + d_{kj}$)
+	return D

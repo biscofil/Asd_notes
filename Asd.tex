@@ -5,6 +5,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+\usepackage{framed}
 
 % Abs
 \usepackage{mathtools,etoolbox}
@@ -59,8 +60,9 @@
 	keywordstyle=[3]\color{red},
 	comment=[l]{//},
 	commentstyle=\color{grey},
-	stringstyle=\color{red}
+	stringstyle=\color{red},
 	numberstyle=\scriptsize
+	%numberstyle=\tiny
 }
 
 \lstdefinestyle{pseudocodestyle}{
@@ -81,7 +83,8 @@
     showstringspaces=false,
     showtabs=false,                  
     tabsize=2,
-    mathescape=true
+    mathescape=true,
+    frame=lrtb
 }
 \lstset{style=pseudocodestyle}
 
@@ -3028,7 +3031,9 @@ w(i,j) & \mbox{se } i\neq j, (i,j) \in E \\
 \end{equation}
 
 $D=(d_{ij}), d_{ij} = \delta(i,j)$ \\ 
-$V=\{1,2,\ldots,n\}$
+$V=\{1,2,\ldots,n\}$ \\ 
+$D^{(k)} = (d_{ij}^{(k)})$ 
+
 
 Presi $i,j \in V, K \in V$, 
 
@@ -3042,13 +3047,14 @@ d_{ij}^{(k)} = min(w(p))\mbox{, con }p \in \mathfrak{D}_{ij}^{(k)}
 \end{equation}
 
 
-\paragraph{Trovare il minimo di un insieme X}
 
+\begin{framed}
+\paragraph{Trovare il minimo di un insieme X} \\
 Considerato l'insieme $X$ diviso in due partizioni $A,B$,
-
 \begin{equation}
 min(X) = min(min(A),min(B))
 \end{equation}
+\end{framed}
 
 Dividiamo l'insieme degli archi in due partizioni, ovvero quelli che passano per il nodo $K$ e quelli che non lo attraversano.
 
@@ -3067,10 +3073,121 @@ $d_{ij}^{(k)} = min(p=\mathfrak{D}_{ij}^{(k-1)} \cup \hat{\mathfrak{D}_{ij}^{(k)
 $d_{ij}^{(k)} = min(min(p \in \mathfrak{D}_{ij}^{(k-1)}), min(p \in \hat{\mathfrak{D}_{ij}^{(k)}} ))$ \\ 
 
 
-
 $d_{ij}^{(k)} = min(d_{ij}^{(k-1)}, d_{ik}^{(k-1)} + d_{kj}^{(k-1)} )$ \\ 
 
 
+
+\input{graphs/floyd_warshall.tex}
+
+$\mathfrak{D}_{ij}$ è l'insieme di tutti i cammini tra $i$ e $j$. \\
+$\mathfrak{D}_{27} = \{\,<2,1,4,10,7>,\,<2,1,4,3,7>,\, <2,5,3,7>,\, <2,5,6,8,7>\}$ 
+
+$\mathfrak{C}_{27}^{(1)} = \emptyset$ \\ 
+$\mathfrak{C}_{27}^{(2)} = \emptyset$ \\ 
+$\mathfrak{C}_{27}^{(3)} = \emptyset$ \\ 
+$\mathfrak{C}_{27}^{(4)} = \{<2,1,4,3,7>\}$ (Cammino minimo e unico)\\ 
+$\mathfrak{C}_{27}^{(5)} = \{<2,1,4,3,7>,\, <2,5,3,7>\}$ \\ 
+Quindi $\mathfrak{C}_{ij}^{(n)} = \mathfrak{D}$ \\ 
+
+
+\paragraph{Codice}
+
+
+
+\lstinputlisting{code/floyd_warshall.txt}
+Complessità : $\Theta(n^3)$
+
+
+\[
+W = D^0 = 
+ \begin{pmatrix}
+  0 & 3 & 8 & \infty & -4 \\ 
+  \infty & 0 & \infty & 1 & 7 \\ 
+  \infty & 4 & 0 & \infty & \infty \\ 
+  2 & \infty & -5 & 0 & \infty \\ 
+  \infty & \infty & \infty & 6 & 0
+ \end{pmatrix}
+\]
+
+\[
+D^1 = 
+ \begin{pmatrix}
+  0 & 3 & 8 & \infty & -4 \\ 
+  \infty & 0 & \infty & 1 & 7 \\ 
+  \infty & 4 & 0 & \infty & \infty \\ 
+  2 & 5 & -5 & 0 & -2 \\ 
+  \infty & \infty & \infty & 6 & 0
+ \end{pmatrix}
+\]
+
+\[
+D^2 = 
+ \begin{pmatrix}
+  0 & 3 & 8 & 4 & -4 \\ 
+  \infty & 0 & \infty & 1 & 7 \\ 
+  \infty & 4 & 0 & 5 & 11 \\ 
+  2 & 5 & -5 & 0 & -2 \\ 
+  \infty & \infty & \infty & 6 & 0
+ \end{pmatrix}
+\]
+
+\paragraph{Osservazioni}
+
+\subparagraph{Osservazione A}
+
+Se non ci sono cicli negativi, allora $\forall k,i = 1\ldots n, d_{ii}^{(k)} = 0$, ovvero ci sono solo valori nulli sulla diagonale principale.
+
+\subparagraph{Dimostrazione per induzione su k}
+
+Se $k=0$: VERO \\ 
+Se $k>0$: 
+
+\begin{equation}
+d_{ii}^{(k)} = min( \underbrace{d_{ii}^{(k-1)}}_\text{nullo per ipotesi} ,  \underbrace{d_{ik}^{(k-1)} + d_{ki}^{(k-1)}}_\text{positivo o nullo} ) = 0
+\end{equation}
+
+L'equazione risulta nulla poichè il primo termine $d_{ii}^{(k-1)}$ è nullo per ipotesi.
+Il secondo termine non può essere negativo in quanto non ho cicli negativi.
+
+
+\subparagraph{Osservazione B}
+
+$\forall k = 1\ldots n,i,j \in V$
+
+\[
+\begin{cases} d_{ik}^{(k)} = d_{ik}^{(k-1)} \mbox{ Stessa colonna} \\ d_{kj}^{(k)} = d_{kj}^{(k-1)} \mbox{ Stessa riga} \end{cases}
+\]
+
+
+\subparagraph{Dimostrazione}
+
+\begin{equation}
+d_{ik}^{(k)} = min(  \underbrace{ d_{ik}^{(k-1)} , d_{ik}^{(k-1)}  }_\text{uguali} + \underbrace{ d_{kk}^{(k-1)} }_\text{nullo} ) = d_{ik}^{(k-1)}
+\end{equation}
+
+La stessa dimostrazione può essere applicata alla seconda equazione.
+
+\subparagraph{Altre osservazioni}
+Abbiamo notato che in caso appaia il valore \infty in una riga o in una colonna evidenziata, il valore delle altre celle non cambierà.
+
+
+\subparagraph{Ottimizzazione}
+
+Grazie alle osservazioni notiamo che possiamo utilizzare una sola matrice da sovrascrivere senza la necessità di averne una per ogni ciclo di $k$.
+
+\lstinputlisting{code/floyd_warshall_sm.txt}
+
+
+\section{Algoritmi Greedy}
+Con algoritmi "greedy" intendiamo l'insieme degli algoritmi incapaci di capire la situazione complessiva.
+
+\paragraph{Ricerca di Maximum Clique}
+
+Insieme di vertici completamente connesso da archi tra tutte le possibili coppie di vertici.
+
+Massimali:
+
+Massime:
 
 \section{Note}
 
