@@ -1,0 +1,7 @@
+Greedy_Clique(G)
+	ordina i  vertici di G per grado decrescente
+	$C = \emptyset$
+	foreach $u \in V[G]$ (secondo ordine stabilito al passo 1)
+		if is_a_clique(C,u) then
+			$C = C \cup u$
+	return C

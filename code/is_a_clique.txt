@@ -1,0 +1,5 @@
+Is_a_clique(C,u)
+	foreach $i\in C$ do
+		if $(u,v) \notin E$ then
+			return FALSE
+	return TRUE

@@ -41,6 +41,7 @@
 
 %
 \usepackage{amssymb}
+\usepackage{pgfgantt}
 
 % Code blocks
 \usepackage{listings}
@@ -2557,63 +2558,27 @@ $G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
 
 \subsubsection{Tramite grafo}
 
-{\includegraphics{images/image519.png}}
+\input{graphs/simulazione_grafo.tex}
 
 \subsubsection{Tramite tabella}
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{Passo}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{A}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{Insiemi disgiunti}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{1}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{\}}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{1\},\{2\},\{3\},\{4\},\{5\},\{6\}}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{2}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{(1,6)\}}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{1,6\},\{2\},\{3\},\{4\},\{5\}}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{3}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{(1,6),(1,4)\}}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{1,4,6\},\{2\},\{3\},\{5\}}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{4}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{(1,6),(1,4),(1,2)\}}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{1,2,4,6\},\{3\},\{5\}}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{5}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{(1,6),(1,4),(1,2),(4,3)\}}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{1,2,3,4,6\},\{5\}}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{6}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{(1,6),(1,4),(1,2),(4,3),(4,5)\}}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
-{\{1,2,3,4,5,6\}}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\begin{tabular}{|l|l|l|}
+\hline 
+Passo & A & Insiemi disgiunti \\ 
+\hline 
+1 & $\{\}$ & $\{1\},\{2\},\{3\},\{4\},\{5\},\{6\}$ \\ 
+\hline 
+2 & $\{(1,6)\}$ & $\{1,6\},\{2\},\{3\},\{4\},\{5\}$ \\ 
+\hline 
+3 & $\{(1,6),(1,4)\}$ & $\{1,4,6\},\{2\},\{3\},\{5\}$ \\ 
+\hline 
+4 & $\{(1,6),(1,4),(1,2)\}$ & $\{1,2,4,6\},\{3\},\{5\}$ \\ 
+\hline 
+5 & $\{(1,6),(1,4),(1,2),(4,3)\}$ & $\{1,2,3,4,6\},\{5\}$ \\ 
+\hline 
+6 & $\{(1,6),(1,4),(1,2),(4,3),(4,5)\}$ & $\{1,2,3,4,5,6\}$ \\ 
+\hline 
+\end{tabular} 
 
 \subsubsection{Generazione di MST : Prim}
 
@@ -3179,15 +3144,66 @@ Grazie alle osservazioni notiamo che possiamo utilizzare una sola matrice da sov
 
 
 \section{Algoritmi Greedy}
-Con algoritmi "greedy" intendiamo l'insieme degli algoritmi incapaci di capire la situazione complessiva.
+Con algoritmi "greedy" intendiamo l'insieme degli algoritmi incapaci di capire la situazione complessiva, i quali prendono decisioni che sembrano migliori negli istanti di decisione. Ne fanno parte gli algoritmi di Kruskall, Prim e Dijkstra, i quali sono anche ottimali (ad eccezione di Dijkstra in caso di cicli negativi)
 
 \paragraph{Ricerca di Maximum Clique}
 
 Insieme di vertici completamente connesso da archi tra tutte le possibili coppie di vertici.
 
-Massimali:
+Una cricca massimale è una cricca che non può essere estesa includendo un altro vertice adiacente, cioè una cricca che non esiste esclusivamente dentro l'insieme dei vertici di una cricca più grande.
 
-Massime:
+Una cricca massima è una cricca della dimensione più grande possibile in un dato grafo
+
+
+\lstinputlisting{code/greedy_clique.txt}
+
+Complessità : $O(n^2 + nlog(n)) = O(n^2)$
+
+\lstinputlisting{code/is_a_clique.txt}
+
+Complessità : $O(n)$
+
+Il problema della ricerca della Clique Massima è NP : non risolvibile in tempo polinomiale.
+
+Notiamo però che ordinare secondo il numero di gradi non sempre funziona. Esempio:
+
+\input{graphs/greedy_grado.tex}
+
+Sostituendolo con un ordinamento basato sul numero di triangoli incidenti non risolviamo prò il problema. Esempio:
+
+\input{graphs/greedy_triangoli.tex}
+
+Notiamo che l'algoritmo è molto simile a Krusall. Non a caso infatti, tutti gli algoritmi Greedy han la stessa struttura:
+
+\begin{enumerate}
+\item Ordinamento
+\item $ A \leftarrow \emptyset$
+\item foreach $x$ (preso secondo ordinamento)
+\item \hspace{\parindent} if $A \cup x$ è ok then
+\item \hspace{\parindent} \hspace{\parindent} Aggiungi $x$ ad $A$
+\end{enumerate}
+
+\subsection{Selezione attività}
+
+Consideriamo un insieme di attività, rappresentabili attraverso un diagramma di Gantt.
+
+\input{graphs/gantt.tex}
+
+Vorremmo determinare un insieme di attività eseguibili in uno stesso momento, per farlo potremmo procedere all'ordinamento per:
+
+\begin{enumerate}
+\item Tempo di inizio
+\item Tempo di fine
+\item Durata
+\end{enumerate}
+
+Quale funzionerà meglio?
+
+\section{NP Completezza}
+
+Analizziamo la complessità ( o  "intrattabilità" ) di problemi:
+
+Un problema $\mathcal{P} \subseteq \underbrace{\mathcal{I} }_\text{Istanze} x  \underbrace{\mathcal{S} }_\text{Soluzioni}$ 
 
 \section{Note}
 
