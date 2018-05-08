@@ -1,0 +1,215 @@
+\chapter{Heap}
+
+{Heap: albero quasi completo con tutti i nodi dell'ultimo livello a sinistra}
+
+{MaxHeap: La radice ha valore maggiore o uguale a quello dei figli}
+
+{MinHeap: La radice ha valore minore o uguale a quello dei figli}
+
+\subsection{Lemma 2}
+
+{Nell'array che rappresenta un heap di $n$ elementi, le foglie sono i nodi con indici che vanno alle posizioni}
+
+$\frac{n}{2}+1,\frac{n}{2}+2,\ldots,n$
+
+\input{graphs/heap_lemma_2.tex}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Elemento & 16 & 15 & 10 & 14 & 7 & 9 & 3 & 2 & 8 & 1 \\
+\hline
+Posizione & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\hline
+ &  &  &  &  & $\frac{n}{2}$ & $\frac{n}{2}+1$ & $\frac{n}{2}+2$ & $\frac{n}{2}+3$ & $\frac{n}{2}+4$ & $n$ \\
+\hline
+\end{tabular}
+
+\subsubsection{Lemma 3}
+
+{Altezza di un nodo: cammino più lungo verso una foglia}
+
+{Il teorema definisce la numerosità di nodi con una certa altezza:}
+
+{Ci sono al massimo $\frac{n}{2^{h+1}}$ nodi di altezza $h$ in
+un qualsiasi heap di $n$ elementi}
+
+\subsubsection{Max\_heapify}}}
+
+{L'operazione max\_heapify permette di mantenere le proprietà di maxheap}
+
+{Precondizioni:}
+
+{Gli alberi binari con radice in left(i) e right(i) sono maxheap}
+
+{Postcondizioni:}
+
+{~~~~~~~~L'albero radicato in $i$ è un maxheap}
+
+\lstinputlisting{code/max_heapify.txt}
+
+{Tempo di esecuzione : $O(h)$ dove $h$ è l'altezza del nodi i poichè l'heap ha altezza $log(n)$ (LEMMA 2)}
+
+\subsection{Dato un vettore disordinato, costruire un heap}
+
+\lstinputlisting{code/build_maxheap.txt}
+
+{Invariante: ogni nodo in posizione $i+1,\ldots,n$ è radice di un maxheap, con n = MANCA}
+
+{Sembrerebbe complessa $O(\frac{n}{2}\,log(n)) = O(n\,log(n))$ ma max\_heapify lavora principalmente su foglie, quindi la complessità è lineare $O(n)$.}
+
+\begin{equation}
+\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^{h-1}}}*O(h)} = O(n*\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^h}})}
+\end{equation}
+
+{L'ultima sommatoria è la serie nota}
+
+\begin{equation}
+\sum_{h=0}^{+\infty}{h*x^h} = \frac{x}{{(1-x)}^2}
+\end{equation}
+
+{Con $x=\frac{1}{2}$:}
+
+\begin{equation}
+\sum_{h=0}^{+\infty}{h*x^h} = \frac{\frac{1}{2}}{{(1-\frac{1}{2})}^2} = 2
+\end{equation}
+
+{Quindi}
+
+\begin{equation}
+O(n*\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^h}}}) = O(2n) = O(n)
+\end{equation}
+
+\subsection{Heapsort}
+
+\lstinputlisting{code/heapsort.txt}
+
+{INV = Il sottoarray che va dalla posizione $1$ alla posizione $i$ è un maxheap che contiene gli elementi più piccoli del intero vettore di partenza, mentre $A[a+1,\ldots,n]$ contiene gli $n-1$ elementi più grandi di $A[1..n]$ ordinati}{.}
+
+\subsubsection{Teorema}
+
+{L'algoritmo HeapSort ordina in loco $n$ elementi eseguendo nel peggiore dei casi $O(nlog(n))$ confronti in quanto algoritmo basato sui confronti.}
+
+\subsection{Code di priorità}
+
+{{[}CLRS{]} pp. 135-140}
+
+{Struttura dati che serve a mantenere un insieme dinamico i cui elementi ( aggiungibili e rimovibili ) hanno un valore associato detto chiave o peso.}
+
+{Esistono due tipi di code di priorità:}
+
+\begin{itemize}
+\tightlist
+\item
+  {MaxPriorità (Si utilizza la struttura MaxHeap)}
+\item
+  {MinPriorità (Si utilizza la struttura MinHeap)}
+\end{itemize}
+
+{Le operazioni delle code di priorità massima/minima sono:}
+
+{Insert( Coda s , Elemento X) : Inserisce l'elemento $X$ in $S$}
+
+{Maximum( Coda s ): Restituisce l'elemento di $S$ con la chiave maggiore senza rimuoverlo}
+
+{Minimum( Coda s) : Restituisce l'elemento di $S$ con la chiave minore senza rimuoverlo}
+
+{Extract\_max( Coda s) : Elimina e restituisce l'elemento di $S$ con la chiave maggiore}
+
+{Extract\_min( Coda s) : Elimina e restituisce l'elemento di $S$ con la chiave minore}
+
+{Increase\_key( Coda s, Elemento x, Chiave k) : Incrementa il valore della chiave di $X$ al nuovo valore $K$. Si suppone che $K$ sia maggiore o uguale al valore corrente della chiave di $X$, $K \geq chiave(X)$}
+
+{Decrease\_key( Coda s, Elemento x, Chiave k) : Decrementa il valore della chiave di $X$ al nuovo valore $K$. Si suppone che $K$ sia minore o uguale al valore corrente della chiave di $X$, $K \leq chiave(X)$}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\subsection{Implementazione di code di massima priorità tramite Heap}
+
+\lstinputlisting{code/heap_maximum.txt}
+
+{Complessità di Heap Maximum : $O(1)$}
+
+\lstinputlisting{code/heap_extract_max.txt}
+
+{Complessità di Heap Extract Max : $O(log(n))$}
+
+\lstinputlisting{code/heap_increase_key.txt}
+
+{Complessità di Heap Increase Key : $O(log(n))$}
+
+{Invariante del while: L'array $A[i,\ldots,A.heapSize]$ soddisfa le proprietà di maxHeap tranne una possibile violazione: A{[}i{]} potrebbe essere più grande di A{[}parent(i){]}}
+
+{Con un Heap di n elementi, la complessità è $O(log(n))$ in quanto il cammino dal nodo fino alla radice ha lunghezza }$O(log(n))$
+
+\lstinputlisting{code/heap_insert.txt}
+
+{Complessità di Heap\_Insert : }$O(log(n))$
+
+{La ricerca su una cosa di priorità, nel caso peggiore, ha costo }$O(n)$
+
+{Premessa : $1 \leq i \leq A.heapSize$}
+
+\lstinputlisting{code/heap_delete.txt}
+
+{Complessità di Heap Delete : }$O(log(n))$
+
+\paragraph{Esercizio 1}
+
+{Scrivere una funzione che determini se un albero è quasi completo. Gli output devono essere 1 se l'albero è quasi completo o 0 se non lo è. }{L'albero è rappresentato con notazione left e right.}
+
+{Note: notiamo che non è sufficiente sapere se un albero è quasi completo o meno, necessitiamo anche di un valore per rappresentare l'albero completo.}
+
+{Gli output saranno quindi: 0 - albero completo, 1 - albero quasi completo, 2 - albero non quasi completo.}
+
+\lstinputlisting{code/is_quasi_completo.txt}
+
+\lstinputlisting{code/is_quasi_completo_aux.txt}
+
+{Complessità di is\_quasi\_completo : $O(n)$}
+
+$T(n) = T(k) + T(n-k-1) + c = O(n)$
+
+\paragraph{Esercizio 2}
+
+{Siano dati due alberi binari completi di radice $r$ ed $s$ aventi la stessa altezza $h$ e dimensione totale (somma dei nodi dei due alberi) $n$. Le chiavi memorizzate nei nodi soddisfano la proprietà di maxheap. Si vuole creare un unico albero quasi completo maxheap, fusione dei due alberi, con altezza $h+1$ e dimensione $n$.}
+
+{Le seguenti soluzioni vengono accettate:}
+
+\begin{enumerate}
+\tightlist
+\item
+  {Soluzione di costo e tempo $\Theta(n)$ e in spazio aggiuntivo $\Theta(n)$}
+\item
+  {Soluzione (più elegante) di costo e tempo $O(log(n))$ e spazio aggiuntivo costante}
+\end{enumerate}
+
+{Soluzione :}
+
+\begin{enumerate}
+\tightlist
+\item
+  {Soluzione di costo e tempo $\Theta(n)$ e in spazio aggiuntivo $\Theta(n)$}
+\end{enumerate}
+
+{~~~~~~~~~~~~~~~~~~~~~~~~Vettore di n elementi v. (spazio aggiuntivo $\Theta(n)$)}
+
+{~~~~~~~~~~~~~~~~~~~~~~~~Carichiamo il vettore con i valori di $r$ ed $s$. $\Theta(n)$}
+
+{~~~~~~~~~~~~~~~~~~~~~~~~Applichiamo build\_maxheap all'intero vettore $v$. $\Theta(n)$}
+
+{~~~~~~~~~~~~~~~~~~~~~~~~Creo l'albero corrispondente. $\Theta(n)$}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  {Soluzione di costo e tempo $O(log(n))$ e spazio aggiuntivo costante}
+\end{enumerate}
+
+{Non possiamo fare altro che modificare le strutture a nostra disposizione, non usiamo strutture ausiliarie.}
+
+{Prendo come radice il nodo foglia $x$ più a destra dell'albero $s$. $\Theta(log(n))$}
+
+{Assegno $x.left$ ad $s$ e $x.right$ ad $r$.}
+
+{Applico la max\_heapify al nuovo nodo radice x. $\Theta(log(n))$}

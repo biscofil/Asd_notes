@@ -1,0 +1,75 @@
+\chapter{NP Completezza}
+
+Analizziamo la complessità ( o  "intrattabilità" ) di problemi:
+
+Un problema $\mathcal{P} \subseteq \underbrace{\mathcal{I} }_\text{Istanze} x  \underbrace{\mathcal{S} }_\text{Soluzioni}$
+
+Tipi di problemi:
+
+\begin{enumerate}
+
+\item Indecidibili: non esiste una soluzione algoritmica
+\item Decidibili
+\begin{enumerate}
+\item Trattabili: quelli analizzati finora, tempo di esecuzione "ragionevole"
+\item Intrattabili
+\end{enumerate}
+
+\end{enumerate}
+
+\subsection{Esempio di algoritmo Indecidibile : Stop di Turing}
+
+\myworries{Manca}
+
+\subsection{Problemi decisionali e di ottimizzazione}
+
+Un problema può essere di tipo decisionale se il tipo di output è booleano. Gli algoritmi studiati fino ad ora rientrano nella categoria dei problemi di ottimizzazione. Ci concentreremo ora sui problemi di tipo decisionale.
+
+\subsection{Classi di complessità}
+
+\subsubsection{Classe P}
+Problemi risolvibili in tempo polinomiale
+
+\begin{equation}
+\{\mathcal{P} | \exists \text{ un algoritmo che risolve } \mathcal{P} \text{ in tempo polinomiale } O(n^k)\}
+\end{equation}
+
+\myworries{Manca schema}
+
+\subsubsection{Classe NP}
+
+\begin{equation}
+\{\mathcal{P} | \exists \text{ un algoritmo di verifica per } \mathcal{P} \text{ di tempo polinomiale } O(n^k) \}
+\end{equation}
+
+\myworries{Manca schema}
+
+\subsubsection{Complemento di un problema}
+
+Il complemento $\mathcal{\overline{P}}$ del problema $\mathcal{P}$ è molto più complesso da calcolare in quanto, per verificarlo, si dovrebbero testare tutte le singole possibilità.
+
+\myworries{Manca schema}
+
+\subsubsection{Riducibilità polinomiale}
+
+$\mathcal{P}_1 \underbrace{\leq_P}_\text{Riducibile polinomialmente} \mathcal{P}_2$ se esiste un algoritmo polinomiale che traforma ciascuna istanza de problema $\mathcal{P}_1$ in un'istanza del problema $\mathcal{P}_2$
+
+\paragraph{Proprietà}
+
+\myworries{Manca}
+
+\subsubsection{Classe NPC - NP Completi}
+
+\begin{equation}
+\{\mathcal{P} | \mathcal{P} \in \text{ NP e } \forall \mathcal{P}' \in \text{ NP }, \mathcal{P}' \leq_P \mathcal{P} \}
+\end{equation}
+
+\myworries{Manca schema Venn}
+
+\subsubsection{Teorema fondamentale dell'NP-Completezza}
+
+\begin{equation}
+P \cap NPC \neq \emptyset \Rightarrow P = NP
+\end{equation}
+
+\paragraph{Dimostrazione}
