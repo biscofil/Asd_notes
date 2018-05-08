@@ -1,5 +1,13 @@
-\documentclass[tikz]{article}
+\documentclass[11pt,a4paper,twoside,openright]{book}
 %\documentclass[tikz,border=10pt]{article}
+
+\usepackage{url,amsfonts,epsfig}
+\usepackage{afterpage}
+\usepackage{amsmath,amssymb}            
+\usepackage{rotating}  
+\usepackage{fancyhdr}  
+
+\usepackage[italian]{babel}
 
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -40,6 +48,7 @@
 \usegdlibrary{trees}
 
 %
+\newcommand\myworries[1]{\textcolor{red}{#1}}
 \usepackage{amssymb}
 \usepackage{pgfgantt}
 
@@ -126,14 +135,14 @@
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
-\usepackage{parskip}
+	\usepackage{parskip}
 }{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{6pt plus 2pt minus 1pt}
 }
+
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{0}
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
@@ -161,11 +170,10 @@
 \maketitle
 \end{titlepage}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \tableofcontents
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\chapter{Modulo 1}
 
 \section{Algoritmi e loro complessità: i numeri di Fibonacci}
 
@@ -246,40 +254,22 @@ T(Fib2)_n =
 
 {$T(Fib2)_n$ è una formula ricorsiva o ricorrenza}
 
-\begin{longtable}[]{@{}ll@{}}
-\toprule
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{n}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-$T_n$\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{1}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{1}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{2}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{1}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{3}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{2 + 1 + 1 = 4}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{4}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{2 + 4 + 1 = 7}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{5}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{2 + 7 + 4 = 13}\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+
+\begin{tabular}{|c|c|}
+\hline 
+$n$ & $T_n$ \\ 
+\hline 
+1 & 1 \\ 
+\hline 
+2 & 1 \\ 
+\hline 
+3 & 2+1+1 = 4 \\ 
+\hline 
+4 & 2+4+1=7 \\ 
+\hline 
+5 & 2 + 7 + 4 = 13 \\ 
+\hline 
+\end{tabular} 
 
 {Risolviamo la ricorrenza per determinare la complessità / bontà della funzione esaminata.}
 
@@ -406,13 +396,81 @@ memoria\ldots{}}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\section{Notazione asintotica: le classi O, Omega, Theta}
+\section{Notazione asintotica: le classi O, \Omega, \Theta}
 
 {{[}DFI{]} 2.2; {[}CLRS{]} 3.1}
 
-\section{Esercizi sulla notazione asintotica. Le classi o,omega}}
+\includegraphics{images/classi_asintotiche.jpg}
+
+Lettura della notazione: \\
+
+$f(n) = \Theta(g(n))$ si legge: $f(n)$ è limitato strettamente da $g(n)$
+
+\paragraph{Proprietà}
+
+\subparagraph{Transitiva}
+
+Se $f(n) = \Theta(g(n))$ e $g(n) = \Theta(h(n))$ allora $f(n) = \Theta(h(n))$ \\
+Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ allora $f(n) = O(h(n))$ \\
+Se $f(n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ allora $f(n) = \Omega(h(n))$ \\
+\\
+Se $f(n) = o(g(n))$ e $g(n) = o(h(n))$ allora $f(n) = o(h(n))$ \\
+Se $f(n) = \omega(g(n))$ e $g(n) = \omega(h(n))$ allora $f(n) = \omega(h(n))$ 
+ 
+
+\subparagraph{Riflessiva}
+
+$f(n) = \Theta(f(n))$ \\
+$f(n) = O(f(n))$ \\
+$f(n) = \Omega(f(n))$ 
+
+\subparagraph{Simmetrica}
+
+$f(n) = \Theta(g(n))$ se e solo se $g(n) = \Theta(f(n))$
+
+\subsection{Limite superiore: Classe O}
+
+O fornisce un limite superiore per la funzione $f(n), \forall n \geq n_0$
+
+\begin{equation}
+O(g(n)) = \{f(n) : \exists c,n_0 > 0 \in \mathbb{N}, 0 \leq f(n) \leq c*g(n), \forall n \geq n_0 \}
+\end{equation}
+
+\subsection{Limite inferiore: Classe \Omega}
+
+\Omega\, fornisce un limite inferiore per la funzione $f(n), \forall n \geq n_0$
+
+\begin{equation}
+O(g(n)) = \{f(n) : \exists c,n_0 > 0 \in \mathbb{N}, 0 \leq c*g(n) \leq f(n), \forall n \geq n_0 \}
+\end{equation}
+
+\subsection{Limite stretto: Classe \Theta}
+
+\Theta\, fornisce un limite stretto per la funzione $f(n), \forall n \geq n_0$
+
+\begin{equation}
+O(g(n)) = \{f(n) : \exists c_1,c_2,n_0 > 0 \in \mathbb{N}, 0 \leq c_1*g(n) \leq f(n) \leq  c_2*g(n), \forall n \geq n_0 \}
+\end{equation}
+
+\section{Esercizi sulla notazione asintotica. Le classi o,\omega}}
 
 {{[}CLRS{]} 3.1}
+
+\subsection{Limite inferiore: Classe o}
+
+La classe o è equivalente alla classe O con limite stretto
+
+\begin{equation}
+O(g(n)) = \{f(n) : \exists c,n_0 > 0 \in \mathbb{N}, 0 \leq f(n) < c*g(n), \forall n \geq n_0 \}
+\end{equation}
+
+\subsection{Limite superiore: Classe \omega}
+
+La classe \omega\, è equivalente alla classe \Omega\, con limite stretto
+
+\begin{equation}
+O(g(n)) = \{f(n) : \exists c,n_0 > 0 \in \mathbb{N}, 0 \leq c*g(n) < f(n), \forall n \geq n_0 \}
+\end{equation}
 
 \section{Divide et impera. Il teorema fondamentale delle ricorrenze (o ``Teorema master'')}
 
@@ -702,7 +760,7 @@ $\forall v \in [1,n]$
 
 \lstinputlisting{code/tree_plcrs_figli.txt}
 
-\section{Algoritmi di visita degli Alberi}
+\subsection{Algoritmi di visita degli Alberi}
 
 {{[}DFI{]} pp. 77-80}
 
@@ -742,7 +800,7 @@ $\forall v \in [1,n]$
 
 {MinHeap: La radice ha valore minore o uguale a quello dei figli}
 
-\subsubsection{Lemma 2}
+\subsection{Lemma 2}
 
 {Nell'array che rappresenta un heap di $n$ elementi, le foglie sono i nodi con indici che vanno alle posizioni}
 
@@ -957,30 +1015,19 @@ $T(n) = T(k) + T(n-k-1) + c = O(n)$
 
 {Fino ad ora abbiamo visto i seguenti algoritmi di ordinamento, tutti basati sul confronto.}
 
-\begin{longtable}[]{@{}ll@{}}
-\toprule
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{MergeSort}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-$\Theta(n\,log(n)))$\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{QuickSort}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{Caso medio : $\Theta(n\,log(n)))$, caso pessimo : $\Theta(n^2)$}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{HeapSort}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-$\Theta(n\,log(n)))$\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-{InsertionSort}\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-$\Theta(n^2)$\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\begin{tabular}{|c|c|}
+\hline 
+Algoritmo & Complessità \\ 
+\hline 
+MergeSort & $\Theta(n\,log(n)))$ \\ 
+\hline 
+QuickSort & Caso medio : $\Theta(n\,log(n)))$, caso pessimo : $\Theta(n^2)$ \\ 
+\hline 
+HeapSort & $\Theta(n\,log(n)))$ \\ 
+\hline 
+InsertionSort & $\Theta(n^2)$ \\ 
+\hline 
+\end{tabular} 
 
 {Ci domandiamo, è possibile infrangere il limite inferiore di $\Theta(n\,log(n))$? Dimostreremo che NON è possibile farlo con algoritmi basati sul confronto.}
 
@@ -1817,7 +1864,9 @@ $h(14,0)=5$
 
 {Notiamo che i costi del concatenamento in nero (indirizzamento aperto) crescono molto più velocemente delle altre due rosse (liste di collisione).}
 
-\section{Mod 2 - Grafi}
+\chapter{Modulo 2}
+
+\section{Grafi}
 
 {Coppia ordinata $G=(V,E)$ formata da due insiemi $V$ (vertici) ed $E$ (archi)}
 
@@ -2789,7 +2838,7 @@ Inoltre $\delta(s,v) \leq d[v]$ (Per il teorema del limite inferiore)
 
 Perciò $d[v]=\delta(s,v)$
 
-\subsection{Proprietà 5 - Sottografo dei predecessori ($G_\pi$)}
+\subsection{Proprietà 5 - Sottografo dei predecessori}
 
 {In un qualsiasi algoritmo, se $\forall u \in V: d[u] = \delta(s,u)$, allora $G_\pi$ è un albero di cammini minimi}
 
@@ -2946,6 +2995,13 @@ r'(u,v) = log(\frac{1}{r(u,v)})
 
 $G=(V,E,w)$ con $w: R \rightarrow \mathbb{R}, w(u,v) >0\,\forall (u,v) \in E$
 
+un ciclo $<X_0,X_1,\ldots,X_q>$ con $X_0 = X_q$
+
+$\prod_{i=1}^q{w(X_{i+1},X_i)} < 1$ se e solo se \\
+$log(\prod_{i=1}^q{w(X_{i+1},X_i)}) < log(1)$ quindi se \\
+$\sum_{i=1}^q{log(w(X_{i+1},X_i))} < 0$
+
+
 
 \subsection{Problema dell'arbitraggio}
 Cerchiamo un ciclo $c = <X_0,\ldots,X_q>$ con $X_0 = X_q$, dove $\prod_{i=1}^q{w(c_{i-1},c_i)} > 1$
@@ -3006,12 +3062,9 @@ Presi $i,j \in V, K \in V$,
 \mathfrak{D}_{ij}^{(k)} = \{p | p \mbox{ è cammino semplice tra } i,j \mbox{ e i vertici intermedi sono }\leq K \}
 \end{equation}
 
-
 \begin{equation}
 d_{ij}^{(k)} = min(w(p))\mbox{, con }p \in \mathfrak{D}_{ij}^{(k)}
 \end{equation}
-
-
 
 \begin{framed}
 \paragraph{Trovare il minimo di un insieme X} \\
@@ -3020,6 +3073,8 @@ Considerato l'insieme $X$ diviso in due partizioni $A,B$,
 min(X) = min(min(A),min(B))
 \end{equation}
 \end{framed}
+
+\myworries{Manca il grafico}
 
 Dividiamo l'insieme degli archi in due partizioni, ovvero quelli che passano per il nodo $K$ e quelli che non lo attraversano.
 
@@ -3185,7 +3240,7 @@ Notiamo che l'algoritmo è molto simile a Krusall. Non a caso infatti, tutti gli
 
 \subsection{Selezione attività}
 
-Consideriamo un insieme di attività, rappresentabili attraverso un diagramma di Gantt.
+Consideriamo un insieme di attività $t_1, t_2, \ldots , t_n$ con $t_i = (s_i, f_i)$ coppia in cui sono specificati i tempi di inizio e fine dell'attività. Esse sono rappresentabili attraverso un diagramma di Gantt.
 
 \input{graphs/gantt.tex}
 
@@ -3199,82 +3254,83 @@ Vorremmo determinare un insieme di attività eseguibili in uno stesso momento, p
 
 Quale funzionerà meglio?
 
+\pagebreak
 \section{NP Completezza}
 
 Analizziamo la complessità ( o  "intrattabilità" ) di problemi:
 
 Un problema $\mathcal{P} \subseteq \underbrace{\mathcal{I} }_\text{Istanze} x  \underbrace{\mathcal{S} }_\text{Soluzioni}$ 
 
-\section{Note}
+Tipi di problemi: 
 
-\protect\hyperlink{cmnt_ref1}{{[}a{]}}{Parte Intera Inferiore}
+\begin{enumerate}
 
-\protect\hyperlink{cmnt_ref2}{{[}b{]}}{?????}
+\item Indecidibili: non esiste una soluzione algoritmica
+\item Decidibili
+\begin{enumerate}
+\item Trattabili: quelli analizzati finora, tempo di esecuzione "ragionevole"
+\item Intrattabili
+\end{enumerate}
 
-\protect\hyperlink{cmnt_ref3}{{[}c{]}}{cammino più lungo verso una
-foglia}
+\end{enumerate}
 
-\protect\hyperlink{cmnt_ref4}{{[}d{]}}{Complessità O(log(n))}
+\subsection{Esempio di algoritmo Indecidibile : Stop di Turing}
 
-\protect\hyperlink{cmnt_ref5}{{[}e{]}}{Parte Intera Inferiore}
+\myworries{Manca}
 
-\protect\hyperlink{cmnt_ref6}{{[}f{]}}{Complessità O(log(n))}
+\subsection{Problemi decisionali e di ottimizzazione}
 
-\protect\hyperlink{cmnt_ref7}{{[}g{]}}{parto da 1 (radice)}
+Un problema può essere di tipo decisionale se il tipo di output è booleano. Gli algoritmi studiati fino ad ora rientrano nella categoria dei problemi di ottimizzazione. Ci concentreremo ora sui problemi di tipo decisionale.
 
-\protect\hyperlink{cmnt_ref8}{{[}h{]}}{invariante}
+\subsection{Classi di complessità}
 
-\protect\hyperlink{cmnt_ref9}{{[}i{]}}{Complessità O(log(n))}
+\subsubsection{Classe P}
+Problemi risolvibili in tempo polinomiale
 
-\protect\hyperlink{cmnt_ref10}{{[}j{]}}{Nell'implementazione reale ci si
-comporta in maniera diversa, usando la parte finale della
-HeapIncreaseKey}
+\begin{equation}
+\{\mathcal{P} | \exists \text{ un algoritmo che risolve } \mathcal{P} \text{ in tempo polinomiale } O(n^k)\}
+\end{equation}
 
-\protect\hyperlink{cmnt_ref11}{{[}k{]}}{Complessità O(log(n))}
+\myworries{Manca schema}
 
-\protect\hyperlink{cmnt_ref12}{{[}l{]}}{Anomalia verso il basso}
+\subsubsection{Classe NP}
 
-{Complessità: O(log(n))}
+\begin{equation}
+\{\mathcal{P} | \exists \text{ un algoritmo di verifica per } \mathcal{P} \text{ di tempo polinomiale } O(n^k) \}
+\end{equation}
 
-\protect\hyperlink{cmnt_ref13}{{[}m{]}}{anomali verso il basso}
+\myworries{Manca schema}
 
-{Complessità : O(log(n))}
+\subsubsection{Complemento di un problema}
 
-\protect\hyperlink{cmnt_ref14}{{[}n{]}}{Aggiunta mia}
+Il complemento $\mathcal{\overline{P}}$ del problema $\mathcal{P}$ è molto più complesso da calcolare in quanto, per verificarlo, si dovrebbero testare tutte le singole possibilità.
 
-\protect\hyperlink{cmnt_ref15}{{[}o{]}}{Che vuol dire???}
+\myworries{Manca schema}
 
-\protect\hyperlink{cmnt_ref16}{{[}p{]}}{per il countingSort}
+\subsubsection{Riducibilità polinomiale}
 
-\protect\hyperlink{cmnt_ref17}{{[}q{]}}{per i problemi della deleted}
+$\mathcal{P}_1 \underbrace{\leq_P}_\text{Riducibile polinomialmente} \mathcal{P}_2$ se esiste un algoritmo polinomiale che traforma ciascuna istanza de problema $\mathcal{P}_1$ in un'istanza del problema $\mathcal{P}_2$
 
-\protect\hyperlink{cmnt_ref18}{{[}r{]}}{manca}
+\paragraph{Proprietà}
 
-\protect\hyperlink{cmnt_ref19}{{[}s{]}}{???}
+\myworries{Manca}
 
-\protect\hyperlink{cmnt_ref20}{{[}t{]}}{Controllare}
+\subsubsection{Classe NPC - NP Completi}
 
-\protect\hyperlink{cmnt_ref21}{{[}u{]}}{Capire la logica}
+\begin{equation}
+\{\mathcal{P} | \mathcal{P} \in \text{ NP e } \forall \mathcal{P}' \in \text{ NP }, \mathcal{P}' \leq_P \mathcal{P} \}
+\end{equation}
 
-\protect\hyperlink{cmnt_ref22}{{[}v{]}}{INCOMPLETA}
+\myworries{Manca schema Venn}
 
-\protect\hyperlink{cmnt_ref23}{{[}w{]}}{Pag 2- 14/3}
+\subsubsection{Teorema fondamentale dell'NP-Completezza}
 
-\protect\hyperlink{cmnt_ref24}{{[}x{]}}{MANCA ROBA}
+\begin{equation}
+P \cap NPC \neq \emptyset \Rightarrow P = NP
+\end{equation}
 
-\protect\hyperlink{cmnt_ref25}{{[}y{]}}{Pag 3 - 14/3}
+\paragraph{Dimostrazione}
 
-\protect\hyperlink{cmnt_ref26}{{[}z{]}}{Perchè il primo termine??}
 
-\protect\hyperlink{cmnt_ref27}{{[}aa{]}}{Eeeh\ldots{}}
-
-\protect\hyperlink{cmnt_ref28}{{[}ab{]}}{MANCA}
-
-\protect\hyperlink{cmnt_ref29}{{[}ac{]}}{Solitamente quando formulata
-così, si procede per assurdo negando la tesi}
-
-\protect\hyperlink{cmnt_ref30}{{[}ad{]}}{22/3/2018}
-
-\protect\hyperlink{cmnt_ref31}{{[}ae{]}}{22/3/2018}
 
 \end{document}
