@@ -1,0 +1,685 @@
+This is LuaTeX, Version 1.0.4 (TeX Live 2017/Debian)  (format=lualatex 2018.4.27)  8 MAY 2018 17:04
+ restricted system commands enabled.
+**np.tex
+(./np.tex
+LaTeX2e <2017-04-15>
+Lua module: luaotfload-main 2017/01/29 2.80001 OpenType layout system.
+Lua module: lualibs 2017-02-01 2.5 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2017-02-01 2.5 ConTeXt Lua libraries -- extended co
+llection.(using write cache: /home/filippo/.texlive2017/texmf-var/luatex-cache/g
+eneric)(using read cache: /var/lib/texmf/luatex-cache/generic /home/filippo/.tex
+live2017/texmf-var/luatex-cache/generic)
+luaotfload | conf : Root cache directory is /home/filippo/.texlive2017/texmf-var
+/luatex-cache/generic/names.
+luaotfload | init : Loading fontloader “fontloader-2017-02-11.lua” from kpse
+-resolved path “/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader
+-2017-02-11.lua”.
+Lua-only attribute luaotfload@state = 1
+Lua-only attribute luaotfload@noligature = 2
+Lua-only attribute luaotfload@syllabe = 3
+luaotfload | init : Context OpenType loader version “3.027”
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 4
+luaotfload | conf : Root cache directory is /home/filippo/.texlive2017/texmf-var
+/luatex-cache/generic/names.
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
+.
+luaotfload | main : initialization completed in 0.109 seconds
+Babel <3.18> and hyphenation patterns for 1 language(s) loaded.
+! Undefined control sequence.
+l.1 \chapter
+          {NP Completezza}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \chapter{N
+            P Completezza}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--2
+[]NP
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 A
+   nalizziamo la complessità ( o  "intrattabilità" ) di problemi:
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 3--4
+[]Analizziamo
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 U
+   n problema $\mathcal{P} \subseteq \underbrace{\mathcal{I} }_\text{Istanze...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 5.
+! Undefined control sequence.
+l.5 ...{P} \subseteq \underbrace{\mathcal{I} }_\text
+                                                  {Istanze} x  \underbrace{\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.5 ...t{Istanze} x  \underbrace{\mathcal{S} }_\text
+                                                  {Soluzioni}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 5--6
+[]Un
+ []
+
+
+Overfull \hbox (18.33331pt too wide) in paragraph at lines 5--6
+\OMS/cmsy/m/n/10 P 
+ []
+
+
+Overfull \hbox (72.30928pt too wide) in paragraph at lines 5--6
+[] \OML/cmm/m/it/10 x []$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 T
+   ipi di problemi:
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 7--8
+[]Tipi
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 \begin{enumerate}
+                   
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 9--9
+[] 
+ []
+
+! Undefined control sequence.
+l.20 \subsection
+              {Esempio di algoritmo Indecidibile : Stop di Turing}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 20--21
+[]Esempio
+ []
+
+! Undefined control sequence.
+l.22 \myworries
+             {Manca}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 22--23
+[]Manca 
+ []
+
+! Undefined control sequence.
+l.24 \subsection
+              {Problemi decisionali e di ottimizzazione}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 24--25
+[]Problemi
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 26--27
+[]Un
+ []
+
+! Undefined control sequence.
+l.28 \subsection
+              {Classi di complessità}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 28--29
+[]Classi
+ []
+
+! Undefined control sequence.
+l.30 \subsubsection
+                 {Classe P}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 30--32
+[]Classe
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 33--33
+[] 
+ []
+
+! Undefined control sequence.
+l.34 \{\mathcal{P} | \exists \text
+                                { un algoritmo che risolve } \mathcal{P} \te...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.34 ...un algoritmo che risolve } \mathcal{P} \text
+                                                  { in tempo polinomiale } O...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+luaotfload | db : Font names database loaded from /home/filippo/.texlive2017/tex
+mf-var/luatex-cache/generic/names/luaotfload-names.luc(load luc: /home/filippo/.
+texlive2017/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc)
+Overfull \hbox (250.76962pt too wide) detected at line 35
+\OMS/cmsy/m/n/10 fPj9[]P[]\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n
+[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g
+ []
+
+! Undefined control sequence.
+l.37 \myworries
+             {Manca schema}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 37--38
+[]Manca
+ []
+
+! Undefined control sequence.
+l.39 \subsubsection
+                 {Classe NP}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 39--40
+[]Classe
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 41--41
+[] 
+ []
+
+! Undefined control sequence.
+l.42 \{\mathcal{P} | \exists \text
+                                { un algoritmo di verifica per } \mathcal{P}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.42 ...lgoritmo di verifica per } \mathcal{P} \text
+                                                  { di tempo polinomiale } O...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (264.66914pt too wide) detected at line 43
+\OMS/cmsy/m/n/10 fPj9[]P[]\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n
+[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g
+ []
+
+! Undefined control sequence.
+l.45 \myworries
+             {Manca schema}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 45--46
+[]Manca
+ []
+
+! Undefined control sequence.
+l.47 \subsubsection
+                 {Complemento di un problema}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 47--48
+[]Complemento
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 49--50
+[]Il
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 49--50
+[]$
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 49--50
+\OMS/cmsy/m/n/10 P$
+ []
+
+! Undefined control sequence.
+l.51 \myworries
+             {Manca schema}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 51--52
+[]Manca
+ []
+
+! Undefined control sequence.
+l.53 \subsubsection
+                 {Riducibilità polinomiale}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 53--54
+[]Riducibilità
+ []
+
+! Undefined control sequence.
+l.55 $\mathcal{P}_1 \underbrace{\leq_P}_\text
+                                           {Riducibile polinomialmente} \mat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (144.9494pt too wide) in paragraph at lines 55--56
+[]$\OMS/cmsy/m/n/10 P[] [] P[]$
+ []
+
+
+Overfull \hbox (11.44171pt too wide) in paragraph at lines 55--56
+\OMS/cmsy/m/n/10 P[]$
+ []
+
+
+Overfull \hbox (11.44171pt too wide) in paragraph at lines 55--56
+\OMS/cmsy/m/n/10 P[]$ 
+ []
+
+! Undefined control sequence.
+l.57 \paragraph
+             {Proprietà}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 57--58
+[]Proprietà 
+ []
+
+! Undefined control sequence.
+l.59 \myworries
+             {Manca}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 59--60
+[]Manca 
+ []
+
+! Undefined control sequence.
+l.61 \subsubsection
+                 {Classe NPC - NP Completi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 61--62
+[]Classe
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 63--63
+[] 
+ []
+
+! Undefined control sequence.
+l.64 \{\mathcal{P} | \mathcal{P} \in \text
+                                        { NP e } \forall \mathcal{P}' \in \t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.64 ...\text{ NP e } \forall \mathcal{P}' \in \text
+                                                  { NP }, \mathcal{P}' \leq_...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (150.24734pt too wide) detected at line 65
+\OMS/cmsy/m/n/10 fPjP 2 []8P[] 2 []\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 P[] [] 
+Pg
+ []
+
+! Undefined control sequence.
+l.67 \myworries
+             {Manca schema Venn}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 67--68
+[]Manca
+ []
+
+! Undefined control sequence.
+l.69 \subsubsection
+                 {Teorema fondamentale dell'NP-Completezza}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 69--70
+[]Teorema
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 71--71
+[] 
+ []
+
+
+Overfull \hbox (111.23715pt too wide) detected at line 73
+\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 NPC \OMS/cmsy/m/n/10 6\O
+T1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ; ) \OML/cmm/m/it/10 P \OT1/cmr/m/n/10 = \OML/
+cmm/m/it/10 NP
+ []
+
+! Undefined control sequence.
+l.75 \paragraph
+             {Dimostrazione}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 75--76
+[]Dimostrazione 
+ []
+
+! Undefined control sequence.
+<recently read> \text 
+      
+l.78 Tesi : $\text
+                {P} = \text{NP}$ \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.78 Tesi : $\text{P} = \text
+                           {NP}$ \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 77--79
+[]Ipotesi
+ []
+
+
+Overfull \hbox (14.47572pt too wide) in paragraph at lines 77--79
+\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 \
+ []
+
+
+Overfull \hbox (35.352pt too wide) in paragraph at lines 77--79
+\OML/cmm/m/it/10 NPC \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 77--79
+\OMS/cmsy/m/n/10 ;$ 
+ []
+
+
+Overfull \hbox (18.36455pt too wide) in paragraph at lines 77--79
+\OML/cmm/m/it/10 P \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (16.934pt too wide) in paragraph at lines 77--79
+[]$ 
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 80--81
+[]Dimostrazione
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 82--82
+[] 
+ []
+
+! Undefined control sequence.
+<recently read> \text 
+      
+l.83 \item $\text
+               {P} \subseteq \text{NP}$, già dimostrata. OK
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.83 \item $\text{P} \subseteq \text
+                                  {NP}$, già dimostrata. OK
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (18.36455pt too wide) in paragraph at lines 83--84
+\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 
+ []
+
+
+Overfull \hbox (16.934pt too wide) in paragraph at lines 83--84
+[]$,
+ []
+
+! Undefined control sequence.
+<recently read> \text 
+      
+l.84 \item $\text
+               {NP} \subseteq \text{P}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.84 \item $\text{NP} \subseteq \text
+                                   {P}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (27.48952pt too wide) in paragraph at lines 84--85
+[] \OMS/cmsy/m/n/10 
+ []
+
+
+Overfull \hbox (7.80904pt too wide) in paragraph at lines 84--85
+\OML/cmm/m/it/10 P$ 
+ []
+
+)
+! Emergency stop.
+<*> np.tex
+       
+*** (job aborted, no legal \end found)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 29 strings out of 494480
+ 100000,89155 words of node,token memory allocated 14349 words of node memory still in use:
+   183 hlist, 7 vlist, 7 rule, 38 local_par, 1 dir, 23 math, 461 glue, 79 kern, 
+104 penalty, 1240 glyph, 144 attribute, 35 glue_spec, 144 attribute_list nodes
+   avail lists: 2:5,3:1,4:34,5:10,7:3,8:52,10:33
+ 4265 multiletter control sequences out of 65536+600000
+ 25 fonts using 1345103 bytes
+ 18i,9n,12p,233b,139s stack positions out of 5000i,500n,10000p,200000b,100000s
+!  ==> Fatal error occurred, no output PDF file produced!

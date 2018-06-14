@@ -179,9 +179,9 @@ $\forall i \in \{0,\ldots,n-1\}, Q(i) = \frac{1}{n}$
 
 {In una tabella hash con $n$ chiavi ed $m$ celle, il fattore di carico è $\alpha = \frac{n}{m}$. Esso è il numero medio di elementi memorizzati in ogni lista.}
 
-\paragraph{Teorema 1}
-
-{In una tabella hash in cui le collisioni sono risolte con il concatenamento, una ricerca senza successo richiede, nel caso medio, un tempo $\Theta(1+\alpha)$, nell'ipotesi di Hashing Uniforme Semplice.}
+\begin{teorema}{Teorema 1}{theoexample}
+In una tabella hash in cui le collisioni sono risolte con il concatenamento, una ricerca senza successo richiede, nel caso medio, un tempo $\Theta(1+\alpha)$, nell'ipotesi di Hashing Uniforme Semplice.
+\end{teorema}
 
 {Intuizione:}
 
@@ -195,14 +195,15 @@ $\forall i \in \{0,\ldots,n-1\}, Q(i) = \frac{1}{n}$
   {Scorro la lista $T[j]$ fino alla fine) : $\Theta(\alpha)$ (in media)}
 \end{itemize}
 
-\paragraph{Teorema 2}
-
-{In una tabella hash in cui le collisioni sono risolte con il concatenamento, una ricerca con successo richiede, nel caso medio,un tempo $\Theta(1+\frac{\alpha}{2}) = \Theta(1+\alpha)$ nell'ipotesi di Hashing Uniforme Semplice.}
-
-{Se il numero di celle della tabella hash è almeno proporzionale al numero di elementi da memorizzare, cioè abbiamo $n=O(m)$, di conseguenza \\ $\alpha=\frac{n}{m} = \frac{O(m)}{m}=\Theta(1)$. (Se alpha è costante) }
-
+\begin{teorema}{Teorema 2}{theoexample}
+In una tabella hash in cui le collisioni sono risolte con il concatenamento, una ricerca con successo richiede, nel caso medio,un tempo $\Theta(1+\frac{\alpha}{2}) = \Theta(1+\alpha)$ nell'ipotesi di Hashing Uniforme Semplice.
+\\
+\\
+Se il numero di celle della tabella hash è almeno proporzionale al numero di elementi da memorizzare, cioè abbiamo $n=O(m)$, di conseguenza \\ $\alpha=\frac{n}{m} = \frac{O(m)}{m}=\Theta(1)$. (Se alpha è costante) 
+\\
+\\
 Tutte le operazioni quindi, mediamente, sono svolte in tempo $\Theta(1)$.
-
+\end{teorema}
 
 \subsubsection{Come si costruiscono le funzioni hash?}
 
@@ -519,9 +520,8 @@ $h(14,0)=5$
 
 \subsubsection{Analisi dell'hashing a indirizzamento aperto}
 
-\subsection{Teorema}
-
-{Nell'ipotesi di}
+\begin{teorema}{ }{theoexample}
+Nell'ipotesi di
 
 \begin{itemize}
 \tightlist
@@ -533,7 +533,8 @@ $h(14,0)=5$
   {$\alpha = \frac{m}{n}$ fattore di carico. Essendo $n \leq m$, $0 \leq \alpha \leq 1$}
 \end{itemize}
 
-{il numero atteso (medio) di ispezioni in una ricerca senza successo è al massimo $\frac{1}{1-\alpha}$.}
+il numero atteso (medio) di ispezioni in una ricerca senza successo è al massimo $\frac{1}{1-\alpha}$.
+\end{teorema}
 
 \subsubsection{Dimostrazione}
 
@@ -570,18 +571,20 @@ $h(14,0)=5$
 
 {L'inserimento richiede una ricerca senza successo, seguita dalla sistemazione della chiave nella prima cella vuota. Quindi, dal teorema, il numero massimo di ispezioni sarà al massimo $\frac{1}{1-\alpha}$.}
 
-\subsection{Teorema}
+\begin{teorema}{ }{theoexample}
+Data una tabella hash ad indirizzamento aperto con $\alpha \leq 1$ e funzione hash che rispetti l'ipotesi di Hash Uniforme, in una ricerca con successo in una tabella le cui chiavi hanno uguale probabilità di essere scelte, il numero atteso di ispezioni è al massimo $\frac{1}{\alpha} * log(\frac{1}{1-\alpha})$.
+\end{teorema}
 
-{Data una tabella hash ad indirizzamento aperto con $\alpha \leq 1$ e funzione hash che rispetti l'ipotesi di Hash Uniforme, in una ricerca con successo in una tabella le cui chiavi hanno uguale probabilità di essere scelte, il numero atteso di ispezioni è al massimo $\frac{1}{\alpha} * log(\frac{1}{1-\alpha})$.}
+\paragraph{Analisi del valore di $\alpha$}
 
-{Analisi del valore di $\alpha$:}
+Se $\alpha=0.5$ (tabella riempita a metà), allora il numero massimo di ispezioni è $1.387$, ovvero con meno di 2 accessi riesco a trovare l'elemento cercato.
 
-{Se $\alpha=0.5$ (tabella riempita a metà), allora il numero massimo di ispezioni è $1.387$, ovvero con meno di 2 accessi riesco a trovare l'elemento cercato.}
-
-{Se $\alpha=0.9$ (tabella riempita al 90\%), allora il numero massimo di ispezioni è $2.255$, ovvero con meno di 3 accessi riesco a trovare l'elemento cercato.}
+Se $\alpha=0.9$ (tabella riempita al 90\%), allora il numero massimo di ispezioni è $2.255$, ovvero con meno di 3 accessi riesco a trovare l'elemento cercato.
 
 \subsection{Confrontro tra metodi di risoluzione delle collisioni}
 
-{\includegraphics{images/image541.png}}
+\begin{figure}[H]
+\includegraphics{graphs/ConfrontoTecnicheHash.pdf}
+\end{figure}
 
-{Notiamo che i costi del concatenamento in nero (indirizzamento aperto) crescono molto più velocemente delle altre due rosse (liste di collisione).}
+{Notiamo che i costi del concatenamento con indirizzamento aperto (giallo e azzurro) crescono molto più velocemente rispetto alle liste di collisione (viola e verde).}

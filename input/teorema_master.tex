@@ -1,3 +1,173 @@
-\chapter{Divide et impera. Il teorema fondamentale delle ricorrenze (o ``Teorema master'')}
+\chapter{Analisi delle ricorrenze}
+
+Diversi metodi:
+
+\begin{itemize}
+\item Metodo dell'iterazione : il più intuitivo
+\item Metodo della sostituzione
+\item Teorema master
+\item Analisi dell'albero di ricorsione
+\item Cambiamenti di variabile
+\end{itemize}
+
+
+\section{Metodo dell'iterazione}
+
+
+\section{Metodo della sostituzione}
+
+
+\section{Il teorema fondamentale delle ricorrenze}
 
 {{[}DFI{]} 2.5; {[}CLRS{]} 4.3}
+
+
+\paragraph{Proprietà 1}
+I sottoproblemi al livello i dell'albero della ricorsione hanno dimensione $\frac{n}{b^i}$
+
+\paragraph{Proprietà 2}
+Il contributo di un nodo a livello $i$ al tempo di esecuzione (escludendo il tempo speso nelle chiamate ricorsive) è $f\left(\frac{n}{b^i}\right)$
+
+\paragraph{Proprietà 3}
+Il numero di livelli nell'albero della ricorsione è $\log_b{n}$
+
+\paragraph{Proprietà 4}
+Il numero di nodi al livello $i$ dell'albero della ricorsione è $a^i$
+
+Combinando queste proprietà possiamo riscrivere la relazione di ricorrenza come:
+
+\begin{equation}
+T(n) = \sum_{i=0}^{\log_b{n}}{a^if\left(\frac{n}{b^i}\right)}
+\end{equation}
+
+La soluzione di questa nuova equazione è data dal teorema fondamentale delle ricorrenze:
+
+\paragraph{Definizione}
+
+Il Teorema Master è un metodo per analizzare algoritmi basati sulla tecnica del dividi et impera in cui
+
+\begin{itemize}
+\item un problema di dimensione $n$ viene diviso in $a$ sottoproblemi di dimensione $\frac{b}{n}$
+\item dividere in sottoproblemi e combinare le soluzioni richiede tempo $f(n)$
+\end{itemize}
+
+\begin{equation}
+T(n) = a * T\left(\frac{n}{b}\right) + f(n)
+\end{equation}
+
+
+\begin{teorema}{}{theoexample}
+
+La relazione di ricorrenza
+\begin{equation}
+T(n) = 
+\begin{cases}
+1							& \mbox{se } n = 1\\ 
+a*T(\frac{n}{b}) + f(n)		& \mbox{se } n > 1
+\end{cases}
+\end{equation}
+
+ha soluzione
+
+\begin{equation}
+T(n) = 
+\begin{cases}
+\Theta(n^{\log_b{a}})			& \mbox{se } f(n) = O(n^{\log_b{a} - \epsilon}) \mbox{ per } \epsilon > 0\\ 
+\Theta(n^{\log_b{a}}*\log{n})			& \mbox{se } f(n) = \Theta(n^{\log_b{a}})  \\ 
+\Theta(f(n))			& \mbox{se } f(n) = \Omega(n^{\log_b{a} + \epsilon})  \mbox{ per } \epsilon > 0, \\ 
+& a*f(\frac{n}{b}) \leq c*f(n), \\ 
+& c < 1, \\
+& n \mbox{ sufficientemente grande}
+\end{cases}
+\end{equation}
+
+\end{teorema}
+
+\subsection{Dimostrazione}
+
+Assunzione: $n = 1, b,b^2,\ldots$ quindi $\frac{n}{b^i}$ sarà sempre intero.
+
+\subsection{Caso 1}
+
+\begin{equation}
+f(n) = O(n^{\log_b{a} - \epsilon}) \mbox{ per } \epsilon > 0
+\end{equation}
+
+Riscriviamo in modo più conveniente il generico termine della sommatoria:
+
+$a^if\left(\frac{n}{b^i}\right)=$
+
+$\textcolor{red}{=O\left(a^i\left(\frac{n}{b^i}\right)^{\log_b{a-\epsilon}}\right)}$
+
+$= O\left(\textcolor{red}{n^{\log_b{a-\epsilon}}\left(\frac{a*b^\epsilon}{b^{\log_b{a}}}\right)^i}\right)$
+
+\begin{equation}
+= O\left(n^{\log_b{a-\epsilon}}\left(\textcolor{red}{b^\epsilon}\right)^i\right)
+\end{equation}
+
+Sostituiamo la complessità all'interno della sommatoria
+
+$T(n) = \sum_{i=0}^{\log_b{n}}{O\left(n^{\log_b{a-\epsilon}}\left(b^\epsilon\right)^i\right)}$
+
+$=O\left(n^{\log_b{a-\epsilon}}\textcolor{red}{\sum_{i=0}^{\log_b{n}}{(b^\epsilon)}^i}\right)$
+
+$=O\left(n^{\log_b{a-\epsilon}}\left(\textcolor{red}{\frac{b^{\epsilon( \log_b{n}+1)}-1}{b^\epsilon-1}}\right)\right)$
+
+$=O\left(n^{\log_b{a-\epsilon}}\left(\frac{\textcolor{red}{b^\epsilon * n^\epsilon} - 1}{b^\epsilon-1}\right)\right)$
+
+$=O\left(n^{\log_b{a-\epsilon}}\textcolor{red}{n^\epsilon}\right)$
+
+\begin{equation}
+= O\left(n^{\textcolor{red}{\log_b{a}}}\right)
+\end{equation}
+
+Analizzando l’equazione 2.2 e considerando solo i tempi di esecuzione relativi ai nodi sull’ultimo livello dell’albero di ricorsione, otteniamo:
+
+$T(n) \geq a^{\log_b{n}} = \textcolor{red}{n}^{\log_b{\textcolor{red}{a}}}$
+
+Perciò 
+
+$T(n) = \Omega(n^{\log_b{a}})$
+
+Essendo $T(n)$ costretta inferiormente da $\Omega$ e superiormente da $O$, otteniamo che
+
+\begin{equation}
+T(n) = \Theta(n^{\log_b{a}})
+\end{equation}
+
+\subsection{Caso 2}
+
+Riscriviamo in modo più conveniente il generico termine della sommatoria:
+
+$a^if\left(\frac{n}{b^i}\right)=$
+
+$\textcolor{red}{=\Theta\left(a^i\left(\frac{n}{b^i}\right)^{\log_b{a}}\right)}$
+
+$=\Theta\left(\textcolor{red}{n^{\log_b{a}} * \left( \frac{a}{b^{\log_b{a}}} \right)^i} \right)$
+
+\begin{equation}
+f(n) = \Theta(n^{\log_b{a}})
+\end{equation}
+
+Sostituiamo la complessità all'interno della sommatoria:
+
+$T(n) = \sum_{i=0}^{\log_b{n}}{\Theta(n^{\log_b{a}})}$
+
+\begin{equation}
+T(n) = \Theta(n^{\log_b{a}}*\log_b{n})
+\end{equation}
+
+\subsection{Caso 3}
+
+\begin{equation}
+f(n) = \Omega(n^{\log_b{a} + \epsilon})  \mbox{ per } \epsilon > 0, \\ 
+a*f(\frac{n}{b}) \leq c*f(n), \\ 
+c < 1, \\
+n \mbox{ sufficientemente grande}
+\end{equation}
+
+\section{Analisi dell'albero di ricorsione}
+
+
+\section{Cambiamenti di variabile}
+

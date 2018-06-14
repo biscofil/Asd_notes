@@ -6,11 +6,15 @@
 
 {MinHeap: La radice ha valore minore o uguale a quello dei figli}
 
-\subsection{Lemma 2}
 
-{Nell'array che rappresenta un heap di $n$ elementi, le foglie sono i nodi con indici che vanno alle posizioni}
+\begin{lemma}{Lemma 2}{theoexample}
+Nell'array che rappresenta un heap di $n$ elementi, le foglie sono i nodi con indici che vanno alle posizioni
 
 $\frac{n}{2}+1,\frac{n}{2}+2,\ldots,n$
+
+\end{lemma}
+
+\paragraph{Esempio:}
 
 \input{graphs/heap_lemma_2.tex}
 
@@ -85,9 +89,9 @@ O(n*\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^h}}}) = O(2n) = O(n)
 
 {INV = Il sottoarray che va dalla posizione $1$ alla posizione $i$ è un maxheap che contiene gli elementi più piccoli del intero vettore di partenza, mentre $A[a+1,\ldots,n]$ contiene gli $n-1$ elementi più grandi di $A[1..n]$ ordinati}{.}
 
-\subsubsection{Teorema}
-
-{L'algoritmo HeapSort ordina in loco $n$ elementi eseguendo nel peggiore dei casi $O(nlog(n))$ confronti in quanto algoritmo basato sui confronti.}
+\begin{teorema}{ }{theoexample}
+L'algoritmo HeapSort ordina in loco $n$ elementi eseguendo nel peggiore dei casi $O(nlog(n))$ confronti in quanto algoritmo basato sui confronti.
+\end{teorema}
 
 \subsection{Code di priorità}
 

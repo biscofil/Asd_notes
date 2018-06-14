@@ -12,9 +12,9 @@ MergeSort & $\Theta(n\,log(n)))$ \\
 \hline
 QuickSort & Caso medio : $\Theta(n\,log(n)))$, caso pessimo : $\Theta(n^2)$ \\
 \hline
-HeapSort & $\Theta(n\,log(n)))$ \\
+HeapSort & $O(n\,log(n)))$ \\
 \hline
-InsertionSort & $\Theta(n^2)$ \\
+InsertionSort & $O(n^2)$ \\
 \hline
 \end{tabular}
 
@@ -71,11 +71,11 @@ determinare il tempo di esecuzione.}
 
 {L'albero ha come minimo $n!$ foglie poichè, per essere corretto, ogni permutazione deve comparire almeno una volta.}
 
-\paragraph{Lemma 2}
+\begin{lemma}{Lemma 2}{theoexample}
+Un albero binario di altezza h ha al più $2^h$ foglie.
+\end{lemma}
 
-{Un albero binario di altezza h ha al più $2^h$ foglie.}
-
-{Dimostrazione per induzione:}
+\paragraph{Dimostrazione per induzione}
 
 \begin{itemize}
 \tightlist
@@ -101,11 +101,12 @@ f=f_L+f_R = 2^{h_L} + 2^{h_R} \leq 2 * 2^{max(h_L,h_R)}
 
 {Quindi il numero delle foglie è compreso tra $n!$ e $2^h$.}
 
-\paragraph{Teorema:}
 
-{Qualsiasi algoritmo di ordinamento per confronti richiede almeno $\Omega(n\,log(n))$ confronti nel caso peggiore.}
+\begin{teorema}{ }{theoexample}
+Qualsiasi algoritmo di ordinamento per confronti richiede almeno $\Omega(n\,log(n))$ confronti nel caso peggiore.
+\end{teorema}
 
-{Dimostrazione:}
+\paragraph{Dimostrazione}
 
 {Bisogna determinare l'altezza di un albero di decisione, dove ogni permutazione appare come foglia. Si consideri un albero di decisione di altezza $h$ con $l$ foglie che corrisponde ad un ordinamento per confronti di $n$ elementi. }
 

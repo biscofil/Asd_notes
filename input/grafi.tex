@@ -313,7 +313,7 @@ $G=(V,E), \overline{G}=(\overline{V},\overline{E})$
 $C = A*B$ \\
 $C_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 
-\subsubsection{Matrice alquadrato}
+\subsubsection{Matrice al quadrato}
 
 
 {Moltiplicando una matrice di adiacenza $A$ per se stessa, tramite il prodotto tra righe e colonne, ottengo una matrice delle stesse dimensioni con le seguenti caratteristiche:}
@@ -330,7 +330,7 @@ $C_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 $A^2 = A*A = (a^{(2)}_{i,j})$ \\
 $a^{(2)}_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 
-{Dimostrazione:}
+\paragraph{Dimostrazione}
 
 {``Sulla diagonale principale ho i gradi dei vertici'' ($i=j$)}
 
@@ -475,3 +475,11 @@ $\overline{G}$\strut
 \end{longtable}
 
 {Il problema di determinare l'esistenza di un'isomorfismo tra due grafi è esoso in termini di tempo. Per evitare il bruteforce di tutte le combinazioni si procede a mappare gli archi con grado analogo.}
+
+\section{Grafi planari}
+
+Un grafo è planare se tutti archi non sono incidenti.
+
+\begin{teorema}{Clique su grafi planari}{theoexample}
+Le clique sui grafi planari hanno $k <= 4$. Con valori maggiori di 4 non è più possibile costruire clique su grafi planari.
+\end{teorema}

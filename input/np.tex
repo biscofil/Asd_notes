@@ -27,6 +27,10 @@ Un problema può essere di tipo decisionale se il tipo di output è booleano. Gl
 
 \subsection{Classi di complessità}
 
+
+\input{graphs/venn_p_np_npc.tex}
+
+
 \subsubsection{Classe P}
 Problemi risolvibili in tempo polinomiale
 
@@ -34,7 +38,7 @@ Problemi risolvibili in tempo polinomiale
 \{\mathcal{P} | \exists \text{ un algoritmo che risolve } \mathcal{P} \text{ in tempo polinomiale } O(n^k)\}
 \end{equation}
 
-\myworries{Manca schema}
+\input{graphs/problema_soluzione.tex}
 
 \subsubsection{Classe NP}
 
@@ -42,13 +46,15 @@ Problemi risolvibili in tempo polinomiale
 \{\mathcal{P} | \exists \text{ un algoritmo di verifica per } \mathcal{P} \text{ di tempo polinomiale } O(n^k) \}
 \end{equation}
 
-\myworries{Manca schema}
+\input{graphs/problema_verifica.tex}
 
 \subsubsection{Complemento di un problema}
 
 Il complemento $\mathcal{\overline{P}}$ del problema $\mathcal{P}$ è molto più complesso da calcolare in quanto, per verificarlo, si dovrebbero testare tutte le singole possibilità.
 
-\myworries{Manca schema}
+\input{graphs/problema_verifica_complemento_pos.tex}\\
+\input{graphs/problema_verifica_complemento_neg.tex}
+
 
 \subsubsection{Riducibilità polinomiale}
 
@@ -68,6 +74,8 @@ $\mathcal{P}_1 \underbrace{\leq_P}_\text{Riducibile polinomialmente} \mathcal{P}
 
 \subsubsection{Teorema fondamentale dell'NP-Completezza}
 
+Se dovesse esistere anche un solo problema NPC con soluzione polinomiale, allora tutte le tre classi di complessità collasserebbero in un'unica classe.
+
 \begin{equation}
 P \cap NPC \neq \emptyset \Rightarrow P = NP
 \end{equation}
@@ -84,4 +92,34 @@ Dimostrazione :
 \item $\text{NP} \subseteq \text{P}$
 \end{enumerate}
 
+
 \myworries{Manca}
+
+
+
+\paragraph{Trasformare la formula in un grafo analogo}
+
+\begin{figure}
+ \centering 
+\input{graphs/3_sat_fnc.tex}
+\end{figure}
+
+Il grafo conterrà una clique di 3 vertici se e solo se la forma normale è soddisfattibile
+
+Combinazioni valide in input $(X_1,X_2,X_3)$: $(1,1,1), (0,0,1)$
+
+
+\section{Come affrontare un problema NPC?}
+
+\begin{itemize}
+\item Risolverlo in maniera esatta (per strutture piccole)
+\item Approssimazione: \\
+Alcune volte è possibile approssimare un problema NPC impostando una tolleranza. Così facendo si può ottenere un problema P (Es: TSP). \\
+\\
+Tuttavia alcuni problemi rimangono NPC nonostante l'approssimazione, ne è esempio il problema delle clique.
+\item Casi speciali: \\
+Es: Clique su grafi planari
+\item Tecniche euristiche
+\end{itemize}
+
+
