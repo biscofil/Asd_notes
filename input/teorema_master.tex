@@ -161,10 +161,35 @@ T(n) = \Theta(n^{\log_b{a}}*\log_b{n})
 
 \begin{equation}
 f(n) = \Omega(n^{\log_b{a} + \epsilon})  \mbox{ per } \epsilon > 0, \\ 
-a*f(\frac{n}{b}) \leq c*f(n), \\ 
-c < 1, \\
+\textcolor{blue}{a*f(\frac{n}{b}) \leq c*f(n), \\ 
+c < 1,} \\
 n \mbox{ sufficientemente grande}
 \end{equation}
+
+Riscriviamo in modo più conveniente il generico termine della sommatoria
+
+$a^i * f\left(\frac{n}{b^i}\right)=$
+
+$=a^{i\textcolor{red}{-1}} \textcolor{red}{* a} * f\left(\textcolor{red}{\frac{\frac{n}{b}^{i-1}}{b}}\right)$
+
+Sotto l’assunzione $\textcolor{blue}{a*f(\frac{n}{b}) \leq c*f(n)}$, risulta facile dimostrare che $a^i * f(n/b^i) \leq c^i * f(n)$ infatti:
+
+$=a^{i-1} * a * f\left(\frac{\frac{n}{b}^{i-1}}{b}\right) \leq a^{i-1} * c * f\left(\frac{n}{b^{i-1}}\right)$
+
+Sostituendo nella sommatoria, la serie geometrica con base $\textcolor{blue}{c < 1}$ e la disuguaglianza appena dimostrata, si può scrivere:
+
+
+$T(n) = \sum_{i=0}^{\log_b{n}}{a^i * f\left(\frac{n}{b^i}\right)}$
+
+$T(n) \leq f(n) *  \sum_{i=0}^{\infty}{c^i}$
+
+$T(n) = f(n) * \frac{1}{1-c}$
+
+\begin{equation}
+T(n) = O(f(n))
+\end{equation}
+
+Dalla relazione 2.2, si ricava immediatamente che $T(n) = \Omega(f(n))$, da cui $T(n) = \Theta(f(n))$.
 
 \section{Analisi dell'albero di ricorsione}
 
