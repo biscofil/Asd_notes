@@ -11,7 +11,7 @@ $w(T) = \sum_{(u,v)\in T}{w(u,v)}$
 {Un albero di copertura }$T${~si dice minimo o ``di peso minimo'' (minimum spanning tree) se $w(T)$ è il minimo rispetto a tutti gli alberi di copertura}
 
 
-\subsection{Teorema fondamentale degli MST}
+\section{Teorema fondamentale degli MST}
 
 \begin{teorema}{Teorema fondamentale degli MST}{mst_theorem}
 {Sia $G=(V,E) [NO]$ connesso con funzione peso $w$.}
@@ -32,8 +32,7 @@ $w(T) = \sum_{(u,v)\in T}{w(u,v)}$
 
 \end{teorema}
 
-
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 
 {$A \subseteq T$ con $T$ MST}
 
@@ -65,7 +64,7 @@ $w(T') \leq w(T)$ {ed essendo }$w(u,v) \leq w(x,y)${~allora $w(T') \leq w(T)$}
 
 {Dobbiamo però dimostrare che $T'$ sia ``sicuro'', e perciò dimostriamo che \\ $A \cup \{(u,v)\} \subseteq T'$}
 
-\subsection{Corollario}
+\paragraph{Corollario}
 
 {Sia $G=(V,E) [NO]$ connesso con funzione peso $w$. Se le tre condizioni}
 
@@ -81,7 +80,7 @@ $w(T') \leq w(T)$ {ed essendo }$w(u,v) \leq w(x,y)${~allora $w(T') \leq w(T)$}
 
 {sono rispettate, allora l'arco $(u,v)$ è sicuro per $A$, ovvero $A \cup \{(u,v)\}$ è contenuto in qualche MST.}
 
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 
 {Se impongo che}
 
@@ -95,7 +94,7 @@ $w(T') \leq w(T)$ {ed essendo }$w(u,v) \leq w(x,y)${~allora $w(T') \leq w(T)$}
 
 {posso utilizzare il teorema fondamentale per la dimostrazione}
 
-\subsection{Corollario}
+\paragraph{Corollario}
 
 {Sia $(u,v)$ un arco di peso minimo in $G$. Allora $(u,v)$ appartiene a qualche MST.}
 
@@ -113,11 +112,11 @@ $w(T') \leq w(T)$ {ed essendo }$w(u,v) \leq w(x,y)${~allora $w(T') \leq w(T)$}
   $(u,v)\notin T$
 \end{enumerate}
 
-\subsection{Corollario}
+\paragraph{Corollario}
 
 {Sia $(u,v)$ un arco di peso minimo in $G$ e supponiamo che sia unico. Allora $(u,v)$ appartiene a tutti gli MST}\textsuperscript{\protect\hyperlink{cmnt29}{{[}ac{]}}}{.}
 
-\subsubsection{Dimostrazione per assurdo}
+\paragraph{Dimostrazione per assurdo}
 
 {Nonostante le ipotesi, esiste {[}almeno{]} un MST senza l'arco in
 questione.}
@@ -130,7 +129,7 @@ questione.}
 
 {Contraddizione}{: essendo T MST, non può esistere un altro albero con peso inferiore.}
 
-\subsection{Esercizio}
+\paragraph{Esercizio}
 
 $G=(V,E) [NO]$ connesso con $w:E \rightarrow \mathbb{R}$
 
@@ -150,13 +149,13 @@ $T': <e'_1,e'_2,\ldots,e'_{n-1}>$ con $e'_{n-1} = (x,y)$
 
 {Soluzione}\textsuperscript{\protect\hyperlink{cmnt30}{{[}ad{]}}}{:}
 
-\subsection{Esercizio}
+\paragraph{Esercizio}
 
 {Dimostrare che, se tutti i pesi del grafo sono distinti, allora esiste un solo MST.}
 
 {Soluzione}\textsuperscript{\protect\hyperlink{cmnt31}{{[}ae{]}}}{:}
 
-\subsubsection{Generazione degli alberi di copertura minima}
+\section{Generazione degli alberi di copertura minima}
 
 \lstinputlisting{code/generic_mst.txt}
 
@@ -178,24 +177,14 @@ $T': <e'_1,e'_2,\ldots,e'_{n-1}>$ con $e'_{n-1} = (x,y)$
 
 \lstinputlisting{code/componenti_connesse.txt}
 
-\subsubsection{Generazione di MST : Kruskal}
-
-$G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
-
-\lstinputlisting{code/kruskal.txt}
-
-{*Per l'analisi delle due find\_set e della union ci viene fornita la complessità ottenuta tramite Heichmann.\\
-}{Complessità}{:}
-
-{$O(mlog(m)+n+mlog(m))$, avendo $m \geq n-1$ archi poichè l'arco è connesso, la complessità è $O(mlog(m))$}
 
 \subsubsection{Simulazione di esecuzione}
 
-\subsubsection{Tramite grafo}
+\paragraph{Tramite grafo}
 
 \input{graphs/simulazione_grafo.tex}
 
-\subsubsection{Tramite tabella}
+\paragraph{Tramite tabella}
 
 \begin{tabular}{|l|l|l|}
 \hline 
@@ -215,7 +204,19 @@ Passo & A & Insiemi disgiunti \\
 \hline 
 \end{tabular} 
 
-\subsubsection{Generazione di MST : Prim}
+\subsection{Generazione di MST : Kruskal}
+
+$G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
+
+\lstinputlisting{code/kruskal.txt}
+
+{*Per l'analisi delle due find\_set e della union ci viene fornita la complessità ottenuta tramite Heichmann.\\
+}{Complessità}{:}
+
+{$O(mlog(m)+n+mlog(m))$, avendo $m \geq n-1$ archi poichè l'arco è connesso, la complessità è $O(mlog(m))$}
+
+
+\subsection{Generazione di MST : Prim}
 
 {A differenza di Kruskal, Prim richiede un vertice di partenza detto ``radice''. Con l'insieme Q si indica l'insieme dei vertici da estrarre.
 $V\setminus Q$ indica quindi l'insieme dei vertici già estratti. $Q$ è una coda di priorità, implementata tramite Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
