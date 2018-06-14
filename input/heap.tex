@@ -28,7 +28,7 @@ Posizione & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
 \hline
 \end{tabular}
 
-\subsubsection{Lemma 3}
+\paragraph{Lemma 3}
 
 {Altezza di un nodo: cammino più lungo verso una foglia}
 
@@ -37,7 +37,7 @@ Posizione & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
 {Ci sono al massimo $\frac{n}{2^{h+1}}$ nodi di altezza $h$ in
 un qualsiasi heap di $n$ elementi}
 
-\subsubsection{Max\_heapify}}}
+\paragraph{Max\_heapify}
 
 {L'operazione max\_heapify permette di mantenere le proprietà di maxheap}
 
@@ -53,7 +53,7 @@ un qualsiasi heap di $n$ elementi}
 
 {Tempo di esecuzione : $O(h)$ dove $h$ è l'altezza del nodi i poichè l'heap ha altezza $log(n)$ (LEMMA 2)}
 
-\subsection{Dato un vettore disordinato, costruire un heap}
+\paragraph{Dato un vettore disordinato, costruire un heap}
 
 \lstinputlisting{code/build_maxheap.txt}
 
@@ -83,7 +83,7 @@ un qualsiasi heap di $n$ elementi}
 O(n*\sum_{h=0}^{log(n)}{\floor*{\frac{h}{2^h}}}) = O(2n) = O(n)
 \end{equation}
 
-\subsection{Heapsort}
+\section{Heapsort}
 
 \lstinputlisting{code/heapsort.txt}
 

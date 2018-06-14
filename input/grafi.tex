@@ -22,50 +22,50 @@ $V = \{1,2,3,\ldots,n\}$
 
 $\forall u \in E \iff (u,u) \notin E$
 
-\subsection{Sottografi}
+\section{Sottografi}
 
 {Sottografo di $G$}
 
 {$G'=(V',E')$ è sottografo di $G$ se $V'\subseteq V$ e $E'\subseteq E$}
 
-\paragraph{Sottografo  indotto}
+\paragraph{Sottografo indotto}
 
 {Dato $V' \subseteq V$, il sottografo indotto da $V'$ di $G$ è $G[V']=(V',E')$, con $E' = E\,\cap\,V\,x\,V'$}
 
 \includegraphics{images/image534.png}
 
-\subsection{Cammini}
+\section{Cammini}
 
 {Un cammino di $G$ è una sequenza $<X_0,X_1,\ldots,X_k>$ dove i vertici appartengono al grafo di partenza.}
 
 $\forall i,0\leq i\leq k,(X_i,X_{i+1})\in E$
 
-\subsubsection{Cammini semplici e cammini non semplici}
+\subsection{Cammini semplici e cammini non semplici}
 
 $<1,2,3,4,5>$ è un cammino semplice\\
 $<1,2,3,1,4,5>$ non è un cammino semplice
 
 {Un cammino è semplice se tutti i vertici sono distinti}
 
-\subsubsection{Lunghezza di un cammino}
+\paragraph{Lunghezza di un cammino}
 
 {La lunghezza di un cammino è il numero dei suoi archi}
 
-\subsubsection{Raggiungibilità dei vertici}
+\paragraph{Raggiungibilità dei vertici}
 
 $u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,\ldots,X_k>$ tale che $X_0 = u$ e $X_k = v$
 
-\subsubsection{Ciclo}
+\paragraph{Ciclo}
 
 {Un ciclo è un cammino dove $X_0 = X_k$}
 
 {Un grafo senza cicli si dice aciclico.}
 
-\subsubsection{{[}NO{]}Grafo connesso}
+\paragraph{{[}NO{]}Grafo connesso}
 
 {Un grado non orientato si dice connesso se $\forall (u,v) | u,v \in V$, esiste un cammino da $u$ a $v$ con $u\neq v$}
 
-\subsubsection{{[}NO{]} Componente connessa}
+\paragraph{{[}NO{]} Componente connessa}
 
 {Dato $G=(V,E)$ e $V' \subseteq V$}
 
@@ -82,23 +82,23 @@ $u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,\ldots,X_k>$ tale
 {Se il numero di componenti connesse di un grafo è uguale a 1, }{il
 grafo è connesso.}
 
-\subsubsection{{[}NO{]}Vertici adiacenti}
+\paragraph{{[}NO{]}Vertici adiacenti}
 
 {Dato $G=(V,E)$ e $u \in V$}
 
 {Il grado di $u$, $deg(u)$ è il numero di vertici adiacenti a $u$}
 
-\subsubsection{Arco incidente}
+\paragraph{Arco incidente}
 
 {Un arco che è collegato ad $v$}
 
-\subsubsection{Vertici isolati e terminali}
+\paragraph{Vertici isolati e terminali}
 
 {Se $deg(u) = 0$ allora $u$ è isolato}
 
 {Se $deg(u) = 1$ allora $u$ è terminale}
 
-\subsubsection{Teorema della stretta di mano (HandShaking Lemma)}
+\section{Teorema della stretta di mano (HandShaking Lemma)}
 
 {{[}NO{]}}
 
@@ -142,8 +142,7 @@ $\abs{D} = 2*(m-\sum_{u \in V}{h(u)})$
 
 {Il numero di vertici con grado dispari è quindi pari}
 
-{Esercizio: }
-
+\paragraph{Esercizio}
 {~~~~~~~~Dimostrare che, dato $G=(V,E)$ non orientato senza vertici isolati (nessuno vertice ha grado 0),}
 
 {~~~~~~~~con $\abs{E} = \abs{V} -1$}
@@ -174,7 +173,7 @@ $2n -2 \geq 2n - \abs{V_1}$
 
 {$\abs{V_1} \geq 2$ OK}
 
-\subsection{Matrice di adiacenza}
+\section{Matrice di adiacenza}
 
 {Dato $G=(V,E)$}
 
@@ -194,7 +193,7 @@ $n=\abs{V},m=\abs{E}$
 
 {Usare le matrici di adiacenza solitamente conviene se ci sono molti archi, altrimenti è meglio utilizzare le liste.}
 
-\subsubsection{Matrice di adiacenza per grafi orientati}
+\paragraph{Matrice di adiacenza per grafi orientati}
 
 \begin{equation}
 A_{i,j} = 
@@ -220,7 +219,7 @@ A_{i,j} =
 \hline 
 \end{tabular} 
 
-\subsubsection{Matrice di adiacenza per grafi non orientati}
+\paragraph{Matrice di adiacenza per grafi non orientati}
 
 \begin{equation}
 A_{i,j} = 
@@ -246,7 +245,7 @@ A_{i,j} =
 \hline 
 \end{tabular} 
 
-\subsection{Liste concatenate}
+\section{Liste concatenate}
 
 {\includegraphics{images/image537.png}}
 
@@ -262,7 +261,7 @@ $n=\abs{V},m=\abs{E}$
 
 $\delta=\frac{m}{n^2}$
 
-{{[}NO{]} Densità}
+\paragraph{{[}NO{]} Densità}
 
 \begin{equation}
 \delta=\frac{numero\,di\,archi}{numero\,di\,possibili\,archi}
@@ -275,11 +274,11 @@ $\delta=\frac{m}{n^2}$
 
 {Grafi densi ($n^2\simeq m$): matrice}
 
-{Proprietà:}
+\paragraph{Proprietà}
 
 {Sia $G$ un grafo NO. Se $G$ è aciclico, allora la cardinalità $\abs{E} \leq \abs{V}-1$}
 
-{Dimostrazione}{~induttiva su $n=\abs{V}$:}
+\paragraph{ Dimostrazione induttiva su $n=\abs{V}$}
 
 {~~~~~~~~Caso base:}
 
@@ -290,15 +289,13 @@ $\delta=\frac{m}{n^2}$
 {~~~~~~~~Passo induttivo $n \geq 3$:}
 
 
+\paragraph{{[}NO{]} Complemento di un grafo}
 
-{{[}NO{]} Complemento di un grafo}
-
-{Il complemento di un grafo è un grafo con gli stessi vertici, i cui
-archi sono complementari:}
+{Il complemento di un grafo è un grafo con gli stessi vertici, i cui archi sono complementari:}
 
 $G=(V,E), \overline{G}=(\overline{V},\overline{E})$
 
-\subsubsection{Grafo autocomplementare}
+\section{Grafo autocomplementare}
 
 {Un grafo è detto autocomplementare se $\overline{G}=G$ ovvero se $\forall(i,j) \in E\,sse\,(i,j) \in \overline{E}$}
 
@@ -370,37 +367,37 @@ $A^n = A *A* A * \ldots * A$ ($n$ volte) $=A^{n-1}*A$
 
 {\includegraphics{images/image538.png}}
 
-\subsection{Esercizio}
+\paragraph{Esercizio}
 
 {Mostrare che $G=(V,E) [NO]$ contiene un triangolo, ovvero un ciclo di lunghezza 3, se e solo se esistono due indici $i,j$ tali che sia la matrice di adiacenza $A$ e la matrice al quadrato $A^2$ hanno un elemento non nullo in posizione $(i,j)$}
 
-\subsection{{[}NO{]} Grafi regolari}
+\section{{[}NO{]} Grafi regolari}
 
 {$G=(V,E)$ si dice k-regolare se tutti i vertici hanno grado $k$. Con $n=\abs{V},m=\abs{E}$}
 
 {\includegraphics{images/image524.png}}
 
-\subsection{Proprietà}
+\paragraph{Proprietà}
 
 {Se $G$ è 2-regolare allora il numero di vertici coincide necessariamente con il numero degli archi. $n=m$}
 
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 
 {Utilizziamo il teorema della stretta di mano}
 
 $2m=\sum_{u\in V}{deg(u)}$\textsuperscript{\protect\hyperlink{cmnt24}{{[}x{]}}\protect\hyperlink{cmnt25}{{[}y{]}}}
 
-\subsection{Esercizio}
+\paragraph{Esercizio}
 
 {Dimostrare che se il grafo $G$ è 3-regolare, allora $n$ è pari. Analogamente, analizzare $G$ 4-regolare. }
 
-\subsection{Isomorfismi di grafi}
+\section{Isomorfismi di grafi}
 
 {Un isomorfismo di grafi è un funzione che mappa un grafo in un secondo dalla stessa forma.}
 
 {Viene fornita la definizione per i grafi non orientati, essa può però essere adattata a grafi orientati.}
 
-\subsection{{[}NO{]} Definizione}
+\paragraph{{[}NO{]} Definizione}
 
 $G_1=(v_1,E_1),G_2(V_2,E_2)$
 
@@ -415,7 +412,7 @@ $G_1=(v_1,E_1),G_2(V_2,E_2)$
   $\forall u,v \in V_1, (u,v) \in E_1 \iff (\Phi(u),\Phi(v)) \in E_2$}
 \end{enumerate}
 
-\subsubsection{Determinare se due grafi sono isomorfi}
+\subsection{Determinare se due grafi sono isomorfi}
 
 {$G_1=(v_1,E_1),G_2(V_2,E_2)$ sono isomorfi se esiste un isomorfismo da $G_1$ a $G_2$ e si indica con $G_1\simeq G_2$}
 

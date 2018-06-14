@@ -87,7 +87,7 @@ T(n) =
 
 Assunzione: $n = 1, b,b^2,\ldots$ quindi $\frac{n}{b^i}$ sarà sempre intero.
 
-\subsection{Caso 1}
+\paragraph{Caso 1}
 
 \begin{equation}
 f(n) = O(n^{\log_b{a} - \epsilon}) \mbox{ per } \epsilon > 0
@@ -135,7 +135,7 @@ Essendo $T(n)$ costretta inferiormente da $\Omega$ e superiormente da $O$, otten
 T(n) = \Theta(n^{\log_b{a}})
 \end{equation}
 
-\subsection{Caso 2}
+\paragraph{Caso 2}
 
 Riscriviamo in modo più conveniente il generico termine della sommatoria:
 
@@ -157,7 +157,7 @@ $T(n) = \sum_{i=0}^{\log_b{n}}{\Theta(n^{\log_b{a}})}$
 T(n) = \Theta(n^{\log_b{a}}*\log_b{n})
 \end{equation}
 
-\subsection{Caso 3}
+\paragraph{Caso 3}
 
 \begin{equation}
 f(n) = \Omega(n^{\log_b{a} + \epsilon})  \mbox{ per } \epsilon > 0, \\ 

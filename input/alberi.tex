@@ -2,7 +2,7 @@
 
 {{[}CLRS{]} pp. 977-979}
 
-\subsection{{[}NO{]}Definizione}
+\paragraph{{[}NO{]}Definizione}
 
 {L'albero è un tipo particolare di grafo connesso, aciclico e non orientato.}
 
@@ -63,7 +63,7 @@ $(n_{i-i},n_i) \in A\,\forall\,1>i>k$
 
 {L'altezza è la massima profondità di un qualsiasi nodo dell'albero.}
 
-\subsection{Alberi binari}
+\section{Alberi binari}
 
 {Gli alberi binari sono definiti in modo ricorsivo:}
 
@@ -119,7 +119,7 @@ $n=K^h \rightarrow log_k(n) = log_k(K^h) \rightarrow log_k(n) = h$
 
 {Dimostrare per induzione che in un albero BINARIO completo non nullo avente $n$ nodi, il numero di foglie è $\frac{n+1}{2}$}
 
-\subsubsection{Tipo di dato ALBERO}
+\subsection{Tipo di dato ALBERO}
 
 {Struttura:}
 
@@ -146,9 +146,9 @@ del nodo N, N appartenente a T}
 
 {}
 
-\subsection{Rappresentazione di alberi tramite array}
+\section{Rappresentazione indicizzata di alberi}
 
-\subsubsection{Utilizzo del vettore padri}
+\subsection{Utilizzo del vettore padri}
 
 {Sia $T=(N,A), N = \{n_1,n_2,\ldots,n_n\}$}
 
@@ -172,7 +172,7 @@ $\forall v \in [1,n]$
 
 \lstinputlisting{code/tree_vecp_figli.txt}
 
-\subsubsection{Utilizzo del vettore posizionale}
+\subsection{Utilizzo del vettore posizionale}
 
 {L'albero deve essere completo e con $k \geq 2$. La ricerca è ottimizzata rispetto all'albero dei padri. Ogni nodo ha una posizione prestabilita.}
 
@@ -200,9 +200,9 @@ $\forall v \in [1,n]$
 
 \lstinputlisting{code/tree_vec_figli.txt}
 
-\subsubsection{Utilizzo di strutture collegate}
+\section{Utilizzo di strutture collegate}
 
-\paragraph{Parent + Childs}
+\subsection{Parent + Childs}
 
 {Ogni nodo è un record con i seguenti campi:}
 
@@ -236,7 +236,7 @@ $\forall v \in [1,n]$
 
 \lstinputlisting{code/tree_pc_figli.txt}
 
-\paragraph{Parent + Left child + Right sibling}
+\subsection{Parent + Left child + Right sibling}
 
 {Ogni nodo è un record con i seguenti campi:}
 
@@ -258,11 +258,11 @@ $\forall v \in [1,n]$
 
 \lstinputlisting{code/tree_plcrs_figli.txt}
 
-\subsection{Algoritmi di visita degli Alberi}
+\section{Algoritmi di visita degli Alberi}
 
 {{[}DFI{]} pp. 77-80}
 
-\subsubsection{Visita generica}
+\subsection{Visita generica}
 
 \lstinputlisting{code/visita_generica.txt}
 
@@ -282,13 +282,13 @@ L'algoritmo di visita, applicato alla radice di un albero con $m$ nodi, termina 
 
 {Poiché ogno nodo compare al più una volta in $S$, lo spazio richiesto non è più alto di $O(n)$}
 
-\subsubsection{Visita DFS - Depth first search - Ricerca in profondità}
+\subsection{Visita DFS - Depth first search - Ricerca in profondità}
 
 {Seguiamo tutti i figli sinistri, andando in profondità fino a che non si raggiunge la prima foglia sinistra. Solo quando il sottoalbero sx è stato completamente visitato, si passa ~a visitare il sottoalbero dx}
 
 \lstinputlisting{code/dfs_visit.txt}
 
-\subsubsection{Visita BFS - Breadth first search - Ricerca in ampiezza}
+\subsection{Visita BFS - Breadth first search - Ricerca in ampiezza}
 
 \paragraph{Proprietà 1}
 
@@ -335,11 +335,11 @@ Se $G$ è un albero, allora $\abs{E} = \abs{V} - 1$ poichè è, per definizione,
   {$G$ è aciclico, ma se un qualunque arco viene aggiunto, allora il grafo risultante è ciclico.}
 \end{enumerate}
 
-\subsection{Alberi di copertura}
+\section{Alberi di copertura}
 
 {Un albero $G=(V,E) [NO]$ connesso si dice di copertura se tutti gli archi in $T \subseteq E$ toccano tutti i vertici di $G$.}
 
-\subsubsection{Taglio di un albero}
+\subsection{Taglio di un albero}
 
 {Un taglio di un albero è una divisione in due parti $(S,V\setminus S)$ dell'insieme dei vertici.}
 
@@ -347,7 +347,7 @@ Se $G$ è un albero, allora $\abs{E} = \abs{V} - 1$ poichè è, per definizione,
 
 {Un taglio rispetta $A \subseteq E$ se non esistono archi di $A$ tagliati. Essi possono essere in una delle due partizioni ma non possono attraversare il taglio.}
 
-\subsubsection{Arco leggero}
+\subsection{Arco leggero}
 
 {Un arco è leggero se ha il peso minore tra gli altri archi attraversanti un taglio.}
 

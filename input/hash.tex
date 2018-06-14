@@ -110,6 +110,8 @@ $k_1 \neq k_2 \in \mathbb{U}, h(k_1) = h(k_2)$
 
 {Se $\abs{K} > m$, ho la certezza di imbattermi in collisioni.}
 
+\section{Risoluzione delle collisioni}
+
 {Cerchiamo quindi strategie per gestire le collisioni, ne analizzeremo due:}
 
 \begin{enumerate}
@@ -126,7 +128,7 @@ $k_1 \neq k_2 \in \mathbb{U}, h(k_1) = h(k_2)$
 
 {La cella $j$ contiene un puntatore alla testa di una lista di tutti gli elementi memorizzati che sono mappati in $j$. Se non ci sono elementi, la cella $j$ conterrà $NULL$.}
 
-\subsubsection{Implementazioni}
+\paragraph{Implementazioni}
 
 {Andiamo ad analizzare l'hashing con concatenamento.}
 
@@ -205,7 +207,7 @@ Se il numero di celle della tabella hash è almeno proporzionale al numero di el
 Tutte le operazioni quindi, mediamente, sono svolte in tempo $\Theta(1)$.
 \end{teorema}
 
-\subsubsection{Come si costruiscono le funzioni hash?}
+\subsection{Come si costruiscono le funzioni hash?}
 
 {Significato di hash: polpetta, tritare.}
 

@@ -14,7 +14,7 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 {$\delta(u,v)=min(w(p))$ minimo dei pesi dove $p$ è il cammino tra $u$ e $v$}
 
-\subsection{Varianti}
+\paragraph{Varianti}
 
 {Esistono quattro diverse varianti di ricerva dei cammini minimi, combinazioni dei due casi si numerosità dei vertici di partenza e di destinazione.}
 
@@ -36,13 +36,13 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 {Solo i casi evidenziati verranno presi in analisi, in quanto gli altri due sono sottoproblemi di essi.}
 
-\subsection{Archi con pesi negativi}
+\paragraph{Archi con pesi negativi}
 
 {Ci domandiamo se sia possibile risolvere il problema degli archi con peso negativo sommando ai pesi di tutti gli archi del grafo $G$ la costante $k$ capace di renderli tutti positivi. Es: $k=-min(w(u,v))\,\forall u,v \in E$}
 
 {NO. Sommare una costante ai pesi degli archi altera eventuali somme di pesi di archi di lunghezza differente in maniera diversa.}
 
-\subsection{Strutture dati per la rappresentazione dei cammini minimi}
+\section{Strutture dati per la rappresentazione dei cammini minimi}
 
 {Per ogni vertice $u \in V$ necessitiamo di due campi:}
 
@@ -54,7 +54,7 @@ $d[u]$ : stima della distanza tra $s$ ed $u$
 $\pi[u]$ : predecessore
 \end{enumerate}
 
-\subsubsection{Sottografo dei predecessori}
+\subsection{Sottografo dei predecessori}
 
 {Dato $G=(V,E,w)$, il sottografo dei predecessori è $G_\pi=(V_\pi,E_\pi)$ dove}
 
@@ -62,7 +62,7 @@ $V_\pi=\{u \in V | \pi[u] \neq NIL\} \cup \{s\}$
 
 $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
-\subsubsection{Albero dei cammini minimi}
+\subsection{Albero dei cammini minimi}
 
 {Dato $G=(V,E,w)$, l'albero dei cammini minimi $G'=(V',E')$ è un sottografo di $G$ dove}
 
@@ -72,7 +72,7 @@ $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
 {$\forall v \in V'$ l'unico cammino tra $s$ e $v$ in $G'$ è un cammino minimo in $G$}
 
-\subsubsection{Procedure di modifica dei due campi}
+\subsection{Procedure di modifica dei due campi}
 
 \paragraph{Init single source}
 
@@ -86,7 +86,7 @@ La relax è una procedura che agiorna i valori  delle distanze dei vertici dall'
 
 \lstinputlisting{code/relax.txt}
 
-\subsubsection{Dijkstra}
+\section{Dijkstra}
 
 \lstinputlisting{code/dijkstra.txt}
 
@@ -140,27 +140,27 @@ La complessità totale è $O(n+n*log(n)+m*log(n))$, il cui termine prevalente $m
 
 \subsection{Correttezza di Dijkstra}
 
-\subsection{Proprietà 1}
+\paragraph{Proprietà 1}
 
 Un sottocammino $p'$ di un cammino minimo $p$, è anch'esso minimo.
 
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 
 Se, per assurdo, suppongo che $p'$ non sia minimo.\\
 Allora deve esistere un terzo cammino $p''$ tra $x$ e $y$ con $w(p'') < w(p')$.\\
 Se così fosse, $p$ non sarebbe minimo.
 
-\subsection{Proprietà}
+\paragraph{Proprietà}
 
 Dato $p$ cammino minimo, \\
 $\delta(s,v)=\delta(s,u)+\delta(u,v)$ \\
 
 
-\subsection{Proprietà 2 - Diseguaglianza triangolare}
+\paragraph{Proprietà 2 - Diseguaglianza triangolare}
 
 $\delta(s,v)\leq \delta(s,u)+w(u,v)$ \\
 
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 
 caso a, $u$ non è raggiungibile da $s$, quindi $\delta(s,u) = +\infty$ \\
 caso b, $u$ è raggiungibile da $s$, allora $\delta(s,u) < +\infty$ \\
@@ -168,9 +168,9 @@ caso b, $u$ è raggiungibile da $s$, allora $\delta(s,u) < +\infty$ \\
 se $p$ è minimo $\delta(s,v)=w(s,u)+w(u,v)$, altrimenti $\delta(s,v)<w(s,u)+w(u,v)$ \\
 
 
-\subsection{Proprietà 3 - Limite inferiore}
+\paragraph{Proprietà 3 - Limite inferiore}
 
-\subsection{Proprietà 4 - Convergenza}
+\paragraph{Proprietà 4 - Convergenza}
 
 {Dopo aver eseguito una Relax quindi avrò:}
 
@@ -184,7 +184,7 @@ Inoltre $\delta(s,v) \leq d[v]$ (Per il teorema del limite inferiore)
 
 Perciò $d[v]=\delta(s,v)$
 
-\subsection{Proprietà 5 - Sottografo dei predecessori}
+\paragraph{Proprietà 5 - Sottografo dei predecessori}
 
 {In un qualsiasi algoritmo, se $\forall u \in V: d[u] = \delta(s,u)$, allora $G_\pi$ è un albero di cammini minimi}
 
@@ -200,13 +200,13 @@ Perciò $d[v]=\delta(s,v)$
 {$G_\pi$ è albero di cammini minimi.}
 \end{itemize}
 
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 
 {Dimostreremo che $\forall u \in V, d[u]=\delta(s,u)$ nel momento in cui il vertice $u$ viene estratto da $Q$.}
 
 {Supponiamo per assurdo che $u\in V$, sia il primo vertice per cui, al momento della sua estrazione, $d[u] \neq \delta(s,u)$}
 
-\paragraph{Osservazione 1:}
+\paragraph{Osservazione 1}
 
 {Non può essere la sorgente poichè $\delta(s,s)=0=d[s]$, quindi $u\neq s$.}
 
@@ -242,7 +242,7 @@ $\delta(s,u) \leq d[u]$ (Per proprietà del limite inferiore)
 Perciò $d[u] \leq d[y] = \delta(s,y) \leq \delta(s,u) \leq d[u]$. \\ Quindi $d[u]= \delta(s,u)$ Assurdo, contraddizione.
 
 
-\subsection{Algoritmo di Bellmann-Ford}
+\section{Algoritmo di Bellmann-Ford}
 
 {L'algoritmo di Dijkstra risulta efficiente ma solo per grafi con archi i cui pesi sono tutti positivi. L'algoritmo di Bellmann-Ford ovvia a tale limitazione richiedendo però elevata potenza computazionale in quanto esso si basa sul brute-force. Rispetto a Dijkstra non sono più necessarie strutture dati e permette di segnalare eventuali cicli negativi.}
 
@@ -270,7 +270,7 @@ Bellmann-Ford & $n^2$ & $n^3$ \\
 
 \paragraph{Correttezza}
 
-\subparagraph{Teorema di Bellmann-Ford}
+\subsection{Teorema di Bellmann-Ford}
 
 Dato un grafo $G=(V,E,w)$,
 

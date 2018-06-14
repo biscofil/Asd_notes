@@ -17,21 +17,19 @@ Tipi di problemi:
 
 \end{enumerate}
 
-\subsection{Esempio di algoritmo Indecidibile : Stop di Turing}
+\paragraph{Esempio di algoritmo Indecidibile : Stop di Turing}
 
 \myworries{Manca}
 
-\subsection{Problemi decisionali e di ottimizzazione}
+\section{Problemi decisionali e di ottimizzazione}
 
 Un problema può essere di tipo decisionale se il tipo di output è booleano. Gli algoritmi studiati fino ad ora rientrano nella categoria dei problemi di ottimizzazione. Ci concentreremo ora sui problemi di tipo decisionale.
 
-\subsection{Classi di complessità}
-
+\section{Classi di complessità}
 
 \input{graphs/venn_p_np_npc.tex}
 
-
-\subsubsection{Classe P}
+\subsection{Classe P}
 Problemi risolvibili in tempo polinomiale
 
 \begin{equation}
@@ -40,7 +38,7 @@ Problemi risolvibili in tempo polinomiale
 
 \input{graphs/problema_soluzione.tex}
 
-\subsubsection{Classe NP}
+\subsection{Classe NP}
 
 \begin{equation}
 \{\mathcal{P} | \exists \text{ un algoritmo di verifica per } \mathcal{P} \text{ di tempo polinomiale } O(n^k) \}
@@ -48,15 +46,14 @@ Problemi risolvibili in tempo polinomiale
 
 \input{graphs/problema_verifica.tex}
 
-\subsubsection{Complemento di un problema}
+\subsection{Complemento di un problema}
 
 Il complemento $\mathcal{\overline{P}}$ del problema $\mathcal{P}$ è molto più complesso da calcolare in quanto, per verificarlo, si dovrebbero testare tutte le singole possibilità.
 
 \input{graphs/problema_verifica_complemento_pos.tex}\\
 \input{graphs/problema_verifica_complemento_neg.tex}
 
-
-\subsubsection{Riducibilità polinomiale}
+\subsection{Riducibilità polinomiale}
 
 $\mathcal{P}_1 \underbrace{\leq_P}_\text{Riducibile polinomialmente} \mathcal{P}_2$ se esiste un algoritmo polinomiale che traforma ciascuna istanza de problema $\mathcal{P}_1$ in un'istanza del problema $\mathcal{P}_2$
 
@@ -64,7 +61,7 @@ $\mathcal{P}_1 \underbrace{\leq_P}_\text{Riducibile polinomialmente} \mathcal{P}
 
 \myworries{Manca}
 
-\subsubsection{Classe NPC - NP Completi}
+\subsection{Classe NPC - NP Completi}
 
 \begin{equation}
 \{\mathcal{P} | \mathcal{P} \in \text{ NP e } \forall \mathcal{P}' \in \text{ NP }, \mathcal{P}' \leq_P \mathcal{P} \}
@@ -109,7 +106,7 @@ Il grafo conterrà una clique di 3 vertici se e solo se la forma normale è sodd
 Combinazioni valide in input $(X_1,X_2,X_3)$: $(1,1,1), (0,0,1)$
 
 
-\section{Come affrontare un problema NPC?}
+\subsubsection{Come affrontare un problema NPC?}
 
 \begin{itemize}
 \item Risolverlo in maniera esatta (per strutture piccole)
