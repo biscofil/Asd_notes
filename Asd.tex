@@ -78,11 +78,21 @@
 \usepackage{amssymb}
 \usepackage{pgfgantt}
 
+\usepackage{lscape}
+
+\usepackage{makecell}
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+
 %code
 \input{settings/code.tex}
 
 %style
 \input{settings/style.tex}
+
 
 \title{Appunti di Algoritmi e Strutture Dati}
 \author{Filippo Bisconcin}
@@ -118,7 +128,7 @@
 
 \input{input/notazione_asintotica.tex}
 
-\input{input/teorema_master.tex}
+\input{input/analisi_ricorrenze.tex}
 
 \input{input/liste.tex}
 
@@ -141,6 +151,8 @@
 \input{input/greedy.tex}
 
 \input{input/np.tex}
+
+\input{input/riassunto.tex}
 
 \backmatter
 

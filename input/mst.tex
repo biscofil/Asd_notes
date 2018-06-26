@@ -87,7 +87,7 @@ $w(T') \leq w(T)$ {ed essendo }$w(u,v) \leq w(x,y)${~allora $w(T') \leq w(T)$}
 \begin{itemize}
 \tightlist
 \item
-  {Il taglio dell'ipotesi 2 sia $(C,V\setminus C)$, in modo da isolare la componente connessa}
+  {Il taglio dell'ipotesi 2 sia $(C,V \setminus C)$, in modo da isolare la componente connessa}
 \item
   {MANCA}\textsuperscript{\protect\hyperlink{cmnt28}{{[}ab{]}}}
 \end{itemize}
@@ -178,6 +178,18 @@ $T': <e'_1,e'_2,\ldots,e'_{n-1}>$ con $e'_{n-1} = (x,y)$
 \lstinputlisting{code/componenti_connesse.txt}
 
 
+\subsection{Generazione di MST : Kruskal}
+
+$G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
+
+\lstinputlisting{code/kruskal.txt}
+
+{*Per l'analisi delle due find\_set e della union ci viene fornita la complessità ottenuta tramite Heichmann.\\
+}{Complessità}{:}
+
+{$O(m \log(m)+n+m \log(m))$, avendo $m \geq n-1$ archi poichè il grafo è connesso, la complessità è $O(m \log(m))$}
+
+
 \subsubsection{Simulazione di esecuzione}
 
 \paragraph{Tramite grafo}
@@ -204,29 +216,17 @@ Passo & A & Insiemi disgiunti \\
 \hline 
 \end{tabular} 
 
-\subsection{Generazione di MST : Kruskal}
-
-$G=(V,E)$ connesso, $n=\abs{V},m=\abs{E}$
-
-\lstinputlisting{code/kruskal.txt}
-
-{*Per l'analisi delle due find\_set e della union ci viene fornita la complessità ottenuta tramite Heichmann.\\
-}{Complessità}{:}
-
-{$O(mlog(m)+n+mlog(m))$, avendo $m \geq n-1$ archi poichè l'arco è connesso, la complessità è $O(mlog(m))$}
-
-
 \subsection{Generazione di MST : Prim}
 
 {A differenza di Kruskal, Prim richiede un vertice di partenza detto ``radice''. Con l'insieme Q si indica l'insieme dei vertici da estrarre.
-$V\setminus Q$ indica quindi l'insieme dei vertici già estratti. $Q$ è una coda di priorità, implementata tramite Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
+$V \setminus Q$ indica quindi l'insieme dei vertici già estratti. $Q$ è una coda di priorità, implementata tramite Heap Binario, i cui elementi hanno le seguenti caratteristiche:}
 
 \begin{itemize}
 \tightlist
 \item
   Predecessore: $\pi[u]$
 \item
-Chiave: $Key[u]$ valore dell'arco incidente che attraversa il taglio $(Q,Vsetminus Q)$ con peso minore. Si utilizza il valore infinito positivo per indicare l'eventuale assenza di archi.
+Chiave: $Key[u]$ valore dell'arco incidente che attraversa il taglio $(Q,V \setminus Q)$ con peso minore. Si utilizza il valore infinito positivo per indicare l'eventuale assenza di archi.
 \end{itemize}
 
 \lstinputlisting{code/prim.txt}

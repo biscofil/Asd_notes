@@ -1,6 +1,6 @@
 \chapter{Cammini minimi}
 
-{Solitamente si sottointende l'utilizzo su grafi orientati, in caso di grafi non orientati, ogni arco può essere sostituito da una coppia di archi inversamente orientati.}
+{Solitamente si sottintende l'utilizzo su grafi orientati, in caso di grafi non orientati, ogni arco può essere sostituito da una coppia di archi inversamente orientati.}
 
 $G=(V,E,w)$ orientato, $w:E\rightarrow \mathbb{R}$
 
@@ -16,11 +16,10 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 \paragraph{Varianti}
 
-{Esistono quattro diverse varianti di ricerva dei cammini minimi, combinazioni dei due casi si numerosità dei vertici di partenza e di destinazione.}
+{Esistono quattro diverse varianti di ricerca dei cammini minimi, combinazioni dei due casi di numerosità dei vertici di partenza e di destinazione.}
 
 \begin{table}[]
 \centering
-\caption{My caption}
 \begin{tabular}{ll|l|l|}
 \cline{3-4}
                                                  &                               & \multicolumn{2}{c|}{Destinazione}                            \\ \cline{3-4}
@@ -42,7 +41,9 @@ $w(p)=\sum_{i=1}^{q} w(x_{i-1},x_i)$ è la funzione ``peso'' di un cammino $p$.
 
 {NO. Sommare una costante ai pesi degli archi altera eventuali somme di pesi di archi di lunghezza differente in maniera diversa.}
 
-\section{Strutture dati per la rappresentazione dei cammini minimi}
+\section{Cammini minimi con sorgente singola}
+
+\subsection{Strutture dati per la rappresentazione dei cammini minimi}
 
 {Per ogni vertice $u \in V$ necessitiamo di due campi:}
 
@@ -58,15 +59,15 @@ $\pi[u]$ : predecessore
 
 {Dato $G=(V,E,w)$, il sottografo dei predecessori è $G_\pi=(V_\pi,E_\pi)$ dove}
 
-$V_\pi=\{u \in V | \pi[u] \neq NIL\} \cup \{s\}$
+$V_\pi=\{u \in V | \pi[u] \neq NIL\} \cup \{s\}$ : Lista dei vertici già estratti
 
-$E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
+$E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$ : Lista degli archi tra i vertici già estratti
 
 \subsection{Albero dei cammini minimi}
 
 {Dato $G=(V,E,w)$, l'albero dei cammini minimi $G'=(V',E')$ è un sottografo di $G$ dove}
 
-{$V'$ : tutti gli archi ragiungibili dal vertice sorgente}
+{$V'$ : tutti gli archi raggiungibili dal vertice sorgente}
 
 {$G'$ : forma un albero radicato in $s$}
 
@@ -80,13 +81,13 @@ $E_\pi=\{(\pi[u],u) \in E | u \in V_{\pi} \setminus \{s\}\}$
 
 \paragraph{Relax}
 
-La relax è una procedura che agiorna i valori  delle distanze dei vertici dall'origine.
+La relax è una procedura che aggiorna i valori  delle distanze dei vertici dall'origine.
 
 \input{graphs/relax.tex}
 
 \lstinputlisting{code/relax.txt}
 
-\section{Dijkstra}
+\subsection{Dijkstra}
 
 \lstinputlisting{code/dijkstra.txt}
 
@@ -138,7 +139,7 @@ La complessità totale è $O(n+n*log(n)+m*log(n))$, il cui termine prevalente $m
 \end{tabular}
 \end{table}
 
-\subsection{Correttezza di Dijkstra}
+\subsubsection{Correttezza di Dijkstra}
 
 \paragraph{Proprietà 1}
 
@@ -188,7 +189,7 @@ Perciò $d[v]=\delta(s,v)$
 
 {In un qualsiasi algoritmo, se $\forall u \in V: d[u] = \delta(s,u)$, allora $G_\pi$ è un albero di cammini minimi}
 
-\subsection{Teorema di Dijkstra}
+\subsubsection{Teorema di Dijkstra}
 
 {Dato $G=(V,E,w)$ orientato con $w:E\rightarrow \mathbb{R}$ non negativa ($w(u,v) \geq 0 \forall (u,v) \in E$) e $s$ sorgente. Allora alla fine dell'esecuzione dell'algoritmo di Dijkstra si avrà:}
 
@@ -242,7 +243,7 @@ $\delta(s,u) \leq d[u]$ (Per proprietà del limite inferiore)
 Perciò $d[u] \leq d[y] = \delta(s,y) \leq \delta(s,u) \leq d[u]$. \\ Quindi $d[u]= \delta(s,u)$ Assurdo, contraddizione.
 
 
-\section{Algoritmo di Bellmann-Ford}
+\subsection{Algoritmo di Bellmann-Ford}
 
 {L'algoritmo di Dijkstra risulta efficiente ma solo per grafi con archi i cui pesi sono tutti positivi. L'algoritmo di Bellmann-Ford ovvia a tale limitazione richiedendo però elevata potenza computazionale in quanto esso si basa sul brute-force. Rispetto a Dijkstra non sono più necessarie strutture dati e permette di segnalare eventuali cicli negativi.}
 
@@ -270,7 +271,7 @@ Bellmann-Ford & $n^2$ & $n^3$ \\
 
 \paragraph{Correttezza}
 
-\subsection{Teorema di Bellmann-Ford}
+\subsubsection{Teorema di Bellmann-Ford}
 
 Dato un grafo $G=(V,E,w)$,
 
@@ -280,7 +281,7 @@ Nel caso A in cui $G$ non contenga cicli negativi raggiungibili dalla sorgente\\
 (A3) L'algoritmo ritorna $TRUE$
 
 Nel caso B in cui $G$ contenga cicli negativi raggiungibili: \\
-(B1) L'algoritmo restiruisce $FALSE$
+(B1) L'algoritmo restituisce $FALSE$
 
 \subparagraph{Dimostrazione}
 
@@ -327,7 +328,7 @@ Si vuole rappresentare, tramite un grafo $G$, una rete di canali di comunicazion
 Ricordiamo che la probabilità che due eventi indipendenti si verifichino è $P(A) * P(B)$ che, applicata al cammino, diventa $\alpha(p) = \prod_{i=1}^{q}{r(X_{i-1},X_i)}$. Ricordiamo inoltre la proprietà dei logaritmi $log(a*b) = log(a) + log(b)$, comodo modo di utilizzare le tecniche già studiate di somma dei pesi degli archi.
 
 
-che è equivalente a massimizare \\
+che è equivalente a massimizzare \\
 $\sum_{i=1}^q{log(r(X_{i-1},X_i))}$
 che è a sua volta equivalente a minimizzare \\
 $-\sum_{i=1}^q{log(r(X_{i-1},X_i))} = \sum_{i=1}^q{-log(r(X_{i-1},X_i))}$ \\
@@ -349,18 +350,19 @@ $\sum_{i=1}^q{log(w(X_{i+1},X_i))} < 0$
 
 
 
-\subsection{Problema dell'arbitraggio}
+\section{Problema dell'arbitraggio}
 Cerchiamo un ciclo $c = <X_0,\ldots,X_q>$ con $X_0 = X_q$, dove $\prod_{i=1}^q{w(c_{i-1},c_i)} > 1$
 
 Passando al logaritmo, $log(\prod_{i=1}^q{w(c_{i-1},c_i)}) > 0$ \\
 $-log(\prod_{i=1}^q{w(c_{i-1},c_i)}) < 0$ \\
 Otteniamo $\sum_{i=1}^q{log(\frac{1}{w(c_{i-1},c_i)})} < 0$, a cui posso applicare Bellmann-Ford.
 
-\subsection{Cammini minimi tra tutte le coppie di vertici}
+\section{Cammini minimi tra tutte le coppie di vertici}
+
+\subsection{All Pairs Dijkstra}
 
 Dato $G=(V,E,w), w: E \rightarrow \mathbb{R}$
 $\forall u,v \in V$, cerco $\delta(u,v)$, calcolo della distanza
-
 
 \lstinputlisting{code/all_pairs_dijkstra.txt}
 
@@ -438,10 +440,7 @@ $d_{ij}^{(k)} = min(w(p)), p \in \mathfrak{D}_{ij}^{(k)}$ \\
 $d_{ij}^{(k)} = min(p=\mathfrak{D}_{ij}^{(k-1)} \cup \hat{\mathfrak{D}_{ij}^{(k)}} )$ \\
 $d_{ij}^{(k)} = min(min(p \in \mathfrak{D}_{ij}^{(k-1)}), min(p \in \hat{\mathfrak{D}_{ij}^{(k)}} ))$ \\
 
-
 $d_{ij}^{(k)} = min(d_{ij}^{(k-1)}, d_{ik}^{(k-1)} + d_{kj}^{(k-1)} )$ \\
-
-
 
 \input{graphs/floyd_warshall.tex}
 
@@ -455,14 +454,10 @@ $\mathfrak{C}_{27}^{(4)} = \{<2,1,4,3,7>\}$ (Cammino minimo e unico)\\
 $\mathfrak{C}_{27}^{(5)} = \{<2,1,4,3,7>,\, <2,5,3,7>\}$ \\
 Quindi $\mathfrak{C}_{ij}^{(n)} = \mathfrak{D}$ \\
 
-
 \paragraph{Codice}
-
-
 
 \lstinputlisting{code/floyd_warshall.txt}
 Complessità : $\Theta(n^3)$
-
 
 \[
 W = D^0 =
@@ -515,7 +510,6 @@ d_{ii}^{(k)} = min( \underbrace{d_{ii}^{(k-1)}}_\text{nullo per ipotesi} ,  \und
 L'equazione risulta nulla poichè il primo termine $d_{ii}^{(k-1)}$ è nullo per ipotesi.
 Il secondo termine non può essere negativo in quanto non ho cicli negativi.
 
-
 \subparagraph{Osservazione B}
 
 $\forall k = 1\ldots n,i,j \in V$
@@ -523,7 +517,6 @@ $\forall k = 1\ldots n,i,j \in V$
 \[
 \begin{cases} d_{ik}^{(k)} = d_{ik}^{(k-1)} \mbox{ Stessa colonna} \\ d_{kj}^{(k)} = d_{kj}^{(k-1)} \mbox{ Stessa riga} \end{cases}
 \]
-
 
 \subparagraph{Dimostrazione}
 
@@ -535,7 +528,6 @@ La stessa dimostrazione può essere applicata alla seconda equazione.
 
 \subparagraph{Altre osservazioni}
 Abbiamo notato che in caso appaia il valore \infty in una riga o in una colonna evidenziata, il valore delle altre celle non cambierà.
-
 
 \subparagraph{Ottimizzazione}
 

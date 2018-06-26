@@ -36,7 +36,7 @@ Il numero di nodi al livello $i$ dell'albero della ricorsione è $a^i$
 
 Combinando queste proprietà possiamo riscrivere la relazione di ricorrenza come:
 
-\begin{equation}
+\begin{equation} \label{eq:recursion_tree_sum}
 T(n) = \sum_{i=0}^{\log_b{n}}{a^if\left(\frac{n}{b^i}\right)}
 \end{equation}
 
@@ -47,7 +47,7 @@ La soluzione di questa nuova equazione è data dal teorema fondamentale delle ri
 Il Teorema Master è un metodo per analizzare algoritmi basati sulla tecnica del dividi et impera in cui
 
 \begin{itemize}
-\item un problema di dimensione $n$ viene diviso in $a$ sottoproblemi di dimensione $\frac{b}{n}$
+\item un problema di dimensione $n$ viene diviso in $a$ sottoproblemi di dimensione $\frac{n}{b}$
 \item dividere in sottoproblemi e combinare le soluzioni richiede tempo $f(n)$
 \end{itemize}
 
@@ -56,7 +56,7 @@ T(n) = a * T\left(\frac{n}{b}\right) + f(n)
 \end{equation}
 
 
-\begin{teorema}{}{theoexample}
+\begin{teorema}{}{mastertheorem}
 
 La relazione di ricorrenza
 \begin{equation}
@@ -72,9 +72,9 @@ ha soluzione
 \begin{equation}
 T(n) = 
 \begin{cases}
-\Theta(n^{\log_b{a}})			& \mbox{se } f(n) = O(n^{\log_b{a} - \epsilon}) \mbox{ per } \epsilon > 0\\ 
+\Theta(n^{\log_b{a}})			& \mbox{se } f(n) = O(n^{\log_b{(a)} - \epsilon}) \mbox{ per } \epsilon > 0\\ 
 \Theta(n^{\log_b{a}}*\log{n})			& \mbox{se } f(n) = \Theta(n^{\log_b{a}})  \\ 
-\Theta(f(n))			& \mbox{se } f(n) = \Omega(n^{\log_b{a} + \epsilon})  \mbox{ per } \epsilon > 0, \\ 
+\Theta(f(n))			& \mbox{se } f(n) = \Omega(n^{\log_b{(a)} + \epsilon})  \mbox{ per } \epsilon > 0, \\ 
 & a*f(\frac{n}{b}) \leq c*f(n), \\ 
 & c < 1, \\
 & n \mbox{ sufficientemente grande}
@@ -93,19 +93,19 @@ Assunzione: $n = 1, b,b^2,\ldots$ quindi $\frac{n}{b^i}$ sarà sempre intero.
 f(n) = O(n^{\log_b{a} - \epsilon}) \mbox{ per } \epsilon > 0
 \end{equation}
 
-Riscriviamo in modo più conveniente il generico termine della sommatoria:
+Riscriviamo in modo più conveniente il generico termine della sommatoria \ref{eq:recursion_tree_sum}:
 
 $a^if\left(\frac{n}{b^i}\right)=$
 
-$\textcolor{red}{=O\left(a^i\left(\frac{n}{b^i}\right)^{\log_b{a-\epsilon}}\right)}$
+$\textcolor{red}{=O\left(a^i\left(\frac{n}{b^i}\right)^{\log_b{a}-\epsilon}\right)}$
 
-$= O\left(\textcolor{red}{n^{\log_b{a-\epsilon}}\left(\frac{a*b^\epsilon}{b^{\log_b{a}}}\right)^i}\right)$
+$= O\left(\textcolor{red}{n^{\log_b{a}-\epsilon}\left(\frac{a*b^\epsilon}{b^{\log_b{a}}}\right)^i}\right)$
 
 \begin{equation}
-= O\left(n^{\log_b{a-\epsilon}}\left(\textcolor{red}{b^\epsilon}\right)^i\right)
+= O\left(n^{\log_b{a}-\epsilon}\left(\textcolor{red}{b^\epsilon}\right)^i\right)
 \end{equation}
 
-Sostituiamo la complessità all'interno della sommatoria
+Sostituiamo la complessità all'interno della sommatoria \ref{eq:recursion_tree_sum}:
 
 $T(n) = \sum_{i=0}^{\log_b{n}}{O\left(n^{\log_b{a-\epsilon}}\left(b^\epsilon\right)^i\right)}$
 
@@ -121,7 +121,7 @@ $=O\left(n^{\log_b{a-\epsilon}}\textcolor{red}{n^\epsilon}\right)$
 = O\left(n^{\textcolor{red}{\log_b{a}}}\right)
 \end{equation}
 
-Analizzando l’equazione 2.2 e considerando solo i tempi di esecuzione relativi ai nodi sull’ultimo livello dell’albero di ricorsione, otteniamo:
+Analizzando l'equazione 2.2 e considerando solo i tempi di esecuzione relativi ai nodi sull'ultimo livello dell'albero di ricorsione, otteniamo:
 
 $T(n) \geq a^{\log_b{n}} = \textcolor{red}{n}^{\log_b{\textcolor{red}{a}}}$
 
@@ -137,7 +137,7 @@ T(n) = \Theta(n^{\log_b{a}})
 
 \paragraph{Caso 2}
 
-Riscriviamo in modo più conveniente il generico termine della sommatoria:
+Riscriviamo in modo più conveniente il generico termine della sommatoria \ref{eq:recursion_tree_sum}:
 
 $a^if\left(\frac{n}{b^i}\right)=$
 
@@ -149,7 +149,7 @@ $=\Theta\left(\textcolor{red}{n^{\log_b{a}} * \left( \frac{a}{b^{\log_b{a}}} \ri
 f(n) = \Theta(n^{\log_b{a}})
 \end{equation}
 
-Sostituiamo la complessità all'interno della sommatoria:
+Sostituiamo la complessità all'interno della sommatoria \ref{eq:recursion_tree_sum}:
 
 $T(n) = \sum_{i=0}^{\log_b{n}}{\Theta(n^{\log_b{a}})}$
 
@@ -166,18 +166,17 @@ c < 1,} \\
 n \mbox{ sufficientemente grande}
 \end{equation}
 
-Riscriviamo in modo più conveniente il generico termine della sommatoria
+Riscriviamo in modo più conveniente il generico termine della sommatoria \ref{eq:recursion_tree_sum}:
 
 $a^i * f\left(\frac{n}{b^i}\right)=$
 
 $=a^{i\textcolor{red}{-1}} \textcolor{red}{* a} * f\left(\textcolor{red}{\frac{\frac{n}{b}^{i-1}}{b}}\right)$
 
-Sotto l’assunzione $\textcolor{blue}{a*f(\frac{n}{b}) \leq c*f(n)}$, risulta facile dimostrare che $a^i * f(n/b^i) \leq c^i * f(n)$ infatti:
+Sotto l'assunzione $\textcolor{blue}{a*f(\frac{n}{b}) \leq c*f(n)}$, risulta facile dimostrare che $a^i * f(n/b^i) \leq c^i * f(n)$ infatti:
 
 $=a^{i-1} * a * f\left(\frac{\frac{n}{b}^{i-1}}{b}\right) \leq a^{i-1} * c * f\left(\frac{n}{b^{i-1}}\right)$
 
-Sostituendo nella sommatoria, la serie geometrica con base $\textcolor{blue}{c < 1}$ e la disuguaglianza appena dimostrata, si può scrivere:
-
+Sostituendo nella sommatoria \ref{eq:recursion_tree_sum}, la serie geometrica con base $\textcolor{blue}{c < 1}$ e la disuguaglianza appena dimostrata, si può scrivere:
 
 $T(n) = \sum_{i=0}^{\log_b{n}}{a^i * f\left(\frac{n}{b^i}\right)}$
 
@@ -193,6 +192,26 @@ Dalla relazione 2.2, si ricava immediatamente che $T(n) = \Omega(f(n))$, da cui 
 
 \section{Analisi dell'albero di ricorsione}
 
-
 \section{Cambiamenti di variabile}
+
+Utile in caso di presenza di radici
+
+\begin{equation}
+T(n) = 
+\begin{cases}
+O(1)					& \mbox{se } n = 1\\ 
+T(\sqrt{n}) + O(1)		& \mbox{se } n > 1
+\end{cases}
+\end{equation}
+
+$n = 2^x$ (ossia $x = \log n$)
+
+$\sqrt{n} = 2^{\frac{x}{2}}$
+
+$T(2^x) = T(2^{\frac{x}{2}}) + O(1)$
+
+$T(2^x) = R(x)$ quindi $R(x) = R(\frac{x}{2}) + O(1)$ da cui ricavo, tramite il teorema master, che $R(x) = O(\log x)$
+
+Sostituendo, $T(n) = O(\log \log n)$
+
 

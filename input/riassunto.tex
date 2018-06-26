@@ -1,0 +1,23 @@
+\chapter{Riassunto}
+
+\begin{landscape}
+
+\section{Algoritmi}
+
+\begin{table}[H]
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\textbf{Famiglia} & \multicolumn{2}{l|}{\textbf{Algoritmo}} & \textbf{Complessità} & \textbf{Sparso ($m \sim n$)} & \textbf{Denso ($m \sim n^2$)} \\ \hline
+\multirow{2}{*}{MST} & \multicolumn{2}{l|}{Kruskall} & $O(m * \log n )$ & $O(n * \log n )$ & $O(n^2 * \log n)$ \\ \cline{2-6} 
+ & \multicolumn{2}{l|}{Prim} & $O(m * \log n )$ & $O(n * \log n )$ & $O(n^2 * \log n)$ \\ \hline
+\multirow{3}{*}{\makecell{Cammini minimi \\ a sorgente singola}} & \multirow{2}{*}{Dijkstra} & Array & $O(n^2 + m)$ & \multicolumn{2}{l|}{$O(n^2)$} \\ \cline{3-6} 
+ &  & Heap & $O((n+m) * \log n)$ & $O(n * \log n )$ & $O(n^2 * \log n)$ \\ \cline{2-6} 
+ & \multicolumn{2}{l|}{BellMann-Ford} & $O(m*n)$ & $O(n^2)$ & $O(n^3)$ \\ \hline
+\multirow{4}{*}{\makecell{Cammini minimi \\ tra tutte le coppie}} & \multirow{2}{*}{\makecell{All\_Pairs\_Dijkstra  \\ (APD)}} & Array & $n * O(n^2 + m)$ & \multicolumn{2}{l|}{$O(n^3)$} \\ \cline{3-6} 
+ &  & Heap & $n * O((n+m) * \log n)$ & $O(n^2* \log n)$ & $O(n^3 * \log n)$ \\ \cline{2-6} 
+ & \multicolumn{2}{l|}{All\_Pairs\_Bellmann\_Ford} & $n*O(m*n)$ & $O(n^3)$ & $O(n^4)$ \\ \cline{2-6} 
+ & \multicolumn{2}{l|}{Floyd-Warshall} & $\Theta(n^3)$ & \multicolumn{2}{l|}{$\Theta(n^3)$} \\ \hline
+\end{tabular}%
+\end{table}
+
+\end{landscape}

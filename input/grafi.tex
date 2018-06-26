@@ -79,8 +79,7 @@ $u$ è raggiungibile da $v$ se esiste un cammino $<X_0,X_1,X_2,\ldots,X_k>$ tale
   $V'${~non è sottoinsieme stretto di un sottografo connesso}
 \end{enumerate}
 
-{Se il numero di componenti connesse di un grafo è uguale a 1, }{il
-grafo è connesso.}
+{Se il numero di componenti connesse di un grafo è uguale a 1, il grafo è connesso.}
 
 \paragraph{{[}NO{]}Vertici adiacenti}
 
@@ -315,7 +314,7 @@ $G=(V,E), \overline{G}=(\overline{V},\overline{E})$
 {Due matrici $n\,x\,m$ ed $p\,x\,n$ (il numero di righe della prima equivale al numero di colonne della seconda) possono essere moltiplicate tramite il prodotto ``righe per colonne''.}
 
 $C = A*B$ \\
-$C_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
+$C_{i,j}=\sum_{k=1}^{n}{a_{i,k}*b_{k,j}}$
 
 \subsubsection{Matrice al quadrato}
 
@@ -327,8 +326,7 @@ $C_{i,j}=\sum_{k=1}^{n}{a_{i,k}*a_{k,j}}$
 \item
   {Sulla diagonale principale ho i gradi dei vertici}
 \item
-  {Nelle altre posizioni ho il numero di cammini tra i e j di lunghezza
-  2}
+  {Nelle altre posizioni ho il numero di cammini tra $i$ e $j$ di lunghezza 2}
 \end{itemize}
 
 $A^2 = A*A = (a^{(2)}_{i,j})$ \\
@@ -357,9 +355,9 @@ $a^{(2)}_{i,i} = \sum^n_{k=1}{a^2_{i,k}} = \sum^n_{k=1}{a_{i,k}} = deg(i)$
 \begin{itemize}
 \tightlist
 \item
-  {Sulla diagonale: il numero di cicli di lunghezza n che partono da i}
+  {Sulla diagonale: il numero di cicli di lunghezza $n$ che partono da $i$}
 \item
-  {Fuori dalla diagonale: il numero di cammini di lunghezza n}
+  {Fuori dalla diagonale: il numero di cammini di lunghezza $n$}
 \end{itemize}
 
 {Dimostrazione per induzione:}\textsuperscript{\protect\hyperlink{cmnt22}{{[}v{]}}\protect\hyperlink{cmnt23}{{[}w{]}}}
@@ -478,12 +476,12 @@ $\overline{G}$\strut
 \bottomrule
 \end{longtable}
 
-{Il problema di determinare l'esistenza di un'isomorfismo tra due grafi è esoso in termini di tempo. Per evitare il bruteforce di tutte le combinazioni si procede a mappare gli archi con grado analogo.}
+{Il problema di determinare l'esistenza di un isomorfismo tra due grafi è esoso in termini di tempo. Per evitare il bruteforce di tutte le combinazioni si procede a mappare gli archi con grado analogo.}
 
 \section{Grafi planari}
 
 Un grafo è planare se tutti archi non sono incidenti.
 
-\begin{teorema}{Clique su grafi planari}{theoexample}
+\begin{teorema}{Clique su grafi planari}{cliquegrafiplana}
 Le clique sui grafi planari hanno $k <= 4$. Con valori maggiori di 4 non è più possibile costruire clique su grafi planari.
 \end{teorema}
