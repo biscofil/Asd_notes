@@ -4,5 +4,5 @@ Floyd_Warshall(W)
 	for k = 1 to n do
 		for i = 1 to n do
 			for j = 1 to n do
-				$d_{ij}^{(k-1)}$ <- min($d_{ij}^k$ , $d_{ik}^{(k-1)} + d_{kj}^{(k-1)}$)
+				$d_{ij}^{(k)}$ <- min($d_{ij}^{k-1}$ , $d_{ik}^{(k-1)} + d_{kj}^{(k-1)}$)
 	return $D^{(n)}$
